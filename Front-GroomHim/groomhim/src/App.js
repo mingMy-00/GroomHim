@@ -1,10 +1,11 @@
 import './App.css';
+import Home from './home/Home';
 
 function App() {
   return (
-    <div className="App">
-      잘..되나?
-    </div>
+    <>
+      <Home/>
+    </>
   );
 }
 
