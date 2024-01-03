@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 768px;
+    background-color: #434A5A;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.logo{
+    
+    margin: 15vh 0 10vh;
+    object-fit: scale-down;
+}
+
+h2{
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10vb;
+}
+
+.test_btn{
+    width: 20vw;
+    height: 3rem;
+    text-align: center;
+    background-color: black;
+    line-height: 3rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+}
