@@ -60,7 +60,7 @@ class header extends Component {
             </div>
 
             <div className='acenter'> 
-            <h5 onClick={() => this._openModal()}> 로그인 </h5>
+            <h5  onClick={() => this._openModal()}> 로그인 </h5>
             <Modal visible={this.state.visible} 
                        width="400" height="360"
                        effect="fadeInDown" 

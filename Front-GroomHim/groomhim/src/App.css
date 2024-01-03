@@ -57,3 +57,6 @@
   .submit_div div input {
     cursor: pointer;
   }
+  .acenter :hover {
+    cursor: pointer;
+  }
