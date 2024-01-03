@@ -1,11 +1,21 @@
+import React, { Component } from 'react';
 import './App.css';
+import { Head } from './inc'
 
-function App() {
-  return (
-    <div className="App">
-      잘..되나?
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+    }
+  }
+
+  render() {
+    return(
+    <div>
+        <Head />
     </div>
-  );
+    )
+  }
 }
 
 export default App;
