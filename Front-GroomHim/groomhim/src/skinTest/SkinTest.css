@@ -1,0 +1,40 @@
+.slider{
+    width: 1200vw;
+}
+
+.content{
+    margin-top: 15vw;
+    text-align: center;
+    width: 100vw;
+    float: left;
+}
+
+.top{
+    width: 768px;
+    margin: 0 auto;
+}
+
+.top h1{
+    margin-bottom: 6vh;
+}
+
+.btn_box{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 25%;
+    height: 300px;
+}
+
+.btn_box button{
+    margin: 1rem;
+    padding: 1rem;
+    height: 30%;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.btn_box button:hover{
+    background-color: lightgray;
+}

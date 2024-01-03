@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { Head } from './inc'
 import Home from './home/Home';
+import SkinTest from './skinTest/SkinTest';
+import { Route,Routes } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +16,10 @@ class App extends Component {
     return(
     <div>
         <Head />
-        <Home/>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/skinTest' element={<SkinTest />}/>
+          </Routes>
     </div>
     )
   }
