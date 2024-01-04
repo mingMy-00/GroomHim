@@ -4,6 +4,7 @@
     border-bottom : solid 1px #ababab;
     width : 768px;
     margin : auto;
+    border: 1px solid rgb(173, 173, 173);
   }
   
   .acenter { 
@@ -68,13 +69,19 @@
     line-height: 60px;
   }
 
+  .acenter {
+   width : 768px;
+  }
+
   #loginEnroll {
     text-align: right;
+    width : 500px;
   }
 
   #id, #password {
-    height : 30px;
+    height : 40px;
     border-radius: 10px;
+    padding-left: 10px;
   }
 
   /*로그인하기, 취소 버튼*/
@@ -100,4 +107,8 @@
   
   .submit_div input:active {
     transform: scale(0.95);
+  }
+
+  #login {
+    margin : auto;
   }

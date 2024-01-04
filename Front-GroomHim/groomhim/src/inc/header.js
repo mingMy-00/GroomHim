@@ -1,99 +1,90 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import Modal from 'react-awesome-modal';
 import '../App.css';
 
-class header extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            visible : false,
-            id : "",
-            password : "",
-        }
-    }
+const Header = () => {
+  const [visible, setVisible]   = useState(false);
+  const [id, setId]             = useState("");
+  const [password, setPassword] = useState("");
 
-    
-    //visible 이라는 변수 명에 false값을 담은 state 생성.
-    _openModal = function() {
-        this.setState({
-            visible : true
-        });
-      }
-    //모달을 실행
-      _closeModal = function() {
-        this.setState({
-            visible : false
-        });
-      }
-    //모달을 종료
+  //모달이 오픈
+  const openModal = () => {
+    setVisible(true);
+  };
 
-    _changeID = function() {
-        const id_v = document.getElementsByName('id')[0].value;
-        // state 의 id 와 헷갈릴 수 있어 변수명을 변경했습니다.
-        
-        this.setState({
-           id : id_v
-         });
-    }
+  //모달을 close
+  const closeModal = () => {
+    setVisible(false);
+  };
 
-    _changePW = function() {
-        const pw_v = document.getElementsByName('password')[0].value;
-    
-        this.setState({
-            password : pw_v
-        });
-      }
+  useEffect(() => {
+    console.log("id: " + id);
+  }, [id]);
 
+  useEffect(() => {
+    console.log("password: " + password);
+  }, [password]);
 
-  render() {
-    console.log(this.state.id)
-    console.log('아이디 : ' + this.state.id + ', 비밀번호 : ' + this.state.password);
-    return (
-        <div class='header_grid'>
-            <div> </div>
-            <div className='acenter'>
-                <Routes>
-                    <Route path='/' />
-                </Routes>
-                <Link className='link_tit' to='/'> <h3> GroomHim </h3> </Link>
-            </div>
+  //id가 변화될 때 마다
+  const changeID = () => {
+    const idValue = document.getElementsByName('id')[0].value;
+    setId(idValue);
+  };
 
-            <div className='acenter'> 
-            <div id="loginEnroll"><h5 onClick={() => this._openModal()}> 로그인 </h5><h5> 회원가입 </h5></div>
+  //password 변경될 때 마다
+  const changePW = () => {
+    const pwValue = document.getElementsByName('password')[0].value;
+    setPassword(pwValue);
+  };
 
+  //로그인 하려고 하면 ! 
+  const onClickLogin = () => {
+    console.log('Login clicked');
+  };
 
-            <Modal visible={this.state.visible} 
-                       width="400" height="360"
-                       effect="fadeInDown" 
-                       onClickAway={() => this._closeModal()}
-                >
-                  <div>
-                    <h4 className='acenter login_tit'> Login </h4>
-                    <form>
-                    <div className='login_div'>
-                      <div className='login_input_div'>
-                        <p> ID </p>
-                        <input type='text' name='id' id="id" onChange={() => this._changeID()}/>
-                      </div>
+  return (
+    <div className='header_grid'>
+      <div className='acenter'>
+        <Routes>
+          <Route path='/' />
+        </Routes>
+        <Link className='link_tit' to='/'> <h3> GroomHim </h3> </Link>
+      </div>
 
-                      <div className='login_input_div' style={{ 'marginTop' : '40px'}}>
-                        <p>  Password </p>
-                        <input type='text' name='password' id="password"onChange={() => this._changePW()}/>
-                      </div>
+      <div className='acenter'>
+        <div id="loginEnroll"><h5 onClick={openModal}> 로그인 </h5><h5> 회원가입 </h5></div>
 
-                      <div className='submit_div'>
-                        <div> <input type='button' value='로그인' onClick={() => this.onClickLogin()}/> </div>
-                        <div> <input type='button' value='취소' onClick={() => this._closeModal()}/> </div>
-                      </div>
-                    </div>
-                    </form>
-                  </div>
-                </Modal>
-            </div>
-        </div>
-    );
-  }
-}
+        <Modal
+          visible={visible}
+          width="400" height="360"
+          effect="fadeInDown"
+          onClickAway={closeModal}
+        >
+          <div>
+            <h4 className='acenter2 login_tit'>Login </h4>
+            <form>
+              <div className='login_div'>
+                <div className='login_input_div'>
+                  <br />
+                  <input type='text' name='id' id="id" placeholder="아이디" onChange={changeID} />
+                </div>
 
-export default header;
+                <div className='login_input_div' style={{ 'marginTop': '40px' }}>
+                  <input type='text' name='password' id="password" placeholder="비밀번호" onChange={changePW} />
+                </div>
+
+                <div className='submit_div'>
+                  <div id="login"> <input type='button' value='로그인' onClick={onClickLogin} /> </div>
+                  <div> <input type='button' value='취소' onClick={closeModal} /> </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </Modal>
+      </div>
+    </div>
+  );
+};
+
+export default Header;
