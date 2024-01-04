@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import Modal from 'react-awesome-modal';
 import '../App.css';
+import axios from "axios";
 
 const Header = () => {
   const [visible, setVisible]   = useState(false);
@@ -18,14 +19,6 @@ const Header = () => {
     setVisible(false);
   };
 
-  useEffect(() => {
-    console.log("id: " + id);
-  }, [id]);
-
-  useEffect(() => {
-    console.log("password: " + password);
-  }, [password]);
-
   //id가 변화될 때 마다
   const changeID = () => {
     const idValue = document.getElementsByName('id')[0].value;
@@ -40,7 +33,29 @@ const Header = () => {
 
   //로그인 하려고 하면 ! 
   const onClickLogin = () => {
-    console.log('Login clicked');
+    console.log("click login");
+    console.log("ID : ", id);
+    console.log("PW : ", password);
+
+    axios({
+      url     : "http://localhost:9090/login.me",
+      method  : "post",
+      data    : {memberId : id, memberPwd : password}
+    }).then(function(response) {
+      //console.log(response);
+      //console.log("gg" + response.data.memberId);
+      //console.log("response.data." + response.data.memberName);
+      if(response.data.memberId == null) {
+        alert("존재하지 않는 아이디거나 일치하지 않는 비밀번호 입니다.");
+      }else {
+        alert("로그인 성공");
+        sessionStorage.setItem("loginMember", response.data);
+        //console.log(response.data);
+        document.location.href = "/";
+      }
+    }).catch(function() {
+      console.log("로그인 응답 실패.,,.");
+    });
   };
 
   return (
@@ -53,7 +68,7 @@ const Header = () => {
       </div>
 
       <div className='acenter'>
-        <div id="loginEnroll"><h5 onClick={openModal}> 로그인 </h5><h5> 회원가입 </h5></div>
+          <div id="loginEnroll"><h5 onClick={openModal}> 로그인 </h5><h5> 회원가입 </h5></div>
 
         <Modal
           visible={visible}
@@ -67,11 +82,11 @@ const Header = () => {
               <div className='login_div'>
                 <div className='login_input_div'>
                   <br />
-                  <input type='text' name='id' id="id" placeholder="아이디" onChange={changeID} />
+                  <input type='text' name='id' id="id" value={id} placeholder="아이디" onChange={changeID} />
                 </div>
 
                 <div className='login_input_div' style={{ 'marginTop': '40px' }}>
-                  <input type='text' name='password' id="password" placeholder="비밀번호" onChange={changePW} />
+                  <input type='text' name='password' id="password" value={password} placeholder="비밀번호" onChange={changePW} />
                 </div>
 
                 <div className='submit_div'>
