@@ -1,0 +1,48 @@
+
+div {
+    margin-bottom: 2%;
+}
+
+.signUpBox input,
+.signUpBox select {
+    width: 60%;
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+.signUpForm label {
+    width: 30%;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+.signUpBox {
+    width: 100%;
+    margin: auto;
+}
+#signUpTitle {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 900;
+    margin-bottom: 40px;
+}
+.signUpForm {
+    padding-left: 5%;
+}
+.signUpSubmit {
+    width: 80%;
+    height: 40px;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+    background-color: #245473;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}

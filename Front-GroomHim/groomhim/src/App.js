@@ -2,36 +2,30 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Head } from './inc'
 import { Main } from './inc'
-import Home from './home/Home';
-import SkinTest from './skinTest/SkinTest';
-import { Route,Routes } from 'react-router-dom';
+import Router from './router/Router';
+
 
 function App() {
 
-  const [isLogin, setIsLogin] = useState(false);  
+    const [isLogin, setIsLogin] = useState(false);
 
-  useEffect(function() {
-    if(sessionStorage.getItem("loginMember") === null) {
-      console.log(isLogin);
-    }else {
-      setIsLogin(true);
-      console.log(isLogin);
-    }
-  })
+    useEffect(function () {
+        if (sessionStorage.getItem("loginMember") === null) {
+            console.log(isLogin);
+        } else {
+            setIsLogin(true);
+            console.log(isLogin);
+        }
+    })
 
-  return(
+    return (
 
-    <div>
-      {isLogin ? <Main/> : 
-        <Head />}
+        <div>
+            {isLogin ? <Main /> :
+                <Head />}
+            <Router />
 
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/skinTest' element={<SkinTest />}/>
-          </Routes>
-    </div>
+        </div>
     );
-  };
+}
 export default App;
-  
-

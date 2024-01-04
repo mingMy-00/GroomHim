@@ -41,5 +41,19 @@ public class Member {
 
     @Column(name = "MEMBER_BIRTH", nullable = false)
     private Date memberBirth;
-    
+
+    //회원가입용 생성자
+    public Member(String memberId, String memberPwd, String memberEmail,
+                  String memberName,String memberPhone, String memberNickname,
+                  String memberGender, String memberAddress, Date memberBirth){
+        this.memberId = memberId;
+        this.memberPwd = memberPwd;
+        this.memberEmail = memberEmail;
+        this.memberName = memberName;
+        this.memberPhone = memberPhone;
+        this.memberNickname = memberNickname;
+        this.memberGender = memberGender;
+        this.memberAddress = memberAddress;
+        this.memberBirth = memberBirth;
+    }
 }
