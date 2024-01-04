@@ -60,24 +60,26 @@ class header extends Component {
             </div>
 
             <div className='acenter'> 
-            <h5  onClick={() => this._openModal()}> 로그인 </h5>
+            <div id="loginEnroll"><h5 onClick={() => this._openModal()}> 로그인 </h5><h5> 회원가입 </h5></div>
+
+
             <Modal visible={this.state.visible} 
                        width="400" height="360"
                        effect="fadeInDown" 
                        onClickAway={() => this._closeModal()}
                 >
                   <div>
-                    <h4 className='acenter login_tit'> 로그인 </h4>
+                    <h4 className='acenter login_tit'> Login </h4>
                     <form>
                     <div className='login_div'>
                       <div className='login_input_div'>
                         <p> ID </p>
-                        <input type='text' name='id' onChange={() => this._changeID()}/>
+                        <input type='text' name='id' id="id" onChange={() => this._changeID()}/>
                       </div>
 
                       <div className='login_input_div' style={{ 'marginTop' : '40px'}}>
                         <p>  Password </p>
-                        <input type='text' name='password' onChange={() => this._changePW()}/>
+                        <input type='text' name='password' id="password"onChange={() => this._changePW()}/>
                       </div>
 
                       <div className='submit_div'>
