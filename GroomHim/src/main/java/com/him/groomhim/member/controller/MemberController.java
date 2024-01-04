@@ -18,8 +18,6 @@ public class MemberController {
     public Member loginMember(@RequestBody final Member param) {
         //System.out.println("로그인회원" + loginMember.getMemberId());
         Member loginMember = memberService.findLoginMember(param);
-        //System.out.println(loginMember.getMemberBirth());
-        //System.out.println(loginMember.getMemberName());
         return loginMember;
     }
 }

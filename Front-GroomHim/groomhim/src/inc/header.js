@@ -42,14 +42,12 @@ const Header = () => {
       method  : "post",
       data    : {memberId : id, memberPwd : password}
     }).then(function(response) {
-      //console.log(response);
-      //console.log("gg" + response.data.memberId);
-      //console.log("response.data." + response.data.memberName);
+
       if(response.data.memberId == null) {
         alert("존재하지 않는 아이디거나 일치하지 않는 비밀번호 입니다.");
       }else {
         alert("로그인 성공");
-        sessionStorage.setItem("loginMember", response.data);
+        sessionStorage.setItem("loginMember", JSON.stringify(response.data));
         //console.log(response.data);
         document.location.href = "/";
       }

@@ -1,9 +1,11 @@
 import { Route, Routes, Link } from "react-router-dom";
 function Main() {
 
-    const loginMember = sessionStorage.getItem("loginMember");
-    const memberName =  loginMember.memberName;
-    console.log(memberName);
+    //getItem을 하면 문자열로 반납해준다고 하더라구요. 그래서 String으로 먼저 받음
+    const loginMemberString = sessionStorage.getItem("loginMember");
+    //예기치 않는 오류를 예방 하기 위한 null체크임 + 객체 형태로 반환
+    const loginMember = loginMemberString ? JSON.parse(loginMemberString) : {};
+    const memberName = loginMember.memberName;
 
     const Logout = () => {
         sessionStorage.removeItem("loginMember");
