@@ -20,9 +20,11 @@ function App() {
   })
 
   return(
+
     <div>
       {isLogin ? <Main/> : 
         <Head />}
+
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/skinTest' element={<SkinTest />}/>

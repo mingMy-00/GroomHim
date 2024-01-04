@@ -2,21 +2,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 768px;
     background-color: #434A5A;
     margin: 0 auto;
     height: 100vh;
+    width: 90vw;
 }
 
 .logo{
-    margin: 15vh 0 10vh;
+    margin: 15vh 0 8vh;
     object-fit: scale-down;
+    max-width: 100%;
+    height: auto;
 }
 
 h2{
+    padding: 1rem;
+    font-size: 0.8rem;
     font-weight: 700;
     color: white;
-    margin-bottom: 10vb;
+    margin-bottom: 5vh;
 }
 
 .test_btn{
@@ -28,4 +32,16 @@ h2{
     text-decoration: none;
     color: white;
     border-radius: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .container{
+        width: 768px;
+		box-sizing: border-box;
+        background-color: #434A5A;
+    }
+   h2{
+        font-size: 1.5rem; 
+        margin-bottom: 10vb;
+   }
 }

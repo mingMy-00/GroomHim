@@ -10,8 +10,8 @@
 }
 
 .top{
-    width: 768px;
-    margin: 0 auto;
+   height: 20vh;
+   padding: 2rem;
 }
 
 .top h1{
@@ -22,8 +22,8 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    width: 25%;
-    height: 300px;
+    width: 80%;
+    height: 25vh;
 }
 
 .btn_box button{
@@ -38,3 +38,78 @@
 .btn_box button:hover{
     background-color: lightgray;
 }
+
+@media screen and (min-width: 768px) {
+    .top {
+        width: 768px;
+        margin: 0 auto;
+    }
+    .btn_box button{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .btn_box{
+        width: 25%;
+    }
+
+}
+
+.loading_container{
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40vh;
+}
+
+.loader3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .circle1 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 0 10px;
+    background-color: #333;
+    animation: circle1 1s ease-in-out infinite;
+  }
+  
+  .circle1:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .circle1:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  .circle1:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+  
+  .circle1:nth-child(5) {
+    animation-delay: 0.8s;
+  }
+  
+  @keyframes circle1 {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  
+    50% {
+      transform: scale(1.5);
+      opacity: 0.5;
+    }
+  
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
