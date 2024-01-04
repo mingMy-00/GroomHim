@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 import Modal from 'react-awesome-modal';
 import '../App.css';
 import axios from "axios";
@@ -8,6 +9,27 @@ const Header = () => {
   const [visible, setVisible]   = useState(false);
   const [id, setId]             = useState("");
   const [password, setPassword] = useState("");
+  
+  
+  const [isRemember, setIsRemember] = useState(false);
+  const [cookies, setCookie, removeCookie] = useCookies(['rememberEmail']);
+
+  useEffect(() => {
+      if(cookies.rememberEmail !== undefined) {
+        setId(cookies.rememberEmail);
+        setIsRemember(true);
+      }
+   }, []);
+
+  const handleOnChange = (e) => {
+    setIsRemember(e.target.checked);
+    if(e.target.checked){
+      setCookie('rememberEmail', id, {maxAge: 2000});
+    } else {
+      removeCookie('rememberEmail');
+    }
+  }
+
 
   //모달이 오픈
   const openModal = () => {
@@ -85,6 +107,12 @@ const Header = () => {
 
                 <div className='login_input_div' style={{ 'marginTop': '40px' }}>
                   <input type='text' name='password' id="password" value={password} placeholder="비밀번호" onChange={changePW} />
+                </div>
+                <div>
+                <label className="loginPage_text">
+                   <input type="checkbox" onChange={handleOnChange} checked={isRemember}/>
+                     ID 저장하기
+                </label>  
                 </div>
 
                 <div className='submit_div'>

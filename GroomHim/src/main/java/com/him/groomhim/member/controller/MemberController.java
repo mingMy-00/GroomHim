@@ -3,10 +3,7 @@ package com.him.groomhim.member.controller;
 import com.him.groomhim.member.entity.Member;
 import com.him.groomhim.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -16,7 +13,6 @@ public class MemberController {
 
     @PostMapping("/login.me")
     public Member loginMember(@RequestBody final Member param) {
-        //System.out.println("로그인회원" + loginMember.getMemberId());
         Member loginMember = memberService.findLoginMember(param);
         return loginMember;
     }
