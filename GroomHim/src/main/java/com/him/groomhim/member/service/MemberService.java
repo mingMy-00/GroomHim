@@ -24,34 +24,31 @@ public class MemberService {
                 m.getMemberId(), m.getMemberPwd(), m.getMemberEmail(),
                 m.getMemberName(), m.getMemberPhone(), m.getMemberNickname(),
                 m.getMemberGender(), m.getMemberAddress(), m.getMemberBirth());
-        System.out.println("member = " + member);
         memberRepository.save(member);
         return new MsgResponseDto(SuccessCode.LOG_IN);
     }
 
     public MsgResponseDto checkDuplicateId(String userId) {
-        System.out.println("userId = " + userId);
         boolean duplicateId = memberRepository.existsByMemberId(userId);
-        System.out.println("duplicateId = " + duplicateId);
-        if (duplicateId) {
+        if (duplicateId || userId.isEmpty()) {
             return new MsgResponseDto(new CustomException(ErrorCode.ALREADY_EXIST));
         } else {
             return new MsgResponseDto(SuccessCode.CHECK_DATA);
         }
     }
 
-    public MsgResponseDto checkDuplicateNickname(String userId) {
-        boolean duplicateNickname = memberRepository.existsByMemberId(userId);
-        if (duplicateNickname) {
+    public MsgResponseDto checkDuplicateNickname(String memberNickname) {
+        boolean duplicateNickname = memberRepository.existsByMemberNickname(memberNickname);
+        if (duplicateNickname || memberNickname.isEmpty()) {
             return new MsgResponseDto(new CustomException(ErrorCode.ALREADY_EXIST));
         } else {
             return new MsgResponseDto(SuccessCode.CHECK_DATA);
         }
     }
 
-    public MsgResponseDto checkDuplicateEmail(String userId) {
-        boolean duplicateEmail = memberRepository.existsByMemberId(userId);
-        if (duplicateEmail) {
+    public MsgResponseDto checkDuplicateEmail(String memberEmail) {
+        boolean duplicateEmail = memberRepository.existsByMemberEmail(memberEmail);
+        if (duplicateEmail || memberEmail.isEmpty()) {
             return new MsgResponseDto(new CustomException(ErrorCode.ALREADY_EXIST));
         } else {
             return new MsgResponseDto(SuccessCode.CHECK_DATA);

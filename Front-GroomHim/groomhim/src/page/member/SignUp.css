@@ -46,3 +46,11 @@ div {
     border: none;
     border-radius: 5px;
 }
+.font-red {
+    color: red;
+    font-size: 10px;
+    text-align: center;
+}
+#checkId, #checkEmail, #checkNickname {
+    display: none;
+}

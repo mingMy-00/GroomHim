@@ -33,9 +33,9 @@ public class MemberController {
         return memberService.checkDuplicateNickname(memberNickname);
     }
     @GetMapping("/checkDuplicateEmail")
-    public MsgResponseDto checkDuplicateEmail (@RequestParam("value") String email){
+    public MsgResponseDto checkDuplicateEmail (@RequestParam("value") String memberEmail){
         System.out.println("이메일 체크");
-        return memberService.checkDuplicateEmail(email);
+        return memberService.checkDuplicateEmail(memberEmail);
     }
 
 }
