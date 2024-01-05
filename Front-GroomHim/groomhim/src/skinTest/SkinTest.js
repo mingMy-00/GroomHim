@@ -25,10 +25,6 @@ function SkinTest(){
 
     }
 
-
-
-
-
     return(
         <>
         {!loading && (
