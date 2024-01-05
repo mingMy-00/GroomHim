@@ -5,6 +5,7 @@ import { Main } from './inc'
 import Router from './router/Router';
 
 
+
 function App() {
 
     const [isLogin, setIsLogin] = useState(false);
@@ -24,8 +25,8 @@ function App() {
             {isLogin ? <Main /> :
                 <Head />}
             <Router />
-
         </div>
+
     );
 }
 export default App;
