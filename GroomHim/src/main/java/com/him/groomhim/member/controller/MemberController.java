@@ -18,6 +18,11 @@ public class MemberController {
         Member loginMember = memberService.findLoginMember(param);
         return loginMember;
     }
+
+    @GetMapping("/findId")
+    public String findId() {
+        
+    }
     @PostMapping(value = "/signUp")
     public MsgResponseDto signUpMember(@RequestBody SignUpRequest signUpRequest){
         return memberService.signUpMember(signUpRequest);

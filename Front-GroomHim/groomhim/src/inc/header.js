@@ -97,7 +97,7 @@ const Header = () => {
 
                 <Modal
                     visible={visible}
-                    width="400" height="360"
+                    width="400" height="420"
                     effect="fadeInDown"
                     onClickAway={closeModal}
                 >
@@ -126,6 +126,11 @@ const Header = () => {
                                 </div>
                             </div>
                         </form>
+
+                        <div className='search_user_info_div'>
+                            <div> <b style={{ 'marginLeft' : '15px' }}> 아이디 찾기 </b> </div>
+                            <div> <b> 비밀번호 찾기 </b> </div>
+                        </div>
                     </div>
                 </Modal>
             </div>
