@@ -6,12 +6,10 @@ import '../App.css';
 import axios from "axios";
 
 const Header = () => {
-  const [visible, setVisible]   = useState(false);
-  const [id, setId]             = useState("");
-  const [password, setPassword] = useState("");
-  
-  
-  const [isRemember, setIsRemember] = useState(false);
+  const [visible, setVisible]              = useState(false);
+  const [id, setId]                        = useState("");
+  const [password, setPassword]            = useState("");
+  const [isRemember, setIsRemember]        = useState(false);
   const [cookies, setCookie, removeCookie] = useCookies(['rememberEmail']);
 
   useEffect(() => {
@@ -92,7 +90,7 @@ const Header = () => {
 
         <Modal
           visible={visible}
-          width="400" height="360"
+          width="400" height="380"
           effect="fadeInDown"
           onClickAway={closeModal}
         >
@@ -106,19 +104,18 @@ const Header = () => {
                 </div>
 
                 <div className='login_input_div' style={{ 'marginTop': '40px' }}>
-                  <input type='text' name='password' id="password" value={password} placeholder="비밀번호" onChange={changePW} />
+                  <input type='password' name='password' id="password" value={password} placeholder="비밀번호" onChange={changePW} />
                 </div>
                 <div>
-                <label className="loginPage_text">
+                <label>
                    <input type="checkbox" onChange={handleOnChange} checked={isRemember}/>
                      ID 저장하기
                 </label>  
-                </div>
-
                 <div className='submit_div'>
                   <div id="login"> <input type='button' value='로그인' onClick={onClickLogin} /> </div>
                   <div> <input type='button' value='취소' onClick={closeModal} /> </div>
                 </div>
+               </div>
               </div>
             </form>
           </div>
