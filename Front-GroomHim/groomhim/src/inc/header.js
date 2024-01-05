@@ -7,13 +7,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-    const [visible, setVisible] = useState(false);
-    const [id, setId] = useState("");
-    const [password, setPassword] = useState("");
-
-
-    const [isRemember, setIsRemember] = useState(false);
-    const [cookies, setCookie, removeCookie] = useCookies(['rememberEmail']);
+  const [visible, setVisible]              = useState(false);
+  const [id, setId]                        = useState("");
+  const [password, setPassword]            = useState("");
+  const [isRemember, setIsRemember]        = useState(false);
+  const [cookies, setCookie, removeCookie] = useCookies(['rememberEmail']);
 
     useEffect(() => {
         if (cookies.rememberEmail !== undefined) {
