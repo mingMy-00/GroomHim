@@ -42,6 +42,12 @@ public class Member {
     @Column(name = "MEMBER_BIRTH", nullable = false)
     private Date memberBirth;
 
+    @Column(name = "MEMBER_PROFILE", length = 500)
+    private String memberProfile;
+
+    @Column(name = "SKIN_TYPE_NO")
+    private long skinTypeNo;
+
     //회원가입용 생성자
     public Member(String memberId, String memberPwd, String memberEmail,
                   String memberName,String memberPhone, String memberNickname,

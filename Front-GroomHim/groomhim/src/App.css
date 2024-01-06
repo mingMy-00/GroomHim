@@ -1,25 +1,13 @@
-.header_grid {
-    display: grid;
-    grid-template-columns: 33% 33% auto;
-    border-bottom : solid 1px #ababab;
-    width : 768px;
-    margin : auto;
-    border: 1px solid rgb(173, 173, 173);
+
+  body{
+    margin: 0;
   }
-  
-  .acenter { 
-    text-align : center; 
+  html{
+    margin: 0;
   }
-  
   .btn_cursor {
     cursor : pointer;
   }
-  
-  .link_tit {
-    color : black;
-    text-decoration: none;
-  }
-
   .login_tit {
     border-bottom: solid 1px #ababab;
     padding-bottom : 20px
@@ -70,12 +58,12 @@
   }
 
   .acenter {
-   width : 768px;
+   width : 100%;
   }
 
   #loginEnroll {
     text-align: right;
-    width : 500px;
+    width : 100%;
   }
 
   #id, #password {
