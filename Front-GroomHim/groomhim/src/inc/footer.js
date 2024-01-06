@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import Modal from 'react-awesome-modal';
 import './footer.css';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const Header = () => {
+
+    const [isLogin, setIsLogin] = useState(false);
+
+    useEffect(function () {
+        if (sessionStorage.getItem("loginMember") === null) {
+            console.log(isLogin);
+        } else {
+            setIsLogin(true);
+            console.log(isLogin);
+        }
+    })
+
+
     const [visible, setVisible] = useState(false);
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
@@ -78,46 +90,104 @@ const Header = () => {
         });
     };
 
-    let navigate = useNavigate();
-    const moveSignUp = () => {
-        navigate("/page/member/AgreementPage", {
-        });
+    const showLoginItem = () => {
+        if (!isLogin) {
+            return (
+                <div className='footerItem' onClick={openModal}>
+                    <img className='footer-icon' src="/img/login-icon.png" />
+                    <p className='item-name'>로그인</p>
+                </div>
+            );
+        } else {
+            return (
+                <div className='footerItem' onClick={moveMypage}>
+                    <img className='footer-icon' src="/img/mypage-icon.png" />
+                    <p className='item-name'>마이페이지</p>
+                </div>
+            );
+        }
     };
 
+    let navigate = useNavigate();
+    const moveSignUp = () => {
+        closeModal();
+        navigate("/page/member/AgreementPage");
+    };
+    const moveMypage = () => {
+        navigate('/page/member/Mypage', {});
+    }
+
+    const showHome = () => {
+        navigate("/", {});
+    };
     return (
         <div className='footer'>
-            <div id="loginEnroll"><h5 onClick={openModal}> 로그인 </h5><h5 onClick={moveSignUp}> 회원가입 </h5></div>
+            <div className='footerItem' onClick={showHome}>
+                <img className='footer-icon' src="/img/home-icon.png" />
+                <p className='item-name'>홈</p>
+            </div>
+            <div className='footerItem'>
+                <img className='footer-icon' src="/img/category-icon.png" />
+                <p className='item-name'>카테고리</p>
+            </div>
+            <div className='footerItem'>
+                <img className='footer-icon' src="/img/shopping-icon.png" />
+                <p className='item-name'>쇼핑</p>
+            </div>
+            <div className='footerItem'>
+                <img className='footer-icon' src="/img/qa-icon.png" />
+                <p className='item-name'>Q&A</p>
+            </div>
+            {showLoginItem()}
+            
+
+
+            {/* 로그인 모달 */}
             <Modal
                 visible={visible}
-                width="400" height="360"
+                width="95%" height="80%"
                 effect="fadeInDown"
                 onClickAway={closeModal}
-            >
-                <div>
-                    <h4 className='acenter2 login_tit'>Login </h4>
+            >   
+                <div className='login-modal'>
+                    <img className="header_logo" src="img/logo-icon.png" />
+                    <h4>남성 케어의 시작 GroomHim</h4>
+                    <div className='login-cancel' onClick={closeModal}>X</div>
+                    {/* 로그인 영역 */}
+                    <h3>로그인</h3>
                     <form>
-                        <div className='login_div'>
-                            <div className='login_input_div'>
-                                <br />
-                                <input type='text' name='id' id="id" value={id} placeholder="아이디" onChange={changeID} />
-                            </div>
+                        <div className="login-area">
+                            <input type="input" className="login-field" 
+                                name='id' id="login-id" value={id}
+                                placeholder="아이디" onChange={changeID} required />
+                            <label htmlFor="name" className="login-label">아이디</label>
+                        </div>
 
-                            <div className='login_input_div' style={{ 'marginTop': '40px' }}>
-                                <input type='text' name='password' id="password" value={password} placeholder="비밀번호" onChange={changePW} />
-                            </div>
-                            <div>
-                                <label className="loginPage_text">
-                                    <input type="checkbox" onChange={handleOnChange} checked={isRemember} />
-                                    ID 저장하기
-                                </label>
-                            </div>
-
-                            <div className='submit_div'>
-                                <div id="login"> <input type='button' value='로그인' onClick={onClickLogin} /> </div>
-                                <div> <input type='button' value='취소' onClick={closeModal} /> </div>
-                            </div>
+                        <div className="login-area">
+                            <input type="password" className="login-field" 
+                                name='password' id="login-password" value={password}
+                                placeholder="비밀번호" onChange={changePW} required />
+                            <label htmlFor="name" className="login-label">비밀번호</label>
                         </div>
                     </form>
+                    <button className='signUp-btn' onClick={onClickLogin}>로그인</button>
+                    <div className='login-menu'>
+                        <div><a>아이디 찾기</a></div>
+                        <div><a>비밀번호 찾기</a></div>
+                    </div>
+                    <br/>
+                    {/* sns 로그인 영역 */}
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <hr className='sns-hr' />
+                        <p style={{ margin: 0 }}>SNS LOGIN</p>
+                        <hr className='sns-hr' />
+                    </div>
+                    <div className='sns-icon-area'>
+                        <img src='/img/kakao-icon.png' />
+                        <img src='/img/naver-icon.png' />
+                        <img src='/img/google-icon.png' />
+                    </div>
+                    <button className='signUp-btn' onClick={moveSignUp}>회원가입</button>
                 </div>
             </Modal>
         </div>

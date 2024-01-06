@@ -5,6 +5,10 @@
   html{
     margin: 0;
   }
+  .app{
+    padding-top: 50px;
+    margin: 0;
+  }
   .btn_cursor {
     cursor : pointer;
   }
@@ -111,3 +115,7 @@
 }
 .search_user_info_div div { text-align: center; margin-top: 10px;}
 .search_user_info_div div b { cursor: pointer; margin-top: -5px; font-size: 14px; }
+
+.w-80 {
+    width: 80%;
+}

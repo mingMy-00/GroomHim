@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+
 import { Head } from './inc'
-import { Main } from './inc'
 import { Footer } from './inc'
 import Router from './router/Router';
 
@@ -19,13 +19,11 @@ function App() {
     })
 
     return (
-
-        <div>
-            {isLogin ? <Main /> :
-                <Head />}
+        <div className='app'>
+            <Head />
             <Router />
+            <Footer/>
         </div>
-
     );
 }
 export default App;

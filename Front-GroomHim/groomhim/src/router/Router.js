@@ -5,6 +5,7 @@ import SkinTest from '../skinTest/SkinTest';
 import SignUp from '../page/member/SignUp';
 import AgreementPage from '../page/member/AgreementPage';
 import Result from '../result/Result';
+import Mypage from '../page/member/Mypage';
 
 export default function Router() {
     return (
@@ -14,6 +15,7 @@ export default function Router() {
             <Route path='/result' element={<Result/>}/>
             <Route path="/page/member/AgreementPage" element={<AgreementPage />} />
             <Route path="/page/member/SignUp" element={<SignUp />} />
+            <Route path="/page/member/Mypage" element={<Mypage/>} />
         </Routes>
     );
 }
