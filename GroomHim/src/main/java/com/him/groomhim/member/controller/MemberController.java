@@ -22,7 +22,7 @@ public class MemberController {
 //    @GetMapping("/findId")
 //    public String findId() {
 //
-//    }
+//
     @PostMapping(value = "/signUp")
     public MsgResponseDto signUpMember(@RequestBody SignUpRequest signUpRequest){
         return memberService.signUpMember(signUpRequest);

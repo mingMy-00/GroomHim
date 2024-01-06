@@ -120,6 +120,11 @@ const Header = () => {
     const showHome = () => {
         navigate("/", {});
     };
+
+    const findId = () => {
+        closeModal();
+        navigate("/page/member/FindId");
+    }
     return (
         <div className='footer'>
             <div className='footerItem' onClick={showHome}>
@@ -172,7 +177,7 @@ const Header = () => {
                     </form>
                     <button className='signUp-btn' onClick={onClickLogin}>로그인</button>
                     <div className='login-menu'>
-                        <div><a>아이디 찾기</a></div>
+                        <div onClick={findId}><a>아이디 찾기</a></div>
                         <div><a>비밀번호 찾기</a></div>
                     </div>
                     <br/>
