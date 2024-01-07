@@ -20,6 +20,7 @@ public class MemberService {
     }
 
     public MsgResponseDto signUpMember(SignUpRequest m) {
+        System.out.println(m);
         Member member = new Member(
                 m.getMemberId(), m.getMemberPwd(), m.getMemberEmail(),
                 m.getMemberName(), m.getMemberPhone(), m.getMemberNickname(),

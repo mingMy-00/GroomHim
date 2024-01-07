@@ -3,15 +3,21 @@
   margin: auto;
 }
 .agreementArea > h2 {
+  color: black;
   text-align: center;
+  font-size: 20px;
 }
 .agreementArea > div > p {
   font-size: 15px;
   cursor: pointer;
 }
-.agreementItem {
-  margin: 10%;
+.agreementItems {
+  margin: 5%;
   width: 90%;
+  border: 1px solid lightgray;
+}
+.agreementItem {
+  margin: 8% 10%;
   display: flex;
 }
 
