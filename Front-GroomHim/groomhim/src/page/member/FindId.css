@@ -34,10 +34,12 @@
     border-left : none;
     border-right : none;
     height : 40px;
+    display : none;
 }
 
 .identiButton {
     margin: auto;
+    display : none;
 }
 
 
@@ -47,6 +49,7 @@
     margin-top : 10px;
     border-radius: 10px;
     border : none;
+    display : none;
 }
 
 #leftTime {
@@ -56,5 +59,6 @@
     font-size : 13px;
     color : red;
     padding : 10px;
+    display : none;
 }
 
