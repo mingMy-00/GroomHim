@@ -34,9 +34,8 @@ public class Product {
     @Column(name = "PRODUCT_PURPOSE", nullable = false, length = 50)
     private String purpose;
 
-    @OneToMany(mappedBy = "product") // 연결테이블에 외래키를 가지고있으므로 연결테이블이 연관관계의 주인이다.
-    private List<ProductTag> productTagList;
-
+    @OneToMany(mappedBy = "product") // 조회만 가능, 양방향
+    private List<ProductTag> productTagList; // 해당 상품에 등록된 태그 리스트
 
 }
 

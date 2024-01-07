@@ -1,6 +1,6 @@
 package com.him.groomhim.tag;
 
-import com.him.groomhim.product.entity.Product;
+import com.him.groomhim.member.entity.Member;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,19 +10,20 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "PRODUCT_TAG")
-public class ProductTag {
+@Table(name = "MEMBER_TAG")
+public class MemberTag {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PRODUCT_TAG_NO",nullable = false)
-    private Long productTagNo;
+    @Column(name = "MEMBER_TAG_NO",nullable = false)
+    private Long MemberTagNo;
 
     @ManyToOne // 양방향
-    @JoinColumn(name = "PRODUCT_NO") // 연관관계 주인
-    private Product product;
+    @JoinColumn(name = "MEMBER_NO") // 연관관계 주인
+    private Member member;
 
-    @ManyToOne // 양방향
+    @ManyToOne // 단방향
     @JoinColumn(name = "TAG_NO") // 연관관계 주인
     private Tag tag;
+
 }
