@@ -7,6 +7,7 @@ import AgreementPage from '../page/member/AgreementPage';
 import Result from '../result/Result';
 import Mypage from '../page/member/Mypage';
 import FindId from '../page/member/FindId';
+
 export default function Router() {
     return (
         <Routes>

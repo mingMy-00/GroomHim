@@ -4,9 +4,9 @@
     padding-left: 10px;
 }
 
-#findIdDiv {
+.findIdDiv {
     margin-top: 40px;
-    text-align: center;
+   text-align: center;
 }
 
 #EmailNum {
@@ -21,3 +21,40 @@
 #findIdDiv > button:hover {
     cursor: pointer;
 }
+
+#identiEmail {
+    border-bottom: 1px solid black;
+    width : 500px;
+    margin: auto;
+    margin-top : 30px;
+    text-align: left;
+    padding-left : 10px;
+    color : lightgray;
+    border-top : none;
+    border-left : none;
+    border-right : none;
+    height : 40px;
+}
+
+.identiButton {
+    margin: auto;
+}
+
+
+.identiButton > button {
+    width : 520px;
+    height : 50px;
+    margin-top : 10px;
+    border-radius: 10px;
+    border : none;
+}
+
+#leftTime {
+    text-align: left;
+    margin : auto;
+    width : 500px;
+    font-size : 13px;
+    color : red;
+    padding : 10px;
+}
+
