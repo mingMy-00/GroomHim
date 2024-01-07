@@ -1,9 +1,11 @@
 package com.him.groomhim.member.entity;
 
+import com.him.groomhim.tag.MemberTag;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Setter
@@ -48,6 +50,10 @@ public class Member {
     @Column(name = "SKIN_TYPE_NO")
     private long skinTypeNo;
 
+    @OneToMany(mappedBy = "member") // 조회만 가능, 양방향
+    private List<MemberTag> memberTagList; // 회원의 태그 목록
+
+    
     //회원가입용 생성자
     public Member(String memberId, String memberPwd, String memberEmail,
                   String memberName,String memberPhone, String memberNickname,

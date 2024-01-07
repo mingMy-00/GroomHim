@@ -21,7 +21,7 @@ public class Tag {
     @Column(name = "TAG_NAME", nullable = false, length = 100)
     private String tagName;
 
-    @OneToMany(mappedBy = "tag")
-    private List<ProductTag> productTagList;
+    @OneToMany(mappedBy = "tag") // 조회만 가능, 양방향
+    private List<ProductTag> productTagList; // 해당 태그를 가진 상품 리스트
 
 }
