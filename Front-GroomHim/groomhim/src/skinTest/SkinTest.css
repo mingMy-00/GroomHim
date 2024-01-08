@@ -53,9 +53,15 @@
     .btn_box{
         width: 25%;
     }
+    .progress-bar{
+      background-color: #ff80ab !important;
+    }
+    
 
 }
-
+.progress-bar{
+  background-color: #ff80ab !important;
+}
 .loading_container{
     display: flex;
     width: 50%;
