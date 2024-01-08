@@ -29,6 +29,7 @@ public class MemberController {
         Member m = memberService.findMemberEmail(memberEmail);
 
         if(m != null) {
+            //이메일을 보내기 위한 service
             memberService.sendUsernames(memberEmail, m);
             return "성공";
         }

@@ -31,11 +31,15 @@ public class MemberService {
     }
 
     public void sendUsernames(String memberEmail, Member m) {
+        //이메일을 보내기 위한 객체
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+        //setTo는 보낼 이메일 주소
         simpleMailMessage.setTo(memberEmail);
+        //setSubject는 제목
         simpleMailMessage.setSubject("아이디 찾기");
 
         StringBuffer sb = new StringBuffer();
+        //StringBuffer은 문자열을 더해주는 것.
         sb.append("가입하신 아이디는");
         sb.append(System.lineSeparator());
         sb.append(m.getMemberId()).append("입니다.");

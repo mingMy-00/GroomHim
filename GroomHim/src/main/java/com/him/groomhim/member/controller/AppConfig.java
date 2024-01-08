@@ -17,7 +17,7 @@ public class AppConfig {
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
         mailSender.setUsername("mingdidideng@gmail.com");
-        mailSender.setPassword("obqterwcahcnufru"); // 비밀번호는 보안상의 이유로 안전하게 관리해야 합니다.
+        mailSender.setPassword("obqterwcahcnufru");
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");

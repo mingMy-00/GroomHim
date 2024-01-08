@@ -24,21 +24,26 @@ function FindId() {
             data: {memberEmail: email}
         }).then(function (response) {
 
+            const input = document.getElementById('findIdInput');
+            
             console.log(response);
             if (response.data == "없음") {
                 alert("가입한 적이 없는 회원 입니다. 회원 가입을 진행해주세요.");
+                input.value = "";
+                input.focus();
+                
             } else {
                 alert("회원 님의 ID를 입력하신 이메일로 전송했습니다.");
                 const showElements = document.getElementsByClassName('show');
-
-                // HTMLCollection을 배열로 변환해서 forEach를 사용할 수 있도록 함.
-                Array.from(showElements).forEach(element => {
-                    element.style.display = 'block';
-                });
+                input.value = "";
+                // // HTMLCollection을 배열로 변환해서 forEach를 사용할 수 있도록 함.
+                // Array.from(showElements).forEach(element => {
+                //     element.style.display = 'block';
+                // });
         
-                 // 확인 버튼에 대한 스타일 변경
-                const confirmButton = document.getElementById('identiOk');
-                confirmButton.style.display = 'inline-block';
+                //  // 확인 버튼에 대한 스타일 변경
+                // const confirmButton = document.getElementById('identiOk');
+                // confirmButton.style.display = 'inline-block';
         
             }
         }).catch(function () {
@@ -72,8 +77,8 @@ function FindId() {
                      placeholder="가입한 이메일 입력"
                      onChange={changeEmail}
                      value={email}
-              />
-                <button
+              /> 
+               <button
                     id="EmailNum"
                     disabled={!isEmailValid}
                     onClick={SendIdenti}
