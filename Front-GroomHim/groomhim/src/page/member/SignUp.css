@@ -1,44 +1,41 @@
-
-div {
-    margin-bottom: 2%;
+p {
+    margin: 0 0 5px;
 }
-
 .signUpBox input,
 .signUpBox select {
-    width: 60%;
+    width: 100%;
     height: 30px;
     padding: 5px;
-    margin-bottom: 5px;
     box-sizing: border-box;
 }
-.signUpForm label {
-    width: 30%;
-    font-weight: bold;
-    display: inline-block;
-    font-size: 14px;
-    margin-right: 10px;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-
 .signUpBox {
     width: 100%;
-    margin: auto;
+    margin: 5% auto;
 }
 #signUpTitle {
+    
     text-align: center;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 900;
     margin-bottom: 40px;
 }
 .signUpForm {
-    padding-left: 5%;
+    margin: 0 10%;
+}
+.signUp-item {
+    display: flex;
+    margin-top: 5%;
+}
+.signUp-item p {
+    font-size: 12px;
+    width: 25%;
+    align-self: center;
 }
 .signUpSubmit {
     width: 80%;
     height: 40px;
     margin: auto;
+    margin-top: 5%;
     display: block;
     cursor: pointer;
     background-color: #245473;
@@ -50,7 +47,76 @@ div {
     color: red;
     font-size: 10px;
     text-align: center;
+    margin-top: 1%;
 }
 #checkId, #checkEmail, #checkNickname {
     display: none;
 }
+.signUp-input {
+    padding: 10px;
+    border: 2px solid lightgray;
+    border-radius: 5px;
+    font-size: 12px;
+    color: black;
+    outline: none;
+  }
+
+  .radio-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .radio-button {
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+  }
+  .radio-button input[type="radio"] {
+    display: none;
+  }
+  .radio-checkmark {
+    display: inline-block;
+    position: relative;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    border: 2px solid #333;
+    border-radius: 50%;
+  }
+  .radio-checkmark:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #333;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .radio-button input[type="radio"]:checked ~ .radio-checkmark:before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .radio-label {
+    font-size: 12px;
+  }
+  .signUp-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    height: 100%;
+    max-width: 400px;
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    border-radius: 8px;
+  }
+  .signUp-modal-content{
+    margin-top: 30%;
+  }
