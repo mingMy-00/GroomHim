@@ -8,15 +8,45 @@ import com.him.groomhim.member.dto.SignUpRequest;
 import com.him.groomhim.member.entity.Member;
 import com.him.groomhim.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class MemberService {
+
+    @Autowired
+    JavaMailSender mailSender;
+
     private final MemberRepository memberRepository;
 
     public Member findLoginMember(final Member params) {
         return memberRepository.findByMemberIdAndMemberPwd(params.getMemberId(), params.getMemberPwd());
+    }
+
+    public Member findMemberEmail(final String memberEmail) {
+        return memberRepository.findByMemberEmail(memberEmail);
+    }
+
+    public void sendUsernames(String memberEmail, Member m) {
+        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+        simpleMailMessage.setTo(memberEmail);
+        simpleMailMessage.setSubject("아이디 찾기");
+
+        StringBuffer sb = new StringBuffer();
+        sb.append("가입하신 아이디는");
+        sb.append(System.lineSeparator());
+        sb.append(m.getMemberId()).append("입니다.");
+
+        simpleMailMessage.setText(sb.toString());
+
+        new Thread(new Runnable() {
+            public void run() {
+                mailSender.send(simpleMailMessage);
+            }
+        }).start();
     }
 
     public MsgResponseDto signUpMember(SignUpRequest m) {

@@ -14,13 +14,16 @@
     height : 50px;
     border-radius: 10px;
     border: 1px solid lightgray;
-    background-color: rgb(173, 173, 173);
+    background-color: lightgray;
     color : rgb(240, 240, 240);
 }
 
-#findIdDiv > button:hover {
+
+.findIdDiv #EmailNum:hover {
     cursor: pointer;
+    background-color: black;
 }
+
 
 #identiEmail {
     border-bottom: 1px solid black;
@@ -62,3 +65,6 @@
     display : none;
 }
 
+.hoverEffect:hover {
+    cursor: pointer;
+}
