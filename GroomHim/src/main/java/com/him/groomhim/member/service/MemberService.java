@@ -11,8 +11,6 @@ import com.him.groomhim.product.entity.Product;
 import com.him.groomhim.product.repository.ProductTagRepository;
 import com.him.groomhim.skinType.entity.SkinType;
 import com.him.groomhim.skinType.repository.SkinTypeRepository;
-import com.him.groomhim.tag.ProductTag;
-import com.him.groomhim.tag.Tag;
 import com.him.groomhim.tag.repository.TagRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -20,10 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -123,7 +119,7 @@ public class MemberService {
         // 2. 회원 태그를 기반으로 상품 select (tagNo)
         // ArrayList<ProductTag> productTags = productTagRepository.recommendProduct(tagNoList);
 
-
+        return null;
 
 
     }

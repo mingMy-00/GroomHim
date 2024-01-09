@@ -10,7 +10,7 @@ function Result(){
     return(
         <> 
             <div className='result-container'>
-                <p> XXX님의 피부타입은 {skinType} 입니다.</p>
+                <p> 김민제님의 피부타입은 {skinType} 입니다.</p>
                 <p> 회원님의 피부 타입에 따른 제품추천은 아래와 같습니다.</p>
             
                 <div className='product-list'>
