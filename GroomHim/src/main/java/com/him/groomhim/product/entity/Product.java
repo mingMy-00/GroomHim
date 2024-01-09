@@ -37,6 +37,9 @@ public class Product {
     @Column(name = "PRODUCT_PURPOSE", nullable = false, length = 50)
     private String purpose;
 
+    @Column(name = "PRODUCT_COUNT" , nullable = false, columnDefinition = "integer default 0")
+    private int count;
+
     @OneToMany(mappedBy = "product")
     private ArrayList<Product_Beauty> productBeautyList;
 
@@ -45,7 +48,6 @@ public class Product {
 
     @OneToMany(mappedBy = "product")
     private ArrayList<Product_Ingredient> productIngredientList;
-
 
 
 }

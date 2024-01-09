@@ -8,7 +8,7 @@ import lombok.Setter;
 import java.util.ArrayList;
 
 @Entity
-@Table(name = "INGREDIENT-TYPE")
+@Table(name = "INGREDIENT_TYPE")
 @Setter
 @Getter
 @NoArgsConstructor
