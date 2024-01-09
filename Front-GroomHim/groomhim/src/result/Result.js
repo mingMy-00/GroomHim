@@ -1,11 +1,16 @@
 import './Result.css';
 import logo from "../assets/imgs/logo.png";
+import { useLocation } from 'react-router-dom';
 
 function Result(){
+
+    const location = useLocation();
+    const skinType = location.state.skinType[0].skinType;
+  
     return(
         <> 
             <div className='result-container'>
-                <p> XXX님의 피부타입은 XX입니다.</p>
+                <p> XXX님의 피부타입은 {skinType} 입니다.</p>
                 <p> 회원님의 피부 타입에 따른 제품추천은 아래와 같습니다.</p>
             
                 <div className='product-list'>
