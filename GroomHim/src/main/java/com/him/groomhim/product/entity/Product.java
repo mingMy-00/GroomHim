@@ -1,12 +1,15 @@
 package com.him.groomhim.product.entity;
 
-import com.him.groomhim.tag.ProductTag;
+import com.him.groomhim.type.entity.Product_Beauty;
+import com.him.groomhim.type.entity.Product_Ingredient;
+import com.him.groomhim.type.entity.Product_purpose;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 @Entity
 @Setter
@@ -34,8 +37,17 @@ public class Product {
     @Column(name = "PRODUCT_PURPOSE", nullable = false, length = 50)
     private String purpose;
 
-    @OneToMany(mappedBy = "product") // 조회만 가능, 양방향
-    private List<ProductTag> productTagList; // 해당 상품에 등록된 태그 리스트
+    @Column(name = "PRODUCT_COUNT" , nullable = false, columnDefinition = "integer default 0")
+    private int count;
+
+    @OneToMany(mappedBy = "product")
+    private ArrayList<Product_Beauty> productBeautyList;
+
+    @OneToMany(mappedBy = "product")
+    private ArrayList<Product_purpose> productPurposeList;
+
+    @OneToMany(mappedBy = "product")
+    private ArrayList<Product_Ingredient> productIngredientList;
 
 
 }
