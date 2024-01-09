@@ -7,11 +7,23 @@ import com.him.groomhim.common.exception.SuccessCode;
 import com.him.groomhim.member.dto.SignUpRequest;
 import com.him.groomhim.member.entity.Member;
 import com.him.groomhim.member.repository.MemberRepository;
+import com.him.groomhim.product.entity.Product;
+import com.him.groomhim.product.repository.ProductTagRepository;
+import com.him.groomhim.skinType.entity.SkinType;
+import com.him.groomhim.skinType.repository.SkinTypeRepository;
+import com.him.groomhim.tag.ProductTag;
+import com.him.groomhim.tag.Tag;
+import com.him.groomhim.tag.repository.TagRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -21,6 +33,9 @@ public class MemberService {
     JavaMailSender mailSender;
 
     private final MemberRepository memberRepository;
+    private final ProductTagRepository productTagRepository;
+    private final TagRepository tagRepository;
+    private final SkinTypeRepository skinTypeRepository;
 
     public Member findLoginMember(final Member params) {
         return memberRepository.findByMemberIdAndMemberPwd(params.getMemberId(), params.getMemberPwd());
@@ -89,4 +104,29 @@ public class MemberService {
             return new MsgResponseDto(SuccessCode.CHECK_DATA);
         }
     }
+
+    @Transactional
+    public ArrayList<Product> skinTest(Member member, String skinTypeName, String[] tagNames){
+
+        // 0. 객체 가져오기
+        SkinType skinType = skinTypeRepository.findBySkinTypeName(skinTypeName);
+
+        ArrayList<Long> tagNoList = new ArrayList<>();
+
+        for(String tagName : tagNames){
+            tagNoList.add(tagRepository.findByTagName(tagName).getTagNo());
+        }
+
+        // 1. 회원 피부타입 update (member, skinType)
+        member.setSkinTypeNo(skinType.getSkinTypeNo());
+
+        // 2. 회원 태그를 기반으로 상품 select (tagNo)
+        // ArrayList<ProductTag> productTags = productTagRepository.recommendProduct(tagNoList);
+
+
+
+
+    }
+
+
 }

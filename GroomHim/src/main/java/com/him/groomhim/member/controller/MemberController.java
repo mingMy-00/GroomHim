@@ -4,9 +4,12 @@ import com.him.groomhim.common.dto.MsgResponseDto;
 import com.him.groomhim.member.dto.SignUpRequest;
 import com.him.groomhim.member.entity.Member;
 import com.him.groomhim.member.service.MemberService;
+import com.him.groomhim.product.entity.Product;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.persister.entity.EntityNameUse;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 @RestController
@@ -56,4 +59,9 @@ public class MemberController {
         return memberService.checkDuplicateEmail(memberEmail);
     }
 
+    @PostMapping("/result")
+    public ArrayList<Product> skinTest(@RequestParam Member member, @RequestParam("skinType") String skinTypeName, @RequestParam String[] tagNames){
+        return memberService.skinTest(member, skinTypeName, tagNames);
+    }
 }
+

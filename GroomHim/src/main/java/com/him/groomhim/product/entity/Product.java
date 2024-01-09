@@ -37,5 +37,6 @@ public class Product {
     @OneToMany(mappedBy = "product") // 조회만 가능, 양방향
     private List<ProductTag> productTagList; // 해당 상품에 등록된 태그 리스트
 
+
 }
 

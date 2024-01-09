@@ -25,4 +25,10 @@ public class ProductTag {
     @ManyToOne // 양방향
     @JoinColumn(name = "TAG_NO") // 연관관계 주인
     private Tag tag;
+
+    public ProductTag(Product product, Tag tag){
+        this.product = product;
+        this.tag = tag;
+    }
+
 }
