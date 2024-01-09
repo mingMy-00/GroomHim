@@ -46,7 +46,7 @@ function SkinTest(){
             setSkinType("수부지");
         }
       }, [dryCount, waterOilCount, setSkinType]); 
-  
+
     return(
         <>
         {!loading && (
@@ -71,8 +71,6 @@ function SkinTest(){
                                                     </button>
                                                 )
                                         })}
-                                    
-                                    
                                 </div>
                             </div>
                         )

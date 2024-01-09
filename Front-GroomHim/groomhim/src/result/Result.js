@@ -7,12 +7,18 @@ function Result(){
     const location = useLocation();
     const skinType = location.state.skinType[0].skinType;
   
+    const storedData = JSON.parse(sessionStorage.getItem("loginMember"));
+    const memberName = storedData ? storedData.memberName : null;
+
     return(
         <> 
             <div className='result-container'>
-                <p> 김민제님의 피부타입은 {skinType} 입니다.</p>
-                <p> 회원님의 피부 타입에 따른 제품추천은 아래와 같습니다.</p>
-            
+                <p> {memberName}님의 피부타입은 {skinType} 입니다.</p>
+                <div id="SkinIntro">건성 피부는 약하고 민감한 경우가 많아요.
+                                <br></br>기름기가 많이 없기 때문에 자외선이나 외부의 요인에 자극받기 좋습니다. 
+                                <br></br>따라서, <b>보습제품</b>이 가장 중요합니다.
+                                <br></br>!!!유수분 밸런스가 가장 중요!! </div>
+                               
                 <div className='product-list'>
                     <div class="product-container">
                         <div class="product">

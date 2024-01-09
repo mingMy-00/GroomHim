@@ -106,3 +106,9 @@
         margin: 5px 0;
     }
 }
+
+#SkinIntro {
+    border : 1px solid black;
+    width : 40vh;
+    margin : auto;
+}
