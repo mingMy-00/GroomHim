@@ -59,9 +59,6 @@ public class MemberController {
         return memberService.checkDuplicateEmail(memberEmail);
     }
 
-    @PostMapping("/result")
-    public ArrayList<Product> skinTest(@RequestParam Member member, @RequestParam("skinType") String skinTypeName, @RequestParam String[] tagNames){
-        return memberService.skinTest(member, skinTypeName, tagNames);
-    }
+
 }
 
