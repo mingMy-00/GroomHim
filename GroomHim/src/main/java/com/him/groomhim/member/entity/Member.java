@@ -1,5 +1,6 @@
 package com.him.groomhim.member.entity;
 
+import com.him.groomhim.type.entity.SkinType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -46,9 +47,13 @@ public class Member {
     @Column(name = "MEMBER_PROFILE", length = 500)
     private String memberProfile;
 
-    @Column(name = "SKIN_TYPE_NO")
-    private long skinTypeNo;
 
+    /**
+     * 단방향 1대1 관계
+     */
+    @OneToOne
+    @JoinColumn(name = "SKIN_ID")
+    private SkinType skinType;
 
 
 

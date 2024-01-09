@@ -32,6 +32,7 @@ public class MemberService {
         return memberRepository.findByMemberEmail(memberEmail);
     }
 
+
     public void sendUsernames(String memberEmail, Member m) {
         //이메일을 보내기 위한 객체
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
@@ -91,6 +92,8 @@ public class MemberService {
             return new MsgResponseDto(SuccessCode.CHECK_DATA);
         }
     }
+
+
 
 
 
