@@ -109,6 +109,45 @@
 
 #SkinIntro {
     border : 1px solid black;
-    width : 40vh;
+    width : 37vh;
     margin : auto;
+    padding : 15px;
+}
+
+.b {
+    color : red;
+}
+
+#intro {
+    text-align: center;
+}
+
+.warning {
+    font-size : 13px;
+    color : gray;
+    text-align: left;
+}
+
+#table {
+    margin : auto;
+    text-align: left;
+}
+
+/*버튼 리스트들을 위한 css*/
+.buttonList {
+    padding : 15px;
+    width  : 40vh;
+    margin : auto;
+    height : 5vh;
+    display: flex; /* Flex 컨테이너로 설정 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+}
+
+.buttonList > button {
+    height : 5vh;
+    background-color: #b3c4d1;
+    border-radius: 10px;
+    margin : 10px;
+    width  : 10vh;
 }
