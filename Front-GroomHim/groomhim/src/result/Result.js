@@ -14,24 +14,6 @@ function Result(){
         <div>
             <div className='result-container'>
                 <h1> {memberName}님의 피부타입은 <b class="b">{skinType}</b> 입니다.</h1>
-                <div id="margin">
-                <div class="tooltip-container">
-                    <span class="text">자세한 정보👀</span>
-                    <span className="introDetail">           
-                        Q. 건성피부란  ? <br />
-                        A. 피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
-                           표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br />
-
-                            유분제품을 너무 많이 바르면 모공을 막아서
-                            좁쌀여드름이 나고
-                              <br />
-                            수분제품은 보통 가벼운 액체 타입이라서 날아가기 쉬워요.
-                            <br /><br />
-                        
-                        ✔ 따라서, 보습제품과 유수분 밸런스가 중요합니다.</span>
-                </div>
-                </div>
-
                 <div id="SkinIntro">
                     <div id="intro">
                     이 타입은 <b className="b">보습제품</b>과 <b className="b">유수분 밸런스</b>가 중요합니다.
@@ -53,6 +35,7 @@ function Result(){
                     </table>
                 </div>
                 </div>
+                
                 <div class="radio-inputs">
                     <label class="radio">
                         <input type="radio" name="radio" checked=""/>
@@ -68,7 +51,24 @@ function Result(){
                         <span class="name">보습크림 Top5</span>
                     </label>
                     </div>
-                               
+                    <div id="margin">
+                        <div class="tooltip-container">
+                            <span class="text">자세한 정보👀</span>
+                            <span className="introDetail">           
+                                Q. 건성피부란  ? <br />
+                                A. 피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
+                                표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br />
+
+                                    유분제품을 너무 많이 바르면 모공을 막아서
+                                    좁쌀여드름이 나고
+                                    <br />
+                                    수분제품은 보통 가벼운 액체 타입이라서 날아가기 쉬워요.
+                                    <br /><br />
+                                
+                                ✔ 따라서, 보습제품과 유수분 밸런스가 중요합니다.</span>
+                        </div>
+                </div>
+
                 <div className='product-list'>
                     <div class="product-container">
                         <div class="product">
