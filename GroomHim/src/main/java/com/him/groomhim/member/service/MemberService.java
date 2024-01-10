@@ -7,6 +7,9 @@ import com.him.groomhim.common.exception.SuccessCode;
 import com.him.groomhim.member.dto.SignUpRequest;
 import com.him.groomhim.member.entity.Member;
 import com.him.groomhim.member.repository.MemberRepository;
+import com.him.groomhim.type.entity.SkinType;
+import com.him.groomhim.type.repository.SkinTypeRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -22,6 +25,7 @@ public class MemberService {
     JavaMailSender mailSender;
 
     private final MemberRepository memberRepository;
+    private final SkinTypeRepository skinTypeRepository;
 
 
     public Member findLoginMember(final Member params) {
@@ -91,6 +95,13 @@ public class MemberService {
         } else {
             return new MsgResponseDto(SuccessCode.CHECK_DATA);
         }
+    }
+
+    @Transactional
+    public void updateSkinType(Long memberNo, Long skinNo){
+        Member findMember = memberRepository.findByMemberNo(memberNo);
+        SkinType findSkinType = skinTypeRepository.findBySkinNo(skinNo);
+        findMember.setSkinType(findSkinType);
     }
 
 

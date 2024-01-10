@@ -34,9 +34,6 @@ public class Product {
     @Column(name="PRODUCT_PROFILE", nullable = false, length = 500)
     private String profile;
 
-    @Column(name = "PRODUCT_PURPOSE", nullable = false, length = 50)
-    private String purpose;
-
     @Column(name = "PRODUCT_COUNT" , nullable = false, columnDefinition = "integer default 0")
     private int count;
 

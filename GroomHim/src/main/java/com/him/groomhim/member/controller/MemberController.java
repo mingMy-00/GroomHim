@@ -59,6 +59,11 @@ public class MemberController {
         return memberService.checkDuplicateEmail(memberEmail);
     }
 
+    @GetMapping("/result")
+    public void updateSkinType(@RequestParam long memberNo, @RequestParam Long skinTypeNo){
+        memberService.updateSkinType(memberNo, skinTypeNo);
+    }
+
 
 }
 
