@@ -350,3 +350,7 @@
   .introDetail {
    width : 300px;
   }
+
+  iframe {
+    border-radius: 20px;
+  }
