@@ -1,14 +1,10 @@
 package com.him.groomhim.product.entity;
 
-import com.him.groomhim.type.entity.Product_Beauty;
-import com.him.groomhim.type.entity.Product_Ingredient;
-import com.him.groomhim.type.entity.Product_purpose;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 @Entity

@@ -1,5 +1,6 @@
 package com.him.groomhim.type.entity;
 
+import com.him.groomhim.product.entity.Product_Ingredient;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

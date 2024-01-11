@@ -1,28 +1,28 @@
-package com.him.groomhim.type.entity;
+package com.him.groomhim.product.entity;
 
-import com.him.groomhim.product.entity.Product;
+import com.him.groomhim.type.entity.BeautyType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "PRODUCT_PURPOSE")
+@Table(name = "PRODUCT_BEAUTY")
 @Setter
 @Getter
 @NoArgsConstructor
-public class Product_purpose {
+public class Product_Beauty {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PRODUCT_PURPOSE_NO")
-    private Long productPurposeNo;
+    @Column(name = "PRODUCT_BEAUTY_NO")
+    private Long productBeautyNo;
 
     @ManyToOne
     @JoinColumn(name = "PRODUCT_NO")
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "PURPOSE_NO")
-    private PurposeType purpose;
-
+    @JoinColumn(name = "BEAUTY_NO")
+    private BeautyType beautyType;
 }

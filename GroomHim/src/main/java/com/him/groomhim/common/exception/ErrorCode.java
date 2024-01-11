@@ -12,7 +12,10 @@ public enum ErrorCode {
     ALREADY_EXIST(HttpStatus.CONFLICT, "중복된 데이터입니다."),
     DISMATCH_PASSWORD(HttpStatus.BAD_REQUEST,"비밀번호가 일치하지 않습니다."),
     DISMATCH_TOKEN(HttpStatus.BAD_REQUEST,"토큰이 일치하지 않습니다."),
-    DISMATCH_TOKEN2(HttpStatus.BAD_REQUEST,"일치하는 토큰이 존재하지 않습니다.");
+    DISMATCH_TOKEN2(HttpStatus.BAD_REQUEST,"일치하는 토큰이 존재하지 않습니다."),
+    SKINTYPE_NOT_FOUND(HttpStatus.NOT_FOUND, "스킨타입이 존재하지 않습니다.");
+
+
 
     private final HttpStatus httpStatus;
     private final String message;

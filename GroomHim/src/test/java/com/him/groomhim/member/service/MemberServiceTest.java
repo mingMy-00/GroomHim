@@ -33,10 +33,7 @@ public class MemberServiceTest {
         // given
         SkinType skinType = new SkinType();
         skinType.setSkinName("수부지");
-
         Member member = memberRepository.findByMemberNo(1004L);
-
-        memberRepository.save(member);
         skinTypeRepository.save(skinType);
 
         // when

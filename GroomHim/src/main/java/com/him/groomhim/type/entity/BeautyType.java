@@ -1,5 +1,6 @@
 package com.him.groomhim.type.entity;
 
+import com.him.groomhim.product.entity.Product_Beauty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +28,5 @@ public class BeautyType {
 
     @OneToMany(mappedBy = "beautyType")
     private ArrayList<Product_Beauty> productBeautyList;
-
-
 
 }
