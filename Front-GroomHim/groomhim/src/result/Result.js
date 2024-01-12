@@ -20,7 +20,13 @@ function Result(){
     const handleRadioClick = (name) => {
         //name은 화장품의 종류임. (ex: 크림, 세럼, 토너)
         setSelectedRadio(name);
-        console.log(name);
+        //console.log(name);
+    };
+
+    /*SkinType 설정하는 것*/
+    useEffect(() => {
+        setSkinType(skinType);
+
         //회원 정보에 피부타입 업데이트를 위한 axios
         axios({
             url : "/result",
@@ -33,21 +39,20 @@ function Result(){
                 axios({
                     url : "/result/recommend",
                     method : "post",
-                    data : {memberNo : memberNo, beautyType : name}
+                    data : {memberNo : memberNo, beautyName : selectedRadio}
                 }).then(function(response2) {
                     console.log("화장품 정보 불러오기 성공 : " + response2);
                 }).catch(function() {
                     console.log("화장품 정보 불러오기 실패");
                 });
         }).catch(function() {
+            console.log(selectedRadio);
             console.log("회원 정보 insert 실패 ㅋ");
+            
         });
-    };
+    }, [selectedRadio]);
 
-    /*SkinType 설정하는 것*/
-    useEffect(() => {
-        setSkinType(skinType);
-    }, []);
+    
         /*피부타입에 따라 넣어줄 설명*/ 
         const renderSkinIntro = () => {
             if (skinType === '건성') {
