@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "BEAUTY_TYPE")
@@ -23,10 +24,10 @@ public class BeautyType {
     @Column(name = "BEAUTY_NAME")
     private String beautyName;
 
-    @OneToMany(mappedBy = "beautyType")
-    private ArrayList<SkinBeauty> skinBeautyList;
+    @OneToMany(mappedBy = "beautyType", cascade = CascadeType.ALL)
+    private List<SkinBeauty> skinBeautyList;
 
-    @OneToMany(mappedBy = "beautyType")
-    private ArrayList<Product_Beauty> productBeautyList;
+    @OneToMany(mappedBy = "beautyType", cascade = CascadeType.ALL)
+    private List<Product_Beauty> productBeautyList;
 
 }

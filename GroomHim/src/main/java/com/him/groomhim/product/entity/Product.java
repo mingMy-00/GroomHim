@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Setter
@@ -34,13 +35,13 @@ public class Product {
     private int count;
 
     @OneToMany(mappedBy = "product")
-    private ArrayList<Product_Beauty> productBeautyList;
+    private List<Product_Beauty> productBeautyList;
 
     @OneToMany(mappedBy = "product")
-    private ArrayList<Product_purpose> productPurposeList;
+    private List<Product_Purpose> productPurposeList;
 
     @OneToMany(mappedBy = "product")
-    private ArrayList<Product_Ingredient> productIngredientList;
+    private List<Product_Ingredient> productIngredientList;
 
 
 }

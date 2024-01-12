@@ -98,10 +98,10 @@ public class MemberService {
     }
 
     @Transactional
-    public void updateSkinType(Long memberNo, Long skinNo){
+    public void updateSkinType(Long memberNo, String skinTypeName){
         Member findMember = memberRepository.findByMemberNo(memberNo);
-        SkinType findSkinType = skinTypeRepository.findBySkinNo(skinNo);
-        findMember.setSkinType(findSkinType);
+        SkinType skinType = skinTypeRepository.findBySkinName(skinTypeName);
+        findMember.setSkinType(skinType);
     }
 
 

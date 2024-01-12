@@ -26,7 +26,8 @@ function Result(){
     /*SkinType 설정하는 것*/
     useEffect(() => {
         setSkinType(skinType);
-
+        console.log("memberNo : " + memberNo);
+        console.log("skinType : " + skinType);
         //회원 정보에 피부타입 업데이트를 위한 axios
         axios({
             url : "/result",

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "INGREDIENT_TYPE")
@@ -24,6 +25,6 @@ public class IngredientType {
     private String ingredientName;
 
     @OneToMany(mappedBy = "ingredient")
-    private ArrayList<Product_Ingredient> productIngredientList;
+    private List<Product_Ingredient> productIngredientList;
 
 }

@@ -1,27 +1,32 @@
 package com.him.groomhim.product.controller;
 
 import com.him.groomhim.member.service.MemberService;
+import com.him.groomhim.product.dto.SkinUpdateRequest;
 import com.him.groomhim.product.entity.Product;
 import com.him.groomhim.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
-@RequestMapping("/result")
 @RequiredArgsConstructor
 public class ResultController {
 
     private final MemberService memberService;
     private final ProductService productService;
 
-    @GetMapping("/")
-    public void updateSkinType(@RequestParam Long memberNo, @RequestParam Long skinTypeNo){
-        memberService.updateSkinType(memberNo, skinTypeNo);
+
+    @PostMapping("/result")
+    public void updateSkinType(@RequestBody SkinUpdateRequest request){
+        Long memberNo = request.getMemberNo();
+        String skinType = request.getSkinType();
+
+        log.info("memberNo = {}", memberNo);
+        log.info("skinType = {}", skinType);
+        memberService.updateSkinType(memberNo, skinType);
     }
 
     /**
@@ -42,8 +47,8 @@ public class ResultController {
      * @param beautyName 화장품 타입
      * @return 해결 목적 화장품 리스트
      */
-    @GetMapping("/resolveRecommend")
-    public List<Object[]> recommendProduct(@RequestParam Long memberNo, String beautyName){
+    @PostMapping("/result/resolveRecommend")
+    public List<Product> recommendProduct(@RequestParam Long memberNo,@RequestParam String beautyName){
         return productService.recommendProduct(memberNo, beautyName);
     }
 

@@ -24,21 +24,22 @@ public class ProductService {
     private final BeautyTypeRepository beautyTypeRepository;
     private final PurposeTypeRepository purposeTypeRepository;
 
-    /*public List<Product> recommendProduct(List<String> purposeList, String beautyName){
+    /*
 
 
-    }*/
-
-    public List<Object[]> recommendProduct(Long memberNo, String beautyName){
+    public List<Product> recommendProduct(List<String> purposeList, String beautyName){
+        BeautyType beautyType = beautyTypeRepository.findByBeautyName(beautyName);
+        PurposeType purposeType = purposeTypeRepository.
+    }
+ */
+    public List<Product> recommendProduct(Long memberNo, String beautyName){
         BeautyType beautyType = beautyTypeRepository.findByBeautyName(beautyName);
         Member findMember = memberRepository.findByMemberNo(memberNo);
         PurposeType purposeType = purposeTypeRepository.findByPurposeName(findMember.getSkinType().getSkinName());
 
 
         if(findMember.getSkinType() != null){
-            Long purposeNo = purposeType.getPurposeNo();
-            Long beautyNo = beautyType.getBeautyNo();
-            return product_beautyRepository.recommendProduct(purposeNo, beautyNo);
+            return product_beautyRepository.recommendProduct(purposeType, beautyType);
         }else{
             throw new CustomException(ErrorCode.SKINTYPE_NOT_FOUND);
         }
