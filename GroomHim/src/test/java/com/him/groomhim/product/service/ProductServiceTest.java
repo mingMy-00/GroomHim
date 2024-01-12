@@ -2,7 +2,11 @@ package com.him.groomhim.product.service;
 
 import com.him.groomhim.member.entity.Member;
 import com.him.groomhim.member.repository.MemberRepository;
+import com.him.groomhim.product.entity.Product;
+import com.him.groomhim.type.entity.BeautyType;
+import com.him.groomhim.type.repository.BeautyTypeRepository;
 import jakarta.transaction.Transactional;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +25,8 @@ public class ProductServiceTest {
 
     @Autowired
     ProductService productService;
+    @Autowired
+    BeautyTypeRepository beautyTypeRepository;
 
 
     @Test
@@ -30,12 +36,24 @@ public class ProductServiceTest {
         String beautyName = "세럼";
 
         // when
-        List<Object[]> result = productService.recommendProduct(memberNo,beautyName);
+        List<Product> result = productService.recommendProduct(memberNo,beautyName);
 
         // then
-        for(Object[] arr : result){
-            System.out.println(Arrays.toString(arr));
+        for(Product p : result){
+            System.out.println("product = " + p.getProductName());
         }
+    }
+
+    @Test
+    public void 화장품타입_이름(){
+        // given
+        String beautyName = "세럼";
+
+        // when
+        BeautyType beautyType = beautyTypeRepository.findByBeautyName(beautyName);
+
+        // then
+        Assertions.assertThat(beautyType.getBeautyName()).isEqualTo(beautyName);
     }
 
 }

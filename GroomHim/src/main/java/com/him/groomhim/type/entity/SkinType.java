@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "SKIN_TYPE")
@@ -23,7 +24,7 @@ public class SkinType {
     private String skinName;
 
     @OneToMany(mappedBy = "skinType")
-    private ArrayList<SkinBeauty> skinBeautyArrayList;
+    private List<SkinBeauty> skinBeautyList;
 
 
 }

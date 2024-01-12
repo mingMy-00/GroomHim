@@ -37,7 +37,7 @@ public class MemberServiceTest {
         skinTypeRepository.save(skinType);
 
         // when
-        memberService.updateSkinType(member.getMemberNo(),skinType.getSkinNo());
+        memberService.updateSkinType(member.getMemberNo(),skinType.getSkinName());
 
         // then
         Member findMember = memberRepository.findByMemberNo(member.getMemberNo());

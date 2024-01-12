@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SkinTypeRepository extends JpaRepository<SkinType, Long> {
     SkinType findBySkinNo(Long skinNo);
+    SkinType findBySkinName(String skinTypeName);
+
 }

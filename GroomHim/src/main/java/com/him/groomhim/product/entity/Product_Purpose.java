@@ -1,6 +1,5 @@
 package com.him.groomhim.product.entity;
 
-import com.him.groomhim.product.entity.Product;
 import com.him.groomhim.type.entity.PurposeType;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -12,7 +11,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-public class Product_purpose {
+public class Product_Purpose {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PRODUCT_PURPOSE_NO")
