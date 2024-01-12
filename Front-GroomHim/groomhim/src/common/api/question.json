@@ -68,64 +68,89 @@
         "answers" : [
                 {
                     "tag" : "건성",
-                    "keyword" : "수부지와 건조 알아내기",
+                    "keyword" : "수부지건조1",
                     "content" : "얼굴 전체가 건조하다."
                 },
                 {
                     "tag" : "수부지",
-                    "keyword" : "수부지와 건조 알아내기",
+                    "keyword" : "수부지건조1",
                     "content" : "T존에는 유분이, 볼은 건조하다."
                 }
         ]
     },
     {
-        "category" : "수부지와 건조 알아내기",
-        "question" : "마지막 질문 입니다.",
-        "end" : "true",
+        "category" : "수부지건조1",
+        "question" : "계절에 따라 피부가 어떤가요 ?",
         "answers" : [
                 {
+                    "tag" : "건성",
+                    "keyword" : "수부지건조2",
+                    "content" : "계절에 상관없이 얼굴이 건조함."
+                },
+                {
+                    "tag" : "수부지",
+                    "keyword" : "수부지건조2",
+                    "content" : "여름만 되면 유분이, 겨울이 되면 건조함."
+                }
+        ]
+    },
+    {
+        "category" : "수부지건조2",
+        "question" : "마지막 질문입니다.",
+        "end" : "true",
+        "answers" : [
+                {   "end" : "true",
+                    "tag" : "건성",
+                    "keyword" : "수부지건조마지막",
+                    "content" : "피부가 자주 트고, 예민함."
+                },
+                {
                     "end" : "true",
                     "tag" : "수부지",
-                    "keyword" : "건조",
-                    "content" : "여름에는 유분이, 겨울에는 피부가 당긴다."
-                },
-                {
-                    "end" : "true",
-                    "tag" : "건성",
-                    "keyword" : "건조",
-                    "content" : "피부에 발진이 생길 때도 있다."
-                },
-                {
-                    "end" : "true",
-                    "tag" : "수부지",
-                    "keyword" : "건조",
-                    "content" : "피부가 기름진데 쉽게 붉어지고 따갑다."
-                },
-                {
-                    "end" : "true",
-                    "tag" : "건성",
-                    "keyword" : "건조",
-                    "content" : "겨울철에 하얗게 각질이 잘 일어난다."
+                    "keyword" : "수부지건조마지막",
+                    "content" : "피부가 건조한데도 블랙헤드가 많이 생김."
                 }
         ]
     },
     {
         "category" : "여드름",
-        "question" : "주로 겪는 어려움이 무엇인가요?",
+        "question" : "주로 겪는 여드름 문제가 무엇인가요?",
         "answers" : [
                 {
                     "tag" : "지성",
-                    "keyword" : "여드름마지막",
+                    "keyword" : "여드름1",
                     "content" : "염증성 여드름이 많이 남"
                 },
                 {
                     "tag" : "건성",
-                    "keyword" : "여드름마지막",
+                    "keyword" : "여드름1",
+                    "content" : "좁쌀 여드름이 많이남"
+                },
+                {
+                    "tag" : "지성",
+                    "keyword" : "여드름1",
+                    "content" : "염증, 좁쌀을 포함한 모든 트러블이 많이남"
+                }
+
+        ]
+    },
+    {
+        "category" : "여드름1",
+        "question" : "주로 겪는 어려움이 무엇인가요?",
+        "answers" : [
+                {
+                    "tag" : "지성",
+                    "keyword" : "여드름2",
+                    "content" : "염증성 여드름이 많이 남"
+                },
+                {
+                    "tag" : "건성",
+                    "keyword" : "여드름2",
                     "content" : "좁쌀 여드름이 많이남"
                 },
                 {
                     "tag" : "중성",
-                    "keyword" : "여드름마지막",
+                    "keyword" : "여드름2",
                     "content" : "염증, 좁쌀을 포함한 모든 트러블이 많이남"
                 }
 
