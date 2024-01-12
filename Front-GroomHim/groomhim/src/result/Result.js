@@ -38,7 +38,7 @@ function Result(){
                 console.log("axios 두번째 실행하러감");
                 //화장품 정보 불러오기 위한 axios
                 axios({
-                    url : "/result/recommend",
+                    url : "/result/resolveRecommend",
                     method : "post",
                     data : {memberNo : memberNo, beautyName : selectedRadio}
                 }).then(function(response2) {

@@ -6,6 +6,9 @@ import com.him.groomhim.product.entity.Product;
 import com.him.groomhim.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -48,8 +51,10 @@ public class ResultController {
      * @return 해결 목적 화장품 리스트
      */
     @PostMapping("/result/resolveRecommend")
-    public List<Product> recommendProduct(@RequestParam Long memberNo,@RequestParam String beautyName){
-        return productService.recommendProduct(memberNo, beautyName);
+    public List<Product> recommendProduct(@RequestBody SkinUpdateRequest request, @PageableDefault(size=5, sort = "count", direction = Sort.Direction.DESC) Pageable pageable){
+        Long memberNo = request.getMemberNo();
+        String skinType = request.getSkinType();
+        return productService.recommendProduct(memberNo, skinType, pageable);
     }
 
 

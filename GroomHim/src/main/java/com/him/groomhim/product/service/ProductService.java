@@ -11,6 +11,7 @@ import com.him.groomhim.type.entity.PurposeType;
 import com.him.groomhim.type.repository.BeautyTypeRepository;
 import com.him.groomhim.type.repository.PurposeTypeRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,14 +33,14 @@ public class ProductService {
         PurposeType purposeType = purposeTypeRepository.
     }
  */
-    public List<Product> recommendProduct(Long memberNo, String beautyName){
+    public List<Product> recommendProduct(Long memberNo, String beautyName, Pageable pageable){
         BeautyType beautyType = beautyTypeRepository.findByBeautyName(beautyName);
         Member findMember = memberRepository.findByMemberNo(memberNo);
         PurposeType purposeType = purposeTypeRepository.findByPurposeName(findMember.getSkinType().getSkinName());
 
 
         if(findMember.getSkinType() != null){
-            return product_beautyRepository.recommendProduct(purposeType, beautyType);
+            return product_beautyRepository.recommendProduct(purposeType, beautyType, pageable);
         }else{
             throw new CustomException(ErrorCode.SKINTYPE_NOT_FOUND);
         }
