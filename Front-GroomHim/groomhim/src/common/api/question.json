@@ -16,32 +16,6 @@
         ]
     },
     {
-        "category" : "미용",
-        "question" : "관심있으신 미용의 영역이 어떤 곳인가요?",
-        "answers" : [
-                {
-                    "tag" : "피부",
-                    "keyword" : "피부",
-                    "content" : "피부 화장품"
-                },
-                {   
-                    "tag" : "눈썹",
-                    "keyword" : "눈썹",
-                    "content" : "눈썹 관리"
-                },
-                {   
-                    "tag" : "머리",
-                    "keyword" : "머리",
-                    "content" : "머리"
-                },
-                {   
-                    "tag" : "입술",
-                    "keyword" : "입술",
-                    "content" : "입술(립밤)"
-                }
-        ]
-    },
-    {
         "category" : "해결",
         "question" : "고민이 있는 피부의 영역을 선택해주세요.",
         "answers" : [
@@ -64,7 +38,7 @@
                 {
                     "tag" : "건성수부지",
                     "keyword" : "건조",
-                    "content" : "얼굴이 건조함."
+                    "content" : "얼굴이 건조함 (아픔,각질,예민)"
                 },
                 {
                     "tag" : "건성지성수부지",
@@ -82,9 +56,9 @@
                     "content" : "모공이 너무 큼."
                 },
                 {
-                    "tag" : "모공",
-                    "keyword" : "모공",
-                    "content" : "모공이 너무 큼."
+                    "tag" : "블랙헤드",
+                    "keyword" : "블랙헤드",
+                    "content" : "블랙헤드가 고민임."
                 }
         ]
     },
@@ -93,24 +67,45 @@
         "question" : "주로 겪는 어려움이 무엇인가요?",
         "answers" : [
                 {
-                    "tag" : "수부지",
-                    "keyword" : "수부지와 건조 알아내기",
-                    "content" : "이마나 코는 기름지고, 볼은 건조함."
-                },
-                {
                     "tag" : "건성",
                     "keyword" : "수부지와 건조 알아내기",
-                    "content" : "얼굴이 가렵고 아플 때가 있다."
-                },
-                {
-                    "tag" : "건성",
-                    "keyword" : "수부지와 건조 알아내기",
-                    "content" : "피부에 각질이 많이 생긴다."
+                    "content" : "얼굴 전체가 건조하다."
                 },
                 {
                     "tag" : "수부지",
                     "keyword" : "수부지와 건조 알아내기",
+                    "content" : "T존에는 유분이, 볼은 건조하다."
+                }
+        ]
+    },
+    {
+        "category" : "수부지와 건조 알아내기",
+        "question" : "마지막 질문 입니다.",
+        "end" : "true",
+        "answers" : [
+                {
+                    "end" : "true",
+                    "tag" : "수부지",
+                    "keyword" : "건조",
                     "content" : "여름에는 유분이, 겨울에는 피부가 당긴다."
+                },
+                {
+                    "end" : "true",
+                    "tag" : "건성",
+                    "keyword" : "건조",
+                    "content" : "피부에 발진이 생길 때도 있다."
+                },
+                {
+                    "end" : "true",
+                    "tag" : "수부지",
+                    "keyword" : "건조",
+                    "content" : "피부가 기름진데 쉽게 붉어지고 따갑다."
+                },
+                {
+                    "end" : "true",
+                    "tag" : "건성",
+                    "keyword" : "건조",
+                    "content" : "겨울철에 하얗게 각질이 잘 일어난다."
                 }
         ]
     },
@@ -156,37 +151,6 @@
                     "content" : "얼굴이 전체가 기름짐"
                 }
 
-        ]
-    },
-    {
-        "category" : "수부지와 건조 알아내기",
-        "question" : "마지막 질문 입니다.",
-        "end" : "true",
-        "answers" : [
-                {
-                    "end" : "true",
-                    "tag" : "수부지",
-                    "keyword" : "건조",
-                    "content" : "피부가 건조한데도 블랙헤드, 좁쌀 여드름 등이 생긴다."
-                },
-                {
-                    "end" : "true",
-                    "tag" : "건성",
-                    "keyword" : "건조",
-                    "content" : "피부에 발진이 생길 때도 있다."
-                },
-                {
-                    "end" : "true",
-                    "tag" : "수부지",
-                    "keyword" : "건조",
-                    "content" : "피부가 기름진데 쉽게 붉어지고 따갑다."
-                },
-                {
-                    "end" : "true",
-                    "tag" : "건성",
-                    "keyword" : "건조",
-                    "content" : "겨울철에 하얗게 각질이 잘 일어난다."
-                }
         ]
     },
     {
@@ -237,8 +201,32 @@
                     "content" : "피지가 많이 분비됨."
                 }
         ]
+    },
+    {
+        "category" : "미용",
+        "question" : "관심있으신 미용의 영역이 어떤 곳인가요?",
+        "answers" : [
+                {
+                    "tag" : "피부",
+                    "keyword" : "피부",
+                    "content" : "피부 화장품"
+                },
+                {   
+                    "tag" : "눈썹",
+                    "keyword" : "눈썹",
+                    "content" : "눈썹 관리"
+                },
+                {   
+                    "tag" : "머리",
+                    "keyword" : "머리",
+                    "content" : "머리"
+                },
+                {   
+                    "tag" : "입술",
+                    "keyword" : "입술",
+                    "content" : "입술(립밤)"
+                }
+        ]
     }
-
-    
 ]
 

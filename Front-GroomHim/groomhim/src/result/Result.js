@@ -12,7 +12,7 @@ function Result(){
     /*로그인한 회원 정보*/   
     const storedData    = JSON.parse(sessionStorage.getItem("loginMember"));
     const memberName    = storedData ? storedData.memberName : null;
-    const memberNo      = storedData ? storedData.memberNo   : null;
+    const memberNo      = storedData ? Number(storedData.memberNo) : null;
     //라디오 버튼의 상태를 관리
     const [selectedRadio, setSelectedRadio] = useState('토너');
 
@@ -46,9 +46,8 @@ function Result(){
                     console.log("화장품 정보 불러오기 실패");
                 });
         }).catch(function() {
-            console.log(selectedRadio);
+            //console.log(selectedRadio);
             console.log("회원 정보 insert 실패 ㅋ");
-            
         });
     }, [selectedRadio]);
 
