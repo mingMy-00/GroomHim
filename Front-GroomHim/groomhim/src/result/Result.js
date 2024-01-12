@@ -1,14 +1,22 @@
 import './Result.css';
 import logo from "../assets/imgs/logo.png";
 import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
 
 function Result(){
 
     const location = useLocation();
     const skinType = location.state.skinType[0].skinType;
   
-    const storedData = JSON.parse(sessionStorage.getItem("loginMember"));
-    const memberName = storedData ? storedData.memberName : null;
+    const storedData    = JSON.parse(sessionStorage.getItem("loginMember"));
+    const memberName    = storedData ? storedData.memberName : null;
+    //라이도 버튼의 상태를 관리
+    const [selectedRadio, setSelectedRadio] = useState('토너');
+
+    //라디오 체크하면 실행되는 함수
+    const handleRadioClick = (name) => {
+        setSelectedRadio(name);
+    };
 
     return(
         <div>
@@ -39,20 +47,20 @@ function Result(){
                 
                 <div class="radio-inputs">
                     <label class="radio">
-                        <input type="radio" name="radio" checked=""/>
+                        <input type="radio" name="토너" className="radio" checked={selectedRadio === '토너'} onChange={() => handleRadioClick('토너')}/>
                         <span class="name">토너 Top5</span>
                     </label>
                     <label class="radio">
-                        <input type="radio" name="radio"/>
+                        <input type="radio" name="수분" class="radio" checked={selectedRadio === '수분'} onChange={() => handleRadioClick('수분')}/>
                         <span class="name">수분제품 Top5</span>
                     </label>
                         
                     <label class="radio">
-                        <input type="radio" name="radio"/>
+                        <input type="radio" name="보습" class="radio" checked={selectedRadio === '보습'} onChange={() => handleRadioClick('보습')}/>
                         <span class="name">보습크림 Top5</span>
                     </label>
-                    </div>
-                    <div id="margin">
+                </div>
+                        <div id="margin">
                         <div class="tooltip-container">
                             <span class="text">자세한 정보👀</span>
                             <span className="introDetail">           

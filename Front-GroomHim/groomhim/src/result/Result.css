@@ -228,7 +228,7 @@
     border-radius: 8px;
     text-transform: uppercase;
     height: 20px;
-    width: 100px;
+    width: 100%;
     display: grid;
     place-items: center;
     border-radius: 30px;
