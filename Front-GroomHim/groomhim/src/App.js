@@ -11,10 +11,10 @@ function App() {
 
     useEffect(function () {
         if (sessionStorage.getItem("loginMember") === null) {
-            console.log(isLogin);
+            //console.log(isLogin);
         } else {
             setIsLogin(true);
-            console.log(isLogin);
+            //console.log(isLogin);
         }
     })
 

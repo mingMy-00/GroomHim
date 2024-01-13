@@ -7,7 +7,7 @@ function Home(){
         <>
             <div className="container">
                 <img className="logo" src={logo} alt="logo"/>
-                <h2>질문의 답을 하고 나의 피부타입에 맞는 화장품을 추천받자</h2>
+                <h2>피부 타입도 알아내고, 그에 맞는 제품도 추천 받기</h2>
             <Link to="/skinTest" className="test_btn">
                 추천받기
             </Link>
