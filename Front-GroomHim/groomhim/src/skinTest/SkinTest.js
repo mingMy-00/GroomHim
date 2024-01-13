@@ -17,15 +17,20 @@ function SkinTest(){
     // 응답에 맞는 질문지 가져오기
     const nextQuestion = answer =>{ 
 
+        /*건성 수부지 문제*/ 
         if(answer.tag == "건성수부지"){
             setDryCount(dryCount + 1);
             setWaterOilCount(waterOilCount + 1);
         }
-        
         if(answer.tag == "건성") {
             setDryCount(dryCount + 1);
         }else if(answer.tag == "수부지") {
             setWaterOilCount(waterOilCount + 1);
+        }
+
+        /*여드름문제*/
+        if(answer.topic == "여드름") {
+           
         }
 
         if(answer.hasOwnProperty('end')){ // 해당 응답이 마지막 응답이라면
