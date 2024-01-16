@@ -4,7 +4,7 @@ import Modal from 'react-awesome-modal';
 import './footer.css';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-const Header = () => {
+const Footer = () => {
 
     const [isLogin, setIsLogin] = useState(false);
 
@@ -125,6 +125,11 @@ const Header = () => {
         closeModal();
         navigate("/page/member/FindId");
     }
+
+    const kakaoLogin = async (e) => {
+        window.location.href = 'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=23f907bb8235e70cb79955eb28e00bde&redirect_uri=http://localhost:3000/callback/kakao';
+    };
+
     return (
         <div className='footer'>
             <div className='footerItem' onClick={showHome}>
@@ -188,7 +193,7 @@ const Header = () => {
                         <hr className='sns-hr' />
                     </div>
                     <div className='sns-icon-area'>
-                        <img src='/img/kakao-icon.png' />
+                        <img onClick={kakaoLogin} src='/img/kakao-icon.png' />
                         <img src='/img/naver-icon.png' />
                         <img src='/img/google-icon.png' />
                     </div>
@@ -199,4 +204,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Footer;

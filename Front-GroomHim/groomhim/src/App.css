@@ -20,6 +20,8 @@
   }
   .app{
     padding-top: 50px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
     margin: 0;
   }
   .btn_cursor {

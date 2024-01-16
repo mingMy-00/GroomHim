@@ -1,0 +1,135 @@
+.mypage h3{
+    margin: 2%;
+}
+.mypage hr {
+    margin: 2% 0;
+}
+.mypage-userInfo {
+    justify-content: space-between;
+    margin : 0 5%;
+}
+.userInfo-left {
+    width: 60%;
+}
+.setting-button {
+}
+.profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+.displayFlex {
+    display: flex;
+}
+.user-name {
+    width: 40%;
+}
+.user-skin-type {
+    width: 25%;
+    text-align: center;
+    
+}
+.user-skin-type {
+    margin: 0;
+}
+.user-skin-type {
+
+}
+.mypage-box {
+    width: 45%;
+    height: 60px;
+    border: 1px solid lightgray;
+    padding:2%;
+    margin: 2%;
+    border-radius: 20px;
+    justify-content: space-between;
+}
+.mypage-box h4 {
+    margin: 5px 0;
+}
+.mypage-box div {
+    width: 35%;
+    margin-left: 10%;
+    margin-top: 10px;
+}
+.mypage-box img {
+    margin: 5%;
+}
+.mypage-area1 {
+}
+
+.user-name {
+    margin: 0 3%;
+    font-size: 20px;
+    align-self: center;
+}
+.user-skin-type {
+    padding: 1%;
+    align-self: center;
+    border: 1px solid #020715;
+    border-radius: 10px;
+}
+.setting-button {
+    width: 60px;
+    height: 50px;
+    display: flex;
+    float: right;
+    border: 1px solid lightgray;
+    align-self: center;
+    align-items: center;
+}
+.setting-button img {
+    margin: auto;
+}
+.mypage-area2 {
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3%;
+    padding: 5%;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.mypage-area3 {
+
+}
+.bookmark {
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+}
+.bookmark-item {
+    width: 50%;
+    height: 50px;
+    display: flex;
+    padding: 4%;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+}
+.bookmark-item img {
+    margin-bottom: 2px;
+}
+.mypage-area4 {
+
+}
+.product-card {
+    width: 100px;
+    height: 150px;
+    margin: 0 2%;
+}
+.product-card img {
+    width: 100%;
+    height: 100px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+.product-price {
+    margin-left: 5%;
+}
+.product-name {
+    margin-left: 5%;
+    color: rgb(148, 148, 148);
+}
