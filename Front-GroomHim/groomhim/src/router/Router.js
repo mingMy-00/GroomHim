@@ -8,7 +8,7 @@ import Result from '../result/Result';
 import OilSkin from '../result/OilSkin';
 import Mypage from '../page/member/Mypage';
 import FindId from '../page/member/FindId';
-
+import LoginHandeler from '../page/member/LoginHandeler';
 
 export default function Router() {
     return (
@@ -21,6 +21,7 @@ export default function Router() {
             <Route path="/page/member/Mypage" element={<Mypage/>} />
             <Route path="/page/member/FindId" element={<FindId/>} />
             <Route path="/result" element={<OilSkin/>} />
+            <Route path="/callback/kakao" element = {<LoginHandeler/>} />
         </Routes>
     );
 }

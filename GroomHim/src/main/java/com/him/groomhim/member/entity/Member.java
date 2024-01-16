@@ -11,6 +11,7 @@ import java.util.List;
 @Setter
 @Getter
 @NoArgsConstructor
+@ToString
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +21,7 @@ public class Member {
     @Column(name = "MEMBER_ID", length = 50, nullable = false, unique = true)
     private String memberId;
 
-    @Column(name = "MEMBER_PWD", length = 50, nullable = false)
+    @Column(name = "MEMBER_PWD", length = 50, nullable = true)
     private String memberPwd;
 
     @Column(name = "MEMBER_EMAIL", length = 100, nullable = false, unique = true)
@@ -38,7 +39,7 @@ public class Member {
     @Column(name = "MEMBER_GENDER", length = 10, nullable = false)
     private String memberGender;
 
-    @Column(name = "MEMBER_ADDRESS", length = 100, nullable = false)
+    @Column(name = "MEMBER_ADDRESS", length = 100, nullable = true)
     private String memberAddress;
 
     @Column(name = "MEMBER_BIRTH", nullable = false)
