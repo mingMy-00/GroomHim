@@ -1,3 +1,7 @@
+:root {
+  --vh: 100%;
+}  
+  
   @font-face {
     font-family: 'BMJUA';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
@@ -8,7 +12,9 @@
   body{
     font-family: 'BMJUA';
     margin: 0;
+    height :  calc(var(--vh, 1vh) * 100);
   }
+
   html{
     margin: 0;
   }
@@ -78,7 +84,7 @@
   }
 
   #id, #password {
-    height : 40px;
+    height :  calc(var(--vh, 1vh) * 40);
     border-radius: 10px;
     padding-left: 10px;
   }
