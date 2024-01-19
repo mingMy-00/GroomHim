@@ -10,12 +10,14 @@
   }
 
   body{
+    max-width: 420px !important;
     font-family: 'BMJUA';
     margin: 0;
     height :  calc(var(--vh, 1vh) * 100);
   }
 
-  html{
+  html {
+    max-width: 420px !important;
     margin: 0;
   }
   .app{

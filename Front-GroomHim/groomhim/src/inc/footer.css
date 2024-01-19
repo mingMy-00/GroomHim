@@ -1,41 +1,46 @@
 .footer {
-  bottom: 0;
+  max-width: 420px;
   width: 100%;
-  height: 50px;
-  margin: 0;
+  height: 60px !important;
+  bottom: 0;
   background-color: white;
   border-top: 1px solid lightgray;
   display: flex;
   justify-content: space-between;
   text-align: center;
   align-items: center;
+  z-index: 999;
 }
 .footerItem {
-  width: 20%;
-  margin: 0;
+  width: 10%;
+  margin: auto;
 }
 .footer-icon {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
+  margin: 5px 5px 5px 0px;
 }
 .item-name {
   margin: 0;
   font-size: 10px;
 }
+.modal-area {
+}
 .login-modal {
   padding-top: 5%;
+  z-index: 1;
 }
 .login-modal h3 {
-    margin-top: 10%;
-    margin-bottom: 0;
+  margin-top: 10%;
+  margin-bottom: 0;
 }
 .login-modal h4 {
-    margin: 0;
+  margin: 0;
 }
 .login-cancel {
-    position: absolute;
-    right: 5%;
-    top: 3%;
+  position: absolute;
+  right: 5%;
+  top: 3%;
 }
 .sns-hr {
   flex: 1;
@@ -57,10 +62,10 @@
   font-family: inherit;
   width: 100%;
   border: none;
-  border-bottom: 2px solid #434A5A;
+  border-bottom: 2px solid #434a5a;
   outline: 0;
   font-size: 17px;
-  color: #434A5A;
+  color: #434a5a;
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
@@ -81,14 +86,14 @@
   display: block;
   transition: 0.2s;
   font-size: 17px;
-  color: #434A5A;
+  color: #434a5a;
 }
 
 .login-field:focus {
   padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
-  border-image: linear-gradient(to right, #434A5A, #434A5A);
+  border-image: linear-gradient(to right, #434a5a, #434a5a);
   border-image-slice: 1;
 }
 
@@ -98,7 +103,7 @@
   display: block;
   transition: 0.2s;
   font-size: 17px;
-  color: #434A5A;
+  color: #434a5a;
   font-weight: 700;
 }
 
@@ -108,16 +113,15 @@
   box-shadow: none;
 }
 
-.login-menu{
-    display: flex;
-    justify-content: space-between;
-    margin: 5% 20%;
+.login-menu {
+  display: flex;
+  justify-content: space-between;
+  margin: 5% 20%;
 }
-.signUp-btn{
-    width: 80%;
-    height: 40px;
-    border-radius: 5px;
-    background-color: #434A5A;
-    color: white;
-    
+.signUp-btn {
+  width: 80%;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #434a5a;
+  color: white;
 }
