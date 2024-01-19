@@ -5,18 +5,23 @@
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height : 770px;
   }
   
   .notice-header {
-    display: flex;
     justify-content: space-between;
-    align-items: center;
+    text-align: left;
     margin-bottom: 20px;
+    padding : 10px;
   }
   
   .notice-title {
     font-size: 24px;
     color: #333;
+    text-align: left;
+    margin : 0px;
+    padding-bottom :10px;
+    padding-top : 20px;
   }
   
   .notice-date {
@@ -28,4 +33,5 @@
     font-size: 16px;
     line-height: 1.5;
     color: #555;
+    padding : 10px;
   }

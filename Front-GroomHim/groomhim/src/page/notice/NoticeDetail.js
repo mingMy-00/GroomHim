@@ -1,12 +1,18 @@
 import React, { useState , useEffect } from 'react';
-import { useLocation } from "react-router-dom";
+import { useLocation , useNavigate } from "react-router-dom";
 import './noticeDetail.css';
 import axios from 'axios';
+
 const NoticeDetail = () => {
   
   const [notice, setNotice] = useState([]);
   let location = useLocation();
   let noticeNo = location.state.noticeNo;
+  let navigate = useNavigate();
+  
+  const out = () => {
+    navigate("/page/notice/notice");
+  }
 
   useEffect(function() {
         axios({
@@ -24,12 +30,15 @@ const NoticeDetail = () => {
 
   return (
     <div className="notice-detail">
+     <div onClick={out}>&nbsp; &lt;</div>
       <div className="notice-header">
         <h2 className="notice-title">{notice.noticeTitle}</h2>
-        <hr /><br></br>
-       <p className="notice-date">{notice.enrollDate}</p>
+            <p className="notice-date">{notice.enrollDate}</p>
+            <hr />
       </div>
+
       <div className="notice-content">{notice.noticeContent}</div>
+
     </div>
   );
 };

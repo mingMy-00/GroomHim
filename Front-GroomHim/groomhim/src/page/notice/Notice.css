@@ -4,7 +4,20 @@
 
   .notice-board {
     max-width: 600px;
-    margin: auto;
+    height: 600px;
+    overflow-y: auto; /* 필요한 경우에만 스크롤바를 표시 */
+    margin-top: 0px;
+    scrollbar-width: thin; /* Firefox에서 스크롤바의 너비를 조정 */
+    scrollbar-color: transparent transparent; /* Firefox에서 스크롤바를 투명으로 설정 */
+  }
+
+  /* Webkit 브라우저에 대한 스크롤바 스타일 조정 (Chrome, Safari 등) */
+  .notice-board::-webkit-scrollbar {
+      width: 0px; /* 스크롤바의 너비 조정 */
+  }
+
+  .notice-board::-webkit-scrollbar-thumb {
+      background-color: transparent; /* 스크롤바 색상을 투명으로 설정 */
   }
   
   .notice-item {
@@ -28,11 +41,6 @@
     text-align: center;
     color: #555;
   }
-
-  .notice-board {
-    max-width: 800px;
-    margin: 50px auto;
-  }
   
   h2 {
     text-align: center;
@@ -41,6 +49,8 @@
 
   .uploadButton {
     text-align : right;
+    width : 100%;
+    margin : auto;
   }
   
   .uploadButton > Button {
@@ -48,4 +58,9 @@
     color : white;
     font-family: 'BMJUA';
     border : 0px;
+    width : 98%;
+  }
+
+  .uploadButton > Button:hover {
+    cursor: pointer;
   }
