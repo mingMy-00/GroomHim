@@ -18,7 +18,7 @@ export default function Router() {
             <Route path='/result' element={<Result/>}/>
             <Route path="/page/member/AgreementPage" element={<AgreementPage />} />
             <Route path="/page/member/SignUp" element={<SignUp />} />
-            <Route path="/page/member/Mypage" element={<Mypage/>} />
+            <Route path="/page/member/Mypage/*" element={<Mypage/>} />
             <Route path="/page/member/FindId" element={<FindId/>} />
             <Route path="/result" element={<OilSkin/>} />
             <Route path="/callback/kakao" element = {<LoginHandeler/>} />

@@ -1,0 +1,62 @@
+.mypageReview {
+    margin-top: 3%;
+    width: 100%;
+}
+.reviewTitle {
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    border-bottom: 1px solid black;
+}
+.reviewTitle p {
+    margin: 20px;
+}
+.review-type {
+    text-align: center;
+    align-items: center;
+    margin: 5% 10%;
+    width: 100%;
+}
+.review-type-item {
+    width: 20%;
+    margin : 0 10%
+}
+.review-type-item p {
+    padding: 5px;
+}
+.review-type-title {
+    
+    color: gray;
+}
+.review-list-img img {
+    margin: 2px;
+    width: 32%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+.general-item {
+    width: 100%;
+    height: 150px;
+    padding: 10px 20px;
+}
+.general-item-detail {
+    width: 70%;
+}
+.general-item-detail p {
+    font-size: 12px;
+    margin: 8px 0 8px 5%;
+}
+.general-item1 {
+    display: flex;
+    align-items: center;
+}
+.general-item1 img{
+    width: 95px;
+    height: 95px;
+    border-radius: 10px;
+}
+.general-item-content {
+    width: 90%;
+    font-size: 12px;
+    margin-top: 3%;
+}
