@@ -30,7 +30,7 @@ function Notice() {
         }).catch(function () {
             console.log("공지사항 불러오기 실패");
         });
-    }, []);  // useEffect를 사용하여 컴포넌트가 마운트 될 때 한 번만 실행되도록 설정
+    }, [notices]);  // useEffect를 사용하여 컴포넌트가 마운트 될 때 한 번만 실행되도록 설정
 
       return (
             <div>

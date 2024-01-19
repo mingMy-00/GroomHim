@@ -34,6 +34,11 @@ public class Notice {
         enrollDate = LocalDateTime.now();
     }
 
+    @PreUpdate
+    protected void onUpdate() {
+        enrollDate = LocalDateTime.now(); // 수정 시간 갱신
+    }
+
     public Notice(String noticeTitle, String noticeContent) {
         this.noticeTitle = noticeTitle;
         this.noticeContent = noticeContent;

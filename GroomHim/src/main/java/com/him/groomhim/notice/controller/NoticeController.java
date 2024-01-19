@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class NoticeController {
 
     private final NoticeService noticeService;
+
     @GetMapping("/noticeList")
     public ArrayList<Notice> NoticeList() {
         return noticeService.findAllNotice();
@@ -28,6 +29,18 @@ public class NoticeController {
     @GetMapping("/noticeDetail")
     public Notice noticeDetail(@RequestParam(value="noticeNo") long noticeNo) {
         return noticeService.findByNotice(noticeNo);
+    }
+
+    @PostMapping("/updateNotice")
+    public void noticeDetail(@RequestBody final Notice param) {
+        long noticeNo = param.getNoticeNo();
+        Notice existNotice = noticeService.findByNotice(noticeNo);
+        //System.out.println(existNotice);
+        existNotice.setNoticeContent(param.getNoticeContent());
+        existNotice.setNoticeTitle(param.getNoticeTitle());
+        existNotice.setNoticeNo(param.getNoticeNo());
+
+        existNotice = noticeService.save(existNotice);
     }
 
 }

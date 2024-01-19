@@ -9,9 +9,13 @@ const NoticeDetail = () => {
   let location = useLocation();
   let noticeNo = location.state.noticeNo;
   let navigate = useNavigate();
-  
+
   const out = () => {
     navigate("/page/notice/notice");
+  }
+
+  const updateNotice = () => {
+    navigate("/page/notice/NoticeUpdate", {state : {noticeNo : noticeNo, noticeTitle : notice.noticeTitle , noticeContent : notice.noticeContent}});
   }
 
   useEffect(function() {
@@ -38,7 +42,7 @@ const NoticeDetail = () => {
       </div>
 
       <div className="notice-content">{notice.noticeContent}</div>
-
+    <div className="updateButton"><button onClick={updateNotice}>수정하기</button></div>
     </div>
   );
 };

@@ -5,7 +5,6 @@
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height : 770px;
   }
   
   .notice-header {
@@ -34,4 +33,13 @@
     line-height: 1.5;
     color: #555;
     padding : 10px;
+    height : 570px;
+  }
+
+  .updateButton {
+    width : 100%;
+  }
+
+  .updateButton > button {
+    width : 100%;
   }
