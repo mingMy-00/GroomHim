@@ -10,19 +10,21 @@ import Mypage from '../page/member/Mypage';
 import FindId from '../page/member/FindId';
 import LoginHandeler from '../page/member/LoginHandeler';
 import Notice from '../page/notice/Notice'
+import NoticeForm from '../page/notice/NoticeForm';
 export default function Router() {
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path='/skinTest' element={<SkinTest />} />
-            <Route path='/result' element={<Result/>}/>
-            <Route path="/page/member/AgreementPage" element={<AgreementPage />} />
-            <Route path="/page/member/SignUp" element={<SignUp />} />
-            <Route path="/page/member/Mypage/*" element={<Mypage/>} />
-            <Route path="/page/member/FindId" element={<FindId/>} />
-            <Route path="/result" element={<OilSkin/>} />
-            <Route path="/callback/kakao" element = {<LoginHandeler/>} />
-            <Route path="/page/notice/Notice" element = {<Notice/>} />
+            <Route path="/"                             element={<Home />} />
+            <Route path='/skinTest'                     element={<SkinTest />} />
+            <Route path='/result'                       element={<Result/>}/>
+            <Route path="/page/member/AgreementPage"    element={<AgreementPage />} />
+            <Route path="/page/member/SignUp"           element={<SignUp />} />
+            <Route path="/page/member/Mypage/*"         element={<Mypage/>} />
+            <Route path="/page/member/FindId"           element={<FindId/>} />
+            <Route path="/result"                       element={<OilSkin/>} />
+            <Route path="/callback/kakao"               element={<LoginHandeler/>} />
+            <Route path="/page/notice/Notice"           element={<Notice/>} />
+            <Route path="/page/notice/NoticeForm"       element={<NoticeForm/>} />
         </Routes>
     );
 }
