@@ -22,7 +22,12 @@ public class NoticeController {
     public int InsertNotice(@RequestBody final Notice param) {
         Notice notice = new Notice();
         notice = noticeService.save(param);
-        //System.out.println(notice);
         return 1;
     }
+
+    @GetMapping("/noticeDetail")
+    public Notice noticeDetail(@RequestParam(value="noticeNo") long noticeNo) {
+        return noticeService.findByNotice(noticeNo);
+    }
+
 }

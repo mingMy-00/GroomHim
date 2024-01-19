@@ -18,4 +18,6 @@ public class NoticeService {
     }
 
     public Notice save( Notice param) {return noticeRepository.save(param); }
+
+    public Notice findByNotice(long noticeNo) {return noticeRepository.findByNoticeNo(noticeNo); }
 }

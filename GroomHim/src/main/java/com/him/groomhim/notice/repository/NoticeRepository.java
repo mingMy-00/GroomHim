@@ -9,4 +9,6 @@ public interface NoticeRepository extends JpaRepository<Notice, Long> {
     ArrayList<Notice> findAll();
 
     Notice save(Notice param);
+
+    Notice findByNoticeNo(long noticeNo);
 }
