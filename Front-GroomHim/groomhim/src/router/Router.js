@@ -11,6 +11,7 @@ import FindId from '../page/member/FindId';
 import LoginHandeler from '../page/member/LoginHandeler';
 import Notice from '../page/notice/Notice'
 import NoticeForm from '../page/notice/NoticeForm';
+import NoticeDetail from '../page/notice/NoticeDetail';
 export default function Router() {
     return (
         <Routes>
@@ -25,6 +26,7 @@ export default function Router() {
             <Route path="/callback/kakao"               element={<LoginHandeler/>} />
             <Route path="/page/notice/Notice"           element={<Notice/>} />
             <Route path="/page/notice/NoticeForm"       element={<NoticeForm/>} />
+            <Route path="/page/notice/NoticeDetail"     element={<NoticeDetail/>} />
         </Routes>
     );
 }
