@@ -7,11 +7,6 @@ import Router from './router/Router';
 
 function App() {
 
-    function setScreenSize() {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty("--vh", `${vh}px`);
-    }
-
     const [isLogin, setIsLogin] = useState(false);
 
     useEffect(function () {
@@ -21,14 +16,13 @@ function App() {
             setIsLogin(true);
             //console.log(isLogin);
         }
-        setScreenSize();
     })
 
     return (
         <div className='app'>
             <Head />
             <Router />
-            <Footer/>
+            <Footer />
         </div>
     );
 }

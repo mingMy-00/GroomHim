@@ -9,7 +9,7 @@ import OilSkin from '../result/OilSkin';
 import Mypage from '../page/member/Mypage';
 import FindId from '../page/member/FindId';
 import LoginHandeler from '../page/member/LoginHandeler';
-
+import Notice from '../page/notice/Notice'
 export default function Router() {
     return (
         <Routes>
@@ -22,6 +22,7 @@ export default function Router() {
             <Route path="/page/member/FindId" element={<FindId/>} />
             <Route path="/result" element={<OilSkin/>} />
             <Route path="/callback/kakao" element = {<LoginHandeler/>} />
+            <Route path="/page/notice/Notice" element = {<Notice/>} />
         </Routes>
     );
 }

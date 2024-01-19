@@ -123,6 +123,9 @@ const Footer = () => {
         navigate("/", {});
     };
 
+    const notice = () => {
+        navigate("/page/notice/Notice", {});
+    }
     const findId = () => {
         closeModal();
         navigate("/page/member/FindId");
@@ -141,7 +144,7 @@ const Footer = () => {
                 </svg>
                 <p className='item-name'>홈</p>
             </div>
-            <div className='footerItem' onClick={showHome}>
+            <div className='footerItem' onClick={notice}>
                 <img className='footer-icon' src='/img/speaker-icon.png'/>
                 <p className='item-name'>공지사항</p>
             </div>
