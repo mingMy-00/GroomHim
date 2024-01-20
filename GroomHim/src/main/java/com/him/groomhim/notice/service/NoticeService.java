@@ -36,7 +36,7 @@ public class NoticeService {
     }
 
     /**
-     * 공지사항 글 작성을 위한 method
+     * 공지사항 글 업데이트를 위한 method
      * */
     public Notice save( Notice param) {return noticeRepository.save(param); }
 
@@ -50,10 +50,7 @@ public class NoticeService {
      * */
     //파일을 저장하기 위한 method
     public int saveFile(MultipartFile file, String noticeTitle, String noticeContent) {
-        //파일이 없을 때!
-        if (file.isEmpty()) {
-            return 0;
-        }
+
         //원래 파일 이름, 현재 시간, 랜덤 숫자, 확장자명, 바뀐 파일 이름
         String originName  = file.getOriginalFilename();
         String currentTime = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
@@ -77,6 +74,13 @@ public class NoticeService {
             e.printStackTrace();
             return 0; // 아니라면 0
         }
+    }
+
+    /**공지사항 글 작성 중, 첨부파일 없을 때*/
+    public int saveNotice(String noticeTitle, String noticeContent) {
+        Notice notice = new Notice(noticeTitle, noticeContent);
+        noticeRepository.save(notice);
+        return 1;
     }
 
     //게시글 삭제를 위한 method

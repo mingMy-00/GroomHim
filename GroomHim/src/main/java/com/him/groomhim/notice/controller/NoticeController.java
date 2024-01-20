@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -23,12 +24,16 @@ public class NoticeController {
     }
 
     @PostMapping("/insertNotice")
-    public int InsertNotice(@RequestParam("file") MultipartFile file,
+    public int InsertNotice(@RequestParam("file") Optional<MultipartFile> file,
                             @RequestParam("noticeTitle") String noticeTitle,
                             @RequestParam("noticeContent") String noticeContent) {
-//        Notice notice = new Notice();
-//        notice = noticeService.save(param);
-        return noticeService.saveFile(file, noticeTitle, noticeContent);
+
+        // 파일이 존재하는지 여부 확인
+        if (file.isPresent() && !file.get().isEmpty()) {
+            return noticeService.saveFile(file.get(), noticeTitle, noticeContent);
+        } else {
+            return noticeService.saveNotice(noticeTitle, noticeContent);
+        }
     }
 
     @GetMapping("/noticeDetail")

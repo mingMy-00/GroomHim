@@ -36,6 +36,11 @@ public class Notice {
     @Temporal(TemporalType.TIMESTAMP)
     private String enrollDate;
 
+    public Notice(String noticeTitle, String noticeContent) {
+        this.noticeTitle = noticeTitle;
+        this.noticeContent = noticeContent;
+    }
+
     @PrePersist
     protected void onCreate() {
         LocalDateTime now = LocalDateTime.now();

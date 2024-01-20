@@ -32,10 +32,11 @@ function NoticeForm() {
 
    // FormData 객체를 생성하고 파일과 함께 데이터 추가
    const formData = new FormData();
-   formData.append('file', file);
+   if (file !== null) {
+    formData.append('file', file);
+   }
    formData.append('noticeTitle', title);
    formData.append('noticeContent', content);
-   formData.append('check', check);
 
   const insertNotice = () =>  {
     // axios를 사용하여 서버로 데이터 전송
