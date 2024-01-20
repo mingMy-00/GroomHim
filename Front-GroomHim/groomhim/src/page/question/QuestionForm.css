@@ -1,0 +1,131 @@
+.question-form-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    padding: 0px 16px;
+    width: 100%;
+    max-width: 752px;
+    min-height: 100vh;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+.question-form{
+    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 752px;
+    margin: 0px auto;
+    padding: 0px;
+}
+
+.form-title{
+    -webkit-tap-highlight-color: transparent;
+    appearance: none;
+    resize: none;
+    box-sizing: border-box;
+    color: rgb(0, 0, 0);
+    display: block;
+    text-align: left;
+    border-width: 0px;
+    background-color: transparent;
+    min-height: 1.75rem;
+    outline: 0px;
+    margin-bottom: 16px;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.35;
+    padding: 0px !important;
+    overflow: auto;
+    margin: 0px;
+}
+
+.form-tag{
+    width: 100%;
+    padding: 0px;
+    height: 26px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    margin-bottom: 10px;
+    overflow: visible;
+    margin: 0px;
+}
+
+.tag{
+    display: inline-block
+}
+
+.question-form-content{
+    height: 100%;
+    max-height: 100%;
+    min-height: 480px;
+}
+
+.form-content{
+    width: 100%;
+    padding: 16px 20px;
+    height: 100%;
+    max-height: 100%;
+    min-height: 480px;
+}
+
+.question-form-btn{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px 20px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.form-cancle{
+    padding: 0px 1.375rem;
+    appearance: none;
+    text-align: left;
+    text-decoration: none;
+    box-sizing: border-box;
+    height: 2.625rem;
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    width: auto;
+    font-weight: 600;
+    position: relative;
+    line-height: 1;
+    font-size: 1rem;
+    user-select: none;
+    cursor: pointer;
+    margin-right: 1rem;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(206, 212, 218);
+    border-radius: 8px;
+}
+
+.form-submit{
+    padding: 0px 1.375rem;
+    appearance: none;
+    text-align: left;
+    text-decoration: none;
+    box-sizing: border-box;
+    height: 2.625rem;
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    width: auto;
+    font-weight: 600;
+    position: relative;
+    line-height: 1;
+    font-size: 1rem;
+    user-select: none;
+    cursor: pointer;
+    border: 0.0625rem solid transparent;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 196, 113);
+    border-radius: 8px;
+}
+
