@@ -1,4 +1,5 @@
 .footer {
+    position: fixed;
   max-width: 420px;
   width: 100%;
   height: 60px !important;
@@ -12,7 +13,7 @@
   z-index: 999;
 }
 .footerItem {
-  width: 10%;
+  width: 15%;
   margin: auto;
 }
 .footer-icon {

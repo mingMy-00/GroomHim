@@ -163,59 +163,63 @@ const Footer = () => {
             {showLoginItem()}
             
 
-            {/* 로그인 모달 */}
-            <Modal
-                visible={visible}
-                width="95%" height="80%"
-                effect="fadeInDown"
-                onClickAway={closeModal}
-            >   
-            <div>
-                
-            </div>
-                <div className='login-modal'>
-                    <img className="header_logo" src="img/logo-icon.png" />
-                    <h4>남성 케어의 시작 GroomHim</h4>
-                    <div className='login-cancel' onClick={closeModal}>X</div>
-                    {/* 로그인 영역 */}
-                    <h3>로그인</h3>
-                    <form>
-                        <div className="login-area">
-                            <input type="input" className="login-field" 
-                                name='id' id="login-id" value={id}
-                                placeholder="아이디" onChange={changeID} required />
-                            <label htmlFor="name" className="login-label">아이디</label>
-                        </div>
 
-                        <div className="login-area">
-                            <input type="password" className="login-field" 
-                                name='password' id="login-password" value={password}
-                                placeholder="비밀번호" onChange={changePW} required />
-                            <label htmlFor="name" className="login-label">비밀번호</label>
-                        </div>
-                    </form>
-                    <button className='signUp-btn' onClick={onClickLogin}>로그인</button>
-                    <div className='login-menu'>
-                        <div onClick={findId}><a>아이디 찾기</a></div>
-                        <div><a>비밀번호 찾기</a></div>
-                    </div>
-                    <br/>
-                    {/* sns 로그인 영역 */}
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <hr className='sns-hr' />
-                        <p style={{ margin: 0 }}>SNS LOGIN</p>
-                        <hr className='sns-hr' />
-                    </div>
-                    <div className='sns-icon-area'>
-                        <img onClick={kakaoLogin} src='/img/kakao-icon.png' />
-                        <img src='/img/naver-icon.png' />
-                        <img src='/img/google-icon.png' />
-                    </div>
-                    <button className='signUp-btn' onClick={moveSignUp}>회원가입</button>
-                </div>
-            </Modal>
         </div>
     );
 };
 
 export default Footer;
+
+
+
+            // {/* 로그인 모달 */}
+            // <Modal
+            //     visible={visible}
+            //     width="95%" height="80%"
+            //     effect="fadeInDown"
+            //     onClickAway={closeModal}
+            // >   
+            // <div>
+                
+            // </div>
+            //     <div className='login-modal'>
+            //         <img className="header_logo" src="img/logo-icon.png" />
+            //         <h4>남성 케어의 시작 GroomHim</h4>
+            //         <div className='login-cancel' onClick={closeModal}>X</div>
+            //         {/* 로그인 영역 */}
+            //         <h3>로그인</h3>
+            //         <form>
+            //             <div className="login-area">
+            //                 <input type="input" className="login-field" 
+            //                     name='id' id="login-id" value={id}
+            //                     placeholder="아이디" onChange={changeID} required />
+            //                 <label htmlFor="name" className="login-label">아이디</label>
+            //             </div>
+
+            //             <div className="login-area">
+            //                 <input type="password" className="login-field" 
+            //                     name='password' id="login-password" value={password}
+            //                     placeholder="비밀번호" onChange={changePW} required />
+            //                 <label htmlFor="name" className="login-label">비밀번호</label>
+            //             </div>
+            //         </form>
+            //         <button className='signUp-btn' onClick={onClickLogin}>로그인</button>
+            //         <div className='login-menu'>
+            //             <div onClick={findId}><a>아이디 찾기</a></div>
+            //             <div><a>비밀번호 찾기</a></div>
+            //         </div>
+            //         <br/>
+            //         {/* sns 로그인 영역 */}
+            //         <div style={{ display: 'flex', alignItems: 'center' }}>
+            //             <hr className='sns-hr' />
+            //             <p style={{ margin: 0 }}>SNS LOGIN</p>
+            //             <hr className='sns-hr' />
+            //         </div>
+            //         <div className='sns-icon-area'>
+            //             <img onClick={kakaoLogin} src='/img/kakao-icon.png' />
+            //             <img src='/img/naver-icon.png' />
+            //             <img src='/img/google-icon.png' />
+            //         </div>
+            //         <button className='signUp-btn' onClick={moveSignUp}>회원가입</button>
+            //     </div>
+            // </Modal>

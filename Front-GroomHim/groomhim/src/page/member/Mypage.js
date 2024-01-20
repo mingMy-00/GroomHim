@@ -5,14 +5,16 @@ import './Mypage.css';
 import axios from "axios";
 
 function Mypage() {
-
+    let navigate = useNavigate();
 
     const Logout = () => {
         sessionStorage.removeItem("loginMember");
         document.location.href = '/'
     }
 
-    
+    const moveMypageInfo = () => {
+        navigate("/page/member/MypageInfo");
+    }
 
     return (
         <div className='mypage'>
@@ -31,7 +33,7 @@ function Mypage() {
                 </div>
             </div>
             <div className='mypage-area1 displayFlex'>
-                <button>내 정보 수정</button>
+                <button onClick={moveMypageInfo}>내 정보 수정</button>
                 <button>배송지 정보 수정</button>
             </div>
             <MypageRouter/>

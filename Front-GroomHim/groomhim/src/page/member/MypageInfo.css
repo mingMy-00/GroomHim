@@ -1,0 +1,77 @@
+.mypageInfo input{
+    font-family: 'BMJUA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.mypageInfo h2 {
+  margin: 0;
+}
+.info-profile {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  position: relative;
+  margin: auto;
+  margin-top: 20px;
+}
+.info-profile img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.info-profile-edit {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #11202d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-profile-edit img {
+  color: white;
+  width: 15px;
+  height: 15px;
+  margin-left: 2px;
+}
+.info-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin : 8% 10%
+}
+.info-item label {
+    color: #98a3a8;
+}
+.info-item input {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #98a3a8;
+}
+.save-label {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: skyblue;
+}
+.radio-container {
+    margin-top : 5%;
+    padding: 0 5%;
+}
+.updateModal {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10%;
+    position: fixed; 
+    top: 0;
+    left: 0;
+}
