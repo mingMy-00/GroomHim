@@ -25,6 +25,12 @@ public class Notice {
     @Column(name = "NOTICE_CONTENT", length = 1000, nullable = false)
     private String noticeContent;
 
+    @Column(name = "ORIGIN_NAME", length = 1000)
+    private String originName;
+
+    @Column(name = "CHANGE_NAME", length = 1000)
+    private String changeName;
+
     @Column(name = "ENROLL_DATE", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime enrollDate;
@@ -39,9 +45,11 @@ public class Notice {
         enrollDate = LocalDateTime.now(); // 수정 시간 갱신
     }
 
-    public Notice(String noticeTitle, String noticeContent) {
+    public Notice(String noticeTitle, String noticeContent, String originName, String changeName) {
         this.noticeTitle = noticeTitle;
         this.noticeContent = noticeContent;
+        this.originName = originName;
+        this.changeName = changeName;
         this.enrollDate = LocalDateTime.now(); // 현재 날짜와 시간으로 초기화
     }
 }

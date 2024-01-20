@@ -46,6 +46,7 @@
     text-align : right;
     width : 100%;
     margin : auto;
+    height : 40px;
   }
   
   .uploadButton > Button {
@@ -54,6 +55,7 @@
     font-family: 'BMJUA';
     border : 0px;
     width : 98%;
+    height :100%;
   }
 
   .uploadButton > Button:hover {
