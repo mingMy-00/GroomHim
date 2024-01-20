@@ -8,17 +8,17 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  form {
+  .form {
     display: flex;
     flex-direction: column;
   }
   
-  label {
+  .form label {
     margin-bottom: 5px;
     font-weight: bold;
   }
   
-  input,
+  .form input,
   textarea {
     margin-bottom: 15px;
     padding: 10px;
@@ -26,12 +26,12 @@
     border-radius: 3px;
   }
 
-  textarea {
+  .form textarea {
     height :520px;
     resize: none;
   }
   
-  button {
+  .form button {
     padding: 10px;
     background-color: #007bff;
     color: #fff;

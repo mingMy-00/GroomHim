@@ -35,7 +35,7 @@ function Notice() {
       return (
             <div>
             {/* 공지사항 목록을 사용하여 화면에 표시하는 코드 */}
-            <h2>공지사항</h2>
+            <h2 className="h2">공지사항</h2>
             <div className="uploadButton"><button onClick={uploadNotice}>글쓰기</button></div>
             {/*관리자만 글작성 가능*/} 
             <div className="notice-board">

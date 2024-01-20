@@ -38,7 +38,7 @@ function NoticeForm() {
   return (
     <div className="notice-form-container">
       <h2>공지사항 작성</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
         <label htmlFor="title">제목</label>
         <input
           type="text"

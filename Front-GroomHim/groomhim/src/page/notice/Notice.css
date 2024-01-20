@@ -1,4 +1,4 @@
-.Notice {
+  .Notice {
     height: 90%;
   }
 
@@ -37,12 +37,7 @@
     margin-top: 10px;
   }
   
-  h2 {
-    text-align: center;
-    color: #555;
-  }
-  
-  h2 {
+  .h2 {
     text-align: center;
     color: #3f51b5;
   }
