@@ -44,12 +44,14 @@ const NoticeDetail = () => {
         })
         .then(function(result) {
             setNotice(result.data);
-            console.log(result);
+
+            let noticeContent = document.getElementById("notice-content");
+            noticeContent.innerHTML = notice.noticeContent;
         })
         .catch(function() {
             console.log("공지사항 가져오기 실패");
         })
-  },[]);
+  },[notice]);
 
   return (
     <div className="notice-detail">
@@ -61,7 +63,7 @@ const NoticeDetail = () => {
             <a href={notice.changeName} download={notice.originName}>{notice.originName}</a>
       </div>
 
-      <div className="notice-content">{notice.noticeContent}</div>
+      <div id="notice-content"></div>
     <div className="updateButton"><button onClick={updateNotice}>수정하기</button><button onClick={deleteNotice}>삭제하기</button></div>
     </div>
   );

@@ -40,9 +40,6 @@ function NoticeUpdate() {
     navigate("/page/notice/Notice");
   }
 
-
-    
-
     return(
         <div className="notice-form-container">
         <h2>공지사항 수정</h2>

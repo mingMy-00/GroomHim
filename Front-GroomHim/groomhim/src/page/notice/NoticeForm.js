@@ -17,7 +17,9 @@ function NoticeForm() {
 
   // 내용 입력 시 state 업데이트
   const handleContentChange = (e) => {
-    setContent(e.target.value);
+    let text = e.target.value;
+    text = text.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    setContent(text);
   };
 
   // 파일 선택 시 state 업데이트
