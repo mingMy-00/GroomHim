@@ -70,7 +70,7 @@ public class NoticeService {
             file.transferTo(new File(filePath));
 
             // 파일 DB에 저장하기.
-            Notice notice = new Notice(noticeTitle, noticeContent, originName,  changeName );
+            Notice notice = new Notice(noticeTitle, noticeContent, originName,  "/resources/upFile/" + changeName );
             noticeRepository.save(notice);
             return 1; // 성공이라면 1
         } catch (IOException e) {
