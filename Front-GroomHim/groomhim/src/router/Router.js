@@ -15,6 +15,7 @@ import NoticeDetail from '../page/notice/NoticeDetail';
 import NoticeUpdate from '../page/notice/NoticeUpdate';
 import Question from '../page/question/Question';
 import QuestionDetail from '../page/question/QuestionDetail';
+import QusetionForm from '../page/question/QuestionForm';
 export default function Router() {
     return (
         <Routes>
@@ -33,6 +34,7 @@ export default function Router() {
             <Route path="/page/notice/NoticeUpdate"     element={<NoticeUpdate/>} />
             <Route path='/page/question'                element={<Question/>} />
             <Route path='/page/question/questionDetail' element={<QuestionDetail />}/>
+            <Route path='/page/question/questionForm'   element={<QusetionForm />}/>
         </Routes>
     );
 }
