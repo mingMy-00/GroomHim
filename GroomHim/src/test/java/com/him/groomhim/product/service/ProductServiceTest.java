@@ -29,20 +29,7 @@ public class ProductServiceTest {
     BeautyTypeRepository beautyTypeRepository;
 
 
-    @Test
-    public void 상품추천_해결용(){
-        // given
-        Long memberNo = 1004L;
-        String beautyName = "세럼";
 
-        // when
-        List<Product> result = productService.recommendProduct(memberNo,beautyName);
-
-        // then
-        for(Product p : result){
-            System.out.println("product = " + p.getProductName());
-        }
-    }
 
     @Test
     public void 화장품타입_이름(){

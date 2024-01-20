@@ -13,6 +13,7 @@ import Notice from '../page/notice/Notice'
 import NoticeForm from '../page/notice/NoticeForm';
 import NoticeDetail from '../page/notice/NoticeDetail';
 import NoticeUpdate from '../page/notice/NoticeUpdate';
+import Question from '../page/question/Question';
 export default function Router() {
     return (
         <Routes>
@@ -29,6 +30,8 @@ export default function Router() {
             <Route path="/page/notice/NoticeForm"       element={<NoticeForm/>} />
             <Route path="/page/notice/NoticeDetail"     element={<NoticeDetail/>} />
             <Route path="/page/notice/NoticeUpdate"     element={<NoticeUpdate/>} />
+            <Route path='/page/question' element={<Question/>} />
+
         </Routes>
     );
 }
