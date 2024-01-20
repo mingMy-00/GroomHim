@@ -1,4 +1,5 @@
 import './Question.css';
+import {Link} from 'react-router-dom';
 
 function Question(){
     
@@ -41,7 +42,7 @@ function Question(){
                 
                 <ul className="question-list">
                     <li className="question-container">
-                        <a click-post href="">
+                        <Link click-post to="/page/question/questionDetail">
                             <div className="question">
                                 <div className="question-info">
                                 <div className="question-title">
@@ -92,7 +93,7 @@ function Question(){
                                 
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
 
@@ -104,7 +105,8 @@ function Question(){
                                 <div className="question-title">
                                     <h3>여드름 피부 고민입니다.</h3>
                                 </div>
-                                <p className="question-body">제목 그대로 입니다..
+                                <p className="question-body">
+                                    제목 그대로 입니다..
                                     몇 년 전부터 여드름이 너무 심하게 올라와서
 
                                     여드름 자체적으로 손으로 짜기도 하고 압출 도구? 같은 

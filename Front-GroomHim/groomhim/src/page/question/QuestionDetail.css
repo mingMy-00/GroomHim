@@ -1,0 +1,142 @@
+.question-main{
+    padding: 0;
+    border: none;
+    min-height: auto;
+    height: 100%;
+}
+
+.question-detail-header{
+    padding-top: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+}
+
+.question-detail-title{
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: -.3px;
+    word-break: break-all;
+}
+
+.question-detail-info{
+    font-size: 12px;
+    width: 100%;
+    color: #868e96;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.question-detail-info span{
+    margin-right: 12px;
+}
+
+.question-detail-hr{
+    margin: 0 16px;
+    height: 1px;
+    background-color: #e9ecef;
+}
+
+.question-detail-body{
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+}
+
+.question-detail-content>p{
+    margin-top: 0;
+}
+
+.question-detail-tags{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -8px;
+    margin-top: 16px;
+}
+
+.question-detail-tag{
+    margin: 0 8px 8px 0;
+}
+
+.tag-btn{
+    background-color: #eff3fa;
+    border-radius: 4px;
+    padding: 4px 8px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 26px;
+    border: none;
+    white-space: nowrap;
+    color: #3e4042;
+    background-color: #f1f3f5;
+    line-height: 1.38;
+    font-size: 13px;
+}
+
+.tag-name{
+    color: currentColor;
+}
+
+.question-detail-commnet{
+    padding: 24px 16px;
+}
+
+.comment-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 27px
+}
+
+.comment-header-title{
+    font-size: 1.125rem!important;
+}
+
+.comment-editor-opener>input{
+    margin-bottom: 4px;
+    width: 100%;
+}
+
+
+
+.comment-submit-btn{
+    margin-left: 255px;
+    margin-right: 8px;
+}
+    
+.comment-item-header{
+    display: flex;
+    align-items: center;
+} 
+
+.comment-writer{
+    display: flex;
+    align-items: center;
+    color: #868e96;
+    font-size: .875rem;
+}
+.dot{
+    margin: 0 4px;
+    color: #adb5bd;
+}
+.comment-createData{
+    color: #868e96;
+    font-size: .875rem;
+    flex-shrink: 0;
+}
+
+.comment-item-body{
+    min-height: 48px;
+    margin: 8px 0 16px;
+    word-break: break-all;
+}
+
+.comment-item{
+    border-bottom: 1px solid #e9ecef;
+    padding: 20px 0;
+}
