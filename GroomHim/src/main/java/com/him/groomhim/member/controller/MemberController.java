@@ -2,6 +2,7 @@ package com.him.groomhim.member.controller;
 
 import com.him.groomhim.common.dto.MsgResponseDto;
 import com.him.groomhim.member.dto.SignUpRequest;
+import com.him.groomhim.member.dto.UpdateRequest;
 import com.him.groomhim.member.entity.Member;
 import com.him.groomhim.member.service.MemberService;
 import com.him.groomhim.product.entity.Product;
@@ -59,8 +60,25 @@ public class MemberController {
         return memberService.checkDuplicateEmail(memberEmail);
     }
 
+    @PostMapping("/updateInfo")
+    public MsgResponseDto updateInfo(@RequestBody UpdateRequest updateRequest) {
+        return memberService.updateInfo(updateRequest);
+    }
 
-
+//    @PostMapping("/updateNickname")
+//    public MsgResponseDto updateNickname(@RequestBody UpdateRequest updateRequest) {
+//        return memberService.updateInfo(updateRequest, "memberNickname");
+//    }
+//
+//    @PostMapping("/updatePhone")
+//    public MsgResponseDto updatePhone(@RequestBody UpdateRequest updateRequest) {
+//        return memberService.updateInfo(updateRequest, "memberPhone");
+//    }
+//
+//    @PostMapping("/updateGender")
+//    public MsgResponseDto updateGender(@RequestBody UpdateRequest updateRequest) {
+//        return memberService.updateInfo(updateRequest, "memberGender");
+//    }
 
 }
 

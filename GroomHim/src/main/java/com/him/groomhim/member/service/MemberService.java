@@ -5,6 +5,7 @@ import com.him.groomhim.common.exception.CustomException;
 import com.him.groomhim.common.exception.ErrorCode;
 import com.him.groomhim.common.exception.SuccessCode;
 import com.him.groomhim.member.dto.SignUpRequest;
+import com.him.groomhim.member.dto.UpdateRequest;
 import com.him.groomhim.member.entity.Member;
 import com.him.groomhim.member.repository.MemberRepository;
 import com.him.groomhim.type.entity.SkinType;
@@ -15,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+
+import java.sql.Date;
 
 
 @Service
@@ -103,9 +106,55 @@ public class MemberService {
         SkinType skinType = skinTypeRepository.findBySkinName(skinTypeName);
         findMember.setSkinType(skinType);
     }
+    public MsgResponseDto updateInfo(UpdateRequest updateRequest) {
+        System.out.println("updateRequest = " + updateRequest);
+        Long memberNo = updateRequest.getMemberNo();
+        String type = updateRequest.getUpdateType();
+        String newData = "";
+        Date newDate = updateRequest.getMemberBirth();
+        switch (type) {
+            case "password":
+                newData = updateRequest.getMemberPassword();
+                break;
+            case "nickname":
+                newData = updateRequest.getMemberNickname();
+                break;
+            case "phone":
+                newData = updateRequest.getMemberPhone();
+                break;
+            case "gender":
+                newData = updateRequest.getMemberGender();
+                break;
+            default:
+                break;
+        }
 
+        Member member = memberRepository.findByMemberNo(memberNo);
 
-
-
-
+        if (member != null) {
+            switch (type) {
+                case "password":
+                    member.setMemberPwd(newData);
+                    break;
+                case "nickname":
+                    member.setMemberNickname(newData);
+                    break;
+                case "phone":
+                    member.setMemberPhone(newData);
+                    break;
+                case "gender":
+                    member.setMemberGender(newData);
+                    break;
+                case "birth":
+                    member.setMemberBirth(newDate);
+                    break;
+                default:
+                    break;
+            }
+            memberRepository.save(member);
+            return new MsgResponseDto(SuccessCode.SUCCESS_CHANGE);
+        } else {
+            return new MsgResponseDto(new CustomException(ErrorCode.MEMBER_NOT_FOUND));
+        }
+    }
 }
