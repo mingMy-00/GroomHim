@@ -66,7 +66,7 @@ function NoticeUpdate() {
             required
           />
   
-          <button type="submit" onClick={endUpdateNotice}>수정 완료</button>
+          <button className="button" type="submit" onClick={endUpdateNotice}>수정 완료</button>
         </form>
       </div>
     );

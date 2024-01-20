@@ -7,7 +7,7 @@ function NoticeForm() {
   const [title, setTitle]     = useState('');
   const [content, setContent] = useState('');
   const [file, setFile]       = useState(null); // 파일을 저장할 state
-
+  const [check, setCheck]     = useState(false);
   let navigate = useNavigate();
 
   //제목 변경 시 state 업데이트
@@ -35,6 +35,7 @@ function NoticeForm() {
    formData.append('file', file);
    formData.append('noticeTitle', title);
    formData.append('noticeContent', content);
+   formData.append('check', check);
 
   const insertNotice = () =>  {
     // axios를 사용하여 서버로 데이터 전송
@@ -67,6 +68,7 @@ function NoticeForm() {
           name ="file"
           onChange={handleFileChange}
         />
+
         <label htmlFor="content">내용</label>
         <textarea
           id="content"
@@ -76,7 +78,10 @@ function NoticeForm() {
           required
         />
 
+        <div className="buttonDiv">
         <button type="submit">글 작성</button>
+        <button type="button" onClick={() => {navigate("/page/notice/notice");}}>취소</button>
+        </div>
       </form>
     </div>
   );

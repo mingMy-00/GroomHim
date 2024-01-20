@@ -50,8 +50,8 @@ public class NoticeService {
      * */
     //파일을 저장하기 위한 method
     public int saveFile(MultipartFile file, String noticeTitle, String noticeContent) {
+        //파일이 없을 때!
         if (file.isEmpty()) {
-            //파일이 없을 때!
             return 0;
         }
         //원래 파일 이름, 현재 시간, 랜덤 숫자, 확장자명, 바뀐 파일 이름

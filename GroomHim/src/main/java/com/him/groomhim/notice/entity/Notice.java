@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Setter
@@ -33,16 +34,20 @@ public class Notice {
 
     @Column(name = "ENROLL_DATE", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime enrollDate;
+    private String enrollDate;
 
     @PrePersist
     protected void onCreate() {
-        enrollDate = LocalDateTime.now();
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        enrollDate = now.format(formatter);
     }
 
     @PreUpdate
     protected void onUpdate() {
-        enrollDate = LocalDateTime.now(); // 수정 시간 갱신
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        enrollDate = now.format(formatter);
     }
 
     public Notice(String noticeTitle, String noticeContent, String originName, String changeName) {
@@ -50,6 +55,5 @@ public class Notice {
         this.noticeContent = noticeContent;
         this.originName = originName;
         this.changeName = changeName;
-        this.enrollDate = LocalDateTime.now(); // 현재 날짜와 시간으로 초기화
     }
 }
