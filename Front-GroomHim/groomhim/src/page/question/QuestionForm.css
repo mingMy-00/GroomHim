@@ -44,8 +44,8 @@
 }
 
 .form-tag{
+    width: 100%;
     padding: 0px;
-    width: 230px;
     height: 26px;
     border: none;
     font-size: 16px;
@@ -53,6 +53,10 @@
     margin-bottom: 10px;
     overflow: visible;
     margin: 0px;
+}
+
+.tag{
+    display: inline-block
 }
 
 .question-form-content{
@@ -124,3 +128,4 @@
     background-color: rgb(0, 196, 113);
     border-radius: 8px;
 }
+
