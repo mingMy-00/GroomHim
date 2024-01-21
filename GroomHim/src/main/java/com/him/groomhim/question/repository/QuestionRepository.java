@@ -10,4 +10,5 @@ import java.util.List;
 
 public interface QuestionRepository extends JpaRepository<Question, Long> {
 
+    Question findByQuestionNo(int questionNo);
 }

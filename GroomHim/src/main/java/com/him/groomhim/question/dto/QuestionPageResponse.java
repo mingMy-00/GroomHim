@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 
+/**
+ * 게시글 전체 조회 응답용 DTO
+ */
 @Getter
 @NoArgsConstructor
 public class QuestionPageResponse {

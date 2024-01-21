@@ -1,5 +1,6 @@
 package com.him.groomhim.question.dto;
 
+import com.him.groomhim.question.entity.Comment;
 import com.him.groomhim.question.entity.Question;
 import com.him.groomhim.question.entity.QuestionHashTag;
 import lombok.Builder;
@@ -11,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Getter
 @NoArgsConstructor
 public class QuestionResponse {
@@ -21,12 +23,7 @@ public class QuestionResponse {
     private int viewCount;
     private String writer;
     private String enrollDate;
-
     private List<String> tagNames = new ArrayList<>();
-
-
-
-
 
 
 
@@ -39,10 +36,10 @@ public class QuestionResponse {
         this.writer = writer;
         this.enrollDate = enrollDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         for(QuestionHashTag questionHashTag : tagList){
-            tagNames.add(questionHashTag.getHashTag().getHashTagName());
+            this.tagNames.add(questionHashTag.getHashTag().getHashTagName());
         }
 
-    }
 
+    }
 
 }

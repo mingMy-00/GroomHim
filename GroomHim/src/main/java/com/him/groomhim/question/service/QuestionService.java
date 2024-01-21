@@ -1,8 +1,7 @@
 package com.him.groomhim.question.service;
 
-import com.him.groomhim.question.dto.QuestionCreateRequest;
-import com.him.groomhim.question.dto.QuestionPageResponse;
-import com.him.groomhim.question.dto.QuestionResponse;
+import com.him.groomhim.question.dto.*;
+import com.him.groomhim.question.entity.Comment;
 import com.him.groomhim.question.entity.Question;
 import com.him.groomhim.question.entity.QuestionHashTag;
 import com.him.groomhim.question.repository.QuestionRepository;
@@ -17,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional(readOnly = true)
@@ -39,7 +39,7 @@ public class QuestionService {
     }
 
     @Transactional
-    public QuestionPageResponse selectQuestion(int page, Pageable pageable){
+    public QuestionPageResponse selectQuestions(int page, Pageable pageable){
         pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "enrollDate");
         Page<Question> questionPage = questionRepository.findAll(pageable);
         List<Question> questionList = questionPage.getContent();
@@ -58,7 +58,34 @@ public class QuestionService {
                     .build();
             questionResponseList.add(questionResponse);
         }
-
         return QuestionPageResponse.builder().questions(questionResponseList).totalPage(questionPage.getTotalPages()).build();
     }
+
+    public QuestionCommentResponse selectQuestion(int questionNo){
+        Question findQuestion = questionRepository.findByQuestionNo(questionNo);
+        List<Comment> commentList = findQuestion.getCommentList();
+
+
+        QuestionResponse questionResponse = QuestionResponse.builder()
+                .questionNo(findQuestion.getQuestionNo())
+                .questionTitle(findQuestion.getQuestionTitle())
+                .questionContent(findQuestion.getQuestionContent())
+                .viewCount(findQuestion.getViewCount())
+                .enrollDate(findQuestion.getEnrollDate())
+                .tagList(findQuestion.getTagList())
+                .build();
+
+        List<CommentResponse> comments = commentList.stream()
+                .map(comment -> {
+                    return CommentResponse.builder()
+                            .commentNo(comment.getCommentNo())
+                            .commentContent(comment.getCommentContent())
+                            .writer(comment.getMember().getMemberName())
+                            .enrollDate(comment.getEnrollDate())
+                            .build();
+                }).collect(Collectors.toList());
+
+        return QuestionCommentResponse.builder().questionResponse(questionResponse).comments(comments).build();
+    }
+
 }

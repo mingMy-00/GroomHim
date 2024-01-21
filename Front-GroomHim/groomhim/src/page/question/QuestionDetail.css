@@ -34,7 +34,6 @@
 }
 
 .question-detail-hr{
-    margin: 0 16px;
     height: 1px;
     background-color: #e9ecef;
 }
@@ -97,6 +96,11 @@
     font-size: 1.125rem!important;
 }
 
+.comment-editor-opener{
+    margin-bottom: 10px;
+}
+
+
 .comment-editor-opener>input{
     margin-bottom: 4px;
     width: 100%;
@@ -132,11 +136,11 @@
 
 .comment-item-body{
     min-height: 48px;
-    margin: 8px 0 16px;
+    margin: 8px 0 1px;
     word-break: break-all;
 }
 
 .comment-item{
     border-bottom: 1px solid #e9ecef;
-    padding: 20px 0;
+    padding: 10px 0;
 }

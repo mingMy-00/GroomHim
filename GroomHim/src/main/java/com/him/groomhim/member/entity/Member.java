@@ -1,5 +1,8 @@
 package com.him.groomhim.member.entity;
 
+
+import com.him.groomhim.question.entity.Comment;
+import com.him.groomhim.question.entity.Question;
 import com.him.groomhim.type.entity.SkinType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -47,7 +50,6 @@ public class Member {
 
     @Column(name = "MEMBER_PROFILE", length = 500)
     private String memberProfile;
-
 
     /**
      * 단방향 1대1 관계
