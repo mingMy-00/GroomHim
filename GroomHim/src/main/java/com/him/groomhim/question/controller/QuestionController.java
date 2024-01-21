@@ -1,9 +1,9 @@
 package com.him.groomhim.question.controller;
 
-import com.him.groomhim.question.dto.QuestionCommentResponse;
-import com.him.groomhim.question.dto.QuestionCreateRequest;
-import com.him.groomhim.question.dto.QuestionPageResponse;
-import com.him.groomhim.question.dto.QuestionResponse;
+import com.him.groomhim.common.dto.MsgResponseDto;
+import com.him.groomhim.question.dto.*;
+import com.him.groomhim.question.entity.Comment;
+import com.him.groomhim.question.service.CommentService;
 import com.him.groomhim.question.service.QuestionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.*;
 public class QuestionController {
 
     private final QuestionService questionService;
+    private final CommentService commentService;
 
 
     @PostMapping("/question")
     public Long insertQuestion(@RequestBody QuestionCreateRequest request){
-        Long questionNo = questionService.save(request);
-        return questionNo;
+        return questionService.save(request);
     }
 
     @GetMapping("/question")
@@ -36,4 +36,10 @@ public class QuestionController {
         QuestionCommentResponse questionCommentResponse = questionService.selectQuestion(questionNo);
         return questionCommentResponse;
     }
+
+    @PostMapping("/question/{questionNo}/comment")
+    public MsgResponseDto insertComment(@RequestParam(name = "memberNo") Long memberNo, @PathVariable("questionNo") int questionNo,@RequestBody CommentCreateRequest commentCreateRequest){
+        return commentService.save(memberNo, questionNo, commentCreateRequest);
+    }
+
 }

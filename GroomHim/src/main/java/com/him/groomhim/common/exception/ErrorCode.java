@@ -14,7 +14,9 @@ public enum ErrorCode {
     DISMATCH_TOKEN(HttpStatus.BAD_REQUEST,"토큰이 일치하지 않습니다."),
     DISMATCH_TOKEN2(HttpStatus.BAD_REQUEST,"일치하는 토큰이 존재하지 않습니다."),
     SKINTYPE_NOT_FOUND(HttpStatus.NOT_FOUND, "스킨타입이 존재하지 않습니다."),
-    MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND, "사용자가 존재하지 않습니다.");
+    MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND, "사용자가 존재하지 않습니다."),
+
+    INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "내부 서버 오류");
 
 
     private final HttpStatus httpStatus;

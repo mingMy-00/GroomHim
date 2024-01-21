@@ -3,7 +3,6 @@ package com.him.groomhim.question.service;
 import com.him.groomhim.question.dto.*;
 import com.him.groomhim.question.entity.Comment;
 import com.him.groomhim.question.entity.Question;
-import com.him.groomhim.question.entity.QuestionHashTag;
 import com.him.groomhim.question.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -61,6 +60,7 @@ public class QuestionService {
         return QuestionPageResponse.builder().questions(questionResponseList).totalPage(questionPage.getTotalPages()).build();
     }
 
+    @Transactional
     public QuestionCommentResponse selectQuestion(int questionNo){
         Question findQuestion = questionRepository.findByQuestionNo(questionNo);
         List<Comment> commentList = findQuestion.getCommentList();

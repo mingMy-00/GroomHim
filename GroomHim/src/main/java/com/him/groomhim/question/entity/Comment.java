@@ -2,10 +2,7 @@ package com.him.groomhim.question.entity;
 
 import com.him.groomhim.member.entity.Member;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -21,11 +18,11 @@ public class Comment {
     private Long commentNo;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "MEMBER_NO")
+    @JoinColumn(name = "MEMBER_NO", nullable = false)
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "QUESTION_NO")
+    @JoinColumn(name = "QUESTION_NO", nullable = false)
     private Question question;
 
     @Column(name = "ENROLL_DATE", nullable = false)
@@ -42,5 +39,12 @@ public class Comment {
         enrollDate = LocalDateTime.now();
     }
 
-
+    @Builder
+    public Comment(Long commentNo, Member member, Question question, LocalDateTime enrollDate, String commentContent) {
+        this.commentNo = commentNo;
+        this.member = member;
+        this.question = question;
+        this.enrollDate = enrollDate;
+        this.commentContent = commentContent;
+    }
 }

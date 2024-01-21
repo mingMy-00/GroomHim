@@ -25,7 +25,7 @@ function QuestionDetail(){
         .catch(()=>{
             console.log("Q&A 조회 실패");
         })
-    },[])
+    },[questionNo])
 
     return(
         <div className="question-main">

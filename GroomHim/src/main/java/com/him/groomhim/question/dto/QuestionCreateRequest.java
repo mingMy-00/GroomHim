@@ -16,6 +16,7 @@ import java.util.Set;
 public class QuestionCreateRequest {
     private String questionTitle;
     private String questionContent;
+
     private Set<String> questionTags;
     private Long memberId;
 
@@ -29,7 +30,7 @@ public class QuestionCreateRequest {
     public Question toEntity(){
         return Question.builder()
                 .questionTitle(questionTitle)
-                .questionContent(questionTitle)
+                .questionContent(questionContent)
                 .build();
     }
 }
