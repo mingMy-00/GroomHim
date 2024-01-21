@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
+
+/**
+ * 게시글 작성용 요청 DTO
+ */
 @Getter
 @NoArgsConstructor
 public class QuestionCreateRequest {

@@ -29,7 +29,7 @@ public class Question {
     @Column(name="QUESTION_CONTENT", nullable = false)
     private String questionContent;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEMBER_NO")
     private Member member;
 
@@ -45,6 +45,10 @@ public class Question {
     @Column(name = "ENROLL_DATE", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime enrollDate;
+
+    @OneToMany(mappedBy = "question",cascade=CascadeType.ALL , orphanRemoval = true)
+    private List<Comment> commentList;
+
 
     @Builder
     public Question(String questionTitle, String questionContent){

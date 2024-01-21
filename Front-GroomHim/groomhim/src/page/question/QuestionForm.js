@@ -77,16 +77,6 @@ function QusetionForm(){
             });
        }
     }
-  
-
-
-
-    
-    // useEffect(()=>{
-    //     if(sessionStorage.getItem("loginMember") === null){
-    //         navigator('/');
-    //     }
-    // })
 
     return(
         <div className='question-form-container'>

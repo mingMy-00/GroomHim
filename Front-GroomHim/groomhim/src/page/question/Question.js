@@ -13,13 +13,17 @@ function Question(){
     let navigate = useNavigate();
 
 
-    const url = "http://localhost:9090/page/question";
-  
+    const url = "http://localhost:9090/question";
     
 
     // 글작성하기
     const writePage = ()=>{
         navigate('/page/question/questionForm' , {});
+    }
+
+    // 글 상세보기
+    const questionDetail = (num) => {
+        navigate("/page/question/questionDetail" , {state : {questionNo : num}});
     }
 
     useEffect(()=>{
@@ -30,7 +34,6 @@ function Question(){
         }).then((response)=>{
             setQuestion(response.data.questions);
             setTotalPage(response.data.totalPage);
-            console.dir(response.data);
         }).catch(()=>{
             console.log("Q&A 불러오기 실패");
         });
@@ -38,7 +41,6 @@ function Question(){
 
 
     const handlePageClick = (page) => {
-        
         setCurrentPage(page);
         console.log(currentPage);
     };
@@ -96,13 +98,11 @@ function Question(){
                             <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="16" height="16"><path d="M23.23,4.51c1.03-1.03,1.03-2.71,0-3.74-1.03-1.03-2.71-1.03-3.74,0L8,12.26v3.74h3.74L23.23,4.51Zm-3.03-3.03c.64-.64,1.68-.64,2.32,0,.64,.64,.64,1.68,0,2.32l-1.5,1.5-2.32-2.32,1.5-1.5ZM9,15v-2.32L17.98,3.69l2.32,2.32L11.32,15h-2.32Zm15,8v1c-1.26,0-1.99-.89-2.64-1.68-.58-.71-1.08-1.32-1.86-1.32s-1.29,.61-1.86,1.32c-.65,.79-1.38,1.68-2.64,1.68s-1.99-.89-2.64-1.68c-.58-.71-1.08-1.32-1.86-1.32-.73,0-1.33,.53-2.03,1.15-.93,.82-2.09,1.84-3.95,1.85h-.02C2.03,23.99,.02,21.97,.02,19.5s2.02-4.5,4.5-4.5h1.48v1h-1.48c-1.93,0-3.5,1.57-3.5,3.5s1.56,3.49,3.49,3.5c1.49,0,2.41-.82,3.3-1.6,.78-.69,1.58-1.4,2.69-1.4,1.26,0,1.99,.89,2.64,1.68,.58,.71,1.08,1.32,1.86,1.32s1.29-.61,1.86-1.32c.65-.79,1.38-1.68,2.64-1.68s1.99,.89,2.64,1.68c.58,.71,1.08,1.32,1.86,1.32Z"/></svg>
                         </button>
                     </div>
-                    
                         <ul className="question-list">
                         {questions.map((question,index)=>(
                             <li key={index} className="question-container">
-                                <Link click-post to="/page/question/questionDetail">
-                                    <div className="question">
-                                        <div className="question-info">
+                                <div className="question" onClick={()=>questionDetail(question.questionNo)}>
+                                    <div className="question-info">
                                         <div className="question-title">
                                             <h3>{question.questionTitle}</h3>
                                         </div>
@@ -126,14 +126,13 @@ function Question(){
                                                     <span className='text'>{question.viewCount}</span>
                                                 </dd>
                                                 <dd className='comment-count'>
-                                                    <span className='text'>0</span>
+                                                    <span className='text'>{question.commentCount}</span>
                                                 </dd>
                                                 </dl>
                                             </div>
                                         </div>
-                                        </div>
                                     </div>
-                                </Link>
+                                </div>
                             </li>
                         ))}
                     </ul>
