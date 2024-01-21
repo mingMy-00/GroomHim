@@ -33,6 +33,8 @@ public class Question {
     @JoinColumn(name = "MEMBER_NO")
     private Member member;
 
+    private String writer;
+
     @OneToMany(mappedBy = "question" ,cascade=CascadeType.ALL , orphanRemoval = true)
     private List<QuestionHashTag> tagList = new ArrayList<>();
 

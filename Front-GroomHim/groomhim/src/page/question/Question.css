@@ -40,7 +40,7 @@
     font-size: 14px;
     border: 0;
     background: none;
-    margin-bottom: 0;
+    margin-bottom: 0p;
 }
 
 
@@ -143,9 +143,13 @@ a{
 }
 
 .question{
+    width: 100%;
     padding: 18px 0;
     display: flex;
     border-bottom: 1px solid #dee2e6;
+}
+.question-info{
+    width: 100%;
 }
 
 .question-title>h3{
@@ -291,6 +295,11 @@ dd {
     border: 1px solid lightgray;
     border-radius: 4px;
     padding: calc(0.375em - 1px) calc(0.625em - 1px);
+}
+
+.active{
+    background-color: #616568;
+    color: white;
 }
 
 
