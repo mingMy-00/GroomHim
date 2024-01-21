@@ -28,7 +28,7 @@ public class Question {
     private String questionContent;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "MEMBER_NO")
+    @JoinColumn(name = "MEMBER_NO",nullable = false)
     private Member member;
 
     private String writer;

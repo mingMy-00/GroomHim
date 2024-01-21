@@ -8,13 +8,41 @@ function QuestionDetail(){
 
     let location = useLocation();
     let questionNo = location.state.questionNo;
+    const url = "http://localhost:9090/question/";
 
     const [question, setQuestion] = useState('');
     const [comments, setComments] = useState([]);
+    const [inputValue , setInputValue] = useState('');
+
+
+    const handleContentChange = (e) =>{
+        setInputValue(e.target.value);
+    }
+
+    const insertComment = ()=>{
+        if(inputValue.trim() === '' ){
+            alert("내용을 입력해주세요.")
+        }else{
+            axios({
+                url : url+questionNo+"/comment",
+                method : "post",
+                data : {
+                    memberNo : {}, 
+                    commentContent : inputValue
+                }
+            }).then((response)=>{
+                console.log(response);
+            }).catch(()=>{
+
+            })
+        }
+    }
+
 
     useEffect(()=>{
+
         axios({
-            url : "http://localhost:9090/question/"+questionNo,
+            url : url+questionNo,
             method : "get"
         })
         .then((response)=>{
@@ -69,9 +97,12 @@ function QuestionDetail(){
                 </div>
                 <div className="question-commnet-editor">
                     <div className="comment-editor-opener">
-                        <input></input>
-                        <button className='comment-submit-btn'>등록</button>
-                        <button className='comment-cancle-btn'>취소</button>
+                        <input 
+                            onChange={handleContentChange} 
+                            value={inputValue}
+                            maxLength={300}
+                            ></input>
+                        <button className='comment-submit-btn' onClick={insertComment}>등록</button>
                     </div>
                 </div>
                 <div className="question-detail-hr"></div>

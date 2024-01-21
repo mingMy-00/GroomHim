@@ -34,6 +34,7 @@ function Question(){
         }).then((response)=>{
             setQuestion(response.data.questions);
             setTotalPage(response.data.totalPage);
+            console.log(response.data.totalPage);
         }).catch(()=>{
             console.log("Q&A 불러오기 실패");
         });
@@ -42,13 +43,17 @@ function Question(){
 
     const handlePageClick = (page) => {
         setCurrentPage(page);
-        console.log(currentPage);
+        
     };
 
     const renderPagination = () => {
         const pages = [];
-        const startPage = Math.max(1, currentPage - 2);
+        const startPage = Math.max(1, currentPage - 3);
         const endPage = Math.min(totalPage, startPage + 4);
+
+        console.log("currentPage = "+currentPage);
+        console.log("startPage = " + startPage);
+        console.log("endPage = " + endPage);        
 
         for (let i = startPage; i <= endPage; i++) {
             pages.push(

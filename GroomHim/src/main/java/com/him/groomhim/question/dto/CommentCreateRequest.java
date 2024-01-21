@@ -16,34 +16,26 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class CommentCreateRequest {
 
-    private Long commentNo;
 
     private String commentContent;
-
-    private LocalDateTime enrollDate;
 
     private Member member;
 
     private Question question;
 
     @Builder
-    public CommentCreateRequest(Long commentNo, Member member, String commentContent, LocalDateTime enrollDate, Question question) {
-        this.commentNo = commentNo;
+    public CommentCreateRequest(Member member, String commentContent, Question question) {
         this.member = member;
         this.commentContent = commentContent;
-        this.enrollDate = enrollDate;
         this.question = question;
     }
 
     public Comment toEntity(Question findQuestion, Member member){
         return 
         Comment.builder()
-                .commentNo(commentNo)
                 .member(member)
                 .commentContent(commentContent)
-                .enrollDate(enrollDate)
                 .question(findQuestion)
-                .member(member)
                 .build();
     }
 }

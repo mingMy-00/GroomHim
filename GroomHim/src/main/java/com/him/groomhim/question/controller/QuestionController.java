@@ -38,7 +38,7 @@ public class QuestionController {
     }
 
     @PostMapping("/question/{questionNo}/comment")
-    public MsgResponseDto insertComment(@RequestParam(name = "memberNo") Long memberNo, @PathVariable("questionNo") int questionNo,@RequestBody CommentCreateRequest commentCreateRequest){
+    public MsgResponseDto insertComment(@PathVariable("questionNo") int questionNo,@RequestParam(name = "memberNo") Long memberNo, @RequestBody CommentCreateRequest commentCreateRequest){
         return commentService.save(memberNo, questionNo, commentCreateRequest);
     }
 
