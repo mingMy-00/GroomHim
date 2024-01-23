@@ -6,15 +6,14 @@
     margin-top: 15vw;
     max-width : 380px;
     text-align: center;
-    max-height : 700px;
-    float: left;
-    margin: 20px;
+    max-height : 40%;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    margin: 20px auto;
 }
 
 .submitButton {
@@ -38,6 +37,7 @@
 
 .top{
    padding: 1rem;
+   width : 320px;
 }
 
 .top h2{
@@ -51,7 +51,6 @@
     flex-direction: column;
     margin: 0 auto;
     width: 80%;
-    height: 50vh;
     align-items: center;
 }
 
@@ -61,6 +60,7 @@
     border-radius: 10px;
     cursor: pointer;
     background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (min-width: 768px) {
@@ -146,4 +146,16 @@
       opacity: 1;
     }
   }
+
+  .img > img{
+    width : 55%;
+  }
+
+  .img {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width : 300px;
+  }
+
 

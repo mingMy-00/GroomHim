@@ -2,6 +2,7 @@ import Questions from '../common/api/question.json';
 import {useEffect, useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import './SkinTest.css';
+import him from '../assets/imgs/Him.jpg';
 
 function SkinTest(){
 
@@ -63,6 +64,7 @@ function SkinTest(){
                             <div className='content' key={index}>
                                 <div className='top'>
                                     <div className='progress-bar' role='progress'></div>
+                                    <div className="img"><img src={him}></img></div>
                                     <h2>
                                         {question.question}
                                     </h2>
