@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 function Home(){
 
     const kakaoLogin = async (e) => {
-        window.location.href = 'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=23f907bb8235e70cb79955eb28e00bde&redirect_uri=http://localhost:3000/callback/kakao';
+        window.location.href = 'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=7e7ac347addcfef31e432e4ed779752a&redirect_uri=http://localhost:3000/callback/kakao';
     };
 
     return(

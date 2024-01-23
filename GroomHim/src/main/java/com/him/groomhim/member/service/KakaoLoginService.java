@@ -40,7 +40,7 @@ public class KakaoLoginService {
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
             StringBuilder sb = new StringBuilder();
             sb.append("grant_type=authorization_code");
-            sb.append("&client_id=23f907bb8235e70cb79955eb28e00bde"); // REST_API키 본인이 발급받은 key 넣어주기
+            sb.append("&client_id=7e7ac347addcfef31e432e4ed779752a"); // REST_API키 본인이 발급받은 key 넣어주기
             sb.append("&redirect_uri=http://localhost:3000/callback/kakao"); // REDIRECT_URI 본인이 설정한 주소 넣어주기
 
             sb.append("&code=" + authorize_code);
@@ -124,12 +124,19 @@ public class KakaoLoginService {
                 String memberNickname = properties.get("nickname").toString();
                 String memberEmail = kakao_account.get("email").toString();
                 String memberProfile = properties.get("profile_image").toString();
-                String memberName = kakao_account.get("name").toString();
-                String memberPhone = "0" + (kakao_account.get("phone_number").toString().split(" ")[1]).replaceAll("-", "");
-                String memberGender = (kakao_account.get("gender").toString().equals("male")) ? "M" : "F";
-                String birthyear = kakao_account.get("birthyear").toString();
-                String birthday = kakao_account.get("birthday").toString();
-                java.sql.Date birth = new java.sql.Date(new SimpleDateFormat("yyyyMMdd").parse(birthyear+birthday).getTime());
+                String memberName = kakao_account.get("name") != null ? kakao_account.get("name").toString() : memberNickname;
+                String memberPhone = kakao_account.get("phone_number") != null ? "0" + (kakao_account.get("phone_number").toString().split(" ")[1]).replaceAll("-", "") : null;
+                String memberGender = kakao_account.get("gender") != null ? (kakao_account.get("gender").toString().equals("male")) ? "M" : "F" : null;
+
+                java.sql.Date birth;
+                if(kakao_account.get("birthyear") != null) {
+                    String birthyear = kakao_account.get("birthyear").toString();
+                    String birthday = kakao_account.get("birthday").toString();
+                    birth = new java.sql.Date(new SimpleDateFormat("yyyyMMdd").parse(birthyear+birthday).getTime());
+                } else {
+                    birth = null;
+                }
+
                 member = new Member(id, null, memberEmail, memberName, memberPhone, memberNickname, memberGender, null, birth);
                 Member m = memberService.findMemberEmail(memberEmail);
                 if(m == null) { // 회원가입
