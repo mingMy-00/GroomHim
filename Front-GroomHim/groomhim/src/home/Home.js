@@ -14,11 +14,11 @@ function Home(){
                 <div id="main">
                     <img className="logo" src={logo} alt="logo"/>
                         <h2>피부 타입도 알아내고, 그에 맞는 제품도 추천 받기</h2>
-                        {/* <Link to="/skinTest" className="test_btn"> */}
-                        <button className="test_btn" onClick={kakaoLogin}>
+                        <Link to="/skinTest" className="test_btn">
+                        {/* <button className="test_btn" onClick={kakaoLogin}> */}
                             추천받기
-                        </button>
-                        {/* </Link> */}
+                        {/* </button> */}
+                        </Link>
                  </div>
             </div>
         </>
