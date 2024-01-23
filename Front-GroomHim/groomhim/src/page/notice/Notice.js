@@ -9,8 +9,8 @@ function Notice() {
     
     //로그인한 회원 정보 가져오기. 
     const loginMemberString = sessionStorage.getItem("loginMember");
-    const loginMember = loginMemberString ? JSON.parse(loginMemberString) : {};
-    const memberId = loginMember.memberId;
+    const loginMember       = loginMemberString ? JSON.parse(loginMemberString) : {};
+    const memberId          = loginMember.memberId;
     let navigate = useNavigate();
 
     //게시글 등록을 위한 함수

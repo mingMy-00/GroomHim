@@ -3,6 +3,7 @@ body, html {
   margin: 0;
   box-sizing: border-box;
 }
+
 #root {
     height: 100%;
 }

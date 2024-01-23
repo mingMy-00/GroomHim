@@ -4,9 +4,9 @@
 
 .content{
     margin-top: 15vw;
+    max-width : 380px;
     text-align: center;
-    width: 80vw;
-    height : 170vw;
+    max-height : 700px;
     float: left;
     margin: 20px;
     padding: 20px;
@@ -18,6 +18,7 @@
 }
 
 .submitButton {
+  width : 100%;
   border : 2px solid lightgray;
   color: rgb(53, 53, 53);
   padding: 10px 10px;
@@ -26,6 +27,9 @@
   font-size: 16px;
   box-shadow: 0 0 10px rgba(85, 84, 84, 0.1);
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .submitButton:hover {
@@ -33,13 +37,13 @@
 }  
 
 .top{
-   height: 20vh;
    padding: 1rem;
 }
 
-.top h1{
+.top h2{
     margin-bottom: 6vh;
     margin-top   : 6vh;
+    width : 300px;
 }
 
 .btn_box{
@@ -48,6 +52,7 @@
     margin: 0 auto;
     width: 80%;
     height: 50vh;
+    align-items: center;
 }
 
 .btn_box button{
@@ -67,10 +72,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        
     }
     .btn_box{
-        width: 25%;
+        width: 80%;
     }
     .progress-bar{
       background-color: #ff80ab !important;
@@ -83,6 +87,7 @@
   height: 8px;
   border-radius: 4px;
   margin-right: 10px;
+  width : 300px;
 }
 
 .loading_container{

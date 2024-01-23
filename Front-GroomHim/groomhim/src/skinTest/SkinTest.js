@@ -63,9 +63,9 @@ function SkinTest(){
                             <div className='content' key={index}>
                                 <div className='top'>
                                     <div className='progress-bar' role='progress'></div>
-                                    <h1>
+                                    <h2>
                                         {question.question}
-                                    </h1>
+                                    </h2>
                                 </div>
                                 <div className='btn_box'>
                                   
