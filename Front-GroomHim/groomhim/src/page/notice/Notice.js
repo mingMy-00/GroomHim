@@ -40,7 +40,6 @@ function Notice() {
             <div>
             {/* 공지사항 목록을 사용하여 화면에 표시하는 코드 */}
             <h2 className="h2">공지사항</h2>
-            
             {/*검색바*/}
             <div className="searchBar">
                 <form className='searchBarForm'>
