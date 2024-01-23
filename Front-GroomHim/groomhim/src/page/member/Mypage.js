@@ -7,6 +7,12 @@ import axios from "axios";
 function Mypage() {
     let navigate = useNavigate();
 
+    //마이페이지 정보 때문에 갖다놓음.
+    const loginMemberString = sessionStorage.getItem("loginMember");
+    const loginMember = loginMemberString ? JSON.parse(loginMemberString) : {};
+    const memberName = loginMember.memberName;
+    const gender = loginMember.memberGender === 'F' ? "여성" : "남성";
+
     const Logout = () => {
         sessionStorage.removeItem("loginMember");
         document.location.href = '/'
@@ -25,12 +31,12 @@ function Mypage() {
                 <img className='profile-img' src='/img/logo-icon.png' />
                 <div className='user-detail'>
                     <div className='displayFlex' style={{ justifyContent: 'space-between' }}>
-                        <p className='user-name'>이상현</p>
+                        <p className='user-name'>{memberName}</p>
                         <button className='logout-btn' onClick={Logout} >로그아웃</button>
                     </div>
                     <div className='user-skin-type'>
                         <p>20대</p>
-                        <p>남성</p>
+                        <p>{gender}</p>
                         <p>여드름 개선</p>
                     </div>
                 </div>
