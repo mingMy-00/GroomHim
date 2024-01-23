@@ -21,7 +21,9 @@ function App() {
     return (
         <div className='app'>
             <Head />
-            <Router />
+            <div className='router-body'>
+                <Router />
+            </div>
             <Footer />
         </div>
     );

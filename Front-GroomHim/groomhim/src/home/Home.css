@@ -1,35 +1,22 @@
-body, html {
-    height: 100%;
-    margin: 0;
-  }
-  
-  .app {
-    height: 100%;
-  }
-
 .container{
-    height:800px;
-    width: 90vw;
     max-width: 420px;
     margin: 0 auto;
+    min-height: 100vh;
 }
 
 #main {
-    max-width: 420px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #03171c;
+    background-color: #05141B;
     margin: 0 auto;
-    height: 100%;
     width: 100%;
+    min-height: 100vh;
 }
 
 .logo{
-    margin: 8vh 0 8vh;
-    object-fit: scale-down;
+    margin : 30% 0;
     max-width: 100%;
-    height: 400px;
 }
 
 .container h2{
@@ -41,7 +28,7 @@ body, html {
 }
 
 .test_btn{
-    width: 20vw;
+    width: 80%;
     height: 3rem;
     text-align: center;
     background-color: rgb(255, 255, 255);
@@ -49,13 +36,17 @@ body, html {
     text-decoration: none;
     color: rgb(0, 0, 0);
     border-radius: 10px;
+    font-family: 'BMJUA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @media screen and (min-width: 768px) {
     .container{
         width: 768px;
 		box-sizing: border-box;
-        background-color: #434A5A;
+        background-color: #05141B;
     }
    h2{
         font-size: 1.5rem; 

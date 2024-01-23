@@ -1,12 +1,20 @@
 body, html {
   height: 100% !important;
   margin: 0;
+  box-sizing: border-box;
 }
-
+#root {
+    height: 100%;
+}
 .app {
+  width: 100%;
   height: 100% ;
 }
-
+.router-body {
+    border-left: 1px solid lightgray;
+    border-right :1px solid lightgray;
+    min-height : 100%;
+}
   @font-face {
     font-family: 'BMJUA';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
@@ -15,20 +23,18 @@ body, html {
   }
 
   body{
-    max-width: 420px !important;
     font-family: 'BMJUA';
     margin: 0;
   }
 
   html {
-    max-width: 420px !important;
     margin: 0;
   }
   .app{
+    max-width: 420px !important;
     padding-top: 50px;
     padding-bottom: 50px;
-    box-sizing: border-box;
-    margin: 0;
+    margin: 0 auto;
   }
   .btn_cursor {
     cursor : pointer;

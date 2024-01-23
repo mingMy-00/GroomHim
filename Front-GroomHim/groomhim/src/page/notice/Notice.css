@@ -26,6 +26,8 @@
     padding: 15px;
     border-radius: 8px;
     margin-left: 10px;
+    margin-right: 10px;
+
   }
   
   .notice-item h3 {
@@ -38,6 +40,8 @@
   }
   
   .h2 {
+    margin-top: 0;
+    padding-top: 20px;
     text-align: center;
     color: #3f51b5;
   }

@@ -93,7 +93,7 @@ const Footer = () => {
     const showLoginItem = () => {
         if (!isLogin) {
             return (
-                <div className='footerItem' onClick={openModal}>
+                <div className='footerItem' onClick={kakaoLogin}>
                     <img className='footer-icon' src="/img/login-icon.png" />
                     <p className='item-name'>로그인</p>
                 </div>

@@ -3,7 +3,7 @@ html, body {
 }
 .header_grid {
     display: flex;
-    border-bottom: solid 1px lightgray;
+    border: 1px solid lightgray;
     max-width: 420px;
     width: 100%;
     height: 50px;
