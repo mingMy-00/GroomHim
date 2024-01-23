@@ -4,21 +4,38 @@ import { useState , useEffect } from 'react';
 import axios from 'axios';
 
 
-
 function Question(){
-    
+
+    //getItem을 하면 문자열로 반납해준다고 하더라구요. 그래서 String으로 먼저 받음
+    const loginMemberString = sessionStorage.getItem("loginMember");
+    //예기치 않는 오류를 예방 하기 위한 null체크임 + 객체 형태로 반환
+    const loginMember = loginMemberString ? JSON.parse(loginMemberString) : {};
+    console.log(loginMember);
+
     const [questions, setQuestion] = useState([]);
     const [totalPage, setTotalPage] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
     let navigate = useNavigate();
-
-
+    
     const url = "http://localhost:9090/question";
     
+    const [selectedValue, setSelectedValue] = useState('최신순'); // 초기 값 설정
+
+    const handleSelectChange = (event) => {
+        setSelectedValue(event.target.value);
+    };
+
+
 
     // 글작성하기
     const writePage = ()=>{
-        navigate('/page/question/questionForm' , {});
+       if(Object.keys(loginMember).length !== 0){
+            navigate('/page/question/questionForm' , { state: {loginMember : loginMember}});
+        }else{
+            alert("로그인 한 회원만 글 작성할 수 있습니다.");
+        }
+        
+        
     }
 
     // 글 상세보기
@@ -27,6 +44,8 @@ function Question(){
     }
 
     useEffect(()=>{
+
+
         axios({
             url:url,
             method:"get",
@@ -50,10 +69,6 @@ function Question(){
         const pages = [];
         const startPage = Math.max(1, currentPage - 3);
         const endPage = Math.min(totalPage, startPage + 4);
-
-        console.log("currentPage = "+currentPage);
-        console.log("startPage = " + startPage);
-        console.log("endPage = " + endPage);        
 
         for (let i = startPage; i <= endPage; i++) {
             pages.push(
@@ -92,10 +107,10 @@ function Question(){
                 <div className="question-list-container">
                     <div className="posts-container-header">
                         <div className="dropdown-sort">
-                            <select>
-                                <option selected>최신순</option>
-                                <option>조회순</option>
-                                <option>답변많은순</option>
+                            <select value={selectedValue} onChange={handleSelectChange}>
+                                <option value="최신순">최신순</option>
+                                <option value="조회순">조회순</option>
+                                <option value="답변많은순">답변많은순</option>
                             </select>
                         </div>
                         <div className='btn-cover'></div>
@@ -128,9 +143,15 @@ function Question(){
                                             <div className='question-footer-detail'>
                                                 <dl>
                                                 <dd className='view-count'>
-                                                    <span className='text'>{question.viewCount}</span>
+                                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="30" >
+                                                        <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4 6-9 6s-9-4.8-9-6c0-1.2 4-6 9-6s9 4.8 9 6Z"/>
+                                                        <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                                    </svg>
+                                                    <span className='text'>
+                                                        {question.viewCount}</span>
                                                 </dd>
                                                 <dd className='comment-count'>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30"  fill="none" viewBox="0 0 16 16" id="comment"><path fill="#212121" d="M1 4.5C1 3.11929 2.11929 2 3.5 2H12.5C13.8807 2 15 3.11929 15 4.5V9.5C15 10.8807 13.8807 12 12.5 12H8.68787L5.62533 14.6797C4.99168 15.2342 4 14.7842 4 13.9422V12H3.5C2.11929 12 1 10.8807 1 9.5V4.5ZM3.5 3C2.67157 3 2 3.67157 2 4.5V9.5C2 10.3284 2.67157 11 3.5 11H5V13.8981L8.31213 11H12.5C13.3284 11 14 10.3284 14 9.5V4.5C14 3.67157 13.3284 3 12.5 3H3.5Z"></path></svg>
                                                     <span className='text'>{question.commentCount}</span>
                                                 </dd>
                                                 </dl>

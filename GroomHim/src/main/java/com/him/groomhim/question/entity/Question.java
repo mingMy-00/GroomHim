@@ -47,11 +47,14 @@ public class Question {
     @OneToMany(mappedBy = "question",cascade=CascadeType.ALL , orphanRemoval = true)
     private List<Comment> commentList;
 
+    private int commentCount;
 
     @Builder
-    public Question(String questionTitle, String questionContent){
+    public Question(String questionTitle, String questionContent, Member member){
         this.questionTitle = questionTitle;
         this.questionContent = questionContent;
+        this.member = member;
+        this.writer = member.getMemberName();
     }
 
     @PrePersist // entity가 생성되기전에 실행
@@ -63,6 +66,11 @@ public class Question {
         tagList.add(questionHashTag);
         questionHashTag.setQuestion(this);
     }
+
+    public int commentCount(List<Comment> commentList){
+        return commentList.size();
+    }
+
 
 
 }

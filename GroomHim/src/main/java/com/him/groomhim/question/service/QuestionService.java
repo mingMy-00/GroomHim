@@ -39,9 +39,9 @@ public class QuestionService {
 
     @Transactional
     public QuestionPageResponse selectQuestions(int page, Pageable pageable){
-        pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "enrollDate");
-        Page<Question> questionPage = questionRepository.findAll(pageable);
-        List<Question> questionList = questionPage.getContent();
+        pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "enrollDate"); // 페이징 정보
+        Page<Question> questionPage = questionRepository.findAll(pageable); // 모든 회원 조회
+        List<Question> questionList = questionPage.getContent(); //
 
         List<QuestionResponse> questionResponseList = new ArrayList<>();
 
@@ -54,6 +54,8 @@ public class QuestionService {
                     .viewCount(question.getViewCount())
                     .enrollDate(question.getEnrollDate())
                     .tagList(question.getTagList())
+                    .writer(question.getWriter())
+                    .commentCount(question.commentCount(question.getCommentList()))
                     .build();
             questionResponseList.add(questionResponse);
         }
@@ -73,6 +75,7 @@ public class QuestionService {
                 .viewCount(findQuestion.getViewCount())
                 .enrollDate(findQuestion.getEnrollDate())
                 .tagList(findQuestion.getTagList())
+                .writer(findQuestion.getWriter())
                 .build();
 
         List<CommentResponse> comments = commentList.stream()

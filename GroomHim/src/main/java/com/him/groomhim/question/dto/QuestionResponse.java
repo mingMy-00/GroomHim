@@ -25,10 +25,11 @@ public class QuestionResponse {
     private String enrollDate;
     private List<String> tagNames = new ArrayList<>();
 
+    private int commentCount;
 
 
     @Builder
-    public QuestionResponse(Long questionNo, String questionTitle, String questionContent, int viewCount, String writer, LocalDateTime enrollDate, List<QuestionHashTag> tagList){
+    public QuestionResponse(Long questionNo, String questionTitle, String questionContent, int viewCount, String writer, LocalDateTime enrollDate, List<QuestionHashTag> tagList, int commentCount){
         this.questionNo = questionNo;
         this.questionTitle = questionTitle;
         this.questionContent = questionContent;
@@ -38,6 +39,7 @@ public class QuestionResponse {
         for(QuestionHashTag questionHashTag : tagList){
             this.tagNames.add(questionHashTag.getHashTag().getHashTagName());
         }
+        this.commentCount = commentCount;
 
 
     }

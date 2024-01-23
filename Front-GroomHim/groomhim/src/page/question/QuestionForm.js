@@ -3,15 +3,19 @@ import './QuestionForm.css';
 
 import {useState} from "react";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function QusetionForm(){
 
+    let location = useLocation();
+    let loginMember = location.state.loginMember;
     let navigate = useNavigate();
     const [tags, setTags] = useState([]);
     const [inputValue, setInputValue] = useState('');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+
+    
 
     const handleTitleChange = (e) => {
         setTitle(e.target.value);
@@ -63,6 +67,7 @@ function QusetionForm(){
                 url : "http://localhost:9090/question",
                 method : "post",
                 data : {
+                    member : loginMember,
                     questionTitle : title,
                     questionTags : tags,
                     questionContent : content

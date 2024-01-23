@@ -1,5 +1,6 @@
 package com.him.groomhim.question.dto;
 
+import com.him.groomhim.member.entity.Member;
 import com.him.groomhim.question.entity.Question;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,19 +19,20 @@ public class QuestionCreateRequest {
     private String questionContent;
 
     private Set<String> questionTags;
-    private Long memberId;
+    private Member member;
 
     @Builder
-    public QuestionCreateRequest(String questionTitle, String questionContent, Long memberId){
+    public QuestionCreateRequest(String questionTitle, String questionContent, Member member){
         this.questionTitle = questionTitle;
         this.questionContent = questionContent;
-        this.memberId = memberId;
+        this.member = member;
     }
 
     public Question toEntity(){
         return Question.builder()
                 .questionTitle(questionTitle)
                 .questionContent(questionContent)
+                .member(member)
                 .build();
     }
 }

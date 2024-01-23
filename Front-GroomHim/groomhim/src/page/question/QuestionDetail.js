@@ -60,7 +60,7 @@ function QuestionDetail(){
             <div className="question-detail-header">
                 <h1 className="question-detail-title">{question.questionTitle}</h1>
                 <p className="question-detail-info">
-                    <span className="question-detail-userName"></span>
+                    <span className="question-detail-userName">{question.writer}</span>
                     <span className="question-detail-date">{question.enrollDate}</span>
                     <span className="question-detail-view-count">조회수
                         <span>{question.viewCount}</span>

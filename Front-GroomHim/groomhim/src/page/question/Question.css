@@ -265,9 +265,16 @@ dd {
 
 .view-count{
     margin-right: 12px;
-    margin: 0;
     padding: 0;
-    
+    display: flex;
+    align-items: center;
+}
+
+.comment-count{
+    margin-left: 12px;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 .text{
