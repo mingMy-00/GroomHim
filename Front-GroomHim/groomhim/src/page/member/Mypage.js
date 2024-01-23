@@ -16,6 +16,9 @@ function Mypage() {
         navigate("/page/member/MypageInfo");
     }
 
+    const moveMypageDelivery = () => {
+        navigate("/page/member/MypageDelivery");
+    };
     return (
         <div className='mypage'>
             <div className='mypage-userInfo displayFlex'>
@@ -23,7 +26,7 @@ function Mypage() {
                 <div className='user-detail'>
                     <div className='displayFlex' style={{ justifyContent: 'space-between' }}>
                         <p className='user-name'>이상현</p>
-                        <button onClick={Logout} >로그아웃</button>
+                        <button className='logout-btn' onClick={Logout} >로그아웃</button>
                     </div>
                     <div className='user-skin-type'>
                         <p>20대</p>
@@ -34,7 +37,7 @@ function Mypage() {
             </div>
             <div className='mypage-area1 displayFlex'>
                 <button onClick={moveMypageInfo}>내 정보 수정</button>
-                <button>배송지 정보 수정</button>
+                <button onClick={moveMypageDelivery}>배송지 정보 수정</button>
             </div>
             <MypageRouter/>
         </div>

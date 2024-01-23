@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import { useNavigate } from "react-router-dom";
 import './MypageReview.css';
 
 function MypageReview() {
+    const navigate = useNavigate();
     const [reviewContent, setReviewContent] = useState([]);
     const [selectedTab, setSelectedTab] = useState();
     
@@ -86,15 +88,23 @@ function MypageReview() {
         ]
         setReviewContent(content);
 
-        setSelectedTab('generalReview');
+        setSelectedTab('selectImgReview');
     }
     useEffect(() => {
-        selectGeneralReview();
+        selectImgReview();
     }, []);
+
+    const moveMypage = () => {
+        navigate('/page/member/Mypage', {});
+    }
     return (
         <div className='mypageReview'>
-
+                <svg className='back-button' onClick={moveMypage} width="30" height="30" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="22.5" cy="22.5" r="22.5" fill="#F1F1F1"/>
+                    <path d="M26 13L14.1196 21.3605C13.5658 21.7502 13.5514 22.5662 14.0912 22.9753L26 32" stroke="black" stroke-width="3"/>
+                </svg>
             <div className='reviewTitle'>
+                
                 <p>내 리뷰</p>
             </div>
 

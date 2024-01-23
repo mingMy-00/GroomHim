@@ -132,6 +132,7 @@ function MypageHome() {
     const moveMypageReview = () => {
         navigate("mypageReview");
     };
+
     return (
         <div >
             

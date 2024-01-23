@@ -1,6 +1,7 @@
 .mypageReview {
     margin-top: 3%;
     width: 100%;
+    position: relative;
 }
 .reviewTitle {
     text-align: center;
@@ -10,6 +11,11 @@
 }
 .reviewTitle p {
     margin: 20px;
+}
+.back-button {
+    position: absolute;
+    left: 0;
+    margin-left: 10px;
 }
 .review-type {
     text-align: center;

@@ -6,8 +6,6 @@ import axios from "axios";
 
 function MypageInfo() {
     const userInfo = JSON.parse(sessionStorage.getItem("loginMember"));
-    console.log(userInfo);
-
     const navigate = useNavigate();
     const [nickname, setNickname] = useState(userInfo.memberNickname);
     const [showNicknameLabel, setShowNicknameLabel] = useState(false);
@@ -113,15 +111,23 @@ function MypageInfo() {
         setVisible(false);
     };
 
+    const moveMypage = () => {
+        navigate('/page/member/Mypage', {});
+    }
     return (
         <div className='mypageInfo'>
-            <div style={{borderBottom : '1px solid black', padding : '10px'}}>
-                <h2>＜ 회원정보 수정</h2>
+            <div className='mypageInfo-header'>
+            <svg className='back-button' onClick={moveMypage} width="30" height="30" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="22.5" cy="22.5" r="22.5" fill="#F1F1F1"/>
+                <path d="M26 13L14.1196 21.3605C13.5658 21.7502 13.5514 22.5662 14.0912 22.9753L26 32" stroke="black" stroke-width="3"/>
+            </svg>
+                <h2>회원정보 수정</h2>
             </div>
             <div className='info-profile'>
-                <img src={userInfo.memberProfile == null ? '/img/logo-icon.png' : userInfo.memberProfile} />
+                <img className='info-profile-img' src={userInfo.memberProfile == null ? '/img/logo-icon.png' : userInfo.memberProfile} />
                 <div className='info-profile-edit'>
                     <img src='/img/edit-icon.png'></img>
+
                 </div>
             </div>
             
