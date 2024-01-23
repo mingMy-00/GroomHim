@@ -7,6 +7,10 @@ function Notice() {
     //불러온 공지사항 데이터를 담기 위한 state
     const [notices, setNotices] = useState([]);
     
+    //로그인한 회원 정보 가져오기. 
+    const loginMemberString = sessionStorage.getItem("loginMember");
+    const loginMember = loginMemberString ? JSON.parse(loginMemberString) : {};
+    const memberId = loginMember.memberId;
     let navigate = useNavigate();
 
     //게시글 등록을 위한 함수
@@ -51,8 +55,13 @@ function Notice() {
                     <button className="searchBtn">검색</button>
                 </form>
             </div>
-            
-            <div Style="display : none;" className="uploadButton"><button onClick={uploadNotice}>글쓰기</button></div>
+            <div>
+            {memberId === 'admin' && (
+                <div className="uploadButton">
+                <button onClick={uploadNotice}>글쓰기</button>
+                </div>
+             )}
+            </div>
             {/*관리자만 글작성 가능*/} 
             <div className="notice-board">
                     {notices.map((notice) => (
