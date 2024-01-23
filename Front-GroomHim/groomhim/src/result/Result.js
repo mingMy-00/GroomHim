@@ -167,7 +167,7 @@ function Result(){
     return(
         <div>
             <div className='result-container'>
-                <h1> {memberName}님의 피부타입은 <b class="b">{skinType}</b> 입니다.</h1>
+                <h2 Style="text-align : center;"> {memberName}님의 피부타입은 <b class="b">{skinType}</b> 입니다.</h2>
                    {renderSkinIntro()}
                 <div class="radio-inputs">
                     <label class="radio">
