@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import './SkinTest.css';
 import him from '../assets/imgs/Him.jpg';
+import ProgressBar from './ProgressBar'; 
 
 function SkinTest(){
 
@@ -15,7 +16,10 @@ function SkinTest(){
     const [dryCount, setDryCount]               = useState(0);
     const [waterOilCount, setWaterOilCount]     = useState(0);
     const [skinType, setSkinType]               = useState("");
+    const [progress, setProgress]               = useState(0);
+
     // 응답에 맞는 질문지 가져오기
+    
     const nextQuestion = answer =>{ 
 
         /*건성 수부지 문제*/ 
@@ -53,6 +57,11 @@ function SkinTest(){
         }
       }, [dryCount, waterOilCount, setSkinType]); 
 
+
+      const increaseProgress = () => {
+        setProgress((prevProgress) => prevProgress + 1);
+      };
+
     return(
         <>
         {!loading && (
@@ -63,7 +72,7 @@ function SkinTest(){
                         return(
                             <div className='content' key={index}>
                                 <div className='top'>
-                                    <div className='progress-bar' role='progress'></div>
+                                     <ProgressBar progress={progress} totalQuestions={Questions.length} />
                                     <div className="img"><img src={him}></img></div>
                                     <h2>
                                         {question.question}
@@ -73,7 +82,7 @@ function SkinTest(){
                                   
                                         {question.answers.map((answer, index1)=>{
                                                 return(
-                                                    <button class="submitButton" key={index1} onClick={() => nextQuestion(answer)}>
+                                                    <button class="submitButton" key={index1} onClick={() => {nextQuestion(answer); increaseProgress();} }>
                                                         <b>{answer.content}</b>
                                                     </button>
                                                 )

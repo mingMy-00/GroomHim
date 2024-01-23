@@ -76,13 +76,9 @@
     .btn_box{
         width: 80%;
     }
-    .progress-bar{
-      background-color: #ff80ab !important;
-    } 
 }
 
 .progress-bar{
-  background-color: #5c7f91 !important;
   flex: 1;
   height: 8px;
   border-radius: 4px;
