@@ -25,7 +25,7 @@ public class CommentService {
     private final QuestionRepository questionRepository;
     private final MemberRepository memberRepository;
 
-    public MsgResponseDto save(int questionNo,CommentCreateRequest commentCreateRequest){
+    public MsgResponseDto save(Long questionNo,CommentCreateRequest commentCreateRequest){
         try {
             Question findQuestion = questionRepository.findByQuestionNo(questionNo);
             commentRepository.save(commentCreateRequest.toEntity(findQuestion));

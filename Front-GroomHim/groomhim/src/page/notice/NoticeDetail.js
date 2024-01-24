@@ -9,6 +9,7 @@ const NoticeDetail = () => {
   let location = useLocation();
   let noticeNo = location.state.noticeNo;
   let navigate = useNavigate();
+  let noticeContent = notice.noticeContent;
 
   const out = () => {
     navigate("/page/notice/notice");
@@ -51,7 +52,7 @@ const NoticeDetail = () => {
         .catch(function() {
             console.log("공지사항 가져오기 실패");
         })
-  },[notice]);
+  },[noticeContent]);
 
   return (
     <div className="notice-detail">

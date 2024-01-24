@@ -19,6 +19,7 @@ import QuestionDetail from '../page/question/QuestionDetail';
 import QusetionForm from '../page/question/QuestionForm';
 import MypageDelivery from '../component/member/mypage/MypageDelivery';
 import DaumAddressSearch from '../component/member/mypage/DaumAddressSearch';
+import QuestionUpdate from '../page/question/QuestionUpdate';
 export default function Router() {
     return (
         <Routes>
@@ -41,6 +42,7 @@ export default function Router() {
             <Route path='/page/member/DaumAddressSearch'    element={<DaumAddressSearch/>}/>
             <Route path='/page/question/questionDetail'     element={<QuestionDetail />}/>
             <Route path='/page/question/questionForm'       element={<QusetionForm />}/>
+            <Route path='/page/question/questionUpdate'     element={<QuestionUpdate />}/>
 x        </Routes>
     );
 }

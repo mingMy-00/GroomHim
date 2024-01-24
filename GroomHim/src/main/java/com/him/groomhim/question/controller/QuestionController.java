@@ -27,23 +27,27 @@ public class QuestionController {
     }
 
     @GetMapping("/question")
-    public QuestionPageResponse selectQuestions(@RequestParam(value = "pageNo") int pageNo, Pageable pageable){
-        QuestionPageResponse questionPageResponse = questionService.selectQuestions(pageNo-1, pageable);
+    public QuestionPageResponse selectAllQuestion(@RequestParam(value = "pageNo") int pageNo, Pageable pageable){
+        QuestionPageResponse questionPageResponse = questionService.selectAllQuestion(pageNo-1, pageable);
         return questionPageResponse;
     }
 
     @GetMapping("/question/{questionNo}")
-    public QuestionCommentResponse selectQuestion(@PathVariable("questionNo") int questionNo){
+    public QuestionCommentResponse selectQuestion(@PathVariable("questionNo") Long questionNo){
         QuestionCommentResponse questionCommentResponse = questionService.selectQuestion(questionNo);
         return questionCommentResponse;
     }
 
     @PostMapping("/question/{questionNo}/comment")
-    public MsgResponseDto insertComment(@PathVariable("questionNo") int questionNo, @RequestBody CommentCreateRequest commentCreateRequest){
+    public MsgResponseDto insertComment(@PathVariable("questionNo") Long questionNo, @RequestBody CommentCreateRequest commentCreateRequest){
         log.info("commentCreateRequest={}",commentCreateRequest);
         return commentService.save(questionNo, commentCreateRequest);
     }
 
+    @PatchMapping("/question")
+    public Long updateQuestion(@RequestBody QuestionUpdateRequest questionUpdateRequest){
+        return questionService.updateQuestion(questionUpdateRequest);
+    }
 
 
 }

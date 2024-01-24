@@ -2,10 +2,11 @@ import axios from 'axios';
 import './QuestionDetail.css';
 
 import React, { useEffect, useState } from 'react';
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function QuestionDetail(){
 
+    let navigate = useNavigate();
     let location = useLocation();
     let questionNo = location.state.questionNo;
     let loginMember = location.state.loginMember;
@@ -21,7 +22,7 @@ function QuestionDetail(){
         setInputValue(e.target.value);
     }
 
-    const insertComment = ()=>{
+    const insertComment = ()=>{ // 댓글 작성
         if(Object.keys(loginMember).length !== 0){
             if(inputValue.trim() === '' ){
                 alert("내용을 입력해주세요.")
@@ -49,6 +50,10 @@ function QuestionDetail(){
         }else{
             alert("로그인 한 회원만 댓글을 작성할 수 있습니다.");
         }
+    }
+
+    const updateQuestion= (question) =>{
+        navigate("/page/question/questionUpdate" , {state : {question : question}});
     }
 
 
@@ -80,9 +85,9 @@ function QuestionDetail(){
                     <div>
                     { loginMember.memberNo === question.memberNo && 
                         <div className='question-editor'>
-                                <a>수정</a>
+                                <div className='update-btn' onClick={()=>updateQuestion(question)}>수정</div>
                                 &ensp; 
-                                <a>삭제</a>
+                                <div className='delete-btn'>삭제</div>
                             </div>}
                     </div>
                 </p>
@@ -141,9 +146,9 @@ function QuestionDetail(){
                                         <div className='comment-editor'>
                                             {loginMember.memberNo === comment.memberNo &&
                                             <div>
-                                                <a>수정</a>
+                                                <div className='update-btn'>수정</div>
                                                 &ensp;
-                                                <a>삭제</a>
+                                                <div className='delete-btn'>삭제</div>
                                             </div>
                                             }
                                             
