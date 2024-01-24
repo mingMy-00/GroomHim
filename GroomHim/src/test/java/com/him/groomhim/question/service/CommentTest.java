@@ -34,7 +34,7 @@ public class CommentTest {
 
 
         // when
-        MsgResponseDto result = commentService.save(memberNo, questionNo, commentCreateRequest);
+        MsgResponseDto result = commentService.save(questionNo,commentCreateRequest);
 
         // then
         Assertions.assertThat(result.getMsg()).isEqualTo("게시글 등록 완료");
@@ -51,7 +51,7 @@ public class CommentTest {
 
 
         // when
-        MsgResponseDto result = commentService.save(memberNo, questionNo, commentCreateRequest);
+        MsgResponseDto result = commentService.save(questionNo, commentCreateRequest);
 
         // then
         Assertions.assertThat(result.getMsg()).isEqualTo("내부 서버 오류");

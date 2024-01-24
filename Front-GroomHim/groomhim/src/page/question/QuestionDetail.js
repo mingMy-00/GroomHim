@@ -8,11 +8,14 @@ function QuestionDetail(){
 
     let location = useLocation();
     let questionNo = location.state.questionNo;
+    let loginMember = location.state.loginMember;
     const url = "http://localhost:9090/question/";
+    console.log(loginMember);
 
     const [question, setQuestion] = useState('');
     const [comments, setComments] = useState([]);
     const [inputValue , setInputValue] = useState('');
+    const [commnetUpdate, setCommentUpdate] = useState(0);
 
 
     const handleContentChange = (e) =>{
@@ -23,17 +26,24 @@ function QuestionDetail(){
         if(inputValue.trim() === '' ){
             alert("내용을 입력해주세요.")
         }else{
+
             axios({
                 url : url+questionNo+"/comment",
                 method : "post",
                 data : {
-                    memberNo : {}, 
+                    member : loginMember,
                     commentContent : inputValue
                 }
             }).then((response)=>{
-                console.log(response);
+                if(response.data.statusCode===200){
+                    alert("댓글이 등록되었습니다.");
+                    setInputValue("");
+                    setCommentUpdate(commnetUpdate+1);
+                }else{
+                    alert("댓글 작성 실패!");
+                }
             }).catch(()=>{
-
+              console.log("댓글 작성 실패!")  
             })
         }
     }
@@ -53,7 +63,7 @@ function QuestionDetail(){
         .catch(()=>{
             console.log("Q&A 조회 실패");
         })
-    },[questionNo])
+    },[questionNo, commnetUpdate]);
 
     return(
         <div className="question-main">

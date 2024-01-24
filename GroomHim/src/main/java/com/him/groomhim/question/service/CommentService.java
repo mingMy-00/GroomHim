@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Slf4j
 public class CommentService {
@@ -26,14 +25,10 @@ public class CommentService {
     private final QuestionRepository questionRepository;
     private final MemberRepository memberRepository;
 
-    @Transactional
-    public MsgResponseDto save(Long memberNo, int questionNo,CommentCreateRequest commentCreateRequest){
+    public MsgResponseDto save(int questionNo,CommentCreateRequest commentCreateRequest){
         try {
             Question findQuestion = questionRepository.findByQuestionNo(questionNo);
-            log.info("findQuestion={}",findQuestion);
-            Member findMember = memberRepository.findByMemberNo(memberNo);
-            log.info("findMember={}",findMember);
-            commentRepository.save(commentCreateRequest.toEntity(findQuestion,findMember));
+            commentRepository.save(commentCreateRequest.toEntity(findQuestion));
         }catch (Exception e){
             return new MsgResponseDto(new CustomException(ErrorCode.INTERNAL_SERVER_ERROR));
         }

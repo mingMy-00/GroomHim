@@ -6,6 +6,7 @@ import com.him.groomhim.question.entity.Question;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
@@ -23,6 +24,7 @@ public class CommentCreateRequest {
 
     private Question question;
 
+
     @Builder
     public CommentCreateRequest(Member member, String commentContent, Question question) {
         this.member = member;
@@ -30,12 +32,12 @@ public class CommentCreateRequest {
         this.question = question;
     }
 
-    public Comment toEntity(Question findQuestion, Member member){
+    public Comment toEntity(Question findQuestion){
         return 
         Comment.builder()
-                .member(member)
-                .commentContent(commentContent)
                 .question(findQuestion)
+                .commentContent(commentContent)
+                .member(member)
                 .build();
     }
 }

@@ -21,8 +21,9 @@ public class QuestionController {
 
 
     @PostMapping("/question")
-    public Long insertQuestion(@RequestBody QuestionCreateRequest request){
-        return questionService.save(request);
+    public Long insertQuestion(@RequestBody QuestionCreateRequest questionCreateRequest){
+        log.info("request = {}",questionCreateRequest);
+        return questionService.save(questionCreateRequest);
     }
 
     @GetMapping("/question")
@@ -38,8 +39,9 @@ public class QuestionController {
     }
 
     @PostMapping("/question/{questionNo}/comment")
-    public MsgResponseDto insertComment(@PathVariable("questionNo") int questionNo,@RequestParam(name = "memberNo") Long memberNo, @RequestBody CommentCreateRequest commentCreateRequest){
-        return commentService.save(memberNo, questionNo, commentCreateRequest);
+    public MsgResponseDto insertComment(@PathVariable("questionNo") int questionNo, @RequestBody CommentCreateRequest commentCreateRequest){
+        log.info("commentCreateRequest={}",commentCreateRequest);
+        return commentService.save(questionNo, commentCreateRequest);
     }
 
 

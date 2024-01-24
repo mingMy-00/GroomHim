@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 @NoArgsConstructor
+@ToString
 public class Comment {
 
     @Id

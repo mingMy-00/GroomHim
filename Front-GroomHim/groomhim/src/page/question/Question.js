@@ -40,7 +40,7 @@ function Question(){
 
     // 글 상세보기
     const questionDetail = (num) => {
-        navigate("/page/question/questionDetail" , {state : {questionNo : num}});
+        navigate("/page/question/questionDetail" , {state : {questionNo : num, loginMember : loginMember}});
     }
 
     useEffect(()=>{
