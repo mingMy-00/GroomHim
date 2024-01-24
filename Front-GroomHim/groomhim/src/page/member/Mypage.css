@@ -46,9 +46,12 @@ button {
     margin-right: 7px;
     border: 1px solid #082759;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 12px;    
     color: #082759;
 
+}
+.user-name {
+    width: 70%;
 }
 .mypage-box {
     width: 45%;

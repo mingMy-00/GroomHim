@@ -1,219 +1,79 @@
-
-.result-container{
-    max-width: 768px;
-    border: 1px solid lightgray;
-    margin: auto;
-    border-radius: 10px;
-}
-
-.result-container>p{
-    text-align: center;
-}
-
-.product-list{
-    overflow: auto;
-    height: 75vh;
-}
-
-.product-container {
-    max-width: 748px;
-    margin: 20px ;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.product {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-}
-
-.product img {
-    max-width: 100px;
-    max-height: 100px;
-    margin-right: 10px;
-    border-radius: 4px;
-}
-
-.product-info {
-    flex-grow: 1;
-}
-
-.product-info table {
-    height : 100px;
-}
-
-.product-info tr {
-    height : 50%;
-    border : 1px solid black;
-}
-
-.product h2 {
-    margin: 0;
-    color: black;
-}
-
-.product p {
-    margin: 5px 5px;
-    color: #888;
-}
-
-.product button {
-    padding: 8px 16px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.product button:hover {
-    background-color: #45a049;
-}
-
-.scrap-button {
-    background-color: #2196f3;
-    margin-left: 10px;
-}
-
-.scrap-button:hover {
-    background-color: #0b7dda;
-}
-
-@media screen and (max-width: 768px) {
-    .product img {
-        max-width: 80px;
-        max-height: 80px;
-    }
-}
-
-.result-btn {
-    height: 10vh;
-    width: 100%;
-    max-width: 768px;
+.result-container h2 {
+    margin-top: 0px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-}
-
-.result-btn button {
-    flex-grow: 1;
-    margin: 0 5px; 
-}
-
-@media screen and (max-width: 768px) {
-    .result-btn {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .result-btn button {
-        margin: 5px 0;
-    }
-}
-
-#SkinIntro {
-    border : 1px solid black;
-    width : 37vh;
-    margin : auto;
-    padding : 15px;
-    border-radius: 12px;
-}
-
-.b {
-    color : red;
-}
-
-#intro {
+    padding-top: 20px;
     text-align: center;
 }
-
-.warning {
-    font-size : 13px;
-    color : gray;
-    text-align: left;
-}
-
-#table {
-    margin : auto;
-    text-align: left;
-}
-
-/*버튼 리스트들을 위한 css*/
-.buttonList {
-    padding : 15px;
-    width  : 40vh;
-    margin : auto;
-    height : 5vh;
-    display: flex; /* Flex 컨테이너로 설정 */
-    align-items: center; /* 세로 가운데 정렬 */
-    justify-content: center; /* 가로 가운데 정렬 */
-}
-
-.buttonList > button {
-    height : 5vh;
-    background-color: #b3c4d1;
-    border-radius: 10px;
-    margin : 10px;
-    width  : 10vh;
-}
-
-.radio-inputs {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 0.5rem;
-    background-color: #EEE;
-    box-sizing: border-box;
-    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
-    padding: 0.25rem;
-    width: 300px;
-    font-size: 14px;
-    margin : auto;
-    margin-top : 20px;
-  }
-  
-  .radio-inputs .radio {
-    flex: 1 1 auto;
+.result-bar{
+    padding: 5% 0 10% 0;
+    margin: auto;
     text-align: center;
-  }
-  
-  .radio-inputs .radio input {
-    display: none;
-  }
-  
-  .radio-inputs .radio .name {
-    display: flex;
-    cursor: pointer;
     align-items: center;
-    justify-content: center;
-    border-radius: 0.5rem;
-    border: none;
-    padding: .5rem 0;
-    color: rgba(51, 65, 85, 1);
-    transition: all .15s ease-in-out;
-  }
-  
-  .radio-inputs .radio input:checked + .name {
-    background-color: #fff;
-    font-weight: 600;
-  }
-
-  /*상품들 테이블*/
-  .productTable h5 {
-    margin-bottom : 0px;
-  }
-
-  .productTable h6 {
-    margin-top : 0px;
-    color : gray;
-  }
-
-
+}
+.result-bar div{
+    width: 100%;
+}
+.type_explanation {
+    width: 90%;
+    min-height: 50px;
+    margin: 5% auto 10% auto;
+    padding: 5%;
+    font-size: 12px;
+    border-radius: 10px;
+    color: 082759;
+    background-color: #f0f0f0;
+}
+.youtube-item {
+    margin-bottom: 15%;
+}
+.youtube-item h4 {
+    margin: 3% 0;
+}
+.youtube-item button {
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    padding-block: 0;
+    padding-inline: 0;
+    border-width: 0;
+    color: white;
+    background-color: #082759;
+}
+.youtube-item-detail {
+    width: 90%;
+    min-height: 100px;
+    padding: 5%;
+    margin: 3% auto;
+    border-radius: 5px;
+    background-color: #ececec;
+}
+.youtube-thumbnail {
+    width: 240px;
+}
+.youtube-profile {
+}
+.youtube-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 100%;
+}
+.product-item {
+    margin: 5% 0;
+    font-size: 12px;
+    align-items: center;
+}
+.product-item img {
+    width: 70px;
+    height: 70px;
+}
+.product-item button {
+    font-size: 11px;
+}
+.product-item button {
+    width: 50%;
+    margin: auto;
+}
 /* 툴팁 */
 .tooltip-container {
     --background: #333333;
@@ -221,14 +81,14 @@
     position: relative;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    font-size: 18px;
+    font-size: 12px;
     font-weight: 600;
+    width: 100% !important;
     color: black;
     padding: 0.7em 1.8em;
     border-radius: 8px;
     text-transform: uppercase;
     height: 20px;
-    width: 100%;
     display: grid;
     place-items: center;
     border-radius: 30px;
@@ -244,19 +104,20 @@
     transform-origin: -100%;
     transform: scale(1);
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    color : gray;
+    color : black;
   }
   .tooltip-container span:last-child {
     position: absolute;
     top: 0%;
     left: 100%;
     width: 100%;
-    height: 100%;
     border-radius: 8px;
     opacity: 1;
-    background-color: var(--background);
     z-index: -1;
-    border: 2px solid var(--background);
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 5%;
     transform: scale(0);
     transform-origin: 0;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
@@ -280,7 +141,7 @@
     transform-origin: 0 0;
     text-transform: capitalize;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 12px;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   }
   
@@ -306,11 +167,10 @@
   
   .tooltip-container:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    color: white;
+    color: black;
     border-color: transparent;
     z-index: 3;
     width : 350px;
-    height : 300px;
   }
   
   .tooltip-container:hover span:last-child {
@@ -348,10 +208,21 @@
   }
 
   .introDetail {
-   width : 300px;
+   width : 100% !important;
    background-color: white;
   }
-
-  iframe {
+  .result-btn {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+  .result-btn button {
+    width: 45%;
+    height: 40px;
     border-radius: 20px;
+    border: none;
+    color: whitesmoke;
+    background-color: #082759;
   }

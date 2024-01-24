@@ -1,262 +1,185 @@
 import './Result.css';
-import logo from "../assets/imgs/logo.png";
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from "axios";
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import ProgressBar from '../skinTest/ProgressBar';
+import him from '../assets/imgs/DryHim.png';
 
-function Result(){
-    /* SkinTest.js로 부터 전달받은 값 */
+function Result() {
     const location = useLocation();
-    /* 피부타입을 위해서 만든 useState */
+    let navigate = useNavigate();
     const [skinType, setSkinType] = useState(location.state.skinType[0].skinType);
-    /*로그인한 회원 정보*/   
-    const storedData    = JSON.parse(sessionStorage.getItem("loginMember"));
-    const memberName    = storedData ? storedData.memberName : null;
-    const memberNo      = storedData ? Number(storedData.memberNo) : null;
-    //라디오 버튼의 상태를 관리
-    const [selectedRadio, setSelectedRadio] = useState('토너');
+    const [progress, setProgress] = useState(0);
 
-    //라디오 체크하면 실행되는 함수
-    const handleRadioClick = (name) => {
-        //name은 화장품의 종류임. (ex: 크림, 세럼, 토너)
-        setSelectedRadio(name);
-        //console.log(name);
+    /*로그인한 회원 정보*/
+    const storedData = JSON.parse(sessionStorage.getItem("loginMember"));
+    const memberName = storedData ? storedData.memberName : null;
+    const memberNo = storedData ? Number(storedData.memberNo) : null;
+
+    // 상세 정보가 보여지는 상태를 관리하는 state
+    const [showDetails, setShowDetails] = useState({
+        item1: false,
+        item2: false,
+        item3: false
+    });
+
+    // 함수를 사용하여 상세 정보를 토글합니다.
+    const toggleDetails = (item) => {
+        setShowDetails((prevDetails) => ({
+            ...prevDetails,
+            [item]: !prevDetails[item],
+        }));
     };
 
-    /*SkinType 설정하는 것*/
-    useEffect(() => {
-        setSkinType(skinType);
-        console.log("memberNo : " + memberNo);
-        console.log("skinType : " + skinType);
-        //회원 정보에 피부타입 업데이트를 위한 axios
-        axios({
-            url : "/result",
-            method : "post",
-            data : {memberNo : memberNo, skinType : skinType}
-        }).then(function(response1) {
-                console.log("회원 정보 업데이트 성공" + response1);
-                console.log("axios 두번째 실행하러감");
-                //화장품 정보 불러오기 위한 axios
-                axios({
-                    url : "/result/resolveRecommend",
-                    method : "post",
-                    data : {memberNo : memberNo, beautyName : selectedRadio}
-                }).then(function(response2) {
-                    console.log("화장품 정보 불러오기 성공 : " + response2);
-                }).catch(function() {
-                    console.log("화장품 정보 불러오기 실패");
-                });
-        }).catch(function() {
-            //console.log(selectedRadio);
-            console.log("회원 정보 insert 실패 ㅋ");
-        });
-    }, [selectedRadio]);
-
-    
-        /*피부타입에 따라 넣어줄 설명*/ 
-        const renderSkinIntro = () => {
-            if (skinType === '건성') {
-              return (
-                <div id="SkinIntro">
-                  이 타입은 <b className="b">보습제품</b>과 <b className="b">유수분 밸런스</b>가 중요합니다.
-                  <br></br>
-                  <br />
-                  <table id="table">
-                    <tr>
-                      <td>Step 1. </td>
-                      <td>수분을 흡수시켜줄 토너</td>
-                    </tr>
-                    <tr>
-                      <td>Step 2.</td>
-                      <td>수분 가득 제품</td>
-                    </tr>
-                    <tr>
-                      <td>Step 3.</td>
-                      <td>수분을 눌러서 유지해줄 보습크림.</td>
-                    </tr>
-                  </table>
-                </div>
-              );
-            } else if(skinType === '수부지') {
-                return (
-                    <div id="SkinIntro">
-                        "이건 수부지 설명"
-                    </div>
-                );
-            } else {
-                    <div id="SkinIntro">
-                        "이건 지성 설명"
-                    </div>
-            } 
-          };
-
-    /*피부타입에 따라 넣어줄 자세한 정보*/ 
     const introDetail = () => {
         if(skinType === '건성') {
             return(
             <div id="margin">
-                        <div class="tooltip-container">
-                            <span class="text">자세한 정보👀</span>
-                            <span className="introDetail">           
-                                Q. 건성피부란  ? <br />
-                                A. 피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
-                                표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br />
+                <div class="tooltip-container">
+                    <span class="text">자세한 정보👀</span>
+                    <span className="introDetail">           
+                        Q. 건성피부란  ? <br />
+                        A. 피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
+                        표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br />
 
-                                    유분제품을 너무 많이 바르면 모공을 막아서
-                                    좁쌀여드름이 나고
-                                    <br />
-                                    수분제품은 보통 가벼운 액체 타입이라서 날아가기 쉬워요.
-                                    <br /><br />
-                                ✔ 따라서, 보습제품과 유수분 밸런스가 중요합니다.
-                            </span>
-                        </div>
+                            유분제품을 너무 많이 바르면 모공을 막아서
+                            좁쌀여드름이 나고
+                            <br />
+                            수분제품은 보통 가벼운 액체 타입이라서 날아가기 쉬워요.
+                            <br /><br />
+                        ✔ 따라서, 보습제품과 유수분 밸런스가 중요합니다.
+                    </span>
+                </div>
             </div>
             );
         }else if(skinType === '수부지') {
             return(
-                <div id="margin">
-                            <div class="tooltip-container">
-                                <span class="text">자세한 정보👀</span>
-                                <span className="introDetail">           
-                                    Q. 수부지피부란  ? <br />
-                                    A. 피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
-                                    표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br />
-    
-                                        유분제품을 너무 많이 바르면 모공을 막아서
-                                        좁쌀여드름이 나고
-                                        <br />
-                                        수분제품은 보통 가벼운 액체 타입이라서 날아가기 쉬워요.
-                                        <br /><br />
-                                    
-                                    ✔ 따라서, 보습제품과 유수분 밸런스가 중요합니다.
-                                </span>
-                            </div>
+                <div>
+                    <span class="text">자세한 정보👀</span>
+                    <span className="introDetail">           
+                        Q. 수부지피부란  ? <br /><br />
+                        A. 피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
+                        표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br />
+
+                            유분제품을 너무 많이 바르면 모공을 막아서
+                            좁쌀여드름이 나고
+                            <br />
+                            수분제품은 보통 가벼운 액체 타입이라서 날아가기 쉬워요.
+                            <br /><br />
+                        
+                        ✔ 따라서, 보습제품과 유수분 밸런스가 중요합니다.
+                    </span>
                 </div>
                 );
         }else {
             return(
                 <div id="margin">
-                            <div class="tooltip-container">
-                                <span class="text">자세한 정보👀</span>
-                                <span className="introDetail">           
-                                    Q. 지성피부란  ? <br />
-                                    A. 피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
-                                    표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br />
-    
-                                        유분제품을 너무 많이 바르면 모공을 막아서
-                                        좁쌀여드름이 나고
-                                        <br />
-                                        수분제품은 보통 가벼운 액체 타입이라서 날아가기 쉬워요.
-                                        <br /><br />
-                                    
-                                    ✔ 따라서, 보습제품과 유수분 밸런스가 중요합니다.
-                                </span>
-                            </div>
+                    <div class="tooltip-container">
+                        <span class="text">자세한 정보👀</span>
+                        <span className="introDetail">           
+                            Q. 지성피부란  ? <br />
+                            A. 피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
+                            표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br />
+
+                                유분제품을 너무 많이 바르면 모공을 막아서
+                                좁쌀여드름이 나고
+                                <br />
+                                수분제품은 보통 가벼운 액체 타입이라서 날아가기 쉬워요.
+                                <br /><br />
+                            
+                            ✔ 따라서, 보습제품과 유수분 밸런스가 중요합니다.
+                        </span>
+                    </div>
                 </div>
                 );
         }};
 
-    return(
+    return (
         <div>
             <div className='result-container'>
-                <h2 Style="text-align : center;"> {memberName}님의 피부타입은 <b class="b">{skinType}</b> 입니다.</h2>
-                   {renderSkinIntro()}
-                <div class="radio-inputs">
-                    <label class="radio">
-                        <input type="radio" name="토너" className="radio" checked={selectedRadio === '토너'} onChange={() => handleRadioClick('토너')}/>
-                        <span class="name">토너 Top5</span>
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="수분" class="radio" checked={selectedRadio === '수분'} onChange={() => handleRadioClick('수분')}/>
-                        <span class="name">수분제품 Top5</span>
-                    </label>
-                        
-                    <label class="radio">
-                        <input type="radio" name="보습" class="radio" checked={selectedRadio === '보습'} onChange={() => handleRadioClick('보습')}/>
-                        <span class="name">보습크림 Top5</span>
-                    </label>
-                </div>
-                {introDetail()}
+                <h2>1분 설문조사</h2>
+                <div className='content'>
+                    <div className='result-bar'>
+                        <p>설문 완료!</p>
+                        <ProgressBar progress={0} totalQuestions={0} />
+                    </div>
+                    <img src={him} style={{width : '80%'}}></img>
+                    <div>
+                        <p>{memberName}님의 피부타입은 <b className="b" style={{color : 'red'}}>{skinType}</b> 입니다.</p>
+                        <p>제품 추천은 아래와 같습니다.</p>
+                        <div className='type_explanation'>
+                            <p>이 타입은 보습제품과 유수분 밸런스가 중요합니다.</p>
+                            <br/>
+                            <div class="tooltip-container">
+                            {introDetail()}
+                    </div>
+                        </div>
+                    </div>
 
-                <div className='product-list'>
-                    <div class="product-container">
-                        <div class="product">
-                            1.
-                            <img src="https://image8.coupangcdn.com/image/retail/images/284614092420512-ace274de-9ed5-4b97-82c1-343be2dae1c8.jpg" alt="Product Image 1" />
-                            <div class="product-info">
-                                <table className="productTable">
-                                    <tr><td><h5>이니스프리 New 그린티 씨드 히알루론산 고수분 크림 50ml</h5></td></tr>
-                                    <tr><td><h6>16,650원</h6></td></tr>
-                                </table>
-                            </div>
-                            <button class="purchase-button">Buy</button>
-                            <button class="scrap-button">Scrap</button>
+                    <div className={`youtube-item ${showDetails.item1 ? 'show' : ''}`}>
+                        <div  style={{alignItems : 'center'}}>
+                            <p>유튜브 조회수<span style={{color : 'red'}}> 14만회 </span>루틴</p>
                         </div>
-                    </div>
-                    <div class="product-container">
-                        <div class="product">
-                            2.
-                            <img src="https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/284609073615780-32647246-1d35-4b96-8da4-262a39f7a279.jpg" alt="Product Image 1" />
-                            <div class="product-info">
-                                <table className="productTable">
-                                    <tr><td><h5>닥터지 레드 블레미쉬 시카 수딩 크림 듀오 기획세트 50ml</h5></td></tr>
-                                    <tr><td><h6>32,770원</h6></td></tr>
-                                </table>
+                        <button onClick={() => toggleDetails('item1')}>
+                            {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
+                        </button>
+                        {showDetails.item1 && ( 
+                            <div className='youtube-item-detail'>
+                                <div className='youtube-profile displayFlex'>
+                                <img src='https://yt3.ggpht.com/80LHzlXj90CDw6l1HzA1MFZzIxOpKEVuvH9OCen7_B4L5NimaiSXOAqrNeG9Bj_fWTeOYZr6fQ=s48-c-k-c0x00ffffff-no-rj' />
+                                    <div style={{ width : '100%', textAlign: 'left', marginLeft: '5%'}}>
+                                        <p style={{fontSize: '15px'}}>디렉터 파이</p>
+                                        <p style={{fontSize: '12px'}}>구독자 102만명</p>
+                                    </div>
+                                </div>
+                                <div className='product-item displayFlex'>
+                                    <img src='https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/75ce/80861e190fff6837c708bb2d51a9463078b45de3ce7e6e71300b87480cdf.jpeg'></img>
+                                    <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
+                                        <div className='displayFlex' style={{justifyContent : 'space-between'}}>
+                                            <p style={{fontSize : '13px'}}>Step1.</p> 
+                                            <p>24,000원</p>
+                                        </div>
+                                        <p>어바웃미 쌀막걸리 클렌징 오일 195ml</p>
+                                        <button>구매하러 가기</button>
+                                    </div>
+                                </div>
+                                <div className='product-item displayFlex'>
+                                    <img src='https://thumbnail10.coupangcdn.com/thumbnails/remote/230x230ex/image/rs_quotation_api/eivyaael/08a38fcc0b634c3bb5501acf1fd1dc9e.jpg'></img>
+                                    <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
+                                    <div className='displayFlex' style={{justifyContent : 'space-between'}}>
+                                            <p style={{fontSize : '13px'}}>Step2.</p> 
+                                            <p>14,000원 </p>
+                                        </div>
+                                        <p>어바웃미 쌀 막걸리 클렌징 폼 120ml</p>
+                                        <button>구매하러 가기</button>
+                                    </div>
+                                </div>
+                                <div className='product-item displayFlex'>
+                                    <img src='https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/2469747148449101-3d7904a4-d2f2-472e-b599-d3a9bb08f54d.jpg'></img>
+                                    <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
+                                    <div className='displayFlex' style={{justifyContent : 'space-between'}}>
+                                            <p style={{fontSize : '13px'}}>Step3.</p> 
+                                            <p>24,000원</p>
+                                        </div>
+                                        <p>라로슈포제 세로징크 세범 컨트롤 토닝 미스트 150ml</p>
+                                        <button>구매하러 가기</button>
+                                    </div>
+                                </div>
+                                <br></br>
+                                <p>참고 영상</p>
+                                <p style={{fontSize : '12px'}}>
+                                    수부지 피부를 위한 성분과 스킨케어는 따로 있다?! 클렌징부터 베이스까지 by. 디렉터파이
+                                </p>
                             </div>
-                            <button class="purchase-button">Buy</button>
-                            <button class="scrap-button">Scrap</button>
-                        </div>
-                    </div>
-                    <div class="product-container">
-                        <div class="product">
-                            3.
-                            <img src="https://thumbnail10.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/9508847276305564-ae3485c2-a561-4df9-87aa-607e4e49b0ae.jpg" />
-                            <div class="product-info">
-                                <table className="productTable">
-                                    <tr><td><h5>일리윤 히알루론 모이스춰 수분크림 100ml, 1개</h5></td></tr>
-                                    <tr><td><h6>7,670원</h6></td></tr>
-                                </table>
-                            </div>
-                            <button class="purchase-button">Buy</button>
-                            <button class="scrap-button">Scrap</button>
-                        </div>
-                    </div>
-                    <div class="product-container">
-                        <div class="product">
-                            2.
-                            <img src="https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/284609073615780-32647246-1d35-4b96-8da4-262a39f7a279.jpg" alt="Product Image 1" />
-                            <div class="product-info">
-                                <table className="productTable">
-                                    <tr><td><h5>닥터지 레드 블레미쉬 시카 수딩 크림 듀오 기획세트 50ml</h5></td></tr>
-                                    <tr><td><h6>32,770원</h6></td></tr>
-                                </table>
-                            </div>
-                            <button class="purchase-button">Buy</button>
-                            <button class="scrap-button">Scrap</button>
-                        </div>
-                    </div>
-                    <div class="product-container">
-                        <div class="product">
-                            2.
-                            <img src="https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/284609073615780-32647246-1d35-4b96-8da4-262a39f7a279.jpg" alt="Product Image 1" />
-                            <div class="product-info">
-                                <table className="productTable">
-                                    <tr><td><h5>닥터지 레드 블레미쉬 시카 수딩 크림 듀오 기획세트 50ml</h5></td></tr>
-                                    <tr><td><h6>32,770원</h6></td></tr>
-                                </table>
-                            </div>
-                            <button class="purchase-button">Buy</button>
-                            <button class="scrap-button">Scrap</button>
-                        </div>
+                        )}
                     </div>
                 </div>
-                <div className='result-btn'>
-                    <button>설문 다시 하기</button>
-                    <button>다른 설문 하기</button>
-                    <button>홈으로 이동</button>
-                </div>
+            </div>
+            <div className='result-btn'>
+                <button onClick={() => navigate('/skinTest')}>설문 다시 하기</button>
+                <button  onClick={() => navigate('/')}>홈으로 이동</button>
             </div>
         </div>
     );
 }
+
 export default Result;
