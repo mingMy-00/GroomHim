@@ -38,12 +38,6 @@ public class QuestionController {
         return questionCommentResponse;
     }
 
-    @PostMapping("/question/{questionNo}/comment")
-    public MsgResponseDto insertComment(@PathVariable("questionNo") Long questionNo, @RequestBody CommentCreateRequest commentCreateRequest){
-        log.info("commentCreateRequest={}",commentCreateRequest);
-        return commentService.save(questionNo, commentCreateRequest);
-    }
-
     @PatchMapping("/question")
     public Long updateQuestion(@RequestBody QuestionUpdateRequest questionUpdateRequest){
         return questionService.updateQuestion(questionUpdateRequest);
@@ -52,6 +46,17 @@ public class QuestionController {
     @DeleteMapping("/question/{questionNo}")
     public void deleteQuestion(@PathVariable("questionNo") Long questionNo){
         questionService.deleteQuestion(questionNo);
+    }
+
+    @PostMapping("/question/{questionNo}/comment")
+    public MsgResponseDto insertComment(@PathVariable("questionNo") Long questionNo, @RequestBody CommentCreateRequest commentCreateRequest){
+        log.info("commentCreateRequest={}",commentCreateRequest);
+        return commentService.save(questionNo, commentCreateRequest);
+    }
+
+    @DeleteMapping("/question/comment/{commentNo}")
+    public void deleteComment(@PathVariable("commentNo") Long commentNo){
+        commentService.deleteComment(commentNo);
     }
 
 

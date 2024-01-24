@@ -22,7 +22,8 @@ function QuestionDetail(){
         setInputValue(e.target.value);
     }
 
-    const insertComment = ()=>{ // 댓글 작성
+    // 댓글 작성
+    const insertComment = ()=>{ 
         if(Object.keys(loginMember).length !== 0){
             if(inputValue.trim() === '' ){
                 alert("내용을 입력해주세요.")
@@ -52,12 +53,13 @@ function QuestionDetail(){
         }
     }
 
+    // 게시글 수정
     const updateQuestion= (question) =>{
         navigate("/page/question/questionUpdate" , {state : {question : question}});
     }
 
-    const deleteQuestion = ()=>{
-        
+    // 게시글 삭제
+    const deleteQuestion = ()=>{ 
         if(window.confirm("삭제하시겠습니까?")){
             axios({
                 url : url+questionNo,
@@ -71,6 +73,22 @@ function QuestionDetail(){
         }
     }
 
+    // 댓글 삭제
+    const deleteComment = (commentNo)=>{
+        if(window.confirm("삭제하시겠습니까?")){
+            axios({
+                url : url+"comment/"+commentNo,
+                method : "delete"
+            }).then(()=>{
+                alert("댓글이 삭제되었습니다.");
+                setCommentUpdate(commnetUpdate-1);
+            }).catch(()=>{
+                console.log("댓글 삭제 실패");
+            })
+        }
+    }
+
+
 
     useEffect(()=>{
         axios({
@@ -83,7 +101,7 @@ function QuestionDetail(){
             setComments(response.data.comments);
         })
         .catch(()=>{
-            console.log("Q&A 조회 실패");
+            console.log("게시글 조회 실패");
         })
     },[questionNo, commnetUpdate]);
 
@@ -163,7 +181,7 @@ function QuestionDetail(){
                                             <div>
                                                 <div className='update-btn'>수정</div>
                                                 &ensp;
-                                                <div className='delete-btn'>삭제</div>
+                                                <div className='delete-btn' onClick={()=>{deleteComment(comment.commentNo)}}>삭제</div>
                                             </div>
                                             }
                                             
