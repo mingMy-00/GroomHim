@@ -23,9 +23,8 @@ public class CommentService {
 
     private final CommentRepository commentRepository;
     private final QuestionRepository questionRepository;
-    private final MemberRepository memberRepository;
 
-    public MsgResponseDto save(int questionNo,CommentCreateRequest commentCreateRequest){
+    public MsgResponseDto save(Long questionNo,CommentCreateRequest commentCreateRequest){
         try {
             Question findQuestion = questionRepository.findByQuestionNo(questionNo);
             commentRepository.save(commentCreateRequest.toEntity(findQuestion));
@@ -33,6 +32,11 @@ public class CommentService {
             return new MsgResponseDto(new CustomException(ErrorCode.INTERNAL_SERVER_ERROR));
         }
         return new MsgResponseDto(SuccessCode.SUCCESS_INSERT);
+    }
+
+    @Transactional
+    public void deleteComment(Long commentNo){
+        commentRepository.deleteByCommentNo(commentNo);
     }
 
 

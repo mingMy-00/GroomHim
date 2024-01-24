@@ -2,10 +2,11 @@ import axios from 'axios';
 import './QuestionDetail.css';
 
 import React, { useEffect, useState } from 'react';
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function QuestionDetail(){
 
+    let navigate = useNavigate();
     let location = useLocation();
     let questionNo = location.state.questionNo;
     let loginMember = location.state.loginMember;
@@ -21,7 +22,8 @@ function QuestionDetail(){
         setInputValue(e.target.value);
     }
 
-    const insertComment = ()=>{
+    // 댓글 작성
+    const insertComment = ()=>{ 
         if(Object.keys(loginMember).length !== 0){
             if(inputValue.trim() === '' ){
                 alert("내용을 입력해주세요.")
@@ -51,6 +53,42 @@ function QuestionDetail(){
         }
     }
 
+    // 게시글 수정
+    const updateQuestion= (question) =>{
+        navigate("/page/question/questionUpdate" , {state : {question : question}});
+    }
+
+    // 게시글 삭제
+    const deleteQuestion = ()=>{ 
+        if(window.confirm("삭제하시겠습니까?")){
+            axios({
+                url : url+questionNo,
+                method : "delete"
+            }).then(()=>{
+                alert("게시글이 삭제되었습니다.");
+                navigate("/page/question");
+            }).catch(()=>{
+                console.log("게시글 삭제 실패");
+            })
+        }
+    }
+
+    // 댓글 삭제
+    const deleteComment = (commentNo)=>{
+        if(window.confirm("삭제하시겠습니까?")){
+            axios({
+                url : url+"comment/"+commentNo,
+                method : "delete"
+            }).then(()=>{
+                alert("댓글이 삭제되었습니다.");
+                setCommentUpdate(commnetUpdate-1);
+            }).catch(()=>{
+                console.log("댓글 삭제 실패");
+            })
+        }
+    }
+
+
 
     useEffect(()=>{
         axios({
@@ -63,7 +101,7 @@ function QuestionDetail(){
             setComments(response.data.comments);
         })
         .catch(()=>{
-            console.log("Q&A 조회 실패");
+            console.log("게시글 조회 실패");
         })
     },[questionNo, commnetUpdate]);
 
@@ -80,9 +118,9 @@ function QuestionDetail(){
                     <div>
                     { loginMember.memberNo === question.memberNo && 
                         <div className='question-editor'>
-                                <a>수정</a>
+                                <div className='update-btn' onClick={()=>updateQuestion(question)}>수정</div>
                                 &ensp; 
-                                <a>삭제</a>
+                                <div className='delete-btn' onClick={deleteQuestion}>삭제</div>
                             </div>}
                     </div>
                 </p>
@@ -141,9 +179,9 @@ function QuestionDetail(){
                                         <div className='comment-editor'>
                                             {loginMember.memberNo === comment.memberNo &&
                                             <div>
-                                                <a>수정</a>
+                                                <div className='update-btn'>수정</div>
                                                 &ensp;
-                                                <a>삭제</a>
+                                                <div className='delete-btn' onClick={()=>{deleteComment(comment.commentNo)}}>삭제</div>
                                             </div>
                                             }
                                             

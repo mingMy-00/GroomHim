@@ -62,7 +62,6 @@ function Question(){
 
     const handlePageClick = (page) => {
         setCurrentPage(page);
-        
     };
 
     const renderPagination = () => {

@@ -155,3 +155,6 @@
     color: #868e96;
     font-size: .875rem;
 }
+.update-btn, .delete-btn{
+    display: inline-block;
+}

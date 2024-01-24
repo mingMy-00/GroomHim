@@ -1,5 +1,6 @@
 package com.him.groomhim.question.service;
 
+import com.him.groomhim.common.dto.MsgResponseDto;
 import com.him.groomhim.question.dto.*;
 import com.him.groomhim.question.entity.Comment;
 import com.him.groomhim.question.entity.Question;
@@ -38,7 +39,7 @@ public class QuestionService {
     }
 
     @Transactional
-    public QuestionPageResponse selectQuestions(int page, Pageable pageable){
+    public QuestionPageResponse selectAllQuestion(int page, Pageable pageable){
         pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "enrollDate"); // 페이징 정보
         Page<Question> questionPage = questionRepository.findAll(pageable); // 모든 회원 조회
         List<Question> questionList = questionPage.getContent(); //
@@ -63,7 +64,7 @@ public class QuestionService {
     }
 
     @Transactional
-    public QuestionCommentResponse selectQuestion(int questionNo){
+    public QuestionCommentResponse selectQuestion(Long questionNo){
         Question findQuestion = questionRepository.findByQuestionNo(questionNo);
         List<Comment> commentList = findQuestion.getCommentList();
 
@@ -91,6 +92,21 @@ public class QuestionService {
                 }).collect(Collectors.toList());
 
         return QuestionCommentResponse.builder().questionResponse(questionResponse).comments(comments).build();
+    }
+
+    @Transactional
+    public Long updateQuestion(QuestionUpdateRequest questionUpdateRequest){
+        Question findQuestion = questionRepository.findByQuestionNo(questionUpdateRequest.getQuestionNo()); // 1. 게시글 번호로 게시글 조회
+        questionHashTagService.deleteAllByQuestion(findQuestion); // 2. 조회해온 게시글의 QuestionHashTag 모두 삭제
+        questionHashTagService.saveHashTags(findQuestion, questionUpdateRequest.getQuestionTags()); // 3. 새로운 hashtag를 생성하거나 조회해서 다시 QuestionHashTag 생성
+        findQuestion.setQuestionTitle(questionUpdateRequest.getQuestionTitle()); // 4. 게시글의 제목 업데이트
+        findQuestion.setQuestionContent(questionUpdateRequest.getQuestionContent()); // 5. 게시글의 내용 업데이트
+        return findQuestion.getQuestionNo();
+    }
+
+    @Transactional
+    public void deleteQuestion(Long questionNo){
+        questionRepository.deleteByQuestionNo(questionNo);
     }
 
 }
