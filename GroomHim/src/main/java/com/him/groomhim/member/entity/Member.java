@@ -1,14 +1,9 @@
 package com.him.groomhim.member.entity;
 
-
-import com.him.groomhim.question.entity.Comment;
-import com.him.groomhim.question.entity.Question;
 import com.him.groomhim.type.entity.SkinType;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.sql.Date;
-import java.util.List;
 
 @Entity
 @Setter
@@ -24,7 +19,7 @@ public class Member {
     @Column(name = "MEMBER_ID", length = 50, nullable = false, unique = true)
     private String memberId;
 
-    @Column(name = "MEMBER_PWD", length = 50, nullable = true)
+    @Column(name = "MEMBER_PWD", length = 50)
     private String memberPwd;
 
     @Column(name = "MEMBER_EMAIL", length = 100, nullable = false, unique = true)
@@ -33,35 +28,28 @@ public class Member {
     @Column(name = "MEMBER_NAME", length = 50, nullable = false)
     private String memberName;
 
-    @Column(name = "MEMBER_PHONE", length = 50, nullable = false)
+    @Column(name = "MEMBER_PHONE", length = 50)
     private String memberPhone;
 
     @Column(name = "MEMBER_NICKNAME", length = 50, nullable = false, unique = true)
     private String memberNickname;
 
-    @Column(name = "MEMBER_GENDER", length = 10, nullable = false)
+    @Column(name = "MEMBER_GENDER", length = 10)
     private String memberGender;
 
-    @Column(name = "MEMBER_ADDRESS", length = 100, nullable = true)
+    @Column(name = "MEMBER_ADDRESS", length = 100)
     private String memberAddress;
 
-    @Column(name = "MEMBER_BIRTH", nullable = false)
+    @Column(name = "MEMBER_BIRTH")
     private Date memberBirth;
 
     @Column(name = "MEMBER_PROFILE", length = 500)
     private String memberProfile;
 
-    /**
-     * 단방향 1대1 관계
-     */
     @OneToOne
     @JoinColumn(name = "SKIN_ID")
     private SkinType skinType;
 
-
-
-
-    
     //회원가입용 생성자
     public Member(String memberId, String memberPwd, String memberEmail,
                   String memberName,String memberPhone, String memberNickname,

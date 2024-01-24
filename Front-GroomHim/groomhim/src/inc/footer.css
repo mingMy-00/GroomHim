@@ -22,8 +22,8 @@
   margin: auto;
 }
 .footer-icon {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   margin: 5px 5px 5px 0px;
 }
 .item-name {
@@ -135,4 +135,9 @@
   border-radius: 5px;
   background-color: #082759;
   color: white;
+}
+
+.footer-select path{
+    fill: black;
+    
 }
