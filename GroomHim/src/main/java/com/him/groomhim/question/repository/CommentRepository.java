@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
     void deleteByCommentNo(Long commentNo);
+
+    Comment findByCommentNo(Long commentNo);
 }

@@ -59,5 +59,10 @@ public class QuestionController {
         commentService.deleteComment(commentNo);
     }
 
+    @PatchMapping("/question/comment/{commentNo}")
+    public void updateComment(@PathVariable("commentNo") Long commentNo, @RequestParam(name = "commentContent") String commentContent){
+        commentService.updateComment(commentNo,commentContent);
+    }
+
 
 }

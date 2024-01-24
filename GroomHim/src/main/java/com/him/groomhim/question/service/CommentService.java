@@ -39,5 +39,10 @@ public class CommentService {
         commentRepository.deleteByCommentNo(commentNo);
     }
 
+    @Transactional
+    public void updateComment(Long commentNo,String updateCommentContent){
+        Comment findComment = commentRepository.findByCommentNo(commentNo);
+        findComment.setCommentContent(updateCommentContent);
 
+    }
 }

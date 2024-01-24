@@ -16,10 +16,16 @@ function QuestionDetail(){
     const [comments, setComments] = useState([]);
     const [inputValue , setInputValue] = useState('');
     const [commnetUpdate, setCommentUpdate] = useState(0);
-
+    const [editingCommentNo, setEditingCommentNo] = useState(null);
+    const [updatedCommentContent, setUpdatedCommentContent] = useState('');
 
     const handleContentChange = (e) =>{
         setInputValue(e.target.value);
+    }
+
+    const handleUpdateComment =(commentNo , commentContent)=>{
+        setEditingCommentNo(commentNo);
+        setUpdatedCommentContent(commentContent);
     }
 
     // 댓글 작성
@@ -87,6 +93,25 @@ function QuestionDetail(){
             })
         }
     }
+
+    // 댓글 수정
+    const updateComment = (commentNo)=>{
+        console.log(updatedCommentContent);
+        axios({
+            url : url+"comment/"+commentNo,
+            method : "patch",
+            params : {commentContent : updatedCommentContent}
+        }).then(()=>{
+            alert("댓글이 수정되었습니다.");
+        }).catch(()=>{
+            console.log("댓글 수정 실패");
+        })
+    }
+
+    const handleCancelEdit = () => {
+        setEditingCommentNo(null);
+        setUpdatedCommentContent('');
+      };
 
 
 
@@ -179,7 +204,7 @@ function QuestionDetail(){
                                         <div className='comment-editor'>
                                             {loginMember.memberNo === comment.memberNo &&
                                             <div>
-                                                <div className='update-btn'>수정</div>
+                                                <div className='update-btn' onClick={()=>handleUpdateComment(comment.commentNo, comment.commentContent)}>수정</div>
                                                 &ensp;
                                                 <div className='delete-btn' onClick={()=>{deleteComment(comment.commentNo)}}>삭제</div>
                                             </div>
@@ -188,17 +213,26 @@ function QuestionDetail(){
                                         </div>
                                     </div>
                                     <div className="comment-item-body">
-                                        <p>
-                                            {comment.commentContent}
-                                        </p>
+                                            {editingCommentNo === comment.commentNo ? (
+                                                    <div>
+                                                        <input
+                                                        type="text"
+                                                        value={updatedCommentContent}
+                                                        onChange={(e) => setUpdatedCommentContent(e.target.value)}
+                                                        />
+                                                        <div className='update-btn' onClick={() => updateComment(comment.commentNo)}>완료</div>
+                                                        <div className='cancel-btn' onClick={handleCancelEdit}>취소</div>
+                                                    </div>
+                                                ):(
+                                                <p>
+                                                    {comment.commentContent}
+                                                </p>
+                                            )}
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     ))}
-                    
-                    
                 </div>
             </section>
         </div>
