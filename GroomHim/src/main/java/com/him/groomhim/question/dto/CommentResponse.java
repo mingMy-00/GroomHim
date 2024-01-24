@@ -15,14 +15,17 @@ public class CommentResponse {
 
     private String writer;
 
+    private Long memberNo;
+
     private String commentContent;
 
     private String enrollDate;
 
     @Builder
-    public CommentResponse(Long commentNo, String writer, String commentContent, LocalDateTime enrollDate){
+    public CommentResponse(Long commentNo, String writer, String commentContent, LocalDateTime enrollDate, Long memberNo){
         this.commentNo = commentNo;
         this.writer = writer;
+        this.memberNo = memberNo;
         this.commentContent = commentContent;
         this.enrollDate = enrollDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:MM"));
     }

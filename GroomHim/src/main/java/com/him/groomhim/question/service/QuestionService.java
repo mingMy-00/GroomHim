@@ -76,6 +76,7 @@ public class QuestionService {
                 .enrollDate(findQuestion.getEnrollDate())
                 .tagList(findQuestion.getTagList())
                 .writer(findQuestion.getWriter())
+                .memberNo(findQuestion.getMember().getMemberNo())
                 .build();
 
         List<CommentResponse> comments = commentList.stream()
@@ -84,6 +85,7 @@ public class QuestionService {
                             .commentNo(comment.getCommentNo())
                             .commentContent(comment.getCommentContent())
                             .writer(comment.getMember().getMemberName())
+                            .memberNo(comment.getMember().getMemberNo())
                             .enrollDate(comment.getEnrollDate())
                             .build();
                 }).collect(Collectors.toList());

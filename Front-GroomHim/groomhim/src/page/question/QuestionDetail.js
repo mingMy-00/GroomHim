@@ -10,7 +10,6 @@ function QuestionDetail(){
     let questionNo = location.state.questionNo;
     let loginMember = location.state.loginMember;
     const url = "http://localhost:9090/question/";
-    console.log(loginMember);
 
     const [question, setQuestion] = useState('');
     const [comments, setComments] = useState([]);
@@ -23,34 +22,37 @@ function QuestionDetail(){
     }
 
     const insertComment = ()=>{
-        if(inputValue.trim() === '' ){
-            alert("내용을 입력해주세요.")
-        }else{
+        if(Object.keys(loginMember).length !== 0){
+            if(inputValue.trim() === '' ){
+                alert("내용을 입력해주세요.")
+            }else{
 
-            axios({
-                url : url+questionNo+"/comment",
-                method : "post",
-                data : {
-                    member : loginMember,
-                    commentContent : inputValue
-                }
-            }).then((response)=>{
-                if(response.data.statusCode===200){
-                    alert("댓글이 등록되었습니다.");
-                    setInputValue("");
-                    setCommentUpdate(commnetUpdate+1);
-                }else{
-                    alert("댓글 작성 실패!");
-                }
-            }).catch(()=>{
-              console.log("댓글 작성 실패!")  
-            })
+                axios({
+                    url : url+questionNo+"/comment",
+                    method : "post",
+                    data : {
+                        member : loginMember,
+                        commentContent : inputValue
+                    }
+                }).then((response)=>{
+                    if(response.data.statusCode===200){
+                        alert("댓글이 등록되었습니다.");
+                        setInputValue("");
+                        setCommentUpdate(commnetUpdate+1);
+                    }else{
+                        alert("댓글 작성 실패!");
+                    }
+                }).catch(()=>{
+                console.log("댓글 작성 실패!")  
+                })
+            }
+        }else{
+            alert("로그인 한 회원만 댓글을 작성할 수 있습니다.");
         }
     }
 
 
     useEffect(()=>{
-
         axios({
             url : url+questionNo,
             method : "get"
@@ -75,7 +77,16 @@ function QuestionDetail(){
                     <span className="question-detail-view-count">조회수
                         <span>{question.viewCount}</span>
                     </span>
+                    <div>
+                    { loginMember.memberNo === question.memberNo && 
+                        <div className='question-editor'>
+                                <a>수정</a>
+                                &ensp; 
+                                <a>삭제</a>
+                            </div>}
+                    </div>
                 </p>
+                
             </div>
             <div className="question-detail-hr"></div>
             <div className="question-detail-body">
@@ -127,6 +138,16 @@ function QuestionDetail(){
                                         <p className="comment-writer">{comment.writer}</p>
                                         <p className="dot" aria-hidden="true">･</p>
                                         <p className="comment-createData">{comment.enrollDate}</p>
+                                        <div className='comment-editor'>
+                                            {loginMember.memberNo === comment.memberNo &&
+                                            <div>
+                                                <a>수정</a>
+                                                &ensp;
+                                                <a>삭제</a>
+                                            </div>
+                                            }
+                                            
+                                        </div>
                                     </div>
                                     <div className="comment-item-body">
                                         <p>
