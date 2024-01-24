@@ -88,7 +88,7 @@ function MypageReview() {
         ]
         setReviewContent(content);
 
-        setSelectedTab('selectImgReview');
+        setSelectedTab('generalReview');
     }
     useEffect(() => {
         selectImgReview();
