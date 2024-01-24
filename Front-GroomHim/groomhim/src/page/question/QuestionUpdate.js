@@ -14,6 +14,7 @@ function QuestionUpdate(){
     const [inputValue, setInputValue] = useState('');
     console.log(question);
 
+    const url = "http://localhost:9090/question";
 
     const handleTitleChange = (e) => {
         setTitle(e.target.value);
@@ -60,7 +61,7 @@ function QuestionUpdate(){
             alert('제목과 내용을 입력해주세요');
         }else{ // 제목과 내용이 비어있지 않다면
             axios({
-                url : "http://localhost:9090/question",
+                url : url,
                 method : "patch",
                 data : {
                     questionNo : question.questionNo,
@@ -68,16 +69,18 @@ function QuestionUpdate(){
                     questionTags : tags,
                     questionContent : content
                 }
-            }).then(function() {
+            }).then(()=> {
                 console.log("질문 수정 성공");
-                alert("게시글이 등록되었습니다.");
+                alert("게시글이 수정되었습니다.");
                 navigate(-1);
             })
             .catch(function() {
-                console.log("질문 수정 실패");
+                console.log("게시글 수정 실패");
             });
        }
     }
+
+    
     
 
 return(

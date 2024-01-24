@@ -56,6 +56,21 @@ function QuestionDetail(){
         navigate("/page/question/questionUpdate" , {state : {question : question}});
     }
 
+    const deleteQuestion = ()=>{
+        
+        if(window.confirm("삭제하시겠습니까?")){
+            axios({
+                url : url+questionNo,
+                method : "delete"
+            }).then(()=>{
+                alert("게시글이 삭제되었습니다.");
+                navigate("/page/question");
+            }).catch(()=>{
+                console.log("게시글 삭제 실패");
+            })
+        }
+    }
+
 
     useEffect(()=>{
         axios({
@@ -87,7 +102,7 @@ function QuestionDetail(){
                         <div className='question-editor'>
                                 <div className='update-btn' onClick={()=>updateQuestion(question)}>수정</div>
                                 &ensp; 
-                                <div className='delete-btn'>삭제</div>
+                                <div className='delete-btn' onClick={deleteQuestion}>삭제</div>
                             </div>}
                     </div>
                 </p>

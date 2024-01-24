@@ -104,4 +104,9 @@ public class QuestionService {
         return findQuestion.getQuestionNo();
     }
 
+    @Transactional
+    public void deleteQuestion(Long questionNo){
+        questionRepository.deleteByQuestionNo(questionNo);
+    }
+
 }

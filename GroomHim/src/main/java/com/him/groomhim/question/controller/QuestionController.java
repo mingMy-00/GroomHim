@@ -49,5 +49,10 @@ public class QuestionController {
         return questionService.updateQuestion(questionUpdateRequest);
     }
 
+    @DeleteMapping("/question/{questionNo}")
+    public void deleteQuestion(@PathVariable("questionNo") Long questionNo){
+        questionService.deleteQuestion(questionNo);
+    }
+
 
 }
