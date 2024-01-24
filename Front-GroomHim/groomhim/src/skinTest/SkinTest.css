@@ -38,6 +38,7 @@
 .top{
    padding: 1rem;
    width : 320px;
+   height : 350px;
 }
 
 .top h2{
@@ -84,6 +85,7 @@
   border-radius: 4px;
   margin-right: 10px;
   width : 300px;
+  background-color: #11202D;
 }
 
 .loading_container{

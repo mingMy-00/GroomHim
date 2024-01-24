@@ -2,7 +2,7 @@ import Questions from '../common/api/question.json';
 import {useEffect, useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import './SkinTest.css';
-import him from '../assets/imgs/Him.jpg';
+import him from '../assets/imgs/TroubleHim.png';
 import ProgressBar from './ProgressBar'; 
 
 function SkinTest(){
@@ -72,6 +72,7 @@ function SkinTest(){
                         return(
                             <div className='content' key={index}>
                                 <div className='top'>
+                                    <div Style="margin : 20px auto;" >진행도 6/6</div>
                                      <ProgressBar progress={progress} totalQuestions={Questions.length} />
                                     <div className="img"><img src={him}></img></div>
                                     <h2>

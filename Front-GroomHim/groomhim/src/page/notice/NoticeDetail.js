@@ -60,7 +60,7 @@ const NoticeDetail = () => {
         <h2 className="notice-title">{notice.noticeTitle}</h2>
             <p className="notice-date">{notice.enrollDate}</p>
             <hr />
-            <a href={notice.changeName} download={notice.originName}>{notice.originName}</a>
+            <a href={`http://localhost:9090/api/images/${notice.changeName}`} download={notice.originName}>{notice.originName}</a>
       </div>
 
       <div id="notice-content"></div>

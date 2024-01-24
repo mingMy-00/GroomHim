@@ -28,6 +28,7 @@ public class NoticeController {
                             @RequestParam("noticeTitle") String noticeTitle,
                             @RequestParam("noticeContent") String noticeContent) {
 
+        System.out.println("엥");
         // 파일이 존재하는지 여부 확인
         if (file.isPresent() && !file.get().isEmpty()) {
             return noticeService.saveFile(file.get(), noticeTitle, noticeContent);
@@ -63,5 +64,6 @@ public class NoticeController {
         existNotice.setNoticeNo(param.getNoticeNo());
         existNotice = noticeService.save(existNotice);
     }
+
 
 }
