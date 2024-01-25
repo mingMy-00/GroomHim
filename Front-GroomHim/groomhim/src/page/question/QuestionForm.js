@@ -11,7 +11,7 @@ function QusetionForm(){
     let loginMember = location.state.loginMember;
     let navigate = useNavigate();
     const [tags, setTags] = useState([]);
-    const [inputValue, setInputValue] = useState('');
+    const [tagInputValue, setTagInputValue] = useState('');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
@@ -21,8 +21,8 @@ function QusetionForm(){
         setTitle(e.target.value);
       };
 
-    const handleInputChange = (e) =>{ 
-        setInputValue(e.target.value); 
+    const handleTagInputChange = (e) =>{ 
+        setTagInputValue(e.target.value); 
     }
 
     const handleContentChange = (e) =>{
@@ -31,26 +31,26 @@ function QusetionForm(){
 
     
     const handleInputKeyPress = (e) =>{ // 엔터키 누르면 태그 생성
-        if(e.key === 'Enter' && inputValue.trim() !== '' ){ // 엔터키를 누르고 빈문자가 아닐때
+        if(e.key === 'Enter' && tagInputValue.trim() !== '' ){ // 엔터키를 누르고 빈문자가 아닐때
             e.preventDefault(); // 엔터키 이벤트 초기화
             if(tags.length < 5){ // 입렵한 태그가 5개 이하일때만 추가
-                setTags([...tags, inputValue.trim()]); // 기존의 tags 배열을 복사하고 그뒤에 새로 입력한 태그를 추가
-                setInputValue(''); // 입력창 지우기
+                setTags([...tags, tagInputValue.trim()]); // 기존의 tags 배열을 복사하고 그뒤에 새로 입력한 태그를 추가
+                setTagInputValue(''); // 입력창 지우기
             }
         }
     }
 
     const handleInpitBlur = ()=>{ // blur 되면 태그 생성
-        if(inputValue.trim() !== ''){
+        if(tagInputValue.trim() !== ''){
             if(tags.length < 5){ // 입렵한 태그가 5개 이하일때만 추가
-                setTags([...tags, inputValue.trim()]); // 기존의 tags 배열을 복사하고 그뒤에 새로 입력한 태그를 추가
-                setInputValue(''); // 입력창 지우기
+                setTags([...tags, tagInputValue.trim()]); // 기존의 tags 배열을 복사하고 그뒤에 새로 입력한 태그를 추가
+                setTagInputValue(''); // 입력창 지우기
             }
         }
     }
 
     const handleInputKeyDown = (e) => { // backspace로 태그 지우기
-        if (e.key === 'Backspace' && inputValue === '' && tags.length > 0) {
+        if (e.key === 'Backspace' && tagInputValue === '' && tags.length > 0) {
           // Backspace를 눌렀고 입력 필드가 비어 있고, 태그가 하나 이상인 경우
           const updatedTags = [...tags];
           updatedTags.pop(); // 마지막 태그를 제거
@@ -108,8 +108,8 @@ function QusetionForm(){
                             placeholder='태그를 입력하세요. (5개까지만 추가 가능합니다.)' 
                             name='tag' 
                             type="text" 
-                            value={inputValue} 
-                            onChange={handleInputChange} 
+                            value={tagInputValue} 
+                            onChange={handleTagInputChange} 
                             onKeyPress={handleInputKeyPress} 
                             onBlur={handleInpitBlur}
                             onKeyDown={handleInputKeyDown}

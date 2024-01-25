@@ -7,6 +7,7 @@ import com.him.groomhim.question.entity.Question;
 import com.him.groomhim.question.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +22,7 @@ import java.util.stream.Collectors;
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
+@Slf4j
 public class QuestionService {
 
     private final QuestionRepository questionRepository;
@@ -63,9 +65,24 @@ public class QuestionService {
         return QuestionPageResponse.builder().questions(questionResponseList).totalPage(questionPage.getTotalPages()).build();
     }
 
-    public QuestionPageResponse searchQuestion(String keyword, Pageable pageable){
-        pageable = PageRequest.of(0, 10, Sort.Direction.DESC, "enrollDate"); // 페이징 정보
-        Page<Question> questionPage = questionRepository.findByQuestionTitleContaining(keyword, pageable);
+    public QuestionPageResponse searchQuestion(QuestionSearchRequest questionSearchRequest, Pageable pageable){
+        log.info("questionSearchRequest={}",questionSearchRequest);
+        log.info("keyword = {}",questionSearchRequest.getKeyword());
+        log.info("tag size = {}",questionSearchRequest.getTagNames().size());
+
+        pageable = PageRequest.of(0, 10, Sort.Direction.DESC, questionSearchRequest.getCondition()); // 페이징 정보
+        Page<Question> questionPage;
+
+        if(!questionSearchRequest.getKeyword().equals("") && questionSearchRequest.getTagNames().size() != 0){ // 제목과 태그로 검색
+            log.info("제목과 태그로 검색");
+            questionPage = questionRepository.findByQuestionTagAndTitleContaining(questionSearchRequest.getTagNames(),questionSearchRequest.getKeyword(),pageable);
+        } else if (questionSearchRequest.getKeyword().equals("") && questionSearchRequest.getTagNames().size() != 0) { // 태그만 검색
+            log.info("태그만 검색");
+            questionPage = questionRepository.findByQuestionTagContaining(questionSearchRequest.getTagNames(),pageable);
+        }else { // 제목만 검색
+            log.info("제목만 검색");
+            questionPage = questionRepository.findByQuestionTitleContaining(questionSearchRequest.getKeyword(),pageable);
+        }
         List<Question> questionList = questionPage.getContent();
         List<QuestionResponse> questionResponseList = new ArrayList<>();
 
@@ -84,6 +101,7 @@ public class QuestionService {
             questionResponseList.add(questionResponse);
         }
         return QuestionPageResponse.builder().questions(questionResponseList).totalPage(questionPage.getTotalPages()).build();
+
     }
 
     @Transactional

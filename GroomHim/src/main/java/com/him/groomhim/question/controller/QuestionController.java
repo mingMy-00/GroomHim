@@ -32,8 +32,6 @@ public class QuestionController {
         return questionPageResponse;
     }
 
-
-
     @GetMapping("/question/{questionNo}")
     public QuestionCommentResponse selectQuestion(@PathVariable("questionNo") Long questionNo){
         QuestionCommentResponse questionCommentResponse = questionService.selectQuestion(questionNo);
@@ -66,11 +64,8 @@ public class QuestionController {
         commentService.updateComment(commentNo,commentContent);
     }
 
-    @GetMapping(value = "/question/search/{keyword}")
-    public QuestionPageResponse searchQuestion (@PathVariable("keyword") String keyword, Pageable pageable){
-        log.info("keyword={}",keyword);
-       return questionService.searchQuestion(keyword, pageable);
+    @PostMapping(value = "/question/search")
+    public QuestionPageResponse searchQuestion (@RequestBody QuestionSearchRequest questionSearchRequest, Pageable pageable){
+        return questionService.searchQuestion(questionSearchRequest, pageable);
     }
-
-
 }

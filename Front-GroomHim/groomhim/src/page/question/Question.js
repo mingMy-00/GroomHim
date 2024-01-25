@@ -15,19 +15,49 @@ function Question(){
     const [totalPage, setTotalPage] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
     const [keyword , setKeyword] = useState('');
+    const [tags, setTags] = useState([]);
+    const [tagInputValue, setTagInputValue] = useState('');
     let navigate = useNavigate();
     
     const url = "http://localhost:9090/question";
     
-    const [selectedValue, setSelectedValue] = useState('최신순'); // 초기 값 설정
+    const [condition, setCondition] = useState('enrollDate'); // 초기 값 설정
 
-    const handleSelectChange = (event) => {
-        setSelectedValue(event.target.value);
+    const handleConditionChange = (event) => {
+        setCondition(event.target.value);
     };
 
+    const handleTagInputChange = (e) =>{ 
+        setTagInputValue(e.target.value); 
+    }
 
+    const handleInputKeyPress = (e) =>{ // 엔터키 누르면 태그 생성
+        if(e.key === 'Enter' && tagInputValue.trim() !== '' ){ // 엔터키를 누르고 빈문자가 아닐때
+            e.preventDefault(); // 엔터키 이벤트 초기화
+            if(tags.length < 5){ // 입렵한 태그가 5개 이하일때만 추가
+                setTags([...tags, tagInputValue.trim()]); // 기존의 tags 배열을 복사하고 그뒤에 새로 입력한 태그를 추가
+                setTagInputValue(''); // 입력창 지우기
+            }
+        }
+    }
 
+    const handleInpitBlur = ()=>{ // blur 되면 태그 생성
+        if(tagInputValue.trim() !== ''){
+            if(tags.length < 5){ // 입렵한 태그가 5개 이하일때만 추가
+                setTags([...tags, tagInputValue.trim()]); // 기존의 tags 배열을 복사하고 그뒤에 새로 입력한 태그를 추가
+                setTagInputValue(''); // 입력창 지우기
+            }
+        }
+    }
 
+    const handleInputKeyDown = (e) => { // backspace로 태그 지우기
+        if (e.key === 'Backspace' && tagInputValue === '' && tags.length > 0) {
+          // Backspace를 눌렀고 입력 필드가 비어 있고, 태그가 하나 이상인 경우
+          const updatedTags = [...tags];
+          updatedTags.pop(); // 마지막 태그를 제거
+          setTags(updatedTags);
+        }
+    };
 
     // 글작성하기
     const writePage = ()=>{
@@ -50,20 +80,21 @@ function Question(){
 
     // 검색
     const searchQuestion = () => {
-        if (keyword === '') {
-            selectQuestion();
-        } else {
             axios({
-                url: url + "/search/" + keyword,
-                method: "get"
+                url: url + "/search",
+                method: "post",
+                data : {
+                    keyword : keyword,
+                    tagNames : tags,
+                    condition : condition
+                }
             }).then((response) => {
-                setKeyword('');
                 setQuestion(response.data.questions);
                 setTotalPage(response.data.totalPage);
             }).catch(() => {
                 console.log("검색 실패");
             })
-        }
+        
     }
     
     // 게시글 조회
@@ -118,15 +149,34 @@ function Question(){
                             <input
                              value={keyword}
                              onChange={handleKeywordChange}
+                            
                             ></input>
                         </div>
                     </div>
                     <div className="searh-item">
                         <div className="searh-tag">
+                           
                             <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" height="16"><path d="M7.707,9.256c.391,.391,.391,1.024,0,1.414-.391,.391-1.024,.391-1.414,0-.391-.391-.391-1.024,0-1.414,.391-.391,1.024-.391,1.414,0Zm13.852,6.085l-.565,.565c-.027,1.233-.505,2.457-1.435,3.399l-3.167,3.208c-.943,.955-2.201,1.483-3.543,1.487h-.017c-1.335,0-2.59-.52-3.534-1.464L1.882,15.183c-.65-.649-.964-1.542-.864-2.453l.765-6.916c.051-.456,.404-.819,.858-.881l6.889-.942c.932-.124,1.87,.193,2.528,.851l7.475,7.412c.387,.387,.697,.823,.931,1.288,.812-1.166,.698-2.795-.342-3.835L12.531,2.302c-.229-.229-.545-.335-.851-.292l-6.889,.942c-.549,.074-1.052-.309-1.127-.855-.074-.547,.309-1.051,.855-1.126L11.409,.028c.921-.131,1.869,.191,2.528,.852l7.589,7.405c1.946,1.945,1.957,5.107,.032,7.057Zm-3.438-1.67l-7.475-7.412c-.223-.223-.536-.326-.847-.287l-6.115,.837-.679,6.14c-.033,.303,.071,.601,.287,.816l7.416,7.353c.569,.57,1.322,.881,2.123,.881h.01c.806-.002,1.561-.319,2.126-.893l3.167-3.208c1.155-1.17,1.149-3.067-.014-4.229Z"/></svg>
-                            <input></input>
+                            <input
+                                value={tagInputValue} 
+                                onChange={handleTagInputChange} 
+                                onKeyPress={handleInputKeyPress} 
+                                onBlur={handleInpitBlur}
+                                onKeyDown={handleInputKeyDown}
+                                maxLength={15}
+                                >
+                            </input>
+                           
                         </div>
+                        
                     </div>
+                    <ul>
+                    {tags.map((tag,index) =>(
+                                <li key={index} className='tag'>
+                                    <span>{tag}</span>
+                                </li>
+                            ))}
+                    </ul>
                     <button className="search-btn" type='button' onClick={searchQuestion} >검색</button>
                 </form>
             </div>
@@ -135,11 +185,11 @@ function Question(){
                 <div className="question-list-container">
                     <div className="posts-container-header">
                         <div className="dropdown-sort">
-                            <select value={selectedValue} onChange={handleSelectChange}>
-                                <option value="최신순">최신순</option>
-                                <option value="조회순">조회순</option>
-                                <option value="답변많은순">답변많은순</option>
-                            </select>
+                            {/* <select value={condition} onChange={handleConditionChange}>
+                                <option value="enrollDate">최신순</option>
+                                <option value="viewCount">조회순</option>
+                                <option value="commentCount">답변많은순</option>
+                            </select> */}
                         </div>
                         <div className='btn-cover'></div>
                         <button className="write-btn" onClick={writePage}>
