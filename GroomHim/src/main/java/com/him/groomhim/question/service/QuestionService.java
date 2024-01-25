@@ -63,6 +63,29 @@ public class QuestionService {
         return QuestionPageResponse.builder().questions(questionResponseList).totalPage(questionPage.getTotalPages()).build();
     }
 
+    public QuestionPageResponse searchQuestion(String keyword, Pageable pageable){
+        pageable = PageRequest.of(0, 10, Sort.Direction.DESC, "enrollDate"); // 페이징 정보
+        Page<Question> questionPage = questionRepository.findByQuestionTitleContaining(keyword, pageable);
+        List<Question> questionList = questionPage.getContent();
+        List<QuestionResponse> questionResponseList = new ArrayList<>();
+
+        // Entity => DTO
+        for(Question question : questionList){
+            QuestionResponse questionResponse = QuestionResponse.builder()
+                    .questionNo(question.getQuestionNo())
+                    .questionTitle(question.getQuestionTitle())
+                    .questionContent(question.getQuestionContent())
+                    .viewCount(question.getViewCount())
+                    .enrollDate(question.getEnrollDate())
+                    .tagList(question.getTagList())
+                    .writer(question.getWriter())
+                    .commentCount(question.commentCount(question.getCommentList()))
+                    .build();
+            questionResponseList.add(questionResponse);
+        }
+        return QuestionPageResponse.builder().questions(questionResponseList).totalPage(questionPage.getTotalPages()).build();
+    }
+
     @Transactional
     public QuestionCommentResponse selectQuestion(Long questionNo){
         Question findQuestion = questionRepository.findByQuestionNo(questionNo);

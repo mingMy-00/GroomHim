@@ -13,4 +13,6 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
     Question findByQuestionNo(Long questionNo);
 
     void deleteByQuestionNo(Long questionNo);
+
+    Page<Question> findByQuestionTitleContaining(String keyword, Pageable pageable);
 }

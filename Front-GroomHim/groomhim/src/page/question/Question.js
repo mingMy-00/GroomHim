@@ -10,11 +10,11 @@ function Question(){
     const loginMemberString = sessionStorage.getItem("loginMember");
     //예기치 않는 오류를 예방 하기 위한 null체크임 + 객체 형태로 반환
     const loginMember = loginMemberString ? JSON.parse(loginMemberString) : {};
-    console.log(loginMember);
 
     const [questions, setQuestion] = useState([]);
     const [totalPage, setTotalPage] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
+    const [keyword , setKeyword] = useState('');
     let navigate = useNavigate();
     
     const url = "http://localhost:9090/question";
@@ -27,6 +27,8 @@ function Question(){
 
 
 
+
+
     // 글작성하기
     const writePage = ()=>{
        if(Object.keys(loginMember).length !== 0){
@@ -34,8 +36,6 @@ function Question(){
         }else{
             alert("로그인 한 회원만 글 작성할 수 있습니다.");
         }
-        
-        
     }
 
     // 글 상세보기
@@ -43,21 +43,47 @@ function Question(){
         navigate("/page/question/questionDetail" , {state : {questionNo : num, loginMember : loginMember}});
     }
 
-    useEffect(()=>{
+    // 검색 키워드 핸들러
+    const handleKeywordChange = (e)=>{
+        setKeyword(e.target.value);
+    }
 
-
+    // 검색
+    const searchQuestion = () => {
+        if (keyword === '') {
+            selectQuestion();
+        } else {
+            axios({
+                url: url + "/search/" + keyword,
+                method: "get"
+            }).then((response) => {
+                setKeyword('');
+                setQuestion(response.data.questions);
+                setTotalPage(response.data.totalPage);
+            }).catch(() => {
+                console.log("검색 실패");
+            })
+        }
+    }
+    
+    // 게시글 조회
+    const selectQuestion = () => {
         axios({
-            url:url,
-            method:"get",
-            params : {pageNo : currentPage}
-        }).then((response)=>{
+            url: url,
+            method: "get",
+            params: { pageNo: currentPage }
+        }).then((response) => {
             setQuestion(response.data.questions);
             setTotalPage(response.data.totalPage);
             console.log(response.data.totalPage);
-        }).catch(()=>{
+        }).catch(() => {
             console.log("Q&A 불러오기 실패");
         });
-    },[currentPage]);
+    }
+
+    useEffect(() => {
+        selectQuestion();
+    }, [currentPage]);
 
 
     const handlePageClick = (page) => {
@@ -89,7 +115,10 @@ function Question(){
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"  height="16" viewBox="0 0 50 50" fill="#737373;">
                         <path d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"></path>
                         </svg>
-                            <input></input>
+                            <input
+                             value={keyword}
+                             onChange={handleKeywordChange}
+                            ></input>
                         </div>
                     </div>
                     <div className="searh-item">
@@ -98,7 +127,7 @@ function Question(){
                             <input></input>
                         </div>
                     </div>
-                    <button className="search-btn" >검색</button>
+                    <button className="search-btn" type='button' onClick={searchQuestion} >검색</button>
                 </form>
             </div>
             
