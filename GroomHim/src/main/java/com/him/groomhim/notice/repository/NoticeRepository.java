@@ -13,4 +13,6 @@ public interface NoticeRepository extends JpaRepository<Notice, Long> {
     Notice findByNoticeNo(long noticeNo);
 
     void deleteById(long noticeNo);
+
+    ArrayList<Notice> findByNoticeTitleContaining(String title);
 }

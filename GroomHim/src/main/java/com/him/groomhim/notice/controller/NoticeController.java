@@ -65,5 +65,10 @@ public class NoticeController {
         existNotice = noticeService.save(existNotice);
     }
 
+    @PostMapping("/noticeSearch")
+    public ArrayList<Notice> findByNoticeTitleContaining(@RequestParam("keyword")  String keyword){
+        return noticeService.findByNoticeTitleContaining(keyword);
+    }
+
 
 }

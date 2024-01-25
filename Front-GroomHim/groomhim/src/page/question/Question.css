@@ -309,7 +309,10 @@ dd {
     color: white;
 }
 
-
+.pagination-area{
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
 
 
 

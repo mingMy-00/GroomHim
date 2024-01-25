@@ -94,4 +94,9 @@ public class NoticeService {
             return -1; // 다른 이유로 인한 삭제 실패를 나타내는 값
         }
     }
+
+    public ArrayList<Notice> findByNoticeTitleContaining(String keyword){
+        System.out.println("keyword = "+keyword);
+        return noticeRepository.findByNoticeTitleContaining(keyword);
+    }
 }
