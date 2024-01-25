@@ -1,6 +1,5 @@
 package com.him.groomhim.question.service;
 
-import com.him.groomhim.common.dto.MsgResponseDto;
 import com.him.groomhim.question.dto.*;
 import com.him.groomhim.question.entity.Comment;
 import com.him.groomhim.question.entity.Question;
@@ -107,6 +106,7 @@ public class QuestionService {
     @Transactional
     public QuestionCommentResponse selectQuestion(Long questionNo){
         Question findQuestion = questionRepository.findByQuestionNo(questionNo);
+        findQuestion.setViewCount(findQuestion.getViewCount()+1); // 조회수 업데이트
         List<Comment> commentList = findQuestion.getCommentList();
 
 
