@@ -103,6 +103,10 @@ function QuestionDetail(){
             params : {commentContent : updatedCommentContent}
         }).then(()=>{
             alert("댓글이 수정되었습니다.");
+            setEditingCommentNo(null); // 수정 완료 후 편집 모드 종료
+            setUpdatedCommentContent(''); // 수정 완료 후 내용 초기화
+            setCommentUpdate((prev) => prev + 1); // 상태 변경으로 useEffect를 트리거하여 게시글 다시 조회
+
         }).catch(()=>{
             console.log("댓글 수정 실패");
         })
@@ -181,12 +185,17 @@ function QuestionDetail(){
                 </div>
                 <div className="question-commnet-editor">
                     <div className="comment-editor-opener">
-                        <input 
-                            onChange={handleContentChange} 
-                            value={inputValue}
-                            maxLength={300}
-                            ></input>
+                        <div className='comment-text'>
+                            <input 
+                                onChange={handleContentChange} 
+                                value={inputValue}
+                                maxLength={300}
+                                >
+                            </input>
+                        </div>
                         <button className='comment-submit-btn' onClick={insertComment}>등록</button>
+                        
+                        
                     </div>
                 </div>
                 <div className="question-detail-hr"></div>
@@ -214,12 +223,14 @@ function QuestionDetail(){
                                     </div>
                                     <div className="comment-item-body">
                                             {editingCommentNo === comment.commentNo ? (
-                                                    <div>
-                                                        <input
-                                                        type="text"
-                                                        value={updatedCommentContent}
-                                                        onChange={(e) => setUpdatedCommentContent(e.target.value)}
-                                                        />
+                                                    <div className='comment-editor-opener'>
+                                                        <div className='comment-text'>
+                                                            <input
+                                                            type="text"
+                                                            value={updatedCommentContent}
+                                                            onChange={(e) => setUpdatedCommentContent(e.target.value)}
+                                                            />
+                                                        </div>
                                                         <div className='update-btn' onClick={() => updateComment(comment.commentNo)}>완료</div>
                                                         <div className='cancel-btn' onClick={handleCancelEdit}>취소</div>
                                                     </div>
