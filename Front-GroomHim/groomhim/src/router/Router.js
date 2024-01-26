@@ -22,6 +22,7 @@ import QuestionUpdate    from '../page/question/QuestionUpdate';
 import Pore              from '../result/Pore';
 import SeborScalp        from '../result/SeborScalp';
 import HairLoss          from '../result/HairLoss';
+import TroubleSkin        from '../result/TroubleSkin';
 export default function Router() {
     return (
         <Routes>
@@ -47,6 +48,7 @@ export default function Router() {
             <Route path='/result/Pore'                      element={<Pore />}/>
             <Route path='/result/SeborScalp'                element={<SeborScalp />}/>
             <Route path='/result/HairLoss'                  element={<HairLoss />}/>
+            <Route path='/result/TroubleSkin'               element={<TroubleSkin />}/>
 x        </Routes>
     );
 }
