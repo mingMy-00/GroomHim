@@ -95,7 +95,7 @@ function SeborScalp() {
             return( 
                 <div className={`youtube-item ${showDetails.item1 ? 'show' : ''}`}>
                                 <div  style={{alignItems : 'center'}}>
-                                    <p>유튜브 조회수<span style={{color : 'red'}}> 14만회 </span>루틴</p>
+                                    <p>1단계<span style={{color : 'red'}}> 약용 </span>샴푸 사용</p>
                                 </div>
                                 <button onClick={() => toggleDetails('item1')}>
                                     {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
@@ -103,59 +103,148 @@ function SeborScalp() {
                                 {showDetails.item1 && ( 
                                     <div className='youtube-item-detail'>
                                         <div className='youtube-profile displayFlex'>
-                                        <img src='https://yt3.ggpht.com/80LHzlXj90CDw6l1HzA1MFZzIxOpKEVuvH9OCen7_B4L5NimaiSXOAqrNeG9Bj_fWTeOYZr6fQ=s48-c-k-c0x00ffffff-no-rj' />
+                                        <img src='https://yt3.ggpht.com/6uTfJjqQ7vEeK6H7VjZ5exFUnuYkRbQP1fia50D0tweFAYjvfJlyQy2BtyZGJb3fOXiFVeut=s88-c-k-c0x00ffffff-no-rj' />
                                             <div style={{ width : '100%', textAlign: 'left', marginLeft: '5%'}}>
-                                                <p style={{fontSize: '15px'}}>디렉터 파이</p>
-                                                <p style={{fontSize: '12px'}}>구독자 102만명</p>
+                                                <p style={{fontSize: '15px'}}>삼탈모 TV!</p>
+                                                <p style={{fontSize: '12px'}}>구독자 1.54만명</p>
                                             </div>
                                         </div>
                                         <div className='product-item displayFlex'>
-                                            <img src='https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/75ce/80861e190fff6837c708bb2d51a9463078b45de3ce7e6e71300b87480cdf.jpeg'></img>
+                                            <img src='https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20131213_172%2Fsimtong714_1386907834769nzJVW_JPEG%2F%25BB%25E7%25C1%25F8_013.jpg&type=a340'></img>
                                             <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                                 <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>Step1.</p> 
-                                                    <p>24,000원</p>
+                                                    <p style={{fontSize : '13px'}}>Best 1.</p> 
+                                                    <p>약 13,000원</p>
                                                 </div>
-                                                <p>어바웃미 쌀막걸리 클렌징 오일 195ml</p>
-                                                <button>구매하러 가기</button>
+                                                <p>세비프록스</p>
+                                                <button>약국에서만 구매 가능</button>
                                             </div>
                                         </div>
                                         <div className='product-item displayFlex'>
-                                            <img src='https://thumbnail10.coupangcdn.com/thumbnails/remote/230x230ex/image/rs_quotation_api/eivyaael/08a38fcc0b634c3bb5501acf1fd1dc9e.jpg'></img>
+                                            <img src='https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAzMTZfNDEg%2FMDAxNjc4OTUyMjEzMzE3.70R7Kd1JIQkPFo1iR7jlq1n6XfPE_VhSBTIcmmyci48g._b8k_q-mr5h0MK_l9oxoKC1xQEm38jtLvmIVL0lb470g.JPEG.misojindentist1%2F1678952118866%25A3%25AD7.jpg&type=a340'></img>
                                             <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                             <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>Step2.</p> 
-                                                    <p>14,000원 </p>
+                                                    <p style={{fontSize : '13px'}}>Best 2.</p> 
+                                                    <p>약 14,000원 </p>
                                                 </div>
-                                                <p>어바웃미 쌀 막걸리 클렌징 폼 120ml</p>
-                                                <button>구매하러 가기</button>
+                                                <p>니조랄 샴푸</p>
+                                                <button>약국에서만 구매 가능</button>
                                             </div>
                                         </div>
                                         <div className='product-item displayFlex'>
-                                            <img src='https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/2469747148449101-3d7904a4-d2f2-472e-b599-d3a9bb08f54d.jpg'></img>
+                                            <img src='https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEyMTlfNjYg%2FMDAxNzAyOTk2NjQ5NjEx.eFGj45KSx46QMDIyG8EUoKU_rcgNW3DWaBw61ziWDdYg.pUjRsdYbBzzIOL38DgaGZukVYZruDCUKGoc_LUXkkiEg.PNG.kangjj372%2F3.png&type=a340'></img>
                                             <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                             <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>Step3.</p> 
-                                                    <p>24,000원</p>
+                                                    <p style={{fontSize : '13px'}}>Best 3.</p> 
+                                                    <p>약 10,000원</p>
                                                 </div>
-                                                <p>라로슈포제 세로징크 세범 컨트롤 토닝 미스트 150ml</p>
-                                                <button>구매하러 가기</button>
+                                                <p>케이프록스 샴푸</p>
+                                                <button>약국에서만 구매 가능</button>
                                             </div>
                                         </div>
                                         <br></br>
                                         <p>참고 영상</p>
                                         <p style={{fontSize : '12px'}}>
-                                            수부지 피부를 위한 성분과 스킨케어는 따로 있다?! 클렌징부터 베이스까지 by. 디렉터파이
+                                            <a href="https://youtu.be/TyoTyDBeN2k?si=OhOf84L8N88j6q90">자세한 샴푸 소개 Click!</a>
+                                        </p>
+                                    </div>
+                                )}
+                                 <div  style={{alignItems : 'center'}}>
+                                    <p>2단계<span style={{color : 'red'}}> 스테로이드 외용액 </span>처방</p>
+                                </div>
+                                <button onClick={() => toggleDetails('item1')}>
+                                    {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
+                                </button>
+                                {showDetails.item1 && ( 
+                                    <div className='youtube-item-detail'>
+                                        <div className='youtube-profile displayFlex'>
+                                        <img src='https://yt3.ggpht.com/ytc/AIf8zZT4SCsnXvh-9-SsUjdwBwIWnYomX3KoJsgIuf717Q=s88-c-k-c0x00ffffff-no-rj' />
+                                            <div style={{ width : '100%', textAlign: 'left', marginLeft: '5%'}}>
+                                                <p style={{fontSize: '15px'}}>교육하는 의사! 이동환 TV</p>
+                                                <p style={{fontSize: '12px'}}>구독자 94.6만명</p>
+                                            </div>
+                                        </div>
+                                        <div className='product-item displayFlex'>
+                                            <img src='https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20131213_172%2Fsimtong714_1386907834769nzJVW_JPEG%2F%25BB%25E7%25C1%25F8_013.jpg&type=a340'></img>
+                                            <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
+                                                <div className='displayFlex' style={{justifyContent : 'space-between'}}>
+                                                    <p style={{fontSize : '13px'}}>샹푸 형태</p> 
+                                                    <p>약 13,000원</p>
+                                                </div>
+                                                <p>세비프록스</p>
+                                                <button>약국에서 처방 필수</button>
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <p>참고 영상</p>
+                                        <p style={{fontSize : '12px'}}>
+                                            <a href="https://youtu.be/bmRlLTqfts4?si=KTrdWM-mKZlK0iFj">샴푸 사용법 Click!</a>
                                         </p>
                                     </div>
                                 )}
                 </div>
+                
             )
        }else if(skinType == "지루성 두피 심하기 직전") { 
-            return(
-                    <>
-                    </>
-            )
+        return( 
+            <div className={`youtube-item ${showDetails.item1 ? 'show' : ''}`}>
+                            <div  style={{alignItems : 'center'}}>
+                                <p>유튜브 조회수<span style={{color : 'red'}}> 4.7만회 </span>샴푸 추천</p>
+                            </div>
+                            <button onClick={() => toggleDetails('item1')}>
+                                {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
+                            </button>
+                            {showDetails.item1 && ( 
+                                <div className='youtube-item-detail'>
+                                    <div className='youtube-profile displayFlex'>
+                                    <img src='https://yt3.ggpht.com/6uTfJjqQ7vEeK6H7VjZ5exFUnuYkRbQP1fia50D0tweFAYjvfJlyQy2BtyZGJb3fOXiFVeut=s88-c-k-c0x00ffffff-no-rj' />
+                                        <div style={{ width : '100%', textAlign: 'left', marginLeft: '5%'}}>
+                                            <p style={{fontSize: '15px'}}>삼탈모 TV!</p>
+                                            <p style={{fontSize: '12px'}}>구독자 1.54만명</p>
+                                        </div>
+                                    </div>
+                                    <div className='product-item displayFlex'>
+                                        <img src='https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20131213_172%2Fsimtong714_1386907834769nzJVW_JPEG%2F%25BB%25E7%25C1%25F8_013.jpg&type=a340'></img>
+                                        <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
+                                            <div className='displayFlex' style={{justifyContent : 'space-between'}}>
+                                                <p style={{fontSize : '13px'}}>Best 1.</p> 
+                                                <p>약 13,000원</p>
+                                            </div>
+                                            <p>세비프록스</p>
+                                            <button>약국에서만 구매 가능</button>
+                                        </div>
+                                    </div>
+                                    <div className='product-item displayFlex'>
+                                        <img src='https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAzMTZfNDEg%2FMDAxNjc4OTUyMjEzMzE3.70R7Kd1JIQkPFo1iR7jlq1n6XfPE_VhSBTIcmmyci48g._b8k_q-mr5h0MK_l9oxoKC1xQEm38jtLvmIVL0lb470g.JPEG.misojindentist1%2F1678952118866%25A3%25AD7.jpg&type=a340'></img>
+                                        <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
+                                        <div className='displayFlex' style={{justifyContent : 'space-between'}}>
+                                                <p style={{fontSize : '13px'}}>Best 2.</p> 
+                                                <p>약 14,000원 </p>
+                                            </div>
+                                            <p>니조랄 샴푸</p>
+                                            <button>약국에서만 구매 가능</button>
+                                        </div>
+                                    </div>
+                                    <div className='product-item displayFlex'>
+                                        <img src='https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEyMTlfNjYg%2FMDAxNzAyOTk2NjQ5NjEx.eFGj45KSx46QMDIyG8EUoKU_rcgNW3DWaBw61ziWDdYg.pUjRsdYbBzzIOL38DgaGZukVYZruDCUKGoc_LUXkkiEg.PNG.kangjj372%2F3.png&type=a340'></img>
+                                        <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
+                                        <div className='displayFlex' style={{justifyContent : 'space-between'}}>
+                                                <p style={{fontSize : '13px'}}>Best 3.</p> 
+                                                <p>약 10,000원</p>
+                                            </div>
+                                            <p>케이프록스 샴푸</p>
+                                            <button>약국에서만 구매 가능</button>
+                                        </div>
+                                    </div>
+                                    <br></br>
+                                    <p>참고 영상</p>
+                                    <p style={{fontSize : '12px'}}>
+                                        <a href="https://youtu.be/TyoTyDBeN2k?si=OhOf84L8N88j6q90">자세한 샴푸 소개</a>
+                                    </p>
+                                </div>
+                            )}
+            </div>
+        )
         }else {
             return(
                 <>
