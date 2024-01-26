@@ -247,3 +247,6 @@
     scrollbar-width: thin;
     scrollbar-color: #888 transparent;
   }
+  #margin {
+    width : 270px;
+  }
