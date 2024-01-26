@@ -32,18 +32,19 @@ function SkinTest() {
         /*여드름 질문지, 모공 질문지*/
         if (answer.topic === "여드름") {
             if (answer.tag === "1") {
-                setOilCount((prevCount) => prevCount + 1);
-                setWaterOilCount((prevCount) => prevCount + 1);
+                setOilCount((prevCount) => prevCount + 10);
+                setWaterOilCount((prevCount) => prevCount + 10);
             } else if (answer.tag === "2") {
-                setWaterOilCount((prevCount) => prevCount + 1);
-                setDryCount((prevCount) => prevCount + 1);
+                setWaterOilCount((prevCount) => prevCount + 10);
+                setDryCount((prevCount) => prevCount + 10);
             } else if (answer.tag === "3") {
-                setDryCount((prevCount) => prevCount + 2);
+                setDryCount((prevCount) => prevCount + 20);
             } else if (answer.tag === "4") {
-                setOilCount((prevCount) => prevCount + 2);
+                setOilCount((prevCount) => prevCount + 20);
             } else {
-                setWaterOilCount((prevCount) => prevCount + 2);
+                setWaterOilCount((prevCount) => prevCount + 20);
             }
+
         }
         else if(answer.topic == "모공") {
             setSkinType("모공");
@@ -93,11 +94,11 @@ function SkinTest() {
     useEffect(() => {
         
         //console.log("지성" + oilCount, "수부지" + waterOilCount, "건성" + dryCount);
-        if (dryCount > waterOilCount && dryCount > oilCount && !skinType.includes("두피") ) {
+        if (dryCount > waterOilCount && dryCount > oilCount && !skinType.includes("두피") && dryCount < 5 && oilCount < 5 && waterOilCount < 5) {
             setSkinType("건성");
-        } else if (oilCount > waterOilCount && oilCount > dryCount) {
+        } else if (oilCount > waterOilCount && oilCount > dryCount && dryCount < 5 && oilCount < 5 && waterOilCount < 5) {
             setSkinType("지성");
-        } else if (waterOilCount > dryCount && waterOilCount > oilCount) {
+        } else if (waterOilCount > dryCount && waterOilCount > oilCount && dryCount < 5 && oilCount < 5 && waterOilCount < 5) {
             setSkinType("수부지");
         } else if(sensitive > 0) {
             
@@ -114,6 +115,12 @@ function SkinTest() {
             }else {
                 setSkinType("심한 지루성 두피");
             }
+        }else if (dryCount > waterOilCount && dryCount > oilCount && !skinType.includes("두피")) {
+            setSkinType("여드름 건성피부");
+        } else if (oilCount > waterOilCount && oilCount > dryCount ) {
+            setSkinType("여드름 지성피부");
+        } else if (waterOilCount > dryCount && waterOilCount > oilCount ) {
+            setSkinType("여드름 수부지피부");
         }
 
         if ((loading === true) && (skinType != "모공") && (!skinType.includes("지루성")) && (skinType != "열감") &&  (skinType != "열감x")) {
@@ -130,9 +137,14 @@ function SkinTest() {
         }
 
         if ((loading === true) && (skinType != "모공") && (!skinType.includes("지루성")) && (skinType.includes("두피"))) {
-            console.log("오긴하나");
             setTimeout(() => {
                 navigate('/result/HairLoss', { state: { skinType: skinType } });
+            }, 3000);
+        }
+
+        if ((loading === true) && (skinType != "모공") && (!skinType.includes("지루성")) && (skinType.includes("여드름"))) {
+            setTimeout(() => {
+                navigate('/result/TroubleSkin', { state: { skinType: skinType } });
             }, 3000);
         }
         
