@@ -2,8 +2,11 @@ import Questions from '../common/api/question.json';
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import './SkinTest.css';
-import him from '../assets/imgs/TroubleHim.png';
 import ProgressBar from './ProgressBar';
+import Dryhim from '../assets/imgs/DryHim.png';
+import TroubleHim from '../assets/imgs/TroubleHim.png';
+import Him from '../assets/imgs/Him.jpg';
+import OilHim from '../assets/imgs/OilHim.png';
 
 function SkinTest() {
     const navigate = useNavigate();
@@ -170,7 +173,7 @@ function SkinTest() {
                                         <div className='top'>
                                             <div Style="margin : 20px 0; width : 300px; font-size : 20px">진행도</div>
                                             <ProgressBar progress={question.progress} totalQuestions={6} />
-                                            <div className="img"><img src={him} alt="TroubleHim"></img></div>
+                                            <div className="img"><img src={Him} alt="TroubleHim"></img></div>
                                             <h2>{question.question}</h2>
                                         </div>
                                         <div className='btn_box'>

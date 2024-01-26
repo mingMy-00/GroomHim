@@ -2,7 +2,11 @@ import './Result.css';
 import { useLocation , useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import ProgressBar from '../skinTest/ProgressBar';
-import him from '../assets/imgs/DryHim.png';
+import Dryhim from '../assets/imgs/DryHim.png';
+import TroubleHim from '../assets/imgs/TroubleHim.png';
+import Him from '../assets/imgs/Him.jpg';
+import OilHim from '../assets/imgs/OilHim.png';
+
 
 function TroubleSkin() {
     const navigate = useNavigate();
@@ -419,6 +423,22 @@ function TroubleSkin() {
         } 
     }
 
+    const him = () => {
+        if(skinType == "여드름 건성피부") {
+            return(
+                Dryhim
+            );
+        }else if(skinType == "여드름 지성피부") {
+            return(
+                TroubleHim
+                );
+        }else {
+            return(
+                OilHim
+                );
+        }
+    }
+
     return (
         <div>
             <div className='result-container'>
@@ -427,7 +447,7 @@ function TroubleSkin() {
                     <div className='result-bar'>
                         <p>설문 완료!</p>
                     </div>
-                    <img src={him} style={{width : '80%'}}></img>
+                    <img src={him()} style={{width : '80%'}}></img>
                     <div>
                         <p>{memberName}님의 피부 상태는 <br/><b className="b" style={{color : 'red'}}> {skinType}</b>일
                         입니다.</p>
