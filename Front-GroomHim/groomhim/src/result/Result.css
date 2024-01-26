@@ -227,3 +227,26 @@
     color: whitesmoke;
     background-color: #082759;
   }
+
+  .content {
+    max-height: 700px; /* 적절한 높이로 조절 */
+    overflow-y: auto;
+  }
+  
+  /* 웹킷 브라우저에서 스크롤바 감추기 */
+  .content::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  .content::-webkit-scrollbar-thumb {
+    background-color: #888;
+  }
+  
+  /* 모든 브라우저에서 스크롤바 감추기 */
+  .content {
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+  }
+  #margin {
+    width : 270px;
+  }

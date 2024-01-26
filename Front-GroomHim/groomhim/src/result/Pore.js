@@ -30,11 +30,16 @@ function Pore() {
 
     const important = () => {
         return(
-            <p>블랙헤드는 코팩을 하면 무조건 모공이 넓어져요 !<br /> 
+            <p><b Style="border : 1px solid black; padding : 5px; border-radius : 4px; background-color : white;">코팩 절대 하지마 !</b> <br/><br/>
+               블랙헤드는 코팩을 하면 무조건 모공이 넓어져요 !<br /> 
+               그렇다고 제거를 안하면 쌓여있는 피지 때문에  <br/>
+               모공은 계속 넓어지고 넓은 모공일 수록 <br/>
+               피지는 잘 쌓이고 무한 굴레.. <br/><br/>
+
                아래 자세한 정보에는  <br />
-               블랙헤드 녹이는 법과, <br />
-               모공에 좋은 제품들을 추천해줍니다.
-               </p>
+               ✔ <b Style="color : red">블랙헤드 녹이는 법</b>과, <br />
+               ✔ <b Style="color : red">모공에 좋은 제품</b>들을 추천해줍니다.
+            </p>
         )
     }
 
@@ -44,15 +49,16 @@ function Pore() {
                 <div class="tooltip-container">
                     <span class="text">자세한 정보👀</span>
                     <span className="introDetail">           
-                        ✔  블랙헤드 제거방법 <br />
-                        방법 1. 클렌징 오일을 사용한다.  <br/>
+                    <b Style="border : 1px solid black; padding : 5px; border-radius : 4px; background-color : white;">블랙헤드 제거 방법</b> <br/><br/>
+                        ✔ 방법 1. 클렌징 오일을 사용한다.  <br/>
                         블랙헤드도 기름이기 때문에, 기름과 기름을 문질러주면 <br/>
                         내 블랙헤드 기름과 함께 섞여서 <br/>
                         사라지게 되는 원리입니다. 이게 귀찮다면 .
                         <br /><br />
-                        방법 2. 피지액으로 녹여준다. <br/>
+                        ✔ 방법 2. 피지액으로 녹여준다. <br/>
                         아래 추천 영상 중 문장군을 보시면 됩니다. <br/>
-                        피지를 모공 자극 없이 제거해주는 최고의 방법임.
+                        피지를 모공 자극 없이 제거해주는 최고의 방법임.<br/>
+                        <a Style="border-bottom : 1px solid black;" href="https://youtu.be/oSTanNf-goY?si=0hxC9Seg9kwDBNtG">조회수 174만회 문장군 영상 Click!</a>
                     </span>
                 </div>
             </div>
@@ -66,11 +72,10 @@ function Pore() {
                 <div className='content'>
                     <div className='result-bar'>
                         <p>설문 완료!</p>
-                        <ProgressBar progress={0} totalQuestions={0} />
                     </div>
                     <img src={him} style={{width : '80%'}}></img>
                     <div>
-                        <p>{memberName}님의 고민인 <b className="b" style={{color : 'red'}} /> 모공, 블랙헤드</p>
+                        <p>{memberName}님의 고민인 <b className="b" style={{color : 'red'}}> 모공, 블랙헤드 </b></p>
                         <p>제품 추천은 아래와 같습니다.</p>
                         <div className='type_explanation'>
                             {important()}

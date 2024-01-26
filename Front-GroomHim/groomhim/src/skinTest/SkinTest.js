@@ -179,9 +179,6 @@ function SkinTest() {
             {loading && (
                 <div className='loading_container'>
                     <h2>설문 완료!</h2>
-                    <div>
-                        <ProgressBar progress={1} totalQuestions={1} />
-                    </div>
                     <div className="loader3">
                         <div className="circle1"></div>
                         <div className="circle1"></div>
