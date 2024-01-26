@@ -156,8 +156,8 @@ function SkinTest() {
                                 <div className='test-box'>
                                     <div className='content' key={index}>
                                         <div className='top'>
-                                            <div Style="margin : 20px 0; width : 300px;">진행도 6/6</div>
-                                            <ProgressBar progress={progress} totalQuestions={Questions.length} />
+                                            <div Style="margin : 20px 0; width : 300px; font-size : 20px">진행도</div>
+                                            <ProgressBar progress={question.progress} totalQuestions={6} />
                                             <div className="img"><img src={him} alt="TroubleHim"></img></div>
                                             <h2>{question.question}</h2>
                                         </div>
@@ -178,6 +178,10 @@ function SkinTest() {
             )}
             {loading && (
                 <div className='loading_container'>
+                    <h2>설문 완료!</h2>
+                    <div>
+                        <ProgressBar progress={1} totalQuestions={1} />
+                    </div>
                     <div className="loader3">
                         <div className="circle1"></div>
                         <div className="circle1"></div>

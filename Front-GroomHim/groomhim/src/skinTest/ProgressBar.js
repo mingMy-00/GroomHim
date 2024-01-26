@@ -6,7 +6,7 @@ function progressBar({ progress, totalQuestions }) {
 
     return(
         <div className='progress-bar' role='progress'>
-            <div className='progress-bar-fill' style={{ width: `${ratio}%` }}></div>
+            <div className='progress-bar-fill' style={{ width: `${ratio}%`, minWidth: '16.6666%' }}></div>
         </div>
     );
 }

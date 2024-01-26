@@ -2,6 +2,7 @@
     {
         "category" : "해결",
         "question" : "고민이 있는 피부의 영역을 선택해주세요.",
+        "progress" : 1,
         "answers" : [
                 {
                     "tag"     : "피부",
@@ -18,6 +19,7 @@
     {
         "category" : "피부",
         "question" : "피부의 어떤 고민이 있으신가요?",
+        "progress" : 2,
         "answers" : [
                 {
                     "tag"     : "건성수부지",
@@ -45,6 +47,7 @@
     {
         "category" : "건조",
         "question" : "주로 겪는 어려움이 무엇인가요?",
+        "progress" : 3,
         "answers" : [
                 {
                     "tag"     : "건성",
@@ -61,6 +64,7 @@
     {
         "category" : "수부지건조1",
         "question" : "계절에 따라 피부가 어떤가요 ?",
+        "progress" : 4,
         "answers" : [
                 {
                     "tag"     : "건성",
@@ -77,6 +81,7 @@
     {
         "category" : "수부지건조2",
         "question" : "마지막 질문입니다.",
+        "progress" : 6,
         "end" : "true",
         "answers" : [
                 {   "end"     : "true",
@@ -95,6 +100,7 @@
     {
         "category" : "여드름",
         "question" : "주로 겪는 여드름 문제가 무엇인가요?",
+        "progress" : 3,
         "answers" : [
                 {   "topic"   : "여드름",
                     "tag"     : "1",
@@ -111,6 +117,7 @@
     {
         "category" : "여드름1",
         "question" : "평소 피부가 어떤가요 ?",
+        "progress" : 6,
         "answers" : [
                 {   "topic"   : "여드름",
                     "end"     : "true",
@@ -132,6 +139,7 @@
     {
         "category" : "따가움",
         "question" : "피부에 각질이나 수포가 많이 생기나요 ?",
+        "progress" : 3,
         "answers" : [
                 {   "topic"   : "민감성",
                     "tag"     : "Y",
@@ -148,6 +156,7 @@
     {
         "category" : "따가움1",
         "question" : "얼굴에 열감을 자주 느끼시나요 ?",
+        "progress" : 4,
         "answers" : [
                 {   "topic"   : "민감성",
                     "tag"     : "Y",
@@ -164,6 +173,7 @@
     {
         "category" : "따가움2",
         "question" : "얼굴이 가렵고 땡기시나요?",
+        "progress" : 6,
         "answers" : [
                 {   "topic"   : "민감성",
                     "end"     : "true",
@@ -180,6 +190,7 @@
     {
         "category" : "두피",
         "question" : "두피에 어떤 고민이 있으신가요 ?",
+        "progress" : 2,
         "answers" : [
                 {   "topic"   : "두피여드름",
                     "keyword" : "두피여드름",
@@ -194,6 +205,7 @@
     {
         "category" : "두피여드름",
         "question" : "머리가 쉽게 기름지나요 ?",
+        "progress" : 3,
         "answers" : [
                 {   "topic"   : "두피여드름",
                     "keyword" : "두피여드름1",
@@ -210,6 +222,7 @@
     {
         "category" : "두피여드름1",
         "question" : "두피가 뜨겁고 아픈가요?",
+        "progress" : 4,
         "answers" : [
                 {   "topic"   : "두피여드름",
                     "keyword" : "두피여드름2",
@@ -226,6 +239,7 @@
     {
         "category" : "두피여드름2",
         "question" : "비듬이나 각질이 잘 생기나요?",
+        "progress" : 5,
         "answers" : [
                 {   "topic"   : "두피여드름",
                     "keyword" : "두피여드름3",
@@ -242,6 +256,7 @@
     {
         "category" : "두피여드름3",
         "question" : "염증이 심해서 진물도 나나요?",
+        "progress" : 6,
         "answers" : [
                 {   "topic"   : "두피여드름",
                     "keyword" : "두피여드름3",
@@ -260,6 +275,7 @@
     {
         "category" : "탈모",
         "question" : "두피에 열감을 많이 느끼시나요 ?",
+        "progress" : 3,
         "answers" : [
                 {   "topic"   : "탈모",
                     "keyword" : "탈모1",
@@ -276,6 +292,7 @@
     {
         "category" : "탈모1",
         "question" : "두피가 자주 기름지나요 ?",
+        "progress" : 4,
         "answers" : [
                 {   "topic"   : "탈모",
                     "keyword" : "탈모2",
