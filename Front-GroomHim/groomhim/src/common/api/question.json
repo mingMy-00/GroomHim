@@ -38,7 +38,7 @@
                 {
                     "tag"     : "건성수부지",
                     "keyword" : "건조",
-                    "content" : "얼굴이 건조함 (아픔,각질,예민)"
+                    "content" : "얼굴이 건조함"
                 },
                 {
                     "tag"     : "건성지성수부지",
@@ -46,13 +46,14 @@
                     "content" : "여드름 혹은 트러블이 자주남."
                 },
                 {
-                    "tag" : "지성수부지",
-                    "keyword" : "기름짐",
-                    "content" : "얼굴이 자주 기름지고 번들거림."
+                    "tag" : "민감성",
+                    "keyword" : "따가움",
+                    "content" : "얼굴이 자주 따가움."
                 },
                 {
+                    "topic"   : "모공",
                     "tag"     : "모공",
-                    "keyword" : "모공",
+                    "end"     : "true",
                     "content" : "모공과 블랙헤드가 고민."
                 }
         ]
@@ -112,171 +113,83 @@
         "question" : "주로 겪는 여드름 문제가 무엇인가요?",
         "answers" : [
                 {   "topic"   : "여드름",
-                    "tag"     : "염증성여드름",
+                    "tag"     : "1",
                     "keyword" : "여드름1",
                     "content" : "염증성 여드름이 많이 남"
                 },
                 {   "topic"   : "여드름",
-                    "tag"     : "좁쌀여드름",
+                    "tag"     : "2",
                     "keyword" : "여드름1",
                     "content" : "좁쌀 여드름이 많이남"
-                },
-                {   "topic"   : "여드름",
-                    "tag"     : "모든여드름",
-                    "keyword" : "여드름1",
-                    "content" : "염증, 좁쌀을 포함한 모든 트러블이 많이남"
                 }
         ]
     },
     {
         "category" : "여드름1",
-        "question" : "여드름에 대한 고민이 뭔가요 ?",
+        "question" : "평소 피부가 어떤가요 ?",
         "answers" : [
                 {   "topic"   : "여드름",
                     "end"     : "true",
-                    "tag"     : "흉터",
-                    "keyword" : "여드름",
-                    "content" : "흉터 없애기."
+                    "tag"     : "3",
+                    "content" : "표면이 거칠고 자주틈"
                 },
                 {   "topic"   : "여드름",
                     "end"     : "true",
-                    "tag"     : "여드름짜기",
-                    "keyword" : "여드름",
-                    "content" : "흉터 없이 여드름 짜기."
+                    "tag"     : "4",
+                    "content" : "얼굴이 항상 기름짐"
                 },
                 {   "topic"   : "여드름",
                     "end"     : "true",
-                    "tag"     : "여드름제거",
-                    "keyword" : "여드름",
-                    "content" : "여드름이 안 나길 바람."
+                    "tag"     : "5",
+                    "content" : "이마와 코만 기름짐"
                 }
         ]
     },
     {
-        "category" : "기름짐",
-        "question" : "주로 겪는 어려움이 무엇인가요?",
+        "category" : "따가움",
+        "question" : "피부에 각질이나 수포가 많이 생기나요 ?",
         "answers" : [
-                {
-                    "tag"     : "피지",
-                    "keyword" : "기름짐마지막",
-                    "content" : "피지가 많이 생김"
+                {   "topic"   : "민감성",
+                    "tag"     : "Y",
+                    "content" : "예",
+                    "keyword" : "따가움1"
                 },
-                {
-                    "tag"     : "이마와 코만 기름지고 볼은 건조",
-                    "keyword" : "기름짐마지막",
-                    "content" : "이마와 코만 기름지고 볼은 건조함"
-                },
-                {
-                    "tag"     : "전체가 번들",
-                    "keyword" : "기름짐마지막",
-                    "content" : "얼굴이 전체가 기름짐"
+                {   "topic"   : "민감성",
+                    "tag"     : "N",
+                    "content" : "아니오",
+                    "keyword" : "따가움1"
                 }
         ]
     },
     {
-        "category" : "기름짐마지막",
-        "question" : "마지막 질문 입니다.",
+        "category" : "따가움1",
+        "question" : "얼굴에 열감을 자주 느끼시나요 ?",
         "answers" : [
-                {
-                    "end"     : "true",
-                    "tag"     : "모공",
-                    "keyword" : "기름짐",
-                    "content" : "모공이 전체적으로 큼"
-                    
+                {   "topic"   : "민감성",
+                    "tag"     : "Y",
+                    "content" : "예",
+                    "keyword" : "따가움2"
                 },
-                {
-                    "end"     : "true",
-                    "tag"     : "수분부족한데 기름짐",
-                    "keyword" : "기름짐",
-                    "content" : "수분 부족한데 기름진 느낌"
-                },
-                {
-                    "end"     : "true",
-                    "tag"     : "전체가 번들",
-                    "keyword" : "기름짐",
-                    "content" : "피지가 많이 분비됨."
+                {   "topic"   : "민감성",
+                    "tag"     : "N",
+                    "content" : "아니오",
+                    "keyword" : "따가움2"
                 }
         ]
     },
     {
-        "category" : "모공",
-        "question" : "어느 부위의 모공인가요?",
+        "category" : "따가움2",
+        "question" : "얼굴이 가렵고 땡기시나요?",
         "answers" : [
-                {
-                    "tag"     : "코",
-                    "keyword" : "모공1",
-                    "content" : "코 혹은 코 주변"
-                    
-                },
-                {
-                    "tag"     : "얼굴전체",
-                    "keyword" : "모공1",
-                    "content" : "얼굴 전체적으로"
-                }
-        ]
-    },
-    {
-        "category" : "모공1",
-        "question" : "블랙헤드도 고민이신가요 ?",
-        "answers" : [
-                {
+                {   "topic"   : "민감성",
                     "end"     : "true",
-                    "tag"     : "블랙헤드도고민",
-                    "content" : "블랙헤드도 고민이에요"
-                    
+                    "tag"     : "Y",
+                    "content" : "예"
                 },
-                {
+                {   "topic"   : "민감성",
                     "end"     : "true",
-                    "tag"     : "2",
-                    "content" : "블랙헤드는 고민 아니에요"
-                }
-        ]
-    },
-    {
-        "category" : "미용",
-        "question" : "관심있으신 미용의 영역이 어떤 곳인가요?",
-        "answers" : [
-                {
-                    "tag"     : "피부",
-                    "keyword" : "피부미용",
-                    "content" : "피부"
-                },
-                {   
-                    "tag"     : "털",
-                    "keyword" : "털",
-                    "content" : "털 관리"
-                },
-                {   
-                    "tag"     : "헤어",
-                    "keyword" : "헤어",
-                    "content" : "헤어스타일"
-                },
-                {   
-                    "tag"     : "입술",
-                    "keyword" : "입술",
-                    "content" : "입술(립밤 혹은 립제품)"
-                }
-        ]
-    },
-    {
-        "category" : "피부미용",
-        "question" : "어떤 피부 미용이요?",
-        "answers" : [
-                {
-                    "tag"     : "커버",
-                    "keyword" : "피부미백중커버",
-                    "content" : "흉터 혹은 여드름 커버"
-                },
-                {   
-                    "tag"     : "미백",
-                    "keyword" : "피부단순미백",
-                    "content" : "착색 포함 단순 미백을 원함"
-                },
-                {   
-                    "end"     : "true",
-                    "tag"     : "주름",
-                    "keyword" : "주름",
-                    "content" : "주름 개선을 원함"
+                    "tag"     : "N",
+                    "content" : "아니오"
                 }
         ]
     },

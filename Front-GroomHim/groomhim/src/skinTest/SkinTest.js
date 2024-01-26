@@ -1,112 +1,144 @@
 import Questions from '../common/api/question.json';
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import './SkinTest.css';
 import him from '../assets/imgs/TroubleHim.png';
-import ProgressBar from './ProgressBar'; 
+import ProgressBar from './ProgressBar';
 
-function SkinTest(){
-
-    // 1. 질문이 끝났는지 어떻게 확인?
-    // 2. type 어떤 방식으로 서버에 보낼건지?(현재는 숫자)
-
-    const [currentCategory, setCurrentCategory] = useState("첫질문"); // 현재 질문 
-    const [loading, setLoading]                 = useState(false); // 로딩
-    const navigate                              = useNavigate();
-    const [dryCount, setDryCount]               = useState(0);
-    const [waterOilCount, setWaterOilCount]     = useState(0);
-    const [skinType, setSkinType]               = useState("");
-    const [progress, setProgress]               = useState(0);
-
-    // 응답에 맞는 질문지 가져오기
+function SkinTest() {
+    const [currentCategory, setCurrentCategory] = useState("첫질문");
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+    const [skinType, setSkinType] = useState("");
+    const [progress, setProgress] = useState(0);
+    const [dryCount, setDryCount] = useState(0);
+    const [waterOilCount, setWaterOilCount] = useState(0);
+    const [oilCount, setOilCount] = useState(0);
+    const [sensitive, setSensitive] = useState(0);
     
-    const nextQuestion = answer =>{ 
-
-        /*건성 수부지 문제*/ 
-        if(answer.tag == "건성수부지"){
-            setDryCount(dryCount + 1);
-            setWaterOilCount(waterOilCount + 1);
-        }
-        if(answer.tag == "건성") {
-            setDryCount(dryCount + 1);
-        }else if(answer.tag == "수부지") {
-            setWaterOilCount(waterOilCount + 1);
+    const nextQuestion = (answer) => {
+        if (answer.tag === "건성수부지") {
+            setDryCount((prevCount) => prevCount + 1);
+            setWaterOilCount((prevCount) => prevCount + 1);
+        } else if (answer.tag === "건성") {
+            setDryCount((prevCount) => prevCount + 1);
+        } else if (answer.tag === "수부지") {
+            setWaterOilCount((prevCount) => prevCount + 1);
         }
 
-        /*여드름문제*/
-        if(answer.topic == "여드름") {
-           
+        if (answer.topic === "여드름") {
+            if (answer.tag === "1") {
+                setOilCount((prevCount) => prevCount + 1);
+                setWaterOilCount((prevCount) => prevCount + 1);
+            } else if (answer.tag === "2") {
+                setWaterOilCount((prevCount) => prevCount + 1);
+                setDryCount((prevCount) => prevCount + 1);
+            } else if (answer.tag === "3") {
+                setDryCount((prevCount) => prevCount + 2);
+            } else if (answer.tag === "4") {
+                setOilCount((prevCount) => prevCount + 2);
+            } else {
+                setWaterOilCount((prevCount) => prevCount + 2);
+            }
         }
 
-        if(answer.hasOwnProperty('end')){ // 해당 응답이 마지막 응답이라면
-            setLoading(true);
+        if (answer.topic === "여드름") {
+            if (answer.tag === "1") {
+                setOilCount((prevCount) => prevCount + 1);
+                setWaterOilCount((prevCount) => prevCount + 1);
+            } else if (answer.tag === "2") {
+                setWaterOilCount((prevCount) => prevCount + 1);
+                setDryCount((prevCount) => prevCount + 1);
+            } else if (answer.tag === "3") {
+                setDryCount((prevCount) => prevCount + 2);
+            } else if (answer.tag === "4") {
+                setOilCount((prevCount) => prevCount + 2);
+            } else {
+                setWaterOilCount((prevCount) => prevCount + 2);
+            }
+        }else if(answer.topic == "모공") {
+            setSkinType("모공");
+                setTimeout(() => {
+                    navigate('/result/Pore', { state: { skinType: skinType } });
+                }, 3000);
+        }
         
-            setTimeout(()=>{
-                navigate('/result' , {state : {skinType : [{skinType}]}});
-            },3000);
+        if(answer.tag === 'Y') {
+            setSensitive(sensitive + 1);
+        }
+
+        if (answer.hasOwnProperty('end')) {
+            setLoading(true);
         }
         setCurrentCategory(answer.keyword);
-    }
+    };
 
-    //실시간으로 피부타입을 계산해주기 위함.
     useEffect(() => {
-        if(dryCount > waterOilCount) {
-            setSkinType("건성"); 
-        }else {
+        //console.log("지성" + oilCount, "수부지" + waterOilCount, "건성" + dryCount);
+        if (dryCount > waterOilCount && dryCount > oilCount) {
+            setSkinType("건성");
+        } else if (oilCount > waterOilCount && oilCount > dryCount) {
+            setSkinType("지성");
+        } else if (waterOilCount > dryCount && waterOilCount > oilCount) {
             setSkinType("수부지");
+        } else if((dryCount == 0) && (waterOilCount == 0) && (oilCount == 0)) {
+            if(sensitive > 0) {
+                setSkinType("민감성");
+            }
         }
-      }, [dryCount, waterOilCount, setSkinType]); 
 
-
-      const increaseProgress = () => {
+        if ((loading === true) && (skinType != "모공")) {
+            setTimeout(() => {
+                //console.log(skinType);
+                navigate('/result', { state: { skinType: skinType } });
+            }, 3000);
+        }
+    }, [dryCount, waterOilCount, oilCount, loading, skinType, navigate, sensitive]);
+    
+    /*이거 왜 []인지 찾기*/ 
+    const increaseProgress = () => {
         setProgress((prevProgress) => prevProgress + 1);
-      };
+    };
 
-    return(
+    return (
         <>
-        {!loading && (
-            <>
-                {Questions.map((question,index)=>{
-
-                if(question.category === currentCategory){ // 현재질문에 맞는 값들만
-                        return(
-                            <div className='content' key={index}>
-                                <div className='top'>
-                                    <div Style="margin : 20px auto;" >진행도 6/6</div>
-                                     <ProgressBar progress={progress} totalQuestions={Questions.length} />
-                                    <div className="img"><img src={him}></img></div>
-                                    <h2>
-                                        {question.question}
-                                    </h2>
+            {!loading && (
+                <>
+                    {Questions.map((question, index) => {
+                        if (question.category === currentCategory) {
+                            return (
+                                <div className='content' key={index}>
+                                    <div className='top'>
+                                        <div Style="margin : 20px auto;">진행도 6/6</div>
+                                        <ProgressBar progress={progress} totalQuestions={Questions.length} />
+                                        <div className="img"><img src={him} alt="TroubleHim"></img></div>
+                                        <h2>{question.question}</h2>
+                                    </div>
+                                    <div className='btn_box'>
+                                        {question.answers.map((answer, index1) => (
+                                            <button className="submitButton" key={index1} onClick={() => { nextQuestion(answer); increaseProgress(); }}>
+                                                <b>{answer.content}</b>
+                                            </button>
+                                        ))}
+                                    </div>
                                 </div>
-                                <div className='btn_box'>
-                                  
-                                        {question.answers.map((answer, index1)=>{
-                                                return(
-                                                    <button class="submitButton" key={index1} onClick={() => {nextQuestion(answer); increaseProgress();} }>
-                                                        <b>{answer.content}</b>
-                                                    </button>
-                                                )
-                                        })}
-                                </div>
-                            </div>
-                        )
-                    }
-                    return null;
-                })}
-            </>
-        )}
-        {loading &&(
-            <div className='loading_container'>
-                <div className="loader3">
-                    <div className="circle1"></div>
-                    <div className="circle1"></div>
-                    <div className="circle1"></div>
-                    <div className="circle1"></div>
-                    <div className="circle1"></div>
+                            );
+                        }
+                        return null;
+                    })}
+                </>
+            )}
+            {loading && (
+                <div className='loading_container'>
+                    <div className="loader3">
+                        <div className="circle1"></div>
+                        <div className="circle1"></div>
+                        <div className="circle1"></div>
+                        <div className="circle1"></div>
+                        <div className="circle1"></div>
+                    </div>
                 </div>
-            </div>
-        )}
+            )}
         </>
     );
 }
