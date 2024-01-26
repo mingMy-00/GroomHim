@@ -1,7 +1,7 @@
 [
     {
         "category" : "해결",
-        "question" : "고민이 있는 피부의 영역을 선택해주세요.",
+        "question" : "고민이 있는 피부의 영역을 선택.",
         "progress" : 1,
         "answers" : [
                 {
@@ -18,7 +18,7 @@
     },
     {
         "category" : "피부",
-        "question" : "피부의 어떤 고민이 있으신가요?",
+        "question" : "어떤 고민이 있으신가요?",
         "progress" : 2,
         "answers" : [
                 {
@@ -46,7 +46,7 @@
     },
     {
         "category" : "건조",
-        "question" : "주로 겪는 어려움이 무엇인가요?",
+        "question" : "주로 겪는 어려움은?",
         "progress" : 3,
         "answers" : [
                 {
@@ -63,7 +63,7 @@
     },
     {
         "category" : "수부지건조1",
-        "question" : "계절에 따라 피부가 어떤가요 ?",
+        "question" : "계절에 따라 피부가 어떤가요?",
         "progress" : 4,
         "answers" : [
                 {
@@ -99,7 +99,7 @@
     },
     {
         "category" : "여드름",
-        "question" : "주로 겪는 여드름 문제가 무엇인가요?",
+        "question" : "주로 겪는 문제가 무엇인가요?",
         "progress" : 3,
         "answers" : [
                 {   "topic"   : "여드름",
@@ -138,7 +138,7 @@
     },
     {
         "category" : "따가움",
-        "question" : "피부에 각질이나 수포가 많이 생기나요 ?",
+        "question" : "피부에 각질이 많이 생기나요 ?",
         "progress" : 3,
         "answers" : [
                 {   "topic"   : "민감성",
@@ -189,7 +189,7 @@
     },
     {
         "category" : "두피",
-        "question" : "두피에 어떤 고민이 있으신가요 ?",
+        "question" : "어떤 고민이 있으신가요 ?",
         "progress" : 2,
         "answers" : [
                 {   "topic"   : "두피여드름",
