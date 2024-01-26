@@ -158,10 +158,10 @@ function SeborScalp() {
             )
         }else {
             return(
-                    <>
-                    </>
-            )    
-        }
+                <>
+                </>
+            )   
+        } 
     }
 
     return (
@@ -175,7 +175,7 @@ function SeborScalp() {
                     </div>
                     <img src={him} style={{width : '80%'}}></img>
                     <div>
-                        <p>{memberName}님의 두피 상태는 <b className="b" Style="color : 'red'" /> <br/>
+                        <p>{memberName}님의 두피 상태는 <b className="b" style={{color : 'red'}} /> <br/>
                          {skinType}일 확률이 높습니다.</p>
                         <p>상태에 따른 제품 추천은 아래와 같습니다.</p>
                         <div className='type_explanation'>
@@ -187,7 +187,6 @@ function SeborScalp() {
                         </div>
                     </div>
                     {SeborShampoo()}
-                    
             </div>
             </div>
             <div className='result-btn'>

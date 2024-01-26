@@ -94,7 +94,6 @@ function SkinTest() {
         
         //console.log("지성" + oilCount, "수부지" + waterOilCount, "건성" + dryCount);
         if (dryCount > waterOilCount && dryCount > oilCount && !skinType.includes("두피") ) {
-            console.log("설마");
             setSkinType("건성");
         } else if (oilCount > waterOilCount && oilCount > dryCount) {
             setSkinType("지성");

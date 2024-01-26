@@ -91,19 +91,19 @@ function Result() {
     const important = () => {
         if(skinType === '건성') {
             return(
-                <p>이 타입은 수분을 유지해주기 위한 <b style="color :red">보습</b>이 정말 중요합니다.</p>
+                <p>이 타입은 수분을 유지해주기 위한 <b Style="color :red">보습</b>이 정말 중요합니다.</p>
             )
         }else if(skinType === '지성') {
             return(
-                <p>이 타입은 <b style="color :red">유수분</b> 밸런스를 맞추는 게 가장 중요합니다.</p>
+                <p>이 타입은 <b Style="color :red">유수분</b> 밸런스를 맞추는 게 가장 중요합니다.</p>
             )
         }else if(skinType === '수부지'){
             return(
-                <p>이 타입은 <b style="color :red">수분</b>을 유지해주는 것이 가장 중요합니다.</p>
+                <p>이 타입은 <b Style="color :red">수분</b>을 유지해주는 것이 가장 중요합니다.</p>
             )
         }else {
             return(
-                <p>이 타입은 피부가 예민하기 때문에 <br/><b style="color :red">성분이 순한</b> 제품을 바르는 것이 <br/>가장 중요합니다.</p>
+                <p>이 타입은 피부가 예민하기 때문에 <br/><b Style="color :red">성분이 순한</b> 제품을 바르는 것이 <br/>가장 중요합니다.</p>
             )
         }
     }
