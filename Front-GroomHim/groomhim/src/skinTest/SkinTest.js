@@ -157,7 +157,7 @@ function SkinTest() {
                                 <div className='test-box'>
                                     <div className='content' key={index}>
                                         <div className='top'>
-                                            <div Style="margin : 20px auto;">진행도 6/6</div>
+                                            <div Style="margin : 20px 0; width : 300px;">진행도 6/6</div>
                                             <ProgressBar progress={progress} totalQuestions={Questions.length} />
                                             <div className="img"><img src={him} alt="TroubleHim"></img></div>
                                             <h2>{question.question}</h2>
