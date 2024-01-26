@@ -117,6 +117,10 @@ function QuestionDetail(){
         setUpdatedCommentContent('');
       };
 
+    const out = () => {
+    navigate(-1);
+    }
+
 
 
     useEffect(()=>{

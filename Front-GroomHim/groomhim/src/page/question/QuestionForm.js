@@ -72,10 +72,10 @@ function QusetionForm(){
                     questionTags : tags,
                     questionContent : content
                 }
-            }).then(function() {
-                console.log("질문 등록 성공");
+            }).then(function(response) {
+                console.log(response);
                 alert("게시글이 등록되었습니다.");
-                navigate("/page/question");
+                navigate("/page/question/questionDetail" , {state : {questionNo : response.data, loginMember : loginMember}});
             })
             .catch(function() {
                 console.log("공지사항 등록 실패");
