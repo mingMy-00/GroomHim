@@ -54,7 +54,7 @@ public class Question {
         this.questionTitle = questionTitle;
         this.questionContent = questionContent;
         this.member = member;
-        this.writer = member.getMemberName();
+        this.writer = member.getMemberNickname();
     }
 
     @PrePersist // entity가 생성되기전에 실행

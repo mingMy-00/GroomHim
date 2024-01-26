@@ -126,7 +126,7 @@ public class QuestionService {
                     return CommentResponse.builder()
                             .commentNo(comment.getCommentNo())
                             .commentContent(comment.getCommentContent())
-                            .writer(comment.getMember().getMemberName())
+                            .writer(comment.getMember().getMemberNickname())
                             .memberNo(comment.getMember().getMemberNo())
                             .enrollDate(comment.getEnrollDate())
                             .build();

@@ -99,6 +99,7 @@ function Question(){
     
     // 게시글 조회
     const selectQuestion = () => {
+        console.log(url);
         axios({
             url: url,
             method: "get",
