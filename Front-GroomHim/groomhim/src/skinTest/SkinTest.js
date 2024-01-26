@@ -8,7 +8,7 @@ import ProgressBar from './ProgressBar';
 function SkinTest() {
     const navigate = useNavigate();
 
-    const [currentCategory, setCurrentCategory] = useState("첫질문");
+    const [currentCategory, setCurrentCategory] = useState("해결");
     const [loading, setLoading]                 = useState(false);
     const [skinType, setSkinType]               = useState("");
     const [progress, setProgress]               = useState(0);
@@ -156,7 +156,7 @@ function SkinTest() {
                             return (
                                 <div className='content' key={index}>
                                     <div className='top'>
-                                        <div Style="margin : 20px auto;">진행도 6/6</div>
+                                        <div Style="margin : 20px 0px; width : 300px;">진행도 6/6</div>
                                         <ProgressBar progress={progress} totalQuestions={Questions.length} />
                                         <div className="img"><img src={him} alt="TroubleHim"></img></div>
                                         <h2>{question.question}</h2>
