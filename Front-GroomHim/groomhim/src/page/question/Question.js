@@ -19,7 +19,7 @@ function Question(){
     const [tagInputValue, setTagInputValue] = useState('');
     let navigate = useNavigate();
     
-    const url = "http://localhost:9090/question";
+    const url = process.env.REACT_APP_BACKEND_IP + "/question";
     
     const [condition, setCondition] = useState('enrollDate'); // 초기 값 설정
 

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import MypageRouter from '../../router/MypageRouter';
 import { useNavigate } from "react-router-dom";
 import './Mypage.css';
-import axios from "axios";
 
 function Mypage() {
     let navigate = useNavigate();
@@ -35,9 +34,9 @@ function Mypage() {
                         <button className='logout-btn' onClick={Logout} >로그아웃</button>
                     </div>
                     <div className='user-skin-type'>
-                        <p>20대</p>
+                        {/* <p>20대</p>
                         <p>{gender}</p>
-                        <p>여드름 개선</p>
+                        <p>여드름 개선</p> */}
                     </div>
                 </div>
             </div>

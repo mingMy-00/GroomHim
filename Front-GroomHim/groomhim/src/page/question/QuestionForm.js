@@ -64,7 +64,7 @@ function QusetionForm(){
             alert('제목과 내용을 입력해주세요');
         }else{ // 제목과 내용이 비어있지 않다면
             axios({
-                url : "http://localhost:9090/question",
+                url : process.env.REACT_APP_BACKEND_IP + "/question",
                 method : "post",
                 data : {
                     member : loginMember,

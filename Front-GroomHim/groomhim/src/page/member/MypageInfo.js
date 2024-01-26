@@ -87,7 +87,7 @@ function MypageInfo() {
 
     const updateAxios = (requestData) => {
         axios({
-            url: "http://localhost:9090/updateInfo",
+            url: process.env.REACT_APP_BACKEND_IP + "/updateInfo",
             method: "post",
             data:requestData
         }).then(function (response) {

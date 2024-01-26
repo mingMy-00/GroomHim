@@ -10,7 +10,7 @@ function QuestionDetail(){
     let location = useLocation();
     let questionNo = location.state.questionNo;
     let loginMember = location.state.loginMember;
-    const url = "http://localhost:9090/question/";
+    const url = process.env.REACT_APP_BACKEND_IP + "/question/";
 
     const [question, setQuestion] = useState('');
     const [comments, setComments] = useState([]);

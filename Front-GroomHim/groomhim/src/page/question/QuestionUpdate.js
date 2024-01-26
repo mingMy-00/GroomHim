@@ -12,9 +12,8 @@ function QuestionUpdate(){
     const [content, setContent] = useState(question.questionContent);
     const [tags, setTags] = useState(question.tagNames);
     const [inputValue, setInputValue] = useState('');
-    console.log(question);
-
-    const url = "http://localhost:9090/question";
+    
+    const url = process.env.REACT_APP_BACKEND_IP + "/question";
 
     const handleTitleChange = (e) => {
         setTitle(e.target.value);

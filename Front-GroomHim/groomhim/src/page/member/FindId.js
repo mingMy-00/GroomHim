@@ -19,7 +19,7 @@ function FindId() {
     const SendIdenti = () => {
 
         axios({
-            url: "http://localhost:9090/findId",
+            url: process.env.REACT_APP_BACKEND_IP + "/findId",
             method: "post",
             data: {memberEmail: email}
         }).then(function (response) {

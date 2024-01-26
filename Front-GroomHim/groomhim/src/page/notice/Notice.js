@@ -6,7 +6,6 @@ import axios from "axios";
 function Notice() {
     //불러온 공지사항 데이터를 담기 위한 state
     const [notices, setNotices] = useState([]);
-
     // 검색 키워드를 담기 위한 state
     const [keyword , setKeyword] = useState('');
     
@@ -37,7 +36,7 @@ function Notice() {
             alert("검색어를 입력해주세요.");
         }{
             axios({
-                url: "http://localhost:9090/noticeSearch",
+                url: backendIP + "/noticeSearch",
                 method: "post",
                 params : {
                     keyword : keyword,
@@ -54,11 +53,12 @@ function Notice() {
 
 
 
+    const backendIP = process.env.REACT_APP_BACKEND_IP;
 
     //공지사항 전체 게시글을 불러오기 위한 함수
     useEffect(() => {
         axios({
-            url: "http://localhost:9090/noticeList",
+            url: backendIP+"/noticeList",
             method: "get"  
         }).then(function (result) {
             console.log(result);
