@@ -77,7 +77,6 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 16px 20px;
     width: 100%;
     background-color: rgb(255, 255, 255);
 }
@@ -89,7 +88,6 @@
     text-decoration: none;
     box-sizing: border-box;
     height: 2.625rem;
-    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     -webkit-tap-highlight-color: transparent;
     display: inline-block;
     width: auto;
@@ -113,7 +111,6 @@
     text-decoration: none;
     box-sizing: border-box;
     height: 2.625rem;
-    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     -webkit-tap-highlight-color: transparent;
     display: inline-block;
     width: auto;
@@ -125,7 +122,7 @@
     cursor: pointer;
     border: 0.0625rem solid transparent;
     color: rgb(255, 255, 255);
-    background-color: rgb(0, 196, 113);
+    background-color: #082759;
     border-radius: 8px;
 }
 
