@@ -1,19 +1,17 @@
 import './Result.css';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation , useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import ProgressBar from '../skinTest/ProgressBar';
 import him from '../assets/imgs/DryHim.png';
 
-function Result() {
+function HairLoss() {
+    const navigate = useNavigate();
     const location = useLocation();
-    let navigate = useNavigate();
     const [skinType, setSkinType] = useState(location.state.skinType);
-    const [progress, setProgress] = useState(0);
 
     /*로그인한 회원 정보*/
     const storedData = JSON.parse(sessionStorage.getItem("loginMember"));
     const memberName = storedData ? storedData.memberName : null;
-    const memberNo   = storedData ? Number(storedData.memberNo) : null;
 
     // 상세 정보가 보여지는 상태를 관리하는 state
     const [showDetails, setShowDetails] = useState({
@@ -30,81 +28,98 @@ function Result() {
         }));
     };
 
-    const introDetail = () => {
-        if(skinType === '건성') {
-            return(
-                <div class="tooltip-container">
-                    <span class="text">자세한 정보👀</span>
-                    <span className="introDetail">           
-                        Q. 건성피부란  ? <br />
-                        A. 피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
-                        표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br />
-
-                            유분제품을 너무 많이 바르면 모공을 막아서
-                            좁쌀여드름이 나고
-                            <br />
-                            수분제품은 보통 가벼운 액체 타입이라서 날아가기 쉬워요.
-                            <br /><br />
-                        ✔ 따라서, 보습제품과 유수분 밸런스가 중요합니다.
-                    </span>
-                </div>
-            );
-        }else if(skinType === '수부지') {
-            return(
-                <div>
-                    <span class="text">자세한 정보👀</span>
-                    <span className="introDetail">           
-                        Q. 수부지피부란  ? <br /><br />
-                        A. 피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
-                        표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br />
-
-                            유분제품을 너무 많이 바르면 모공을 막아서
-                            좁쌀여드름이 나고
-                            <br />
-                            수분제품은 보통 가벼운 액체 타입이라서 날아가기 쉬워요.
-                            <br /><br />
-                        
-                        ✔ 따라서, 보습제품과 유수분 밸런스가 중요합니다.
-                    </span>
-                </div>
-                );
-        }else {
-            return(
-                <div class="tooltip-container">
-                    <span class="text">자세한 정보👀</span>
-                    <span className="introDetail">           
-                        Q. 지성피부란  ? <br />
-                        A. 피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
-                        표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br />
-
-                            유분제품을 너무 많이 바르면 모공을 막아서
-                            좁쌀여드름이 나고
-                            <br />
-                            수분제품은 보통 가벼운 액체 타입이라서 날아가기 쉬워요.
-                            <br /><br />
-                        
-                        ✔ 따라서, 보습제품과 유수분 밸런스가 중요합니다.
-                    </span>
-                </div>
-                );
-        }};
     const important = () => {
-        if(skinType === '건성') {
+        return(
+            <p>어떤 두피의 타입이든, 머리를<br/> 
+               올바르게 감는 게 가장 중요해요.<br /> 
+               머리를 아침에 감고 계시나요?  <br />
+               뜨거운 물로 감기는 않나요? <br />
+               뜨거운 바람으로 대충 말리시나요? <br/>
+               무조건 탈모의 원인입니다. 자세히보기의 영상을 <br/>
+               확인해주세요.
+               </p>
+        )
+    }
+
+    const introDetail = () => {
+        if(skinType.includes("열감") && (skinType.includes("건성"))) {
             return(
-                <p>이 타입은 수분을 유지해주기 위한 <b style="color :red">보습</b>이 정말 중요합니다.</p>
-            )
-        }else if(skinType === '지성') {
+                <div id="margin">
+                    <div class="tooltip-container">
+                        <span class="text">자세한 정보👀</span>
+                        <span className="introDetail">           
+                            ✔  열감 <br />
+                            두피가 열이 많이 오르면  <br/>
+                            모공이 확장되고, 확장된 모공은 <br/>
+                            머리카락이 더 잘 뽑혀요. 또, 열감때문에 <br/>
+                            수분이 날아가면서 건조해집니다. <br/>
+                            
+                            <br /><br />
+                            ✔ 샴푸를 올바르게 감는 로드맵 꼭꼭 하세요! <br/>
+                            제가 이대로 6개월 해서 탈모 거의 예방했습니다.
+                            <a href="https://youtu.be/GNvfMfntY7w?si=iEa7WEJuPizfklqe">올바른 샴푸법 영상</a>
+                        </span>
+                    </div>
+                </div>
+                );
+        }else if(skinType.includes("열감") && (skinType.includes("지성"))) {
             return(
-                <p>이 타입은 <b style="color :red">유수분</b> 밸런스를 맞추는 게 가장 중요합니다.</p>
-            )
-        }else if(skinType === '수부지'){
+                <div id="margin">
+                    <div class="tooltip-container">
+                        <span class="text">자세한 정보👀</span>
+                        <span className="introDetail">           
+                        ✔  열감 <br />
+                            두피가 열이 많이 오르면  <br/>
+                            모공이 확장되고, 확장된 모공은 <br/>
+                            머리카락이 더 잘 뽑혀요. 또, <br/>
+                            피지분비로 인해 막힌 모공이 표면을 <br/>
+                            뜨겁게 만들어 열감도 느껴집니다. <br/>
+                            
+                            <br /><br />
+                            ✔ 샴푸를 올바르게 감는 로드맵 꼭꼭 하세요! <br/>
+                            제가 이대로 6개월 해서 탈모 거의 예방했습니다.
+                            <a href="https://youtu.be/GNvfMfntY7w?si=iEa7WEJuPizfklqe">올바른 샴푸법 영상</a>
+                        </span>
+                    </div>
+                </div>
+                );
+        }else if((!skinType.includes("열감")) && skinType.includes("지성") ) {
             return(
-                <p>이 타입은 <b style="color :red">수분</b>을 유지해주는 것이 가장 중요합니다.</p>
-            )
-        }else {
+                <div id="margin">
+                    <div class="tooltip-container">
+                        <span class="text">자세한 정보👀</span>
+                        <span className="introDetail">           
+                            ✔  열감 <br />
+                            지성두피는 특히 샴푸를 올바르게 하는 게 중요해요.  <br/>
+                            모공에 피지 분비량이 많기 때문에 제대로 샴푸를 하는 것. <br/>
+
+                            <br /><br />
+                            ✔ 샴푸를 올바르게 감는 로드맵 꼭꼭 하세요! <br/>
+                            제가 이대로 6개월 해서 탈모 거의 예방했습니다.
+                            <a href="https://youtu.be/GNvfMfntY7w?si=iEa7WEJuPizfklqe">올바른 샴푸법 영상</a>
+                        </span>
+                    </div>
+                </div>
+                );
+        }else if((!skinType.includes("열감")) &&skinType.includes("건성")) {
             return(
-                <p>이 타입은 피부가 예민하기 때문에 <br/><b style="color :red">성분이 순한</b> 제품을 바르는 것이 <br/>가장 중요합니다.</p>
-            )
+                <div id="margin">
+                    <div class="tooltip-container">
+                        <span class="text">자세한 정보👀</span>
+                        <span className="introDetail">           
+                            ✔  열감 <br />
+                            건성두피는 주로 열감에 의한 경우가 많아요.  <br/>
+                            두피의 열감으로 수분이 날아가면서 건조해지는거죠. <br/>
+                            절대 뜨거운 물로 감으면 안됩니다 머리를.
+                            
+                            <br /><br />
+                            ✔ 샴푸를 올바르게 감는 로드맵 꼭꼭 하세요! <br/>
+                            제가 이대로 6개월 해서 탈모 거의 예방했습니다.
+                            <a href="https://youtu.be/GNvfMfntY7w?si=iEa7WEJuPizfklqe">올바른 샴푸법 영상</a>
+                        </span>
+                    </div>
+                </div>
+                );
         }
     }
 
@@ -119,7 +134,8 @@ function Result() {
                     </div>
                     <img src={him} style={{width : '80%'}}></img>
                     <div>
-                        <p>{memberName}님의 피부타입은 <b className="b" style={{color : 'red'}}>{skinType}</b> 입니다.</p>
+                        <p>{memberName}님의 두피는 <b className="b" style={{color : 'red'}} /> {skinType}입니다.</p>
+                        <p>탈모는 자세히 보기를 봐주세요.</p>
                         <p>제품 추천은 아래와 같습니다.</p>
                         <div className='type_explanation'>
                             {important()}
@@ -195,6 +211,4 @@ function Result() {
             </div>
         </div>
     );
-}
-
-export default Result;
+}export default HairLoss;

@@ -1,21 +1,5 @@
 [
     {
-        "category" : "첫질문",
-        "question" : "어떤 목적으로 사용 하시나요?",
-        "answers" : [
-                {
-                    "tag"     : "미용",
-                    "keyword" : "미용",
-                    "content" : "미용목적"
-                },
-                {
-                    "tag"     : "해결",
-                    "keyword" : "해결",
-                    "content" : "문제성 피부 해결 목적"
-                }
-        ]
-    },
-    {
         "category" : "해결",
         "question" : "고민이 있는 피부의 영역을 선택해주세요.",
         "answers" : [
@@ -46,7 +30,7 @@
                     "content" : "여드름 혹은 트러블이 자주남."
                 },
                 {
-                    "tag" : "민감성",
+                    "tag"     : "민감성",
                     "keyword" : "따가움",
                     "content" : "얼굴이 자주 따가움."
                 },
@@ -269,6 +253,40 @@
                     "keyword" : "두피여드름3",
                     "end"     : "true",
                     "tag"     : "n",
+                    "content" : "아니오"
+                }
+        ]
+    },
+    {
+        "category" : "탈모",
+        "question" : "두피에 열감을 많이 느끼시나요 ?",
+        "answers" : [
+                {   "topic"   : "탈모",
+                    "keyword" : "탈모1",
+                    "tag"     : "y",
+                    "content" : "네"
+                },
+                {   "topic"   : "탈모",
+                    "keyword" : "탈모1",
+                    "tag"     : "n",
+                    "content" : "아니오"
+                }
+        ]
+    },
+    {
+        "category" : "탈모1",
+        "question" : "두피가 자주 기름지나요 ?",
+        "answers" : [
+                {   "topic"   : "탈모",
+                    "keyword" : "탈모2",
+                    "end"     : "true",
+                    "tag"     : "지성",
+                    "content" : "네"
+                },
+                {   "topic"   : "탈모",
+                    "keyword" : "탈모2",
+                    "end"     : "true",
+                    "tag"     : "건성",
                     "content" : "아니오"
                 }
         ]

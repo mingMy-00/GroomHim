@@ -8,7 +8,7 @@ import ProgressBar from './ProgressBar';
 function SkinTest() {
     const navigate = useNavigate();
 
-    const [currentCategory, setCurrentCategory] = useState("첫질문");
+    const [currentCategory, setCurrentCategory] = useState("해결");
     const [loading, setLoading]                 = useState(false);
     const [skinType, setSkinType]               = useState("");
     const [progress, setProgress]               = useState(0);
@@ -59,6 +59,22 @@ function SkinTest() {
             }else if(answer.tag === 'n' ){
                 setSeborScalp(seborScalp);
             }
+
+        }else if(answer.topic == "탈모") {
+
+            if(answer.tag == 'y') {
+                setSkinType("열감");
+            }else if(answer.tag == 'n') {
+                setSkinType("열감x");
+            }else if(skinType == "열감" && answer.tag == "건성") {
+                setSkinType("열감을 느끼는 건성두피");
+            }else if(skinType == "열감" && answer.tag == "지성") {
+                setSkinType("열감을 느끼는 지성두피");
+            }else if(skinType == "열감x" && answer.tag == "지성") {
+                setSkinType("지성두피");
+            }else if(skinType == "열감x" && answer.tag == "건성") {
+                setSkinType("건성두피");
+            }
         }
         
         /*민감성 에서 Y를 체크하기 위함.*/ 
@@ -75,8 +91,10 @@ function SkinTest() {
 
     /*모공 말고 일반 타입일 때 화면 포워딩 + 피부타입 알려주기*/
     useEffect(() => {
+        
         //console.log("지성" + oilCount, "수부지" + waterOilCount, "건성" + dryCount);
-        if (dryCount > waterOilCount && dryCount > oilCount) {
+        if (dryCount > waterOilCount && dryCount > oilCount && !skinType.includes("두피") ) {
+            console.log("설마");
             setSkinType("건성");
         } else if (oilCount > waterOilCount && oilCount > dryCount) {
             setSkinType("지성");
@@ -99,18 +117,26 @@ function SkinTest() {
             }
         }
 
-        if ((loading === true) && (skinType != "모공") && (!skinType.includes("지루성"))) {
+        if ((loading === true) && (skinType != "모공") && (!skinType.includes("지루성")) && (skinType != "열감") &&  (skinType != "열감x")) {
             setTimeout(() => {
                 //console.log(skinType);
                 navigate('/result', { state: { skinType: skinType } });
             }, 3000);
         }
 
-        if ((loading === true) && (skinType != "모공") && (skinType.includes("지루성"))) {
+        if ((loading === true) && (skinType != "모공") && (skinType.includes("지루성")) && (skinType != "열감") &&  (skinType != "열감x")) {
             setTimeout(() => {
                 navigate('/result/SeborScalp', { state: { skinType: skinType } });
             }, 3000);
         }
+
+        if ((loading === true) && (skinType != "모공") && (!skinType.includes("지루성")) && (skinType.includes("두피"))) {
+            console.log("오긴하나");
+            setTimeout(() => {
+                navigate('/result/HairLoss', { state: { skinType: skinType } });
+            }, 3000);
+        }
+        
         
     }, [dryCount, waterOilCount, oilCount, loading, skinType, navigate, sensitive, seborScalp]);
     
@@ -164,6 +190,4 @@ function SkinTest() {
             )}
         </>
     );
-}
-
-export default SkinTest;
+} export default SkinTest;
