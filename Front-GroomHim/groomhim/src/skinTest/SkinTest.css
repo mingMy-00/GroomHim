@@ -1,19 +1,21 @@
 .slider{
     width: 1200vw;
 }
-
+.test-box {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 70px;
+}
 .content{
-    margin-top: 15vw;
     max-width : 380px;
     text-align: center;
-    max-height : 40%;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-    margin: 20px auto;
+    margin: 0 auto;
 }
 
 .submitButton {

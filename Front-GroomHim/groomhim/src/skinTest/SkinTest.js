@@ -128,21 +128,23 @@ function SkinTest() {
                     {Questions.map((question, index) => {
                         if (question.category === currentCategory) {
                             return (
-                                <div className='content' key={index}>
-                                    <div className='top'>
-                                        <div Style="margin : 20px auto;">진행도 6/6</div>
-                                        <ProgressBar progress={progress} totalQuestions={Questions.length} />
-                                        <div className="img"><img src={him} alt="TroubleHim"></img></div>
-                                        <h2>{question.question}</h2>
+                                <div className='test-box'>
+                                    <div className='content' key={index}>
+                                        <div className='top'>
+                                            <div Style="margin : 20px auto;">진행도 6/6</div>
+                                            <ProgressBar progress={progress} totalQuestions={Questions.length} />
+                                            <div className="img"><img src={him} alt="TroubleHim"></img></div>
+                                            <h2>{question.question}</h2>
+                                        </div>
+                                        <div className='btn_box'>
+                                            {question.answers.map((answer, index1) => (
+                                                <button className="submitButton" key={index1} onClick={() => { nextQuestion(answer); increaseProgress(); }}>
+                                                    <b>{answer.content}</b>
+                                                </button>
+                                            ))}
+                                        </div>
                                     </div>
-                                    <div className='btn_box'>
-                                        {question.answers.map((answer, index1) => (
-                                            <button className="submitButton" key={index1} onClick={() => { nextQuestion(answer); increaseProgress(); }}>
-                                                <b>{answer.content}</b>
-                                            </button>
-                                        ))}
-                                    </div>
-                                </div>
+                                </div>  
                             );
                         }
                         return null;
