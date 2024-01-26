@@ -36,7 +36,7 @@ function LoginPage() {
         const pwValue = document.getElementsByName('password')[0].value;
         setPassword(pwValue);
     };
-
+    
     //로그인 하려고 하면 ! 
     const onClickLogin = () => {
         console.log("click login");

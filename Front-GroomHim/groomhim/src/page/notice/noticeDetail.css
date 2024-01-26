@@ -33,13 +33,13 @@
     line-height: 1.5;
     color: #555;
     padding : 10px;
-    height : 560px;
+    height : 480px;
     border: 1px solid gray;
     border-radius: 10px;
   }
 
   .updateButton {
-    width : 100%;
+    width : 94%;
     display: inline-block;
     height : 40px;
     text-align: center;

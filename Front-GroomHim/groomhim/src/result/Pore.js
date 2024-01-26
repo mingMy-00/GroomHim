@@ -1,8 +1,10 @@
 import './Result.css';
 import { useLocation , useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import ProgressBar from '../skinTest/ProgressBar';
-import him from '../assets/imgs/DryHim.png';
+import Dryhim from '../assets/imgs/DryHim.png';
+import TroubleHim from '../assets/imgs/TroubleHim.png';
+import Him from '../assets/imgs/Him.jpg';
+import OilHim from '../assets/imgs/OilHim.png';
 
 function Pore() {
     const navigate = useNavigate();
@@ -73,7 +75,7 @@ function Pore() {
                     <div className='result-bar'>
                         <p>설문 완료!</p>
                     </div>
-                    <img src={him} style={{width : '80%'}}></img>
+                    <img src={Him} style={{width : '80%'}}></img>
                     <div>
                         <p>{memberName}님의 고민인 <b className="b" style={{color : 'red'}}> 모공, 블랙헤드 </b></p>
                         <p>제품 추천은 아래와 같습니다.</p>

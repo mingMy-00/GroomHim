@@ -11,6 +11,10 @@ const NoticeDetail = () => {
   let navigate = useNavigate();
   let noticeContent = notice.noticeContent;
   const backendIP = process.env.REACT_APP_BACKEND_IP;
+    /*로그인한 회원 정보*/
+    const storedData = JSON.parse(sessionStorage.getItem("loginMember"));
+    const memberId   = storedData ? storedData.memberId : null;
+    const memberNo   = storedData ? Number(storedData.memberNo) : null;
 
   const out = () => {
     navigate("/page/notice/notice");
@@ -65,10 +69,18 @@ const NoticeDetail = () => {
             <a href={`http://localhost:9090/api/images/${notice.changeName}`} download={notice.originName}>{notice.originName}</a>
       </div>
 
-      <div id="notice-content"></div>
-    <div className="updateButton"><button onClick={updateNotice}>수정하기</button><button onClick={deleteNotice}>삭제하기</button></div>
-    </div>
-  );
-};
 
+        <div>
+          <div id="notice-content"></div>
+        </div>
+          {memberId === "admin" && (
+          <div>
+              <div className="updateButton">
+                <button onClick={updateNotice}>수정하기</button>
+                <button onClick={deleteNotice}>삭제하기</button>
+              </div>
+          </div>
+      )}
+    </div>
+)}
 export default NoticeDetail;
