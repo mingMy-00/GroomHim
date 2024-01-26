@@ -30,33 +30,97 @@ function HairLoss() {
 
     const important = () => {
         return(
-            <p>블랙헤드는 코팩을 하면 무조건 모공이 넓어져요 !<br /> 
-               아래 자세한 정보에는  <br />
-               블랙헤드 녹이는 법과, <br />
-               모공에 좋은 제품들을 추천해줍니다.
+            <p>어떤 두피의 타입이든, 머리를 올바르게 <br/>
+            감는 게 가장 중요해요.<br /> 
+               머리를 아침에 감고 계시나요?  <br />
+               뜨거운 물로 감기는 않나요? <br />
+               뜨거운 바람으로 대충 말리시나요? <br/>
+               무조건 탈모의 원인입니다. 자세히보기의 영상을 <br/>
+               확인해주세요.
                </p>
         )
     }
 
     const introDetail = () => {
-        return(
-            <div id="margin">
-                <div class="tooltip-container">
-                    <span class="text">자세한 정보👀</span>
-                    <span className="introDetail">           
-                        ✔  블랙헤드 제거방법 <br />
-                        방법 1. 클렌징 오일을 사용한다.  <br/>
-                        블랙헤드도 기름이기 때문에, 기름과 기름을 문질러주면 <br/>
-                        내 블랙헤드 기름과 함께 섞여서 <br/>
-                        사라지게 되는 원리입니다. 이게 귀찮다면 .
-                        <br /><br />
-                        방법 2. 피지액으로 녹여준다. <br/>
-                        아래 추천 영상 중 문장군을 보시면 됩니다. <br/>
-                        피지를 모공 자극 없이 제거해주는 최고의 방법임.
-                    </span>
+        if(skinType.includes("열감") && (skinType.includes("건성"))) {
+            return(
+                <div id="margin">
+                    <div class="tooltip-container">
+                        <span class="text">자세한 정보👀</span>
+                        <span className="introDetail">           
+                            ✔  열감 <br />
+                            두피가 열이 많이 오르면  <br/>
+                            모공이 확장되고, 확장된 모공은 <br/>
+                            머리카락이 더 잘 뽑혀요. 또, 열감때문에 <br/>
+                            수분이 날아가면서 건조해집니다. <br/>
+                            
+                            <br /><br />
+                            ✔ 샴푸를 올바르게 감는 로드맵 꼭꼭 하세요! <br/>
+                            제가 이대로 6개월 해서 탈모 거의 예방했습니다.
+                            <a href="https://youtu.be/GNvfMfntY7w?si=iEa7WEJuPizfklqe">올바른 샴푸법 영상</a>
+                        </span>
+                    </div>
                 </div>
-            </div>
-            );
+                );
+        }else if(skinType.includes("열감") && (skinType.includes("지성"))) {
+            return(
+                <div id="margin">
+                    <div class="tooltip-container">
+                        <span class="text">자세한 정보👀</span>
+                        <span className="introDetail">           
+                        ✔  열감 <br />
+                            두피가 열이 많이 오르면  <br/>
+                            모공이 확장되고, 확장된 모공은 <br/>
+                            머리카락이 더 잘 뽑혀요. 또, <br/>
+                            피지분비로 인해 막힌 모공이 표면을 <br/>
+                            뜨겁게 만들어 열감도 느껴집니다. <br/>
+                            
+                            <br /><br />
+                            ✔ 샴푸를 올바르게 감는 로드맵 꼭꼭 하세요! <br/>
+                            제가 이대로 6개월 해서 탈모 거의 예방했습니다.
+                            <a href="https://youtu.be/GNvfMfntY7w?si=iEa7WEJuPizfklqe">올바른 샴푸법 영상</a>
+                        </span>
+                    </div>
+                </div>
+                );
+        }else if((!skinType.includes("열감")) && skinType.includes("지성") ) {
+            return(
+                <div id="margin">
+                    <div class="tooltip-container">
+                        <span class="text">자세한 정보👀</span>
+                        <span className="introDetail">           
+                            ✔  열감 <br />
+                            지성두피는 특히 샴푸를 올바르게 하는 게 중요해요.  <br/>
+                            모공에 피지 분비량이 많기 때문에 제대로 샴푸를 하는 것. <br/>
+
+                            <br /><br />
+                            ✔ 샴푸를 올바르게 감는 로드맵 꼭꼭 하세요! <br/>
+                            제가 이대로 6개월 해서 탈모 거의 예방했습니다.
+                            <a href="https://youtu.be/GNvfMfntY7w?si=iEa7WEJuPizfklqe">올바른 샴푸법 영상</a>
+                        </span>
+                    </div>
+                </div>
+                );
+        }else if((!skinType.includes("열감")) &&skinType.includes("건성")) {
+            return(
+                <div id="margin">
+                    <div class="tooltip-container">
+                        <span class="text">자세한 정보👀</span>
+                        <span className="introDetail">           
+                            ✔  열감 <br />
+                            건성두피는 주로 열감에 의한 경우가 많아요.  <br/>
+                            두피의 열감으로 수분이 날아가면서 건조해지는거죠. <br/>
+                            절대 뜨거운 물로 감으면 안됩니다 머리를.
+                            
+                            <br /><br />
+                            ✔ 샴푸를 올바르게 감는 로드맵 꼭꼭 하세요! <br/>
+                            제가 이대로 6개월 해서 탈모 거의 예방했습니다.
+                            <a href="https://youtu.be/GNvfMfntY7w?si=iEa7WEJuPizfklqe">올바른 샴푸법 영상</a>
+                        </span>
+                    </div>
+                </div>
+                );
+        }
     }
 
     return (
@@ -70,7 +134,8 @@ function HairLoss() {
                     </div>
                     <img src={him} style={{width : '80%'}}></img>
                     <div>
-                        <p>{memberName}님의 고민인 <b className="b" style={{color : 'red'}} /> 모공, 블랙헤드</p>
+                        <p>{memberName}님의 두피는 <b className="b" style={{color : 'red'}} /> {skinType}입니다.</p>
+                        <p>탈모는 자세히 보기를 봐주세요.</p>
                         <p>제품 추천은 아래와 같습니다.</p>
                         <div className='type_explanation'>
                             {important()}
