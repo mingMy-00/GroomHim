@@ -10,6 +10,7 @@ const NoticeDetail = () => {
   let noticeNo = location.state.noticeNo;
   let navigate = useNavigate();
   let noticeContent = notice.noticeContent;
+  const backendIP = process.env.REACT_APP_BACKEND_IP;
 
   const out = () => {
     navigate("/page/notice/notice");
@@ -21,7 +22,7 @@ const NoticeDetail = () => {
 
   const deleteNotice = () => {
     axios({
-      url : "http://localhost:9090/noticeDelete?noticeNo=" + noticeNo ,
+      url : backendIP + "/noticeDelete?noticeNo=" + noticeNo ,
       method : "get"
     })
     .then(function(result) {

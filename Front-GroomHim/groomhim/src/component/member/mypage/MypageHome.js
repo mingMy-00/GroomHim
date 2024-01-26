@@ -70,7 +70,7 @@ function MypageHome() {
                     </div>
                 </div>
         ]
-        setArea4Content(content);
+        // setArea4Content(content);
         setSelectedTab('saveMoney');
     }
     const selectCoupon = () => {
@@ -119,7 +119,7 @@ function MypageHome() {
                 </div>
             </div>
     ]
-        setArea4Content(content);
+        // setArea4Content(content);
         setSelectedTab('coupon');
     }
     useEffect(() => {
@@ -135,30 +135,28 @@ function MypageHome() {
 
     return (
         <div >
-            
-
             <div className='mypage-area2 displayFlex'>
                 <div onClick={moveMypageReview}>
-                    <p style={{ color: '#245473' }}>9</p>
+                    <p style={{ color: '#245473' }}>0</p>
                     <p>내 리뷰</p>
                 </div>
                 <div style={{ borderLeft: '1px solid black', borderRight: '1px solid black' }}>
-                    <p style={{ color: '#245473' }}>2</p>
+                    <p style={{ color: '#245473' }}>0</p>
                     <p>스크랩</p>
                 </div>
                 <div>
-                    <p style={{ color: '#245473' }}>7</p>
+                    <p style={{ color: '#245473' }}>0</p>
                     <p>구매 완료</p>
                 </div>
             </div>
 
             <div className='mypage-area3 displayFlex'>
                 <div onClick={selectSaveMoney}>
-                    <p style={{ color: '#245473' }}>13,567원</p>
+                    <p style={{ color: '#245473' }}>0원</p>
                     <p className={` ${selectedTab === 'saveMoney' ? 'select' : ''}`} id='saveMoney' style={{ color: 'lightgray' }}>적립금</p>
                 </div>
                 <div onClick={selectCoupon}>
-                    <p style={{ color: '#245473' }}>12장</p>
+                    <p style={{ color: '#245473' }}>0장</p>
                     <p className={` ${selectedTab === 'coupon' ? 'select' : ''}`} id='coupon' style={{ color: 'lightgray' }}>쿠폰</p>
                 </div>
             </div>

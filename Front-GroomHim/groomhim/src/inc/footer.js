@@ -81,7 +81,7 @@ const Footer = () => {
         console.log("PW : ", password);
 
         axios({
-            url: "http://localhost:9090/login.me",
+            url: process.env.REACT_APP_BACKEND_IP + "/login.me",
             method: "post",
             data: { memberId: id, memberPwd: password }
         }).then(function (response) {
@@ -150,7 +150,7 @@ const Footer = () => {
     }
 
     const kakaoLogin = async (e) => {
-        window.location.href = 'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=7e7ac347addcfef31e432e4ed779752a&redirect_uri=http://localhost:3000/callback/kakao';
+        window.location.href = 'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=7e7ac347addcfef31e432e4ed779752a&redirect_uri='+process.env.REACT_APP_FRONTEND_IP+'/callback/kakao';
     };
 
     return (
@@ -226,8 +226,8 @@ const Footer = () => {
                     </div>
                     <div className='sns-icon-area'>
                         <img onClick={kakaoLogin} src='/img/kakao-icon.png' />
-                        <img src='/img/naver-icon.png' />
-                        <img src='/img/google-icon.png' />
+                        {/* <img src='/img/naver-icon.png' /> */}
+                        {/* <img src='/img/google-icon.png' /> */}
                     </div>
                     <button className='signUp-btn' onClick={moveSignUp}>회원가입</button>
                 </div>

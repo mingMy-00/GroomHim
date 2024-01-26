@@ -19,7 +19,7 @@ function MypageReview() {
                 <img src='https://wimg.mk.co.kr/news/cms/202309/06/news-p.v1.20230906.162ae1cb99f4452c82c45ee50f62a4f0.jpg'/>
             </div>
         ]
-        setReviewContent(content);
+        // setReviewContent(content);
         setSelectedTab('imgReview');
     }
     const selectGeneralReview = () => {
@@ -86,7 +86,7 @@ function MypageReview() {
             ,
             
         ]
-        setReviewContent(content);
+        // setReviewContent(content);
 
         setSelectedTab('generalReview');
     }
@@ -110,11 +110,11 @@ function MypageReview() {
 
             <div className='review-type displayFlex'>
                 <div className='review-type-item' onClick={selectImgReview}>
-                    <p>6건</p>
+                    <p>0건</p>
                     <p className={`review-type-title ${selectedTab === 'imgReview' ? 'select' : ''}`} >사진 리뷰</p>
                 </div>
                 <div className='review-type-item' onClick={selectGeneralReview}>
-                    <p>3건</p>
+                    <p>0건</p>
                     <p className={`review-type-title ${selectedTab === 'generalReview' ? 'select' : ''}`}>일반 리뷰</p>
                 </div>
             </div>

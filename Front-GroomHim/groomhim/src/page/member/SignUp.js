@@ -76,7 +76,7 @@ function SignUp() {
             };
 
             try {
-                const signUpResponse = await axios.post('/signUp', signUpRequest);
+                const signUpResponse = await axios.post(process.env.REACT_APP_BACKEND_IP + '/signUp', signUpRequest);
                 alert('회원가입 성공');
                 navigate('/');
             } catch (error) {

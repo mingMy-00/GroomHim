@@ -8,6 +8,8 @@ function NoticeForm() {
   const [content, setContent] = useState('');
   const [file, setFile]       = useState(null); // 파일을 저장할 state
   const [check, setCheck]     = useState(false);
+  const backendIP = process.env.REACT_APP_BACKEND_IP;
+
   let navigate = useNavigate();
 
   //제목 변경 시 state 업데이트
@@ -42,7 +44,7 @@ function NoticeForm() {
 
   const insertNotice = () =>  {
     // axios를 사용하여 서버로 데이터 전송
-    axios.post("http://localhost:9090/insertNotice", formData)
+    axios.post(backendIP+"/insertNotice", formData)
       .then(function() {
         console.log("공지사항 등록 성공");
         navigate("/page/notice/notice");

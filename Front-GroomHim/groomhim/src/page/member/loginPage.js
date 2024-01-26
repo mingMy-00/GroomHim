@@ -44,7 +44,7 @@ function LoginPage() {
         console.log("PW : ", password);
 
         axios({
-            url: "http://localhost:9090/login.me",
+            url: process.env.REACT_APP_BACKEND_IP + "/login.me",
             method: "post",
             data: { memberId: id, memberPwd: password }
         }).then(function (response) {

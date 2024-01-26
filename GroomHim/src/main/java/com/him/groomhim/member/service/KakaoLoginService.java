@@ -41,7 +41,7 @@ public class KakaoLoginService {
             StringBuilder sb = new StringBuilder();
             sb.append("grant_type=authorization_code");
             sb.append("&client_id=7e7ac347addcfef31e432e4ed779752a"); // REST_API키 본인이 발급받은 key 넣어주기
-            sb.append("&redirect_uri=http://localhost:3000/callback/kakao"); // REDIRECT_URI 본인이 설정한 주소 넣어주기
+            sb.append("&redirect_uri=http://groomhim.s3-website.ap-northeast-2.amazonaws.com/callback/kakao"); // REDIRECT_URI 본인이 설정한 주소 넣어주기
 
             sb.append("&code=" + authorize_code);
             bw.write(sb.toString());
