@@ -5,7 +5,6 @@ import SkinTest from '../skinTest/SkinTest';
 import SignUp from '../page/member/SignUp';
 import AgreementPage from '../page/member/AgreementPage';
 import Result from '../result/Result';
-import OilSkin from '../result/OilSkin';
 import Mypage from '../page/member/Mypage';
 import FindId from '../page/member/FindId';
 import LoginHandeler from '../page/member/LoginHandeler';
@@ -21,6 +20,7 @@ import MypageDelivery from '../component/member/mypage/MypageDelivery';
 import DaumAddressSearch from '../component/member/mypage/DaumAddressSearch';
 import QuestionUpdate from '../page/question/QuestionUpdate';
 import Pore           from '../result/Pore';
+import SeborScalp     from '../result/SeborScalp';
 export default function Router() {
     return (
         <Routes>
@@ -31,7 +31,6 @@ export default function Router() {
             <Route path="/page/member/SignUp"               element={<SignUp />} />
             <Route path="/page/member/Mypage/*"             element={<Mypage/>} />
             <Route path="/page/member/FindId"               element={<FindId/>} />
-            <Route path="/result"                           element={<OilSkin/>} />
             <Route path="/callback/kakao"                   element={<LoginHandeler/>} />
             <Route path="/page/notice/Notice"               element={<Notice/>} />
             <Route path="/page/notice/NoticeForm"           element={<NoticeForm/>} />
@@ -45,6 +44,7 @@ export default function Router() {
             <Route path='/page/question/questionForm'       element={<QusetionForm />}/>
             <Route path='/page/question/questionUpdate'     element={<QuestionUpdate />}/>
             <Route path='/result/Pore'                      element={<Pore />}/>
+            <Route path='/result/SeborScalp'                element={<SeborScalp />}/>
 x        </Routes>
     );
 }

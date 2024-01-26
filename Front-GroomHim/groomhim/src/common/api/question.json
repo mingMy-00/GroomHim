@@ -194,6 +194,86 @@
         ]
     },
     {
+        "category" : "두피",
+        "question" : "두피에 어떤 고민이 있으신가요 ?",
+        "answers" : [
+                {   "topic"   : "두피여드름",
+                    "keyword" : "두피여드름",
+                    "content" : "두피에 나는 여드름"
+                },
+                {   "topic"   : "탈모",
+                    "keyword" : "탈모",
+                    "content" : "탈모"
+                }
+        ]
+    },
+    {
+        "category" : "두피여드름",
+        "question" : "머리가 쉽게 기름지나요 ?",
+        "answers" : [
+                {   "topic"   : "두피여드름",
+                    "keyword" : "두피여드름1",
+                    "tag"     : "y",
+                    "content" : "네"
+                },
+                {   "topic"   : "두피여드름",
+                    "keyword" : "두피여드름1",
+                    "tag"     : "n",
+                    "content" : "아니오"
+                }
+        ]
+    },
+    {
+        "category" : "두피여드름1",
+        "question" : "두피가 뜨겁고 아픈가요?",
+        "answers" : [
+                {   "topic"   : "두피여드름",
+                    "keyword" : "두피여드름2",
+                    "tag"     : "y",
+                    "content" : "네"
+                },
+                {   "topic"   : "두피여드름",
+                    "keyword" : "두피여드름2",
+                    "tag"     : "n",
+                    "content" : "아니오"
+                }
+        ]
+    },
+    {
+        "category" : "두피여드름2",
+        "question" : "비듬이나 각질이 잘 생기나요?",
+        "answers" : [
+                {   "topic"   : "두피여드름",
+                    "keyword" : "두피여드름3",
+                    "tag"     : "y",
+                    "content" : "네"
+                },
+                {   "topic"   : "두피여드름",
+                    "keyword" : "두피여드름3",
+                    "tag"     : "n",
+                    "content" : "아니오"
+                }
+        ]
+    },
+    {
+        "category" : "두피여드름3",
+        "question" : "염증이 심해서 진물도 나나요?",
+        "answers" : [
+                {   "topic"   : "두피여드름",
+                    "keyword" : "두피여드름3",
+                    "end"     : "true",
+                    "tag"     : "y",
+                    "content" : "네"
+                },
+                {   "topic"   : "두피여드름",
+                    "keyword" : "두피여드름3",
+                    "end"     : "true",
+                    "tag"     : "n",
+                    "content" : "아니오"
+                }
+        ]
+    },
+    {
         "category" : "피부미백중커버",
         "question" : "커버하고 싶은 범위가?",
         "answers" : [
