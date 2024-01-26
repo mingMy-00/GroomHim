@@ -142,7 +142,7 @@ function TroubleSkin() {
             return( 
                 <div className={`youtube-item ${showDetails.item1 ? 'show' : ''}`}>
                                 <div  style={{alignItems : 'center'}}>
-                                    <p>조회수 <span style={{color : 'red'}}> 86만회</span>건성 여드름 관리</p>
+                                    <p>Step1. <span style={{color : 'red'}}> 수분 가득</span>토너</p>
                                 </div>
                                 <button onClick={() => toggleDetails('item1')}>
                                     {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
@@ -150,49 +150,27 @@ function TroubleSkin() {
                                 {showDetails.item1 && ( 
                                     <div className='youtube-item-detail'>
                                         <div className='youtube-profile displayFlex'>
-                                        <img src='https://yt3.ggpht.com/6uTfJjqQ7vEeK6H7VjZ5exFUnuYkRbQP1fia50D0tweFAYjvfJlyQy2BtyZGJb3fOXiFVeut=s88-c-k-c0x00ffffff-no-rj' />
+                                        <img src='https://yt3.googleusercontent.com/80LHzlXj90CDw6l1HzA1MFZzIxOpKEVuvH9OCen7_B4L5NimaiSXOAqrNeG9Bj_fWTeOYZr6fQ=s176-c-k-c0x00ffffff-no-rj' />
                                             <div style={{ width : '100%', textAlign: 'left', marginLeft: '5%'}}>
-                                                <p style={{fontSize: '15px'}}>삼탈모 TV!</p>
-                                                <p style={{fontSize: '12px'}}>구독자 1.54만명</p>
+                                                <p style={{fontSize: '15px'}}>디렉터 파이</p>
+                                                <p style={{fontSize: '12px'}}>구독자 102만명</p>
                                             </div>
                                         </div>
                                         <div className='product-item displayFlex'>
-                                            <img src='https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20131213_172%2Fsimtong714_1386907834769nzJVW_JPEG%2F%25BB%25E7%25C1%25F8_013.jpg&type=a340'></img>
+                                            <img src='https://shopping-phinf.pstatic.net/main_3036667/30366677625.20211230161344.jpg?type=f640'></img>
                                             <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                                 <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>Best 1.</p> 
-                                                    <p>약 13,000원</p>
+                                                    <p style={{fontSize : '13px'}}>센텔리안 24</p> 
+                                                    <p>27,000원</p>
                                                 </div>
-                                                <p>세비프록스</p>
-                                                <button>약국에서만 구매 가능</button>
-                                            </div>
-                                        </div>
-                                        <div className='product-item displayFlex'>
-                                            <img src='https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAzMTZfNDEg%2FMDAxNjc4OTUyMjEzMzE3.70R7Kd1JIQkPFo1iR7jlq1n6XfPE_VhSBTIcmmyci48g._b8k_q-mr5h0MK_l9oxoKC1xQEm38jtLvmIVL0lb470g.JPEG.misojindentist1%2F1678952118866%25A3%25AD7.jpg&type=a340'></img>
-                                            <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
-                                            <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>Best 2.</p> 
-                                                    <p>약 14,000원 </p>
-                                                </div>
-                                                <p>니조랄 샴푸</p>
-                                                <button>약국에서만 구매 가능</button>
-                                            </div>
-                                        </div>
-                                        <div className='product-item displayFlex'>
-                                            <img src='https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEyMTlfNjYg%2FMDAxNzAyOTk2NjQ5NjEx.eFGj45KSx46QMDIyG8EUoKU_rcgNW3DWaBw61ziWDdYg.pUjRsdYbBzzIOL38DgaGZukVYZruDCUKGoc_LUXkkiEg.PNG.kangjj372%2F3.png&type=a340'></img>
-                                            <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
-                                            <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>Best 3.</p> 
-                                                    <p>약 10,000원</p>
-                                                </div>
-                                                <p>케이프록스 샴푸</p>
-                                                <button>약국에서만 구매 가능</button>
+                                                <p>마데카 옴므 수딩 토너</p>
+                                                <button onClick={() => window.location.href = "https://cr3.shopping.naver.com/v2/bridge/searchGate?query=%EB%A7%88%EB%8D%B0%EC%B9%B4+%EC%98%B4%EB%AF%80+%EC%88%98%EB%94%A9+%ED%86%A0%EB%84%88&nv_mid=30366677625&cat_id=50000321&h=3a330f43e0a6342b2442c4a6799221e17cc91bef&t=LRUW9KQS&frm=NVSCPRO"}>구매하기</button>
                                             </div>
                                         </div>
                                         <br></br>
                                         <p>참고 영상</p>
                                         <p style={{fontSize : '12px'}}>
-                                            <a href="https://youtu.be/TyoTyDBeN2k?si=OhOf84L8N88j6q90">자세한 샴푸 소개 Click!</a>
+                                            <a href="https://youtu.be/ROhvFRop7g8?si=jxaXMOiMubzDLd7i">자세한 토너 소개 Click!</a>
                                         </p>
                                     </div>
                                 )}
@@ -203,7 +181,7 @@ function TroubleSkin() {
         return( 
             <div className={`youtube-item ${showDetails.item1 ? 'show' : ''}`}>
                             <div  style={{alignItems : 'center'}}>
-                            <p>조회수 <span style={{color : 'red'}}> 16만회</span>지성 여드름 관리</p>
+                            <p>Step1. <span style={{color : 'red'}}> 수분 가득</span>토너</p>
                             </div>
                             <button onClick={() => toggleDetails('item1')}>
                                 {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
