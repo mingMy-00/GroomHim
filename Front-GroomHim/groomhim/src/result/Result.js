@@ -35,17 +35,19 @@ function Result() {
             return(
                 <div class="tooltip-container">
                     <span class="text">자세한 정보👀</span>
-                    <span className="introDetail">           
-                        Q. 건성피부란  ? <br />
-                        A. 피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
-                        표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br />
+                    <span className="introDetail">   
+                    <b Style="border : 1px solid black; padding : 5px; border-radius : 4px; background-color : white;"> Q. 건성피부란  ? </b>         
+                        <br />
+                        피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
+                        표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br/>
 
-                            유분제품을 너무 많이 바르면 모공을 막아서
-                            좁쌀여드름이 나고
-                            <br />
-                            수분제품은 보통 가벼운 액체 타입이라서 날아가기 쉬워요.
+                        <b Style="border : 1px solid black; padding : 5px; border-radius : 4px; background-color : white;"> Q. 어떻게 해결하나요  ? </b> <br/>        
+                        ✔ 유분제품을 너무 많이 바르면 모공을 막아서<br/>
+                           좁쌀여드름이 나고 <br />
+                        ✔  수분제품은 보통 가벼운 액체 타입이라서 <br/>
+                           날아가기 쉬워요.
                             <br /><br />
-                        ✔ 따라서, 보습제품과 유수분 밸런스가 중요합니다.
+                        ✅ 따라서, 보습제품과 유수분 밸런스가 중요합니다.
                     </span>
                 </div>
             );
@@ -53,57 +55,94 @@ function Result() {
             return(
                 <div>
                     <span class="text">자세한 정보👀</span>
-                    <span className="introDetail">           
-                        Q. 수부지피부란  ? <br /><br />
-                        A. 피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
-                        표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br />
+                    <span className="introDetail">   
+                    <b Style="border : 1px solid black; padding : 5px; border-radius : 4px; background-color : white;"> Q. 수부지피부란  ? </b>         
+                        <br />
+                        원래는 지성인데, 피부의 기름을 닦아내다가 <br />
+                        수분이 닦여서 수분은 부족하고  <br />
+                        부족한 수분을 보호하기 위해 기름은 더 분비되어<br/>
+                        생긴 피부타입이에요.<br/><br/>
 
-                            유분제품을 너무 많이 바르면 모공을 막아서
-                            좁쌀여드름이 나고
-                            <br />
-                            수분제품은 보통 가벼운 액체 타입이라서 날아가기 쉬워요.
+                        <b Style="border : 1px solid black; padding : 5px; border-radius : 4px; background-color : white;"> Q. 어떻게 해결하나요  ? </b> <br/>        
+                        ✔ 유분을 너무 없애면 수분도 날아가고<br/>
+                        ✔ 그렇다고 수분만 듬뿍 바르면 그것도 <br/>
+                           모공을 막을 수 있어요.
                             <br /><br />
-                        
-                        ✔ 따라서, 보습제품과 유수분 밸런스가 중요합니다.
+                        ✅ 따라서, 유분과 수분의 밸런스가 중요합니다.
+                    </span>
+                </div>
+                );
+        }else if(skinType === '지성') {
+            return(
+                <div class="tooltip-container">
+                    <span class="text">자세한 정보👀</span>
+                    <span className="introDetail">   
+                    <b Style="border : 1px solid black; padding : 5px; border-radius : 4px; background-color : white;"> Q. 지성 피부란  ? </b>         
+                        <br />
+                        말 그대로 피부에 기름이 많이 나오는 <br />
+                        타입이에요. 보통 건조함을 느끼는 경우는 없고  <br />
+                        <p Style="border-bottom : 1px solid black;">화농성 여드름, 머리 떡짐, 모공이 넓음, 피지</p><br/>
+                        등등의 증상을 동반합니다.<br/><br/>
+
+                        <b Style="border : 1px solid black; padding : 5px; border-radius : 4px; background-color : white;"> Q. 어떻게 해결하나요  ? </b> <br/>        
+                        ✔ 보통 기름종이를 많이 들고다니며 닦아줘요.<br/>
+                        ✔ 하지만 기름을 너무 닦으면 수분도 날아가 <br/>
+                           수분 부족한 지성형인 수부지가 될 수 있어요.
+                            <br /><br />
+                        ✅ 따라서, 유분과 수분의 밸런스를 잘 맞추고 <br/>
+                            수분 크림 조차 기름지지 않은 제형으로 <br/>
+                            발라주어야 합니다.
                     </span>
                 </div>
                 );
         }else {
             return(
                 <div class="tooltip-container">
-                    <span class="text">자세한 정보👀</span>
-                    <span className="introDetail">           
-                        Q. 지성피부란  ? <br />
-                        A. 피부의 유분(기름)과 수분(촉촉함)이 부족해서 <br />
-                        표면이 거칠고 얼굴이 땅기는 피부타입이에요. <br /><br />
-
-                            유분제품을 너무 많이 바르면 모공을 막아서
-                            좁쌀여드름이 나고
+                        <span class="text">자세한 정보👀</span>
+                        <span className="introDetail">   
+                        <b Style="border : 1px solid black; padding : 5px; border-radius : 4px; background-color : white;"> Q. 민감성 피부란  ? </b>         
                             <br />
-                            수분제품은 보통 가벼운 액체 타입이라서 날아가기 쉬워요.
-                            <br /><br />
-                        
-                        ✔ 따라서, 보습제품과 유수분 밸런스가 중요합니다.
-                    </span>
+                            환경이 바뀜에 따라 빠르고 민감하게 반응하는 피부로 <br />
+                            <p Style="border-bottom : 1px solid black;">홍조, 가려움증, 발진 </p> 등의 증상이 있습니다.<br /><br/>
+
+                            <b Style="border : 1px solid black; padding : 5px; border-radius : 4px; background-color : white;"> Q. 어떻게 해결하나요  ? </b> <br/>        
+                            ✔ 피부 장벽을 강화시켜주는 것이 1순위에요.<br/>
+                            ✔ 순한 성분들 위주로 !  <br/>
+                            ✔ 절대 피해야 할 성분들을 주의하며 구입!  <br/>
+                                <br /><br />
+                            ✅ 따라서, 피부장벽 강화 <br/>
+                                제품 성분 확인이 중요합니다.
+                        </span>
                 </div>
-                );
+            )
         }};
     const important = () => {
         if(skinType === '건성') {
             return(
-                <p>이 타입은 수분을 유지해주기 위한 <b Style="color :red">보습</b>이 정말 중요합니다.</p>
+                
+                <p>
+                    <b Style="border : 1px solid black; padding : 5px; border-radius : 4px; background-color : white;">  건성 피부 Key Point!</b>  <br/><br/>
+                    이 타입은 수분을 유지해주기 위한 <b Style="color :red"><br/>보습</b>이 정말 중요합니다.</p>
             )
         }else if(skinType === '지성') {
             return(
-                <p>이 타입은 <b Style="color :red">유수분</b> 밸런스를 맞추는 게 가장 중요합니다.</p>
+                <p> <b Style="border : 1px solid black; padding : 5px; border-radius : 4px; background-color : white;">  지성 피부 Key Point!</b>   <br/><br/>
+                    이 타입은 <b Style="color :red"><br/>수분과 유분의 </b> 밸런스를 맞추는 게  <br/>가장 중요합니다.</p>
+                    
             )
         }else if(skinType === '수부지'){
             return(
-                <p>이 타입은 <b Style="color :red">수분</b>을 유지해주는 것이 가장 중요합니다.</p>
+                <p> <b Style="border : 1px solid black; padding : 5px; border-radius : 4px; background-color : white;">  수부지 피부 Key Point!</b>   <br/><br/>
+                    이 타입은 <b Style="color :red">수분</b>을 유지해주는 것이 <br/>가장 중요합니다.<br/>
+                또한, 볼은 건조하거나 각질이 생기고<br/>
+                코나 이마는 유분이 많을 확률이 높아요.</p>
             )
         }else {
             return(
-                <p>이 타입은 피부가 예민하기 때문에 <br/><b Style="color :red">성분이 순한</b> 제품을 바르는 것이 <br/>가장 중요합니다.</p>
+                <p> <b Style="border : 1px solid black; padding : 5px; border-radius : 4px; background-color : white;">  민감성 피부 Key Point!</b>   <br/><br/>
+                이 타입은 피부가 예민하기 때문에 <br/><b Style="color :red">성분이 순한</b> 제품을 바르는 것이 <br/>가장 중요합니다.<br/>
+                또한, 피부 장벽을 강화 시키는 것도 중요해요.</p>
+            
             )
         }
     }
