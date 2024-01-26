@@ -46,7 +46,7 @@
                     "content" : "여드름 혹은 트러블이 자주남."
                 },
                 {
-                    "tag" : "민감성",
+                    "tag"     : "민감성",
                     "keyword" : "따가움",
                     "content" : "얼굴이 자주 따가움."
                 },
@@ -269,6 +269,40 @@
                     "keyword" : "두피여드름3",
                     "end"     : "true",
                     "tag"     : "n",
+                    "content" : "아니오"
+                }
+        ]
+    },
+    {
+        "category" : "탈모",
+        "question" : "두피에 열감을 많이 느끼시나요 ?",
+        "answers" : [
+                {   "topic"   : "탈모",
+                    "keyword" : "탈모1",
+                    "tag"     : "y",
+                    "content" : "네"
+                },
+                {   "topic"   : "탈모",
+                    "keyword" : "탈모1",
+                    "tag"     : "n",
+                    "content" : "아니오"
+                }
+        ]
+    },
+    {
+        "category" : "탈모1",
+        "question" : "두피가 자주 기름지나요 ?",
+        "answers" : [
+                {   "topic"   : "탈모",
+                    "keyword" : "탈모2",
+                    "end"     : "true",
+                    "tag"     : "지성",
+                    "content" : "네"
+                },
+                {   "topic"   : "탈모",
+                    "keyword" : "탈모2",
+                    "end"     : "true",
+                    "tag"     : "건성",
                     "content" : "아니오"
                 }
         ]

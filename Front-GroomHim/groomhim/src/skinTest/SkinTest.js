@@ -46,6 +46,7 @@ function SkinTest() {
             }
         }
         else if(answer.topic == "모공") {
+            console.log("어디냐 3?");
             setSkinType("모공");
                 setTimeout(() => {
                     navigate('/result/Pore', { state: { skinType: skinType } });
@@ -58,6 +59,21 @@ function SkinTest() {
                 setSeborScalp(seborScalp + 1);
             }else if(answer.tag === 'n' ){
                 setSeborScalp(seborScalp);
+            }
+
+        }else if(answer.topic == "탈모") {
+            if(answer.tag == 'y') {
+                setSkinType("열감");
+            }else if(answer.tag == 'n') {
+                setSkinType("열감x");
+            }else if(skinType == "열감" && answer.tag == "건성") {
+                setSkinType("열감을 느끼는 건성두피");
+            }else if(skinType == "열감" && answer.tag == "지성") {
+                setSkinType("열감을 느끼는 지성두피");
+            }else if(skinType == "열감x" && answer.tag == "지성") {
+                setSkinType("지성두피");
+            }else if(skinType == "열감x" && answer.tag == "지성") {
+                setSkinType("건성두피");
             }
         }
         
@@ -99,18 +115,25 @@ function SkinTest() {
             }
         }
 
-        if ((loading === true) && (skinType != "모공") && (!skinType.includes("지루성"))) {
+        if ((loading === true) && (skinType != "모공") && (!skinType.includes("지루성")) && (skinType != "열감") &&  (skinType != "열감x")) {
             setTimeout(() => {
                 //console.log(skinType);
                 navigate('/result', { state: { skinType: skinType } });
             }, 3000);
         }
 
-        if ((loading === true) && (skinType != "모공") && (skinType.includes("지루성"))) {
+        if ((loading === true) && (skinType != "모공") && (skinType.includes("지루성")) && (skinType != "열감") &&  (skinType != "열감x")) {
             setTimeout(() => {
                 navigate('/result/SeborScalp', { state: { skinType: skinType } });
             }, 3000);
         }
+
+        if ((loading === true) && (skinType != "모공") && (!skinType.includes("지루성")) && (skinType.includes("두피"))) {
+            setTimeout(() => {
+                navigate('/result/HairLoss', { state: { skinType: skinType } });
+            }, 3000);
+        }
+        
         
     }, [dryCount, waterOilCount, oilCount, loading, skinType, navigate, sensitive, seborScalp]);
     
@@ -162,6 +185,4 @@ function SkinTest() {
             )}
         </>
     );
-}
-
-export default SkinTest;
+} export default SkinTest;
