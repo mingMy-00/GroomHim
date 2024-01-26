@@ -130,7 +130,6 @@ function HairLoss() {
                 <div className='content'>
                     <div className='result-bar'>
                         <p>설문 완료!</p>
-                        <ProgressBar progress={0} totalQuestions={0} />
                     </div>
                     <img src={him} style={{width : '80%'}}></img>
                     <div>

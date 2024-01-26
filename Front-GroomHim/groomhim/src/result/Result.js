@@ -115,7 +115,6 @@ function Result() {
                 <div className='content'>
                     <div className='result-bar'>
                         <p>설문 완료!</p>
-                        <ProgressBar progress={1} totalQuestions={1} />
                     </div>
                     <img src={him} style={{width : '80%'}}></img>
                     <div>
