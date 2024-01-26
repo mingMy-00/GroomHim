@@ -224,6 +224,7 @@ function SeborScalp() {
                                 </div>
                             )}
                             <br/><br/>
+                            <div className={`youtube-item ${showDetails.item1 ? 'show' : ''}`}>
                              <div  style={{alignItems : 'center'}}>
                                     <p>2단계<span style={{color : 'red'}}> 스테로이드 외용액 </span>처방</p>
                                 </div>
@@ -249,6 +250,8 @@ function SeborScalp() {
                                                 <p>듀오백스액</p>
                                                 <button>약국에서 처방 필수</button>
                                             </div>
+                                        </div>
+                                        <div className='product-item displayFlex'>
                                             <img src="https://mblogthumb-phinf.pstatic.net/MjAxNzA2MjNfODAg/MDAxNDk4MTg5MTEzMDk2.wXtSHy-XebHz_qG_HCIK8Fj0Zp9lCFsK5hSe-vWcmfUg.5S0mZvXmuuqA3MJtgTxTVYHBGV9U6o7z3ojcIqQDWsEg.JPEG.cordialguy2/image_9515614291498188868487.jpg?type=w800" />
                                             <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                                 <div className='displayFlex' style={{justifyContent : 'space-between'}}>
@@ -259,6 +262,7 @@ function SeborScalp() {
                                                 <button>약국에서 처방 필수</button>
                                             </div>
                                         </div>
+                                        
                                         <br></br>
                                         <p>참고 영상</p>
                                         <p style={{fontSize : '12px'}}>
@@ -267,6 +271,7 @@ function SeborScalp() {
                                         </p>
                                     </div>
                                 )}
+                                </div>
             </div>
         )
         }else {
@@ -353,6 +358,8 @@ function SeborScalp() {
                                                     <p>듀오백스액</p>
                                                     <button>약국에서 처방 필수</button>
                                                 </div>
+                                            </div>
+                                            <div className='product-item displayFlex'>
                                                 <img src="https://mblogthumb-phinf.pstatic.net/MjAxNzA2MjNfODAg/MDAxNDk4MTg5MTEzMDk2.wXtSHy-XebHz_qG_HCIK8Fj0Zp9lCFsK5hSe-vWcmfUg.5S0mZvXmuuqA3MJtgTxTVYHBGV9U6o7z3ojcIqQDWsEg.JPEG.cordialguy2/image_9515614291498188868487.jpg?type=w800" />
                                                 <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                                     <div className='displayFlex' style={{justifyContent : 'space-between'}}>
