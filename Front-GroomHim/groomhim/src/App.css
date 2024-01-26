@@ -15,6 +15,7 @@ html>/**/body {overflow-y:scroll;}
     border-left: 1px solid lightgray;
     border-right :1px solid lightgray;
     min-height : 100%;
+    
 }
 
   @font-face {
