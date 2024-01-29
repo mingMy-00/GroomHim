@@ -454,7 +454,7 @@ function Result() {
             return( 
                 <div className={`youtube-item ${showDetails.item1 ? 'show' : ''}`}>
                                 <div  style={{alignItems : 'center'}}>
-                                    <p>1단계<span style={{color : 'red'}}> 스킨 </span>제품 사용</p>
+                                    <p>Step1. <span style={{color : 'red'}}> 수분 가득</span> 토너</p>
                                 </div>
                                 <button onClick={() => toggleDetails('item1')}>
                                     {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
@@ -462,109 +462,96 @@ function Result() {
                                 {showDetails.item1 && ( 
                                     <div className='youtube-item-detail'>
                                         <div className='youtube-profile displayFlex'>
-                                        <img src='https://yt3.ggpht.com/6uTfJjqQ7vEeK6H7VjZ5exFUnuYkRbQP1fia50D0tweFAYjvfJlyQy2BtyZGJb3fOXiFVeut=s88-c-k-c0x00ffffff-no-rj' />
+                                        <img src='https://yt3.ggpht.com/u4vmJM8VDoyeSwnraka4hRj-JhlUbkPuBVPBxxp8SEFgw-VaY34Hv3lF4TLXLZts-45WIcAIR-k=s88-c-k-c0x00ffffff-no-rj' />
                                             <div style={{ width : '100%', textAlign: 'left', marginLeft: '5%'}}>
-                                                <p style={{fontSize: '15px'}}>삼탈모 TV!</p>
-                                                <p style={{fontSize: '12px'}}>구독자 1.54만명</p>
+                                                <p style={{fontSize: '15px'}}>피부는민동성</p>
+                                                <p style={{fontSize: '12px'}}>구독자 53.4만명</p>
                                             </div>
                                         </div>
                                         <div className='product-item displayFlex'>
-                                            <img src='https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20131213_172%2Fsimtong714_1386907834769nzJVW_JPEG%2F%25BB%25E7%25C1%25F8_013.jpg&type=a340'></img>
+                                            <img src='https://thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/6585596385228208-fe78cf65-7f59-44c4-8b6a-abb4fb461b68.jpg'></img>
                                             <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                                 <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>Best 1.</p> 
-                                                    <p>약 13,000원</p>
+                                                    <p style={{fontSize : '13px'}}>닥터지</p> 
+                                                    <p>26,350원</p>
                                                 </div>
-                                                <p>세비프록스</p>
-                                                <button>약국에서만 구매 가능</button>
-                                            </div>
-                                        </div>
-                                        <div className='product-item displayFlex'>
-                                            <img src='https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAzMTZfNDEg%2FMDAxNjc4OTUyMjEzMzE3.70R7Kd1JIQkPFo1iR7jlq1n6XfPE_VhSBTIcmmyci48g._b8k_q-mr5h0MK_l9oxoKC1xQEm38jtLvmIVL0lb470g.JPEG.misojindentist1%2F1678952118866%25A3%25AD7.jpg&type=a340'></img>
-                                            <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
-                                            <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>Best 2.</p> 
-                                                    <p>약 14,000원 </p>
-                                                </div>
-                                                <p>니조랄 샴푸</p>
-                                                <button>약국에서만 구매 가능</button>
-                                            </div>
-                                        </div>
-                                        <div className='product-item displayFlex'>
-                                            <img src='https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEyMTlfNjYg%2FMDAxNzAyOTk2NjQ5NjEx.eFGj45KSx46QMDIyG8EUoKU_rcgNW3DWaBw61ziWDdYg.pUjRsdYbBzzIOL38DgaGZukVYZruDCUKGoc_LUXkkiEg.PNG.kangjj372%2F3.png&type=a340'></img>
-                                            <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
-                                            <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>Best 3.</p> 
-                                                    <p>약 10,000원</p>
-                                                </div>
-                                                <p>케이프록스 샴푸</p>
-                                                <button>약국에서만 구매 가능</button>
+                                                <p>레드 블레미쉬 시카 수딩 토너</p>
+                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/6543627791?itemId=14579392052&vendorItemId=81821492138&q=민감성&itemsCount=36&searchId=1da99b7f475c43d3b9386347a14a6854&rank=1&isAddedCart="}>구매하기</button>
                                             </div>
                                         </div>
                                         <br></br>
                                         <p>참고 영상</p>
                                         <p style={{fontSize : '12px'}}>
-                                            <a href="https://youtu.be/TyoTyDBeN2k?si=OhOf84L8N88j6q90">자세한 샴푸 소개</a>
+                                            <a href="https://youtu.be/rNxz266H53c?feature=shared">자세한 토너 소개 Click!</a>
+                                        </p>
+                                    </div>
+                                )}<br/><br/>
+                                 <div  style={{alignItems : 'center'}}>
+                                    <p>Step2. <span style={{color : 'red'}}>가벼운 보습</span>크림</p>
+                                </div>
+                                <button onClick={() => toggleDetails('item1')}>
+                                    {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
+                                </button>
+                                {showDetails.item1 && ( 
+                                    <div className='youtube-item-detail'>
+                                        <div className='youtube-profile displayFlex'>
+                                        <img src='https://yt3.ggpht.com/o1sT6D0Xd1LcGP3pk-6hqwq7amUO8pLOxPSId1zzszMBIEDi3TjBdrKP9m8r7XQBBA7v5xDMng=s88-c-k-c0x00ffffff-no-rj' />
+                                            <div style={{ width : '100%', textAlign: 'left', marginLeft: '5%'}}>
+                                                <p style={{fontSize: '15px'}}>더마쏭 피부과전문의 송승현</p>
+                                                <p style={{fontSize: '12px'}}>구독자 1.19만명</p>
+                                            </div>
+                                        </div>
+                                        <div className='product-item displayFlex'>
+                                            <img src='https://thumbnail10.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/9508847276305564-ae3485c2-a561-4df9-87aa-607e4e49b0ae.jpg'></img>
+                                            <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
+                                                <div className='displayFlex' style={{justifyContent : 'space-between'}}>
+                                                    <p style={{fontSize : '13px'}}>일리윤</p> 
+                                                    <p>8,270원</p>
+                                                </div>
+                                                <p>히알루론 모이스춰 수분크림</p>
+                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/1176713569?itemId=2155653933&vendorItemId=70153899684&q=민감성&itemsCount=36&searchId=1da99b7f475c43d3b9386347a14a6854&rank=3&isAddedCart="}>구매하기</button>
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <p>참고 영상</p>
+                                        <p style={{fontSize : '12px'}}>
+                                            <a href="https://youtu.be/gPVeyf9ygtM?feature=shared">자세한 크림 소개 Click!</a>
+                                        </p>
+                                    </div>
+                                )}<br/><br/>
+                                 <div  style={{alignItems : 'center'}}>
+                                    <p>Step3. <span style={{color : 'red'}}> 무거운 보습</span> 크림</p>
+                                </div>
+                                <button onClick={() => toggleDetails('item1')}>
+                                    {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
+                                </button>
+                                {showDetails.item1 && ( 
+                                    <div className='youtube-item-detail'>
+                                        <div className='youtube-profile displayFlex'>
+                                        <img src='https://yt3.ggpht.com/DgGg-sCxVDgarcC9E_3e8lkRxiOGwT8K0gmlLdfZ4c42PfuIdTK50Ajv1NaMWtUolLOXapybM7U=s88-c-k-c0x00ffffff-no-rj' />
+                                            <div style={{ width : '100%', textAlign: 'left', marginLeft: '5%'}}>
+                                                <p style={{fontSize: '15px'}}>제이미포유</p>
+                                                <p style={{fontSize: '12px'}}>구독자 38.4만명</p>
+                                            </div>
+                                        </div>
+                                        <div className='product-item displayFlex'>
+                                            <img src='https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/2371402108518558-41d65cb4-b116-44f5-bc7a-5f6b8e21c54f.jpg'></img>
+                                            <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
+                                                <div className='displayFlex' style={{justifyContent : 'space-between'}}>
+                                                    <p style={{fontSize : '13px'}}>일리윤</p> 
+                                                    <p>12,070원</p>
+                                                </div>
+                                                <p>세라마이드 아토 집중 크림</p>
+                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/7255541573?itemId=16807390921&vendorItemId=3003330255&pickType=COU_PICK&q=건성&itemsCount=36&searchId=1d669812fbda4ff3ae5a02068a8e9b6c&rank=1&isAddedCart="}>구매하기</button>
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <p>참고 영상</p>
+                                        <p style={{fontSize : '12px'}}>
+                                            <a href="https://youtu.be/suS-wV5d8YI?feature=shared">자세한 크림 소개 Click!</a>
                                         </p>
                                     </div>
                                 )}
-                                <br/><br/>
-                                 <div  style={{alignItems : 'center'}}>
-                                        <p>2단계<span style={{color : 'red'}}> 스킨 </span>제품 사용</p>
-                                    </div>
-                                    <button onClick={() => toggleDetails('item1')}>
-                                        {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
-                                    </button>
-                                    {showDetails.item1 && ( 
-                                        <div className='youtube-item-detail'>
-                                            <div className='youtube-profile displayFlex'>
-                                            <img src='https://yt3.ggpht.com/ytc/AIf8zZT4SCsnXvh-9-SsUjdwBwIWnYomX3KoJsgIuf717Q=s88-c-k-c0x00ffffff-no-rj' />
-                                                <div style={{ width : '100%', textAlign: 'left', marginLeft: '5%'}}>
-                                                    <p style={{fontSize: '15px'}}>교육하는 의사! 이동환 TV</p>
-                                                    <p style={{fontSize: '12px'}}>구독자 94.6만명</p>
-                                                </div>
-                                            </div>
-                                            <div className='product-item displayFlex'>
-                                                <img src='https://www.health.kr/images/ext_images/pack_img/P_2019090900042_00.png'></img>
-                                                <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
-                                                    <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                        <p style={{fontSize : '13px'}}>샹푸 형태</p> 
-                                                        <p>약 16,000원</p>
-                                                    </div>
-                                                    <p>듀오백스액</p>
-                                                    <button>약국에서 처방 필수</button>
-                                                </div>
-                                                <img src="https://mblogthumb-phinf.pstatic.net/MjAxNzA2MjNfODAg/MDAxNDk4MTg5MTEzMDk2.wXtSHy-XebHz_qG_HCIK8Fj0Zp9lCFsK5hSe-vWcmfUg.5S0mZvXmuuqA3MJtgTxTVYHBGV9U6o7z3ojcIqQDWsEg.JPEG.cordialguy2/image_9515614291498188868487.jpg?type=w800" />
-                                                <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
-                                                    <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                        <p style={{fontSize : '13px'}}>액제 형태</p> 
-                                                        <p>처방 전 미정</p>
-                                                    </div>
-                                                    <p>크러밴액</p>
-                                                    <button>약국에서 처방 필수</button>
-                                                </div>
-                                            </div>
-                                            <br></br>
-                                            <p>참고 영상</p>
-                                            <p style={{fontSize : '12px'}}>
-                                                <a href="https://youtu.be/bmRlLTqfts4?si=KTrdWM-mKZlK0iFj">샴푸 사용법 Click!</a>
-                                                <a href="https://blog.naver.com/kangjj372/223297885145">스테로이드 종류 Click!</a>
-                                            </p>
-                                        </div>
-                                    )}
-                                     <br/><br/>
-                                 <div  style={{alignItems : 'center'}}>
-                                         <p>3단계<span style={{color : 'red'}}> 스킨 </span>제품 사용</p>
-                                    </div>
-                                    <button onClick={() => toggleDetails('item1')}>
-                                        {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
-                                    </button>
-                                    {showDetails.item1 && ( 
-                                        <div className='youtube-item-detail'>
-                                           <p>먹는 약은 약국에서 처방 받고, 의사 선생님께 <br/>
-                                           자세히 여쭤보시길 바래요. 꼭 낫기를 ! </p>
-                                        </div>
-                                    )}
                 </div>
             )  
     }

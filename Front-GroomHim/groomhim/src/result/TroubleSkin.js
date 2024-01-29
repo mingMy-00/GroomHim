@@ -142,7 +142,7 @@ function TroubleSkin() {
             return( 
                 <div className={`youtube-item ${showDetails.item1 ? 'show' : ''}`}>
                                 <div  style={{alignItems : 'center'}}>
-                                    <p>Step1. <span style={{color : 'red'}}> 수분 가득</span>토너</p>
+                                    <p>Step1. <span style={{color : 'red'}}> 수분 가득</span>크림</p>
                                 </div>
                                 <button onClick={() => toggleDetails('item1')}>
                                     {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
@@ -150,27 +150,60 @@ function TroubleSkin() {
                                 {showDetails.item1 && ( 
                                     <div className='youtube-item-detail'>
                                         <div className='youtube-profile displayFlex'>
-                                        <img src='https://yt3.googleusercontent.com/80LHzlXj90CDw6l1HzA1MFZzIxOpKEVuvH9OCen7_B4L5NimaiSXOAqrNeG9Bj_fWTeOYZr6fQ=s176-c-k-c0x00ffffff-no-rj' />
+                                        <img src='https://yt3.ggpht.com/JznRMdMY9m4hmd9KnxGodm5GVH4InEUaZGgIdgS6DZsTXEqPOkkX7jDf1Yc3xSO9DBRQpU8p2Q=s88-c-k-c0x00ffffff-no-rj' />
                                             <div style={{ width : '100%', textAlign: 'left', marginLeft: '5%'}}>
-                                                <p style={{fontSize: '15px'}}>디렉터 파이</p>
-                                                <p style={{fontSize: '12px'}}>구독자 102만명</p>
+                                                <p style={{fontSize: '15px'}}>쏭냥</p>
+                                                <p style={{fontSize: '12px'}}>구독자 26.5만명</p>
                                             </div>
                                         </div>
                                         <div className='product-item displayFlex'>
-                                            <img src='https://shopping-phinf.pstatic.net/main_3036667/30366677625.20211230161344.jpg?type=f640'></img>
+                                            <img src='https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/2371402108518558-41d65cb4-b116-44f5-bc7a-5f6b8e21c54f.jpg'></img>
                                             <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                                 <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>센텔리안 24</p> 
-                                                    <p>27,000원</p>
+                                                    <p style={{fontSize : '13px'}}>일리윤</p> 
+                                                    <p>12,070원</p>
                                                 </div>
-                                                <p>마데카 옴므 수딩 토너</p>
-                                                <button onClick={() => window.location.href = "https://cr3.shopping.naver.com/v2/bridge/searchGate?query=%EB%A7%88%EB%8D%B0%EC%B9%B4+%EC%98%B4%EB%AF%80+%EC%88%98%EB%94%A9+%ED%86%A0%EB%84%88&nv_mid=30366677625&cat_id=50000321&h=3a330f43e0a6342b2442c4a6799221e17cc91bef&t=LRUW9KQS&frm=NVSCPRO"}>구매하기</button>
+                                                <p>세라마이드 아토 집중 크림</p>
+                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/7255541573?itemId=16807390921&vendorItemId=3003330255&pickType=COU_PICK&q=건성&itemsCount=36&searchId=1d669812fbda4ff3ae5a02068a8e9b6c&rank=1&isAddedCart="}>구매하기</button>
                                             </div>
                                         </div>
                                         <br></br>
                                         <p>참고 영상</p>
                                         <p style={{fontSize : '12px'}}>
-                                            <a href="https://youtu.be/ROhvFRop7g8?si=jxaXMOiMubzDLd7i">자세한 토너 소개 Click!</a>
+                                            <a href="https://youtu.be/JrzEsYVtjvg?feature=shared">자세한 토너 소개 Click!</a>
+                                        </p>
+                                    </div>
+                                )}<br/><br/>
+                                 <div  style={{alignItems : 'center'}}>
+                                    <p>Step2. <span style={{color : 'red'}}> 무거운 보습</span>크림</p>
+                                </div>
+                                <button onClick={() => toggleDetails('item1')}>
+                                    {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
+                                </button>
+                                {showDetails.item1 && ( 
+                                    <div className='youtube-item-detail'>
+                                        <div className='youtube-profile displayFlex'>
+                                        <img src='https://yt3.ggpht.com/SdLrnf75lpIVpjVsCLLyf5zGMej3vJBe-ImoZnm4lrX1Axrdz6A7wM2yxUywfR87popCJbQVGA=s88-c-k-c0x00ffffff-no-rj' />
+                                            <div style={{ width : '100%', textAlign: 'left', marginLeft: '5%'}}>
+                                                <p style={{fontSize: '15px'}}>알쓸피식-피부과전문의 이하은</p>
+                                                <p style={{fontSize: '12px'}}>구독자 12만명</p>
+                                            </div>
+                                        </div>
+                                        <div className='product-item displayFlex'>
+                                            <img src='https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/40fc048a-78fe-4d61-85b1-cc48d878ba0f6545159969151950245.png'></img>
+                                            <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
+                                                <div className='displayFlex' style={{justifyContent : 'space-between'}}>
+                                                    <p style={{fontSize : '13px'}}>닥터지</p> 
+                                                    <p>10,450원</p>
+                                                </div>
+                                                <p>블랙 스네일크림</p>
+                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/7112172506?itemId=439209653&vendorItemId=4086452551&q=건성&itemsCount=36&searchId=1d669812fbda4ff3ae5a02068a8e9b6c&rank=2&isAddedCart="}>구매하기</button>
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <p>참고 영상</p>
+                                        <p style={{fontSize : '12px'}}>
+                                            <a href="https://youtu.be/vKaNdkPPMI4?feature=shared">자세한 토너 소개 Click!</a>
                                         </p>
                                     </div>
                                 )}
@@ -189,57 +222,57 @@ function TroubleSkin() {
                                 {showDetails.item1 && ( 
                                     <div className='youtube-item-detail'>
                                         <div className='youtube-profile displayFlex'>
-                                        <img src='https://yt3.ggpht.com/NcTpKkeJ6nqFXN8fW6nYfKPd1rxZu8byAls6k3YaSlOysh3kd1bM35aafFwbDIC_OKoveQlE=s88-c-k-c0x00ffffff-no-rj' />
+                                        <img src='https://yt3.ggpht.com/50q0jBtD2xZSmgOWgw3O2GHaVS3Yn6T7YktX4TrzD0-cjXtzzTzF62IYe1FiDQjD-cF6Cl_46w=s88-c-k-c0x00ffffff-no-rj' />
                                             <div style={{ width : '100%', textAlign: 'left', marginLeft: '5%'}}>
                                                 <p style={{fontSize: '15px'}}>관리는 하고 살자</p>
-                                                <p style={{fontSize: '12px'}}>구독자 만명</p>
+                                                <p style={{fontSize: '12px'}}>구독자 26.4만명</p>
                                             </div>
                                         </div>
                                         <div className='product-item displayFlex'>
-                                            <img src='https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/1673498073616106-db6f5ef7-1cf8-4f4c-b882-1d8e7fffe7b9.jpg'></img>
+                                            <img src='https://thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/3a81/ac25523f45dc642566619d948e30b8487acba5882ccd79da9fdef43aa896.jpg'></img>
                                             <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                                 <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>토너</p> 
-                                                    <p>약 15,990원</p>
+                                                    <p style={{fontSize : '13px'}}>클렌징 폼</p> 
+                                                    <p>약 8,990원</p>
                                                 </div>
-                                                <p>라운드어라운드 그린티 약산성 클렌징폼 클렌징 폼</p>
-                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/4880173278?itemId=19012525005&vendorItemId=73648417455&pickType=COU_PICK&q=Dr.G+%EB%A0%88%EB%93%9C+%EB%B8%94%EB%A0%88%EB%AF%B8%EC%89%AC+%ED%81%B4%EB%A6%AC%EC%96%B4+%EC%88%98%EB%94%A9+%ED%86%A0%EB%84%88&itemsCount=36&searchId=7249dd32ce1e4f9eb67781cd594b7b12&rank=1"}>구매 하기</button>
+                                                <p>라운드어라운드 그린티 약산성 클렌징폼</p>
+                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/7757843000?itemId=16008401164&vendorItemId=87920215867&q=%EB%9D%BC%EC%9A%B4%EB%93%9C%EC%96%B4%EB%9D%BC%EC%9A%B4%EB%93%9C+%EA%B7%B8%EB%A6%B0%ED%8B%B0+%EC%95%BD%EC%82%B0%EC%84%B1&itemsCount=36&searchId=fa5a5149f1304bb4b98ed41ae53c44b3&rank=3&isAddedCart="}>구매 하기</button>
                                             </div>
                                         </div>
                                         <div className='product-item displayFlex'>
-                                            <img src='https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/357614193586463-e992194e-59f4-4f22-9e32-dd4819808048.jpg'></img>
+                                            <img src='https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/748470978289589-146e7e5c-aee1-4df8-ba78-6bc2d8681289.jpg'></img>
                                             <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                             <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>에센스</p> 
-                                                    <p>약 18,000원 </p>
+                                                    <p style={{fontSize : '13px'}}>토너</p> 
+                                                    <p>약 18,400원 </p>
                                                 </div>
-                                                <p>나이팅게일 티타민 페이셜 트리트 에센스 </p>
-                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/7335356999?itemId=18841335731&vendorItemId=4548361814&pickType=COU_PICK&sourceType=srp_product_ads&clickEventId=d3e451b0-bdb5-11ee-bf08-b45803ae4d17&korePlacement=15&koreSubPlacement=1&clickEventId=d3e451b0-bdb5-11ee-bf08-b45803ae4d17&korePlacement=15&koreSubPlacement=1&q=%EB%82%98%EC%9D%B4%ED%8C%85%EA%B2%8C%EC%9D%BC+%ED%8B%B0%ED%83%80%EB%AF%BC+%ED%8E%98%EC%9D%B4%EC%85%9C+%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8+%EC%97%90%EC%84%BC%EC%8A%A4&itemsCount=36&searchId=0c774d5e0fef4d6b828494807ef6b6d8&rank=0"}>구매 하기</button>
+                                                <p>파티온 동아제약 노스카나인 트러블 클리어 토너 </p>
+                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/7234859439?itemId=18367773216&vendorItemId=85511361994&pickType=COU_PICK&q=%ED%8C%8C%ED%8B%B0%EC%98%A8+%ED%86%A0%EB%84%88&itemsCount=36&searchId=66037f89c58b40d1b88d865385c2b711&rank=0&isAddedCart="}>구매 하기</button>
                                             </div>
                                         </div>
                                         <div className='product-item displayFlex'>
-                                            <img src='https://thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/260646689760696-f6d51903-b8c3-4bbb-9ef8-a9c46890c637.jpg'></img>
+                                            <img src='https://thumbnail10.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/4bb94377-f902-4f2c-bc20-4a27c54715788213841020010963267.png'></img>
                                             <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                             <div className='displayFlex' style={{justifyContent : 'space-between'}}>
                                                     <p style={{fontSize : '13px'}}>크림</p> 
-                                                    <p>약 18,0000원</p>
+                                                    <p>약 27,570원</p>
                                                 </div>
-                                                <p>나이팅게일 티타민 크림 </p>
-                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/5911205017?itemId=10450246945&vendorItemId=3446051381&q=%EB%82%98%EC%9D%B4%ED%8C%85%EA%B2%8C%EC%9D%BC+%ED%8B%B0%ED%83%80%EB%AF%BC+%ED%81%AC%EB%A6%BC&itemsCount=36&searchId=82c2e65fd689416f90eaa00f27c93fe8&rank=3"}>구매 하기</button>
+                                                <p>라운드랩 소나무 진정 시카 앰플 </p>
+                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/6498274767?itemId=14295212600&src=1139000&spec=10799999&addtag=400&ctag=6498274767&lptag=AF7109134&itime=20240128160319&pageType=PRODUCT&pageValue=6498274767&wPcid=21124912478636828229639&wRef=www.youtube.com&wTime=20240128160319&redirect=landing&traceid=V0-101-ed48055249627451&mcid=0e81b2b33c6146cbbf22079b53af7f44&placementid=&clickBeacon=&campaignid=&contentcategory=&imgsize=&tsource=&pageid=&deviceid=&token=&contenttype=&subid=&impressionid=&campaigntype=&requestid=&contentkeyword=&subparam=&isAddedCart="}>구매 하기</button>
                                             </div>
                                         </div>
                                         <br/>
-                                        <div> 스킨 케어 후에도 얼굴이 촉촉하지 않다면 </div>
+                                        <div> 아침에는 나가기 전에 꼭 선크림 </div>
                                         <div> + </div>
                                         <div className='product-item displayFlex'>
-                                            <img src='https://thumbnail10.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/a4aeb807-d652-47ac-b469-68935e862dcc8986338159464412607.png'></img>
+                                            <img src='https://thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/2023/04/13/11/8/1097df52-3342-4078-b7a5-2fdacde82b55.jpg'></img>
                                             <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                             <div className='displayFlex' style={{justifyContent : 'space-between'}}>
                                                     <p style={{fontSize : '13px'}}>Best 3.</p> 
-                                                    <p>15,990원</p>
+                                                    <p>13,840원</p>
                                                 </div>
-                                                <p>닥터자르트 시카페어 페이셜 카밍 미스트 </p>
-                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/7167507394?itemId=8217861723&vendorItemId=86285866286&pickType=COU_PICK&q=%EB%8B%A5%ED%84%B0%EC%9E%90%EB%A5%B4%ED%8A%B8+%EC%8B%9C%EC%B9%B4%ED%8E%98%EC%96%B4+%ED%8E%98%EC%9D%B4%EC%85%9C+%EC%B9%B4%EB%B0%8D+%EB%AF%B8%EC%8A%A4%ED%8A%B8&itemsCount=36&searchId=b53223c3362f47fc8d6f59e650bb5b0a&rank=1"}>구매 하기</button>
+                                                <p>셀퓨전씨 레이저 썬스크린</p>
+                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/4818995888?itemId=11157419439&vendorItemId=87911221511&q=%EC%85%80%ED%93%A8%EC%A0%84%EC%94%A8+%EC%84%A0%ED%81%AC%EB%A6%BC&itemsCount=36&searchId=13b7615452a845358dd6c9825ec45248&rank=6&isAddedCart="}>구매 하기</button>
                                             </div>
                                         </div>
                                         <br></br>
@@ -261,54 +294,29 @@ function TroubleSkin() {
                                         <img src='https://yt3.ggpht.com/NcTpKkeJ6nqFXN8fW6nYfKPd1rxZu8byAls6k3YaSlOysh3kd1bM35aafFwbDIC_OKoveQlE=s88-c-k-c0x00ffffff-no-rj' />
                                             <div style={{ width : '100%', textAlign: 'left', marginLeft: '5%'}}>
                                                 <p style={{fontSize: '15px'}}>관리는 하고 살자</p>
-                                                <p style={{fontSize: '12px'}}>구독자 7.32만명</p>
+                                                <p style={{fontSize: '12px'}}>구독자 26.4만명</p>
                                             </div>
                                         </div>
                                         <div className='product-item displayFlex'>
-                                            <img src='https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/1673498073616106-db6f5ef7-1cf8-4f4c-b882-1d8e7fffe7b9.jpg'></img>
+                                            <img src='https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/2366839079998317-99982402-dd7f-406f-8a95-5afc81a2997f.jpg'></img>
                                             <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                                 <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>토너</p> 
-                                                    <p>약 15,990원</p>
+                                                    <p style={{fontSize : '13px'}}>클렌징 폼</p> 
+                                                    <p>약 16,600원</p>
                                                 </div>
-                                                <p>Dr.G 레드 블레미쉬 클리어 수딩 토너</p>
-                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/4880173278?itemId=19012525005&vendorItemId=73648417455&pickType=COU_PICK&q=Dr.G+%EB%A0%88%EB%93%9C+%EB%B8%94%EB%A0%88%EB%AF%B8%EC%89%AC+%ED%81%B4%EB%A6%AC%EC%96%B4+%EC%88%98%EB%94%A9+%ED%86%A0%EB%84%88&itemsCount=36&searchId=7249dd32ce1e4f9eb67781cd594b7b12&rank=1"}>구매 하기</button>
+                                                <p>파티온 노스카나인 트러블 클렌징 폼 </p>
+                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/7234813856?itemId=18367567700&vendorItemId=85511161922&sourceType=srp_product_ads&clickEventId=14b6e860-bdac-11ee-aef2-360427f43988&korePlacement=15&koreSubPlacement=6&q=%ED%8C%8C%ED%8B%B0%EC%98%A8+%EC%95%BD%EC%95%8C%EC%B9%BC%EB%A6%AC&itemsCount=36&searchId=52f426c67a984ae2ac77c573073cd41e&rank=5&isAddedCart="}>구매 하기</button>
                                             </div>
                                         </div>
                                         <div className='product-item displayFlex'>
-                                            <img src='https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/357614193586463-e992194e-59f4-4f22-9e32-dd4819808048.jpg'></img>
+                                            <img src='https://thumbnail6.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/529636570785661-f1729d76-95b9-441c-b5f2-3434d44c388d.crdownload'></img>
                                             <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                             <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>에센스</p> 
-                                                    <p>약 18,000원 </p>
+                                                    <p style={{fontSize : '13px'}}>에센스 마스크</p> 
+                                                    <p>약 10,900원 </p>
                                                 </div>
-                                                <p>나이팅게일 티타민 페이셜 트리트 에센스 </p>
+                                                <p>메디힐 히알루 모이스트 에센스 마스크  </p>
                                                 <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/7335356999?itemId=18841335731&vendorItemId=4548361814&pickType=COU_PICK&sourceType=srp_product_ads&clickEventId=d3e451b0-bdb5-11ee-bf08-b45803ae4d17&korePlacement=15&koreSubPlacement=1&clickEventId=d3e451b0-bdb5-11ee-bf08-b45803ae4d17&korePlacement=15&koreSubPlacement=1&q=%EB%82%98%EC%9D%B4%ED%8C%85%EA%B2%8C%EC%9D%BC+%ED%8B%B0%ED%83%80%EB%AF%BC+%ED%8E%98%EC%9D%B4%EC%85%9C+%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8+%EC%97%90%EC%84%BC%EC%8A%A4&itemsCount=36&searchId=0c774d5e0fef4d6b828494807ef6b6d8&rank=0"}>구매 하기</button>
-                                            </div>
-                                        </div>
-                                        <div className='product-item displayFlex'>
-                                            <img src='https://thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/260646689760696-f6d51903-b8c3-4bbb-9ef8-a9c46890c637.jpg'></img>
-                                            <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
-                                            <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>크림</p> 
-                                                    <p>약 18,0000원</p>
-                                                </div>
-                                                <p>나이팅게일 티타민 크림 </p>
-                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/5911205017?itemId=10450246945&vendorItemId=3446051381&q=%EB%82%98%EC%9D%B4%ED%8C%85%EA%B2%8C%EC%9D%BC+%ED%8B%B0%ED%83%80%EB%AF%BC+%ED%81%AC%EB%A6%BC&itemsCount=36&searchId=82c2e65fd689416f90eaa00f27c93fe8&rank=3"}>구매 하기</button>
-                                            </div>
-                                        </div>
-                                        <br/>
-                                        <div> 스킨 케어 후에도 얼굴이 촉촉하지 않다면 </div>
-                                        <div> + </div>
-                                        <div className='product-item displayFlex'>
-                                            <img src='https://thumbnail10.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/a4aeb807-d652-47ac-b469-68935e862dcc8986338159464412607.png'></img>
-                                            <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
-                                            <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                                    <p style={{fontSize : '13px'}}>Best 3.</p> 
-                                                    <p>15,990원</p>
-                                                </div>
-                                                <p>닥터자르트 시카페어 페이셜 카밍 미스트 </p>
-                                                <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/7167507394?itemId=8217861723&vendorItemId=86285866286&pickType=COU_PICK&q=%EB%8B%A5%ED%84%B0%EC%9E%90%EB%A5%B4%ED%8A%B8+%EC%8B%9C%EC%B9%B4%ED%8E%98%EC%96%B4+%ED%8E%98%EC%9D%B4%EC%85%9C+%EC%B9%B4%EB%B0%8D+%EB%AF%B8%EC%8A%A4%ED%8A%B8&itemsCount=36&searchId=b53223c3362f47fc8d6f59e650bb5b0a&rank=1"}>구매 하기</button>
                                             </div>
                                         </div>
                                         <br></br>

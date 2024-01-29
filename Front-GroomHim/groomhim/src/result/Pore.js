@@ -87,10 +87,9 @@ function Pore() {
                     </div>
                         </div>
                     </div>
-
                     <div className={`youtube-item ${showDetails.item1 ? 'show' : ''}`}>
                         <div  style={{alignItems : 'center'}}>
-                            <p>유튜브 조회수<span style={{color : 'red'}}> 14만회 </span>루틴</p>
+                            <p>유튜브 조회수<span style={{color : 'red'}}> 19만회 </span>건성 오일</p>
                         </div>
                         <button onClick={() => toggleDetails('item1')}>
                             {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
@@ -105,45 +104,70 @@ function Pore() {
                                     </div>
                                 </div>
                                 <div className='product-item displayFlex'>
-                                    <img src='https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/75ce/80861e190fff6837c708bb2d51a9463078b45de3ce7e6e71300b87480cdf.jpeg'></img>
+                                    <img src='https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/6887/f4ce6cd2b36d112bdfcfb6021af72651405df149151dbfc4c15b3fb57f8f.jpg'></img>
                                     <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                         <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                            <p style={{fontSize : '13px'}}>Step1.</p> 
-                                            <p>24,000원</p>
+                                            <p style={{fontSize : '13px'}}>건성 클렌징 오일</p> 
+                                            <p>15,740원</p>
                                         </div>
-                                        <p>어바웃미 쌀막걸리 클렌징 오일 195ml</p>
-                                        <button>구매하러 가기</button>
+                                        <p>마녀공장 퓨어 클렌징 오일</p>
+                                        <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/7167507394?itemId=8217861723&vendorItemId=86285866286&pickType=COU_PICK&q=%EB%8B%A5%ED%84%B0%EC%9E%90%EB%A5%B4%ED%8A%B8+%EC%8B%9C%EC%B9%B4%ED%8E%98%EC%96%B4+%ED%8E%98%EC%9D%B4%EC%85%9C+%EC%B9%B4%EB%B0%8D+%EB%AF%B8%EC%8A%A4%ED%8A%B8&itemsCount=36&searchId=b53223c3362f47fc8d6f59e650bb5b0a&rank=1"}>구매 하기</button>
                                     </div>
                                 </div>
                                 <div className='product-item displayFlex'>
-                                    <img src='https://thumbnail10.coupangcdn.com/thumbnails/remote/230x230ex/image/rs_quotation_api/eivyaael/08a38fcc0b634c3bb5501acf1fd1dc9e.jpg'></img>
+                                    <img src='https://thumbnail10.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/e6b0/2fc464c65c218655346effad322e4059a8568e0b7c6baa9b454832ff739c.jpg'></img>
                                     <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
                                     <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                            <p style={{fontSize : '13px'}}>Step2.</p> 
-                                            <p>14,000원 </p>
+                                            <p style={{fontSize : '13px'}}>지성, 수부지 오일</p> 
+                                            <p>25,000원 </p>
                                         </div>
-                                        <p>어바웃미 쌀 막걸리 클렌징 폼 120ml</p>
-                                        <button>구매하러 가기</button>
-                                    </div>
-                                </div>
-                                <div className='product-item displayFlex'>
-                                    <img src='https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/2469747148449101-3d7904a4-d2f2-472e-b599-d3a9bb08f54d.jpg'></img>
-                                    <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
-                                    <div className='displayFlex' style={{justifyContent : 'space-between'}}>
-                                            <p style={{fontSize : '13px'}}>Step3.</p> 
-                                            <p>24,000원</p>
-                                        </div>
-                                        <p>라로슈포제 세로징크 세범 컨트롤 토닝 미스트 150ml</p>
-                                        <button>구매하러 가기</button>
+                                        <p>아비브 포어 클렌징 오일 어성초</p>
+                                        <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/7701394495?itemId=20620827155&vendorItemId=86323676577&q=%EC%95%84%EB%B9%84%EB%B8%8C+%ED%8F%AC%EC%96%B4+%ED%81%B4%EB%A0%8C%EC%A7%95+%EC%98%A4%EC%9D%BC+%EC%96%B4%EC%84%B1%EC%B4%88&itemsCount=36&searchId=5888f3afc618470c849b32139fc6785d&rank=1"}>구매 하기</button>
                                     </div>
                                 </div>
                                 <br></br>
                                 <p>참고 영상</p>
                                 <p style={{fontSize : '12px'}}>
-                                    수부지 피부를 위한 성분과 스킨케어는 따로 있다?! 클렌징부터 베이스까지 by. 디렉터파이
+                                     <a href="https://youtu.be/P6awdqTFUTw?si=HmWv__3DnsrVfgI6">클렌징 오일 소개 Click!</a>
                                 </p>
                             </div>
                         )}
+                    </div>
+                    <div className={`youtube-item ${showDetails.item1 ? 'show' : ''}`}>
+                        <div  style={{alignItems : 'center'}}>
+                            <p>유튜브 조회수<span style={{color : 'red'}}> 175만회 </span>블랙헤드 제거 루틴</p>
+                        </div>
+                        <button onClick={() => toggleDetails('item1')}>
+                            {showDetails.item1 ? '간략히 보기' : '자세히 보기'}
+                        </button>
+                        {showDetails.item1 && ( 
+                            <div className='youtube-item-detail'>
+                                <div className='youtube-profile displayFlex'>
+                                <img src='https://yt3.ggpht.com/Ke6WL5e2M5myn1wp_DKMZHC3zI4wa8eFrnLnkpNG8bwiHUNCAZM25N-xz8MrVs4igcwwGuUfcQ=s88-c-k-c0x00ffffff-no-rj' />
+                                    <div style={{ width : '100%', textAlign: 'left', marginLeft: '5%'}}>
+                                        <p style={{fontSize: '15px'}}>문장군</p>
+                                        <p style={{fontSize: '12px'}}>구독자 16만명</p>
+                                    </div>
+                                </div>
+                                <div className='product-item displayFlex'>
+                                    <img src='https://thumbnail10.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/540126876430915-645bf84a-1048-4d86-9e72-eb296ecb4bf1.jpg'></img>
+                                    <div style={{width : '100%', textAlign : 'left', marginLeft: '5%'}}>
+                                        <div className='displayFlex' style={{justifyContent : 'space-between'}}>
+                                            <p style={{fontSize : '13px'}}>피지 제거액</p> 
+                                            <p>21,140원</p>
+                                        </div>
+                                        <p>스와니코코 포어클리어런스</p>
+                                        <button onClick={() => window.location.href = "https://www.coupang.com/vp/products/6613108996?itemId=17759761836&vendorItemId=70229775783&pickType=COU_PICK&q=%EC%8A%A4%EC%99%80%EB%8B%88%EC%BD%94%EC%BD%94+%ED%8F%AC%EC%96%B4%ED%81%B4%EB%A6%AC%EC%96%B4%EB%9F%B0%EC%8A%A4&itemsCount=36&searchId=661090429e5d404892f823efb0fcb020&rank=0"}>구매 하기</button>
+                                    </div>
+                                </div>
+                                <br></br>
+                                <p>참고 영상</p>
+                                <p style={{fontSize : '12px'}}>
+                                     <a href="https://www.youtube.com/watch?v=oSTanNf-goY&pp=ygUX66y47J6l6rWwIO2UvOyngCDsoJzqsbA%3D">클렌징 오일 소개 Click!</a>
+                                </p>
+                            </div>
+                        )}
+                        
                     </div>
                 </div>
             </div>
@@ -152,5 +176,6 @@ function Pore() {
                 <button  onClick={() => navigate('/')}>홈으로 이동</button>
             </div>
         </div>
+
     );
 }export default Pore;
