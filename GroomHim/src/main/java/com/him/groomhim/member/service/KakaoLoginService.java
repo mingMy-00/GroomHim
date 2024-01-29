@@ -123,7 +123,7 @@ public class KakaoLoginService {
                 String id = "kakao" + jsonMap.get("id").toString();
                 String memberNickname = properties.get("nickname").toString() + jsonMap.get("id").toString();
                 String memberEmail = kakao_account.get("email").toString();
-                String memberProfile = properties.get("profile_image") != null ? properties.get("profile_image").toString() : "https://mblogthumb-phinf.pstatic.net/MjAyMDExMDFfMTgy/MDAxNjA0MjI4ODc1NDMw.Ex906Mv9nnPEZGCh4SREknadZvzMO8LyDzGOHMKPdwAg.ZAmE6pU5lhEdeOUsPdxg8-gOuZrq_ipJ5VhqaViubI4g.JPEG.gambasg/%EC%9C%A0%ED%8A%9C%EB%B8%8C_%EA%B8%B0%EB%B3%B8%ED%94%84%EB%A1%9C%ED%95%84_%ED%95%98%EB%8A%98%EC%83%89.jpg?type=w800";
+                String memberProfile = properties.get("profile_image") != null ? properties.get("profile_image").toString() : "https://ibb.co/D93T247";
                 String memberName = kakao_account.get("name") != null ? kakao_account.get("name").toString() : memberNickname;
                 String memberPhone = kakao_account.get("phone_number") != null ? "0" + (kakao_account.get("phone_number").toString().split(" ")[1]).replaceAll("-", "") : "00000000000";
                 String memberGender = kakao_account.get("gender") != null ? (kakao_account.get("gender").toString().equals("male")) ? "M" : "F" : "NONE";
@@ -137,7 +137,7 @@ public class KakaoLoginService {
                     birth = new Date(1111,11,11);
                 }
 
-                member = new Member(id, null, memberEmail, memberName, memberPhone, memberNickname, memberGender, null, birth);
+                member = new Member(id, null, memberEmail, memberName, memberPhone, memberNickname, memberGender, null, birth,memberProfile);
                 Member m = memberService.findMemberEmail(memberEmail);
                 if(m == null) { // 회원가입
                     memberRepository.save(member);

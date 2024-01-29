@@ -45,7 +45,7 @@ const NoticeDetail = () => {
 
   useEffect(function() {
         axios({
-            url : "http://localhost:9090/noticeDetail?noticeNo=" + noticeNo ,
+            url : backendIP + "/noticeDetail?noticeNo=" + noticeNo ,
             method : "get"
         })
         .then(function(result) {
@@ -66,7 +66,7 @@ const NoticeDetail = () => {
         <h2 className="notice-title">{notice.noticeTitle}</h2>
             <p className="notice-date">{notice.enrollDate}</p>
             <hr />
-            <a href={`http://localhost:9090/api/images/${notice.changeName}`} download={notice.originName}>{notice.originName}</a>
+            <a href={ backendIP + `/api/images/${notice.changeName}`} download={notice.originName}>{notice.originName}</a>
       </div>
 
 
