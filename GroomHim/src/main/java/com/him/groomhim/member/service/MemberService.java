@@ -68,7 +68,7 @@ public class MemberService {
         Member member = new Member(
                 m.getMemberId(), m.getMemberPwd(), m.getMemberEmail(),
                 m.getMemberName(), m.getMemberPhone(), m.getMemberNickname(),
-                m.getMemberGender(), m.getMemberAddress(), m.getMemberBirth());
+                m.getMemberGender(), m.getMemberAddress(), m.getMemberBirth(), "https://ibb.co/D93T247");
         memberRepository.save(member);
         return new MsgResponseDto(SuccessCode.LOG_IN);
     }

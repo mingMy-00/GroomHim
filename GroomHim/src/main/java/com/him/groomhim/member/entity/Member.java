@@ -53,7 +53,8 @@ public class Member {
     //회원가입용 생성자
     public Member(String memberId, String memberPwd, String memberEmail,
                   String memberName,String memberPhone, String memberNickname,
-                  String memberGender, String memberAddress, Date memberBirth){
+                  String memberGender, String memberAddress, Date memberBirth,
+                    String memberProfile){
         this.memberId = memberId;
         this.memberPwd = memberPwd;
         this.memberEmail = memberEmail;
@@ -63,5 +64,6 @@ public class Member {
         this.memberGender = memberGender;
         this.memberAddress = memberAddress;
         this.memberBirth = memberBirth;
+        this.memberProfile = memberProfile;
     }
 }

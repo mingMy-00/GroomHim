@@ -11,7 +11,7 @@ function Mypage() {
     const loginMember = loginMemberString ? JSON.parse(loginMemberString) : {};
     const memberName = loginMember.memberName;
     const gender = loginMember.memberGender === 'F' ? "여성" : "남성";
-
+    const profile = loginMember.memberProfile;
     const Logout = () => {
         sessionStorage.removeItem("loginMember");
         document.location.href = '/'
@@ -27,7 +27,7 @@ function Mypage() {
     return (
         <div className='mypage'>
             <div className='mypage-userInfo displayFlex'>
-                <img className='profile-img' src='/img/logo-icon.png' />
+                <img className='profile-img' src={profile} />
                 <div className='user-detail'>
                     <div className='displayFlex' style={{ justifyContent: 'space-between' }}>
                         <p className='user-name'>{memberName}</p>

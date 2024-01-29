@@ -117,7 +117,7 @@
     {
         "category" : "여드름1",
         "question" : "평소 피부가 어떤가요 ?",
-        "progress" : 6,
+        "progress" : 4,
         "answers" : [
                 {   "topic"   : "여드름",
                     "end"     : "true",
