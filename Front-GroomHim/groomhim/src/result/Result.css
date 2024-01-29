@@ -231,6 +231,7 @@
   .content {
     max-height: 700px; /* 적절한 높이로 조절 */
     overflow-y: auto;
+    overflow-x:hidden;
   }
   
   /* 웹킷 브라우저에서 스크롤바 감추기 */

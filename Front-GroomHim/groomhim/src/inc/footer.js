@@ -153,6 +153,9 @@ const Footer = () => {
         window.location.href = 'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=7e7ac347addcfef31e432e4ed779752a&redirect_uri='+process.env.REACT_APP_FRONTEND_IP+'/callback/kakao';
     };
 
+    const errorAlert = () => {
+        alert("서비스 준비중입니다.")
+    }
     return (
         <div className=''>
             <div className='footer-list'>
@@ -192,7 +195,6 @@ const Footer = () => {
 
                 </div>
                 <div className='login-modal'>
-                <img className="header_logo" src="/img/logo-icon.png" />
                     <h4>남성 케어의 시작 GroomHim</h4>
                     <div className='login-cancel' onClick={closeModal}>X</div>
                     {/* 로그인 영역 */}
@@ -215,7 +217,7 @@ const Footer = () => {
                     <button className='signUp-btn' onClick={onClickLogin}>로그인</button>
                     <div className='login-menu'>
                         <div onClick={findId}><a>아이디 찾기</a></div>
-                        <div><a>비밀번호 찾기</a></div>
+                        <div><a onClick={errorAlert}>비밀번호 찾기</a></div>
                     </div>
                     <br />
                     {/* sns 로그인 영역 */}

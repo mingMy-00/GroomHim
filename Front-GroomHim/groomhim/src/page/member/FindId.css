@@ -1,14 +1,25 @@
 #findIdInput {
-    width : 60%;
+    width : 100%;
     height : 40px;
     padding-left: 10px;
+    text-align: center;
 }
 
 .findIdDiv {
-   margin-top: 40px;
    text-align: center;
 }
-
+.findIdHeader {
+    height: 50px;
+    margin-bottom: 10%;
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+    align-items: center;
+}
+.findIdHeader p {
+    margin: auto;
+    font-size: 23px;
+}
 #EmailNum {
     width : 80px;
     height : 50px;

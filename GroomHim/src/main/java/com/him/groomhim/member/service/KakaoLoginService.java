@@ -124,7 +124,7 @@ public class KakaoLoginService {
                 String memberNickname = properties.get("nickname").toString() + jsonMap.get("id").toString();
                 String memberEmail = kakao_account.get("email").toString();
                 String memberProfile = properties.get("profile_image") != null ? properties.get("profile_image").toString() : "https://ibb.co/D93T247";
-                String memberName = kakao_account.get("name") != null ? kakao_account.get("name").toString() : memberNickname;
+                String memberName = kakao_account.get("name") != null ? kakao_account.get("name").toString() : properties.get("nickname").toString();
                 String memberPhone = kakao_account.get("phone_number") != null ? "0" + (kakao_account.get("phone_number").toString().split(" ")[1]).replaceAll("-", "") : "00000000000";
                 String memberGender = kakao_account.get("gender") != null ? (kakao_account.get("gender").toString().equals("male")) ? "M" : "F" : "NONE";
 

@@ -34,6 +34,9 @@ public class MemberController {
 
         if(m != null) {
             //이메일을 보내기 위한 service
+            if(m.getMemberId().contains("kakao")){
+                return "카카오";
+            }
             memberService.sendUsernames(memberEmail, m);
             return "성공";
         }
