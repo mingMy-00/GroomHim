@@ -85,3 +85,11 @@ html, body {
     width: 1rem;
     height: 1rem;
 }
+
+.header_right:hover {
+    cursor: pointer;
+}
+
+.header_center:hover {
+    cursor: pointer;
+}

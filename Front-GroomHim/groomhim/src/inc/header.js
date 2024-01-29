@@ -21,7 +21,7 @@ const Header = () => {
             <div className="header_center" onClick={showHome}>
                 <img src="/img/header-title.png"/>
             </div>
-            <div className="header_right">
+            <div className="header_right" onClick={() => window.location.href = "https://www.instagram.com/groomhim_official?igsh=MTVld2ZwcWwxOTRx"}>
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20.1619 0.10308L0.807644 8.20162C-0.286635 8.66327 -0.260266 10.2197 0.834012 10.6417L7.87431 13.372C8.04486 13.4383 8.19975 13.5394 8.32913 13.6688C8.45851 13.7983 8.55954 13.9532 8.6258 14.1238L11.3417 21.154C11.7636 22.262 13.3325 22.2883 13.794 21.1936L21.9022 1.84414C22.3372 0.749381 21.243 -0.345373 20.1619 0.10308Z" fill="#11202D"/>
             </svg>

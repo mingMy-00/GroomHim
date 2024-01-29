@@ -50,9 +50,6 @@ function Notice() {
        
 
     }
-
-
-
     const backendIP = process.env.REACT_APP_BACKEND_IP;
 
     //공지사항 전체 게시글을 불러오기 위한 함수
