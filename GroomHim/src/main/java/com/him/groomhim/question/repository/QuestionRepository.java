@@ -11,7 +11,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface QuestionRepository extends JpaRepository<Question, Long>{
-    
+
 
     Question findByQuestionNo(Long questionNo);
 

@@ -13,6 +13,7 @@ import java.util.List;
 @Setter
 @Getter
 @NoArgsConstructor
+@BatchSize(size=50)
 public class HashTag {
 
     @Id

@@ -10,6 +10,7 @@ import org.hibernate.annotations.Formula;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Setter
@@ -35,6 +36,7 @@ public class Question {
 
     private String writer;
 
+    @BatchSize(size = 10)
     @OneToMany(mappedBy = "question" ,cascade=CascadeType.ALL , orphanRemoval = true, fetch = FetchType.LAZY)
     private List<QuestionHashTag> tagList;
 
@@ -64,6 +66,7 @@ public class Question {
     protected void onCreate() {
         enrollDate = LocalDateTime.now();
     }
+
 
     public void addTagList(QuestionHashTag questionHashTag){
         tagList.add(questionHashTag);
