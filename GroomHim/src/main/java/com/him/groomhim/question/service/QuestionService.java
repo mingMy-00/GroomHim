@@ -94,7 +94,7 @@ public class QuestionService {
                     .questionContent(question.getQuestionContent())
                     .viewCount(question.getViewCount())
                     .enrollDate(question.getEnrollDate())
-//                    .tagList(question.getTagList())
+                    .tagList(question.getTagList())
                     .writer(question.getWriter())
                     .commentCount(question.getCommentCount())
                     .build();
@@ -117,7 +117,7 @@ public class QuestionService {
                 .questionContent(findQuestion.getQuestionContent())
                 .viewCount(findQuestion.getViewCount())
                 .enrollDate(findQuestion.getEnrollDate())
-//                .tagList(findQuestion.getTagList())
+                .tagList(findQuestion.getTagList())
                 .writer(findQuestion.getWriter())
                 .memberNo(findQuestion.getMember().getMemberNo())
                 .build();

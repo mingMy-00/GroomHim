@@ -29,8 +29,6 @@ public class QuestionHashTag {
     private HashTag hashTag;
 
 
-
-
     @Builder
     public QuestionHashTag(Question question, HashTag hashTag){
         this.question = question;
