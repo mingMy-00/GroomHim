@@ -3,7 +3,9 @@ package com.him.groomhim.question.entity;
 import com.him.groomhim.member.entity.Member;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.Formula;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -33,8 +35,8 @@ public class Question {
 
     private String writer;
 
-    @OneToMany(mappedBy = "question" ,cascade=CascadeType.ALL , orphanRemoval = true)
-    private List<QuestionHashTag> tagList = new ArrayList<>();
+    @OneToMany(mappedBy = "question" ,cascade=CascadeType.ALL , orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<QuestionHashTag> tagList;
 
     @Column(name="VIEW_COUNT", nullable = false)
     @ColumnDefault("0")
@@ -44,9 +46,10 @@ public class Question {
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime enrollDate;
 
-    @OneToMany(mappedBy = "question",cascade=CascadeType.ALL , orphanRemoval = true)
+    @OneToMany(mappedBy = "question",cascade=CascadeType.ALL , orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Comment> commentList;
 
+    @Formula("(select count(*) from comment c where c.question_no = QUESTION_NO)")
     private int commentCount;
 
     @Builder
@@ -67,9 +70,9 @@ public class Question {
         questionHashTag.setQuestion(this);
     }
 
-    public int commentCount(List<Comment> commentList){
-        return commentList.size();
-    }
+//    public int commentCount(List<Comment> commentList){
+//        return commentList.size();
+//    }
 
 
 

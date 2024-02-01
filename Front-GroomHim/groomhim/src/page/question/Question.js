@@ -23,9 +23,10 @@ function Question(){
     
     const [condition, setCondition] = useState('enrollDate'); // 초기 값 설정
 
-    const handleConditionChange = (event) => {
-        setCondition(event.target.value);
-    };
+    // 정렬 기준
+    // const handleConditionChange = (event) => {
+    //     setCondition(event.target.value);
+    // };
 
     const handleTagInputChange = (e) =>{ 
         setTagInputValue(e.target.value); 
@@ -122,6 +123,7 @@ function Question(){
         setCurrentPage(page);
     };
 
+    // 페이징바 렌더링
     const renderPagination = () => {
         const pages = [];
         const startPage = Math.max(1, currentPage - 3);

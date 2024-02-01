@@ -1,12 +1,10 @@
 package com.him.groomhim.question.dto;
 
-import com.him.groomhim.question.entity.Comment;
-import com.him.groomhim.question.entity.Question;
+
 import com.him.groomhim.question.entity.QuestionHashTag;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.domain.Page;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class HashTag {
     @Column(name = "HASHTAG_NAME", length = 20, nullable = false)
     private String hashTagName;
 
-    @OneToMany(mappedBy = "hashTag" ,cascade=CascadeType.ALL , orphanRemoval = true)
+    @OneToMany(mappedBy = "hashTag" ,cascade=CascadeType.ALL , orphanRemoval = true, fetch = FetchType.LAZY)
     private List<QuestionHashTag> questions;
 
     @Builder
