@@ -1,5 +1,5 @@
 # GroomHim
-<p align="center">남성전용뷰티플랫폼 <br/>
+<p align="center">남성전용뷰티플랫폼(MVP버전) <br/>
 ForMen'sBeauty</p>
 <br/>
 <p align="center"><img align="center" width="500" alt="image" src="https://github.com/mingMy-00/GroomHim/assets/149574203/5f87cb6a-abea-4483-bc34-158e7d21bb3b" border-radius="20px"></p>
