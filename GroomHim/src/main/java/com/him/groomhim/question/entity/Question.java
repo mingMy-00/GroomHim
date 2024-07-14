@@ -9,7 +9,10 @@ import org.hibernate.annotations.Formula;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.stream.Collectors;
 
 @Entity
@@ -36,9 +39,10 @@ public class Question {
 
     private String writer;
 
+
     @BatchSize(size = 10)
-    @OneToMany(mappedBy = "question" ,cascade=CascadeType.ALL , orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<QuestionHashTag> tagList;
+    @OneToMany(mappedBy = "question" ,cascade=CascadeType.ALL , orphanRemoval = true)
+    private List<QuestionHashTag> questionHashTags = new ArrayList<>();
 
     @Column(name="VIEW_COUNT", nullable = false)
     @ColumnDefault("0")
@@ -48,8 +52,9 @@ public class Question {
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime enrollDate;
 
-    @OneToMany(mappedBy = "question",cascade=CascadeType.ALL , orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Comment> commentList;
+//    @BatchSize(size = 10)
+    @OneToMany(mappedBy = "question",cascade=CascadeType.ALL , orphanRemoval = true)
+    private List<Comment> comments;
 
     @Formula("(select count(*) from comment c where c.question_no = QUESTION_NO)")
     private int commentCount;
@@ -69,7 +74,7 @@ public class Question {
 
 
     public void addTagList(QuestionHashTag questionHashTag){
-        tagList.add(questionHashTag);
+        this.questionHashTags.add(questionHashTag);
         questionHashTag.setQuestion(this);
     }
 

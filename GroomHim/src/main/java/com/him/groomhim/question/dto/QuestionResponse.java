@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Getter
@@ -20,22 +22,20 @@ public class QuestionResponse {
     private String questionContent;
     private int viewCount;
 
-    private Long memberNo;
     private String writer;
     private String enrollDate;
-    private List<String> tagNames = new ArrayList<>();
+    private Set<String> tagNames = new HashSet<>();
 
     private int commentCount;
 
 
     @Builder
-    public QuestionResponse(Long questionNo, String questionTitle, String questionContent, int viewCount, String writer, LocalDateTime enrollDate, List<QuestionHashTag> tagList, int commentCount, Long memberNo){
+    public QuestionResponse(Long questionNo, String questionTitle, String questionContent, int viewCount, String writer, LocalDateTime enrollDate, List<QuestionHashTag> tagList, int commentCount){
         this.questionNo = questionNo;
         this.questionTitle = questionTitle;
         this.questionContent = questionContent;
         this.viewCount = viewCount;
         this.writer = writer;
-        this.memberNo = memberNo;
         this.enrollDate = enrollDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         for(QuestionHashTag questionHashTag : tagList){
             this.tagNames.add(questionHashTag.getHashTag().getHashTagName());

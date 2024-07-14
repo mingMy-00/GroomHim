@@ -11,7 +11,6 @@ import org.hibernate.annotations.BatchSize;
 @Getter
 @Setter
 @NoArgsConstructor
-@BatchSize(size=100)
 public class QuestionHashTag {
 
     @Id
@@ -19,12 +18,12 @@ public class QuestionHashTag {
     @Column(name = "QUESTION_HASHTAG_NO")
     private Long QuestionHashTagNo;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "question_no")
     private Question question;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "hashtag_no")
     private HashTag hashTag;
 

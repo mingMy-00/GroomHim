@@ -4,6 +4,7 @@ import com.him.groomhim.question.dto.*;
 import com.him.groomhim.question.entity.Comment;
 import com.him.groomhim.question.entity.Question;
 import com.him.groomhim.question.repository.QuestionRepository;
+import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -43,27 +45,34 @@ public class QuestionService {
     public QuestionPageResponse selectAllQuestion(int page, Pageable pageable){
         pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "enrollDate"); // 페이징 정보
 
-        Page<Question> questionPage = questionRepository.findAll(pageable); // 모든 회원 조회
+        Page<Question> questionPage = questionRepository.findAll(pageable);
         List<Question> questionList = questionPage.getContent();
 
-        List<QuestionResponse> questionResponseList = new ArrayList<>();
+        List<QuestionResponse> questionResponseList = questionList.stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
 
-        // Entity => DTO
-        for(Question question : questionList){
-            QuestionResponse questionResponse = QuestionResponse.builder()
-                    .questionNo(question.getQuestionNo())
-                    .questionTitle(question.getQuestionTitle())
-                    .questionContent(question.getQuestionContent())
-                    .viewCount(question.getViewCount())
-                    .enrollDate(question.getEnrollDate())
-                    .tagList(question.getTagList())
-                    .writer(question.getWriter())
-                    .commentCount(question.getCommentCount())
-                    .build();
-            questionResponseList.add(questionResponse);
-        }
         return QuestionPageResponse.builder().questions(questionResponseList).totalPage(questionPage.getTotalPages()).build();
     }
+
+    private QuestionResponse convertToDto(Question question) {
+        Set<String> tagNames = question.getQuestionHashTags().stream()
+                .map(tag -> tag.getHashTag().getHashTagName())
+                .collect(Collectors.toSet());
+
+
+        return QuestionResponse.builder()
+                .questionNo(question.getQuestionNo())
+                .questionTitle(question.getQuestionTitle())
+                .questionContent(question.getQuestionContent())
+                .viewCount(question.getViewCount())
+                .writer(question.getWriter())
+                .enrollDate(question.getEnrollDate())
+                .tagList(question.getQuestionHashTags())
+                .commentCount(question.getCommentCount())
+                .build();
+    }
+
 
     public QuestionPageResponse searchQuestion(QuestionSearchRequest questionSearchRequest, Pageable pageable){
         log.info("questionSearchRequest={}",questionSearchRequest);
@@ -94,21 +103,20 @@ public class QuestionService {
                     .questionContent(question.getQuestionContent())
                     .viewCount(question.getViewCount())
                     .enrollDate(question.getEnrollDate())
-                    .tagList(question.getTagList())
+                    .tagList(question.getQuestionHashTags())
                     .writer(question.getWriter())
                     .commentCount(question.getCommentCount())
                     .build();
             questionResponseList.add(questionResponse);
         }
         return QuestionPageResponse.builder().questions(questionResponseList).totalPage(questionPage.getTotalPages()).build();
-
     }
 
     @Transactional
     public QuestionCommentResponse selectQuestion(Long questionNo){
         Question findQuestion = questionRepository.findByQuestionNo(questionNo);
         findQuestion.setViewCount(findQuestion.getViewCount()+1); // 조회수 업데이트
-        List<Comment> commentList = findQuestion.getCommentList();
+        List<Comment> commentList = findQuestion.getComments();
 
 
         QuestionResponse questionResponse = QuestionResponse.builder()
@@ -117,9 +125,8 @@ public class QuestionService {
                 .questionContent(findQuestion.getQuestionContent())
                 .viewCount(findQuestion.getViewCount())
                 .enrollDate(findQuestion.getEnrollDate())
-                .tagList(findQuestion.getTagList())
+                .tagList(findQuestion.getQuestionHashTags())
                 .writer(findQuestion.getWriter())
-                .memberNo(findQuestion.getMember().getMemberNo())
                 .build();
 
         List<CommentResponse> comments = commentList.stream()
