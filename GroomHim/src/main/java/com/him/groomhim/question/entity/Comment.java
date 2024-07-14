@@ -18,11 +18,11 @@ public class Comment {
     @Column(name ="COMMENT_NO", nullable = false)
     private Long commentNo;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "MEMBER_NO", nullable = false)
     private Member member;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "QUESTION_NO", nullable = false)
     private Question question;
 

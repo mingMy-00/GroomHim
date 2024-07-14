@@ -13,7 +13,6 @@ import java.util.List;
 @Setter
 @Getter
 @NoArgsConstructor
-@BatchSize(size=50)
 public class HashTag {
 
     @Id
@@ -24,7 +23,7 @@ public class HashTag {
     @Column(name = "HASHTAG_NAME", length = 20, nullable = false)
     private String hashTagName;
 
-    @OneToMany(mappedBy = "hashTag" ,cascade=CascadeType.ALL , orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "hashTag" ,cascade=CascadeType.ALL , orphanRemoval = true)
     private List<QuestionHashTag> questions;
 
     @Builder

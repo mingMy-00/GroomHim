@@ -21,7 +21,7 @@ public class QuestionController {
 
     @PostMapping("/question")
     public Long insertQuestion(@RequestBody QuestionCreateRequest questionCreateRequest){
-        log.info("request = {}",questionCreateRequest);
+        log.info("request = {}",questionCreateRequest.getQuestionTags());
         return questionService.save(questionCreateRequest);
     }
 
