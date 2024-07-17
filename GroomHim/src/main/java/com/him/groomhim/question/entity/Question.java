@@ -8,12 +8,8 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Formula;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
-import java.util.stream.Collectors;
+import java.util.*;
+
 
 @Entity
 @Setter
@@ -42,8 +38,9 @@ public class Question {
 
     @BatchSize(size = 10)
     @OneToMany(mappedBy = "question" ,cascade=CascadeType.ALL , orphanRemoval = true)
-    private List<QuestionHashTag> questionHashTags = new ArrayList<>();
+    private Set<QuestionHashTag> questionHashTags = Collections.synchronizedSet(new HashSet<>()) ;
 
+    
     @Column(name="VIEW_COUNT", nullable = false)
     @ColumnDefault("0")
     private int viewCount;
@@ -73,7 +70,7 @@ public class Question {
     }
 
 
-    public void addTagList(QuestionHashTag questionHashTag){
+    public synchronized void addTagList(QuestionHashTag questionHashTag){
         this.questionHashTags.add(questionHashTag);
         questionHashTag.setQuestion(this);
     }
