@@ -1,7 +1,9 @@
 import './Question.css';
 import {Link, useNavigate } from 'react-router-dom';
 import { useState , useEffect } from 'react';
+import { useCookies } from 'react-cookie';
 import axios from 'axios';
+
 
 
 function Question(){
@@ -17,6 +19,7 @@ function Question(){
     const [keyword , setKeyword] = useState('');
     const [tags, setTags] = useState([]);
     const [tagInputValue, setTagInputValue] = useState('');
+    const [cookies, setCookie] = useCookies(['viewedQuestions']);
     let navigate = useNavigate();
     
     const url = process.env.REACT_APP_BACKEND_IP + "/question";
@@ -100,11 +103,21 @@ function Question(){
     
     // 게시글 조회
     const selectQuestion = () => {
+        // 쿠키 설정 (예시로 "viewedQuestions" 쿠키 설정)
+        setCookie('viewedQuestions', currentPage, { path: '/', maxAge: 60 * 60 * 24 });
+ 
+ 
+        // 쿠키 가져오기
+        
         console.log(url);
         axios({
             url: url,
             method: "get",
-            params: { pageNo: currentPage }
+            params: { pageNo: currentPage }, 
+            withCredentials: true, // 쿠키를 포함하여 요청
+            headers: {
+                // 쿠키를 직접 헤더에 추가하지 않습니다. 브라우저가 자동으로 처리합니다.
+            }
         }).then((response) => {
             setQuestion(response.data.questions);
             setTotalPage(response.data.totalPage);

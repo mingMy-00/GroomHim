@@ -2,9 +2,12 @@ package com.him.groomhim.question.controller;
 
 import com.him.groomhim.common.dto.MsgResponseDto;
 import com.him.groomhim.question.dto.*;
-import com.him.groomhim.question.entity.Comment;
 import com.him.groomhim.question.service.CommentService;
 import com.him.groomhim.question.service.QuestionService;
+import com.him.groomhim.question.service.QuestionViewService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +20,7 @@ public class QuestionController {
 
     private final QuestionService questionService;
     private final CommentService commentService;
+    private final QuestionViewService questionViewService;
 
 
     @PostMapping("/question")
@@ -32,8 +36,23 @@ public class QuestionController {
     }
 
     @GetMapping("/question/{questionNo}")
-    public QuestionCommentResponse selectQuestion(@PathVariable("questionNo") Long questionNo){
-        QuestionCommentResponse questionCommentResponse = questionService.selectQuestion(questionNo);
+    public QuestionCommentResponse selectQuestion(@PathVariable("questionNo") Long questionNo, HttpServletRequest request, HttpServletResponse response) {
+        log.debug("Checking if question {} has been viewed.", questionNo);
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                log.info("Cookie found: name={}, value={}", cookie.getName(), cookie.getValue());
+            }
+        } else {
+            log.info("No cookies found in the request.");
+        }
+
+        boolean isViewed = questionViewService.isViewed(request, questionNo);
+        QuestionCommentResponse questionCommentResponse = questionService.selectQuestion(questionNo, !isViewed);
+        if (!isViewed) {
+            log.info("Question {} has not been viewed. Marking as viewed.", questionNo);
+            questionViewService.markAsViewed(request, response, questionNo);
+        }
         return questionCommentResponse;
     }
 
