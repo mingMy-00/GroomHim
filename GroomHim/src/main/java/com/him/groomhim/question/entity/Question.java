@@ -9,6 +9,7 @@ import org.hibernate.annotations.Formula;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 @Entity
@@ -38,7 +39,7 @@ public class Question {
 
     @BatchSize(size = 10)
     @OneToMany(mappedBy = "question" ,cascade=CascadeType.ALL , orphanRemoval = true)
-    private Set<QuestionHashTag> questionHashTags = Collections.synchronizedSet(new HashSet<>()) ;
+    private Set<QuestionHashTag> questionHashTags = ConcurrentHashMap.newKeySet();
 
     
     @Column(name="VIEW_COUNT", nullable = false)
@@ -49,7 +50,6 @@ public class Question {
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime enrollDate;
 
-//    @BatchSize(size = 10)
     @OneToMany(mappedBy = "question",cascade=CascadeType.ALL , orphanRemoval = true)
     private List<Comment> comments;
 
@@ -75,9 +75,7 @@ public class Question {
         questionHashTag.setQuestion(this);
     }
 
-//    public int commentCount(List<Comment> commentList){
-//        return commentList.size();
-//    }
+
 
 
 
