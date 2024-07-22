@@ -30,7 +30,7 @@ public class QuestionResponse {
 
 
     @Builder
-    public QuestionResponse(Long questionNo, String questionTitle, String questionContent, int viewCount, String writer, LocalDateTime enrollDate, Set<QuestionHashTag> tagList, int commentCount){
+    public QuestionResponse(Long questionNo, String questionTitle, String questionContent, int viewCount, String writer, LocalDateTime enrollDate, List<QuestionHashTag> tagList, int commentCount){
         this.questionNo = questionNo;
         this.questionTitle = questionTitle;
         this.questionContent = questionContent;

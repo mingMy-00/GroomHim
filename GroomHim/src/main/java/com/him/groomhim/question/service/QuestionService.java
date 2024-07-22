@@ -113,12 +113,9 @@ public class QuestionService {
     }
 
     @Transactional
-    public QuestionCommentResponse selectQuestion(Long questionNo ,boolean incrementViewCount){
+    public QuestionCommentResponse selectQuestion(Long questionNo){
         Question findQuestion = questionRepository.findByQuestionNo(questionNo);
-
-        if(incrementViewCount){
-            findQuestion.setViewCount(findQuestion.getViewCount()+1); // 조회수 업데이트
-        }
+        findQuestion.setViewCount(findQuestion.getViewCount()+1); // 조회수 업데이트
         List<Comment> commentList = findQuestion.getComments();
 
 
